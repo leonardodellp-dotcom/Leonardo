@@ -46,10 +46,10 @@ const App = () => (
           <Route path="/aprender-rezar" element={<AprenderRezar />} />
           <Route path="/guia-leitura-biblia" element={<GuiaLeituraBiblia />} />
           <Route path="/terco" element={<Terco />} />
-          <Route
-            path="/calendario-liturgico"
-            element={<CalendarioLiturgico />}
-          />
+          <Route path="/calendario-liturgico" element={<CalendarioLiturgico />} />
+          <Route path="/devocoes" element={<Devocoes />} />
+          <Route path="/biblioteca-catolica" element={<BibliotecaCatolica />} />
+          <Route path="/caridade-missao" element={<CaridadeeMissao />} />
           <Route path="/pedidos-oracao" element={<PedidosOracao />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/missoes" element={<Missoes />} />
