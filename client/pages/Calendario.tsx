@@ -306,7 +306,7 @@ export default function Calendario() {
 
               {/* Add New Event Modal */}
               {newEvent && isAdmin && (
-                <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 mb-8">
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
                   <div className="bg-card border border-border rounded-2xl max-w-md w-full p-8">
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-xl font-bold">Novo Evento</h3>
@@ -368,6 +368,84 @@ export default function Calendario() {
                         </button>
                       </div>
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Edit Event Modal */}
+              {editingId && isAdmin && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+                  <div className="bg-card border border-border rounded-2xl max-w-md w-full p-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-xl font-bold">Editar Evento</h3>
+                      <button
+                        onClick={() => setEditingId(null)}
+                        className="text-2xl text-muted-foreground hover:text-foreground"
+                      >
+                        ✕
+                      </button>
+                    </div>
+
+                    {(() => {
+                      const eventToEdit = allMonthEvents.find(e => e.id === editingId);
+                      if (!eventToEdit) return null;
+
+                      return (
+                        <div className="space-y-4">
+                          <p className="text-sm text-muted-foreground">
+                            {eventToEdit.recurring && eventToEdit.recurring !== "none"
+                              ? "Este é um evento recorrente. Você pode criar exceções para datas específicas."
+                              : "Edite os detalhes deste evento."}
+                          </p>
+
+                          <div>
+                            <label className="block text-sm font-semibold mb-2">Título</label>
+                            <input
+                              type="text"
+                              defaultValue={eventToEdit.title}
+                              placeholder="Título do evento"
+                              className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-sm font-semibold mb-2">Horário</label>
+                            <input
+                              type="time"
+                              defaultValue={eventToEdit.time}
+                              className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-sm font-semibold mb-2">Local</label>
+                            <input
+                              type="text"
+                              defaultValue={eventToEdit.location}
+                              placeholder="Local do evento"
+                              className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                            />
+                          </div>
+
+                          <div className="flex gap-3 pt-4">
+                            <button
+                              onClick={() => setEditingId(null)}
+                              className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors flex items-center justify-center gap-2"
+                            >
+                              <Save className="w-4 h-4" />
+                              Salvar
+                            </button>
+                            <button
+                              onClick={() => setEditingId(null)}
+                              className="flex-1 px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-muted/80 font-semibold transition-colors flex items-center justify-center gap-2"
+                            >
+                              <X className="w-4 h-4" />
+                              Cancelar
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </div>
                 </div>
               )}
