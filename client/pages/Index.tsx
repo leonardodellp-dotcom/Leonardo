@@ -109,16 +109,16 @@ export default function Index() {
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
+                to="/cadastro"
+                className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-accent/30 active:scale-95"
+              >
+                Faça seu Cadastro
+              </Link>
+              <Link
                 to="/agenda"
                 className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-primary/30 active:scale-95"
               >
                 Próximos Eventos
-              </Link>
-              <Link
-                to="/contato"
-                className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-accent/30 active:scale-95"
-              >
-                Nos Contate
               </Link>
             </div>
           </div>
