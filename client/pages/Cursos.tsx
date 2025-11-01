@@ -434,14 +434,22 @@ export default function Cursos() {
                       Tópicos:
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {course.topics.map((topic) => (
-                        <span
-                          key={topic}
-                          className="px-2 py-1 text-xs bg-muted rounded-full text-muted-foreground"
-                        >
-                          {topic}
-                        </span>
-                      ))}
+                      {course.topics.map((topic, idx) => {
+                        const topicColors = [
+                          "bg-purple-500/20 text-purple-300 border border-purple-500/30",
+                          "bg-blue-500/20 text-blue-300 border border-blue-500/30",
+                          "bg-green-500/20 text-green-300 border border-green-500/30",
+                          "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30",
+                        ];
+                        return (
+                          <span
+                            key={topic}
+                            className={`px-2 py-1 text-xs font-semibold rounded-full ${topicColors[idx % topicColors.length]}`}
+                          >
+                            {topic}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
