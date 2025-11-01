@@ -41,6 +41,7 @@ export default function Header() {
     { label: "Versículos Diários", path: "/versiculos" },
     { label: "Como Ler a Bíblia", path: "/guia-leitura-biblia" },
     { label: "Aprender a Rezar", path: "/aprender-rezar" },
+    { label: "O Terço", path: "/terco" },
     { label: "Calendário Litúrgico", path: "/calendario-liturgico" },
   ];
 
