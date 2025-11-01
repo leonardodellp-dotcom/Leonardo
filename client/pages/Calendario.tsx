@@ -1,0 +1,346 @@
+import Layout from "@/components/Layout";
+import { Calendar, Plus, Edit2, Trash2, Save, X } from "lucide-react";
+import { useState } from "react";
+import { isUserAuthenticated } from "@/lib/security";
+
+interface Event {
+  id: string;
+  date: string;
+  day: number;
+  month: number;
+  title: string;
+  time: string;
+  location: string;
+}
+
+export default function Calendario() {
+  const [activeTab, setActiveTab] = useState<"liturgical" | "jucrisc">("liturgical");
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [newEvent, setNewEvent] = useState(false);
+  const [formData, setFormData] = useState({ title: "", time: "", location: "" });
+  const isAdmin = isUserAuthenticated();
+
+  const monthNames = [
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+  ];
+
+  // Eventos Jucrisc (exemplo - em produção viria do banco)
+  const [events, setEvents] = useState<Event[]>([
+    {
+      id: "1",
+      date: "Próximo evento",
+      day: 5,
+      month: 1,
+      title: "Reunião Semanal",
+      time: "19:00",
+      location: "Paróquia Santo Antonio",
+    },
+    {
+      id: "2",
+      date: "Próximo evento",
+      day: 12,
+      month: 1,
+      title: "Retiro Espiritual",
+      time: "14:00",
+      location: "Sítio Comunitário",
+    },
+  ]);
+
+  const monthEvents = events.filter(e => e.month === selectedMonth);
+
+  const handleAddEvent = () => {
+    if (formData.title && formData.time) {
+      const newId = Date.now().toString();
+      setEvents([...events, {
+        id: newId,
+        date: `${selectedMonth}/${new Date().getDate()}`,
+        day: new Date().getDate(),
+        month: selectedMonth,
+        ...formData
+      }]);
+      setFormData({ title: "", time: "", location: "" });
+      setNewEvent(false);
+    }
+  };
+
+  const handleDeleteEvent = (id: string) => {
+    setEvents(events.filter(e => e.id !== id));
+  };
+
+  return (
+    <Layout>
+      <div className="min-h-[calc(100vh-200px)] px-4 py-12">
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex p-4 bg-primary/10 rounded-xl mb-4">
+              <Calendar className="w-8 h-8 text-primary" />
+            </div>
+            <h1 className="text-4xl font-bold mb-3">Calendário</h1>
+            <p className="text-lg text-muted-foreground">
+              Visualize eventos litúrgicos e programações da Jucrisc
+            </p>
+          </div>
+
+          {/* Tabs */}
+          <div className="flex gap-4 mb-8 border-b border-border">
+            <button
+              onClick={() => setActiveTab("liturgical")}
+              className={`px-6 py-3 font-semibold text-sm transition-all ${
+                activeTab === "liturgical"
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              📿 Calendário Litúrgico
+            </button>
+            <button
+              onClick={() => setActiveTab("jucrisc")}
+              className={`px-6 py-3 font-semibold text-sm transition-all ${
+                activeTab === "jucrisc"
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              📅 Calendário Jucrisc
+            </button>
+          </div>
+
+          {/* Tab 1: Calendário Litúrgico */}
+          {activeTab === "liturgical" && (
+            <div>
+              <h2 className="text-2xl font-bold mb-6">Calendário Litúrgico 2025</h2>
+
+              {/* Legend */}
+              <div className="bg-card border border-border rounded-xl p-6 mb-8">
+                <h3 className="font-semibold mb-4">Tipos de Celebração</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-red-600"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Solenidade</p>
+                      <p className="text-xs text-muted-foreground">Celebração de máxima importância</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-blue-600"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Festa</p>
+                      <p className="text-xs text-muted-foreground">Celebração de grande importância</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-green-600"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Memória</p>
+                      <p className="text-xs text-muted-foreground">Celebração obrigatória</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Dia Comum</p>
+                      <p className="text-xs text-muted-foreground">Dia ordinário</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Select Month */}
+              <div className="bg-card border border-border rounded-xl p-6 mb-8">
+                <h3 className="font-semibold mb-4">Selecione o Mês</h3>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                  {monthNames.map((month, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedMonth(idx + 1)}
+                      className={`p-3 rounded-lg font-semibold text-sm transition-colors ${
+                        selectedMonth === idx + 1
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      }`}
+                    >
+                      {month.slice(0, 3)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Liturgical Dates */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">{monthNames[selectedMonth - 1]} de 2025</h3>
+                <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+                  <p className="text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
+                    Para visualizar as celebrações litúrgicas do mês selecionado, 
+                    <a href="/calendario-liturgico" className="underline font-semibold hover:text-blue-600 dark:hover:text-blue-300 ml-1">
+                      clique aqui para acessar o Calendário Litúrgico completo
+                    </a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Tab 2: Calendário Jucrisc */}
+          {activeTab === "jucrisc" && (
+            <div>
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-bold">Programações Jucrisc 2025</h2>
+                {isAdmin && (
+                  <button
+                    onClick={() => setNewEvent(true)}
+                    className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors"
+                  >
+                    <Plus className="w-5 h-5" />
+                    Novo Evento
+                  </button>
+                )}
+              </div>
+
+              {/* Select Month for Jucrisc */}
+              <div className="bg-card border border-border rounded-xl p-6 mb-8">
+                <h3 className="font-semibold mb-4">Selecione o Mês</h3>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                  {monthNames.map((month, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedMonth(idx + 1)}
+                      className={`p-3 rounded-lg font-semibold text-sm transition-colors ${
+                        selectedMonth === idx + 1
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      }`}
+                    >
+                      {month.slice(0, 3)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Add New Event Modal */}
+              {newEvent && isAdmin && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 mb-8">
+                  <div className="bg-card border border-border rounded-2xl max-w-md w-full p-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-xl font-bold">Novo Evento</h3>
+                      <button
+                        onClick={() => setNewEvent(false)}
+                        className="text-2xl text-muted-foreground hover:text-foreground"
+                      >
+                        ✕
+                      </button>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">Título do Evento</label>
+                        <input
+                          type="text"
+                          value={formData.title}
+                          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                          placeholder="Ex: Reunião Semanal"
+                          className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">Horário</label>
+                        <input
+                          type="time"
+                          value={formData.time}
+                          onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                          className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">Local</label>
+                        <input
+                          type="text"
+                          value={formData.location}
+                          onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                          placeholder="Ex: Paróquia Santo Antonio"
+                          className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                        />
+                      </div>
+
+                      <div className="flex gap-3 pt-4">
+                        <button
+                          onClick={handleAddEvent}
+                          className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors flex items-center justify-center gap-2"
+                        >
+                          <Save className="w-4 h-4" />
+                          Salvar
+                        </button>
+                        <button
+                          onClick={() => setNewEvent(false)}
+                          className="flex-1 px-4 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-muted/80 font-semibold transition-colors flex items-center justify-center gap-2"
+                        >
+                          <X className="w-4 h-4" />
+                          Cancelar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Events List */}
+              {monthEvents.length > 0 ? (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-bold">{monthNames[selectedMonth - 1]} de 2025</h3>
+                  {monthEvents.map((event) => (
+                    <div key={event.id} className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="text-lg font-bold mb-2">{event.title}</h4>
+                          <div className="space-y-1 text-sm text-muted-foreground">
+                            <p>🕐 {event.time}</p>
+                            <p>📍 {event.location}</p>
+                          </div>
+                        </div>
+                        {isAdmin && (
+                          <div className="flex items-center gap-2 ml-4">
+                            <button
+                              onClick={() => setEditingId(event.id)}
+                              className="p-2 hover:bg-muted rounded-lg transition-colors text-primary"
+                            >
+                              <Edit2 className="w-5 h-5" />
+                            </button>
+                            <button
+                              onClick={() => handleDeleteEvent(event.id)}
+                              className="p-2 hover:bg-muted rounded-lg transition-colors text-red-600"
+                            >
+                              <Trash2 className="w-5 h-5" />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-4 opacity-50" />
+                  <p className="text-muted-foreground">Nenhum evento programado para {monthNames[selectedMonth - 1]}</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Footer Link */}
+          <div className="text-center mt-12">
+            <a
+              href="/"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              ← Voltar ao início
+            </a>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+}
