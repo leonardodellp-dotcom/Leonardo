@@ -229,19 +229,21 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-y border-border">
+      <section className="py-20 px-4 bg-gradient-to-r from-primary/20 via-purple-900/30 to-accent/20 border-y border-primary/30 shadow-glow">
         <div className="container mx-auto text-center">
-          <Church className="w-16 h-16 text-primary mx-auto mb-6" />
-          <h2 className="text-4xl font-bold mb-4">
+          <div className="inline-flex p-4 bg-primary/10 border border-primary/30 rounded-2xl mb-6">
+            <Church className="w-8 h-8 text-primary" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
             Pronto para sua Jornada Espiritual?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8 text-lg">
             Junte-se à nossa comunidade de jovens comprometidos com a fé e o
             crescimento espiritual. Temos um lugar para você.
           </p>
           <Link
             to="/contato"
-            className="inline-flex px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-accent/30 active:scale-95"
+            className="inline-flex px-8 py-3 bg-gradient-to-r from-accent to-yellow-500 hover:shadow-glow-accent-lg text-accent-foreground font-semibold rounded-xl transition-all hover:scale-105 active:scale-95"
           >
             Fazer Parte
           </Link>
