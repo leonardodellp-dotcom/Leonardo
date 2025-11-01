@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Heart, Hand, Zap, Music, BookOpen, Flame, Calendar, Star } from "lucide-react";
+import { Heart, Hand, Zap, Music, BookOpen, Flame } from "lucide-react";
 import { useState } from "react";
 
 interface PrayerMethod {
@@ -10,21 +10,6 @@ interface PrayerMethod {
   steps: string[];
   duration: string;
   difficulty: "Iniciante" | "Intermediário" | "Avançado";
-}
-
-interface RosaryDay {
-  day: string;
-  mysteries: string[];
-  readings: string[];
-  color: string;
-  id: string;
-}
-
-interface RosaryBead {
-  name: string;
-  description: string;
-  prayer: string;
-  count: number;
 }
 
 export default function AprenderRezar() {
