@@ -16,22 +16,23 @@ export default function Cadastro() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const groups = [
-    "Grupo A (Iniciantes)",
-    "Grupo B (Intermediários)",
-    "Grupo C (Avançados)",
-    "Grupo D (Liderança)",
-    "Outro",
-  ];
-
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+
+    if (name === "group") {
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setFormData((prev) => ({
+        ...prev,
+        [name]: capitalizedValue,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const formatPhone = (phone: string) => {
