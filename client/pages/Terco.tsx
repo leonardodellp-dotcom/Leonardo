@@ -284,9 +284,9 @@ export default function Terco() {
           <div className="bg-primary/10 dark:bg-primary/10 border border-primary/30 dark:border-primary/30 rounded-xl p-6 mb-12">
             <h3 className="text-2xl font-bold text-primary mb-4">💡 Os Tipos de Mistérios</h3>
             <div className="space-y-4">
-              <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
-                <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Gozosos 🎉</h4>
-                <p className="text-sm text-blue-800 dark:text-slate-100">Meditam sobre a alegria e esperança trazidas pelo nascimento de Jesus. Incluem a Anunciação, Visitação, Nascimento de Jesus, Apresentação no Templo e Encontro de Jesus no Templo.</p>
+              <div className="bg-primary/5 dark:bg-primary/5 p-4 rounded-lg border border-primary/20">
+                <h4 className="font-bold text-primary mb-2">Mistérios Gozosos 🎉</h4>
+                <p className="text-sm text-muted-foreground">Meditam sobre a alegria e esperança trazidas pelo nascimento de Jesus. Incluem a Anunciação, Visitação, Nascimento de Jesus, Apresentação no Templo e Encontro de Jesus no Templo.</p>
               </div>
               <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
                 <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Dolorosos 💔</h4>
