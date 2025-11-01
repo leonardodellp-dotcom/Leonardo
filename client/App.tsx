@@ -18,6 +18,7 @@ import CalendarioLiturgico from "./pages/CalendarioLiturgico";
 import Devocoes from "./pages/Devocoes";
 import BibliotecaCatolica from "./pages/BibliotecaCatolica";
 import CaridadeeMissao from "./pages/CaridadeeMissao";
+import Calendario from "./pages/Calendario";
 import PedidosOracao from "./pages/PedidosOracao";
 import Agenda from "./pages/Agenda";
 import Missoes from "./pages/Missoes";
