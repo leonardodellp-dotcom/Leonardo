@@ -188,11 +188,11 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsDark(!isDark)}
-              className="p-2 hover:bg-muted rounded-lg transition-colors"
+              className="p-2 hover:bg-primary/20 border border-primary/30 rounded-lg transition-all hover:shadow-glow"
               aria-label="Toggle theme"
             >
               {isDark ? (
-                <Sun className="w-5 h-5 text-accent" />
+                <Sun className="w-5 h-5 text-accent animate-spin" style={{animationDuration: '20s'}} />
               ) : (
                 <Moon className="w-5 h-5 text-primary" />
               )}
