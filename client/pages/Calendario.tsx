@@ -249,6 +249,11 @@ export default function Calendario() {
           {/* Tab 1: Calendário Litúrgico */}
           {activeTab === "liturgical" && (
             <div>
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold">Calendário Litúrgico 2025</h2>
+              </div>
+
+              {/* Hidden line placeholder
               <h2 className="text-2xl font-bold mb-6">Calendário Lit��rgico 2025</h2>
 
               {/* Legend */}
