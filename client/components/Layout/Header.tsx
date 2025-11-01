@@ -246,13 +246,13 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile Orações Menu */}
+            {/* Mobile Oração & Devoção Menu */}
             <details className="group">
               <summary className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 cursor-pointer list-none">
-                Orações
+                Oração & Devoção
               </summary>
               <div className="pl-4 mt-2 space-y-2">
-                {oracoesSubmenu.map((item) => (
+                {oracaoDevocaoSubmenu.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
