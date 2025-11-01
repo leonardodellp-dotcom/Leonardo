@@ -296,9 +296,9 @@ export default function Terco() {
                 <h4 className="font-bold text-primary mb-2">Mistérios Gloriosos ✨</h4>
                 <p className="text-sm text-muted-foreground">Celebram a vitória de Cristo sobre a morte e a glória de Maria. Incluem a Ressurreição, Ascensão, Descida do Espírito Santo, Assunção de Maria e Coroação de Maria.</p>
               </div>
-              <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
-                <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Luminosos ⭐ (Opcional)</h4>
-                <p className="text-sm text-blue-800 dark:text-slate-100">Adicionados pelo Papa João Paulo II, focam na vida pública de Jesus. Muitos fiéis rezam esses mistérios nas quintas-feiras ou conforme sua devoção pessoal.</p>
+              <div className="bg-primary/5 dark:bg-primary/5 p-4 rounded-lg border border-primary/20">
+                <h4 className="font-bold text-primary mb-2">Mistérios Luminosos ⭐ (Opcional)</h4>
+                <p className="text-sm text-muted-foreground">Adicionados pelo Papa João Paulo II, focam na vida pública de Jesus. Muitos fiéis rezam esses mistérios nas quintas-feiras ou conforme sua devoção pessoal.</p>
               </div>
             </div>
           </div>
