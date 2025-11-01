@@ -19,6 +19,9 @@ import Missoes from "./pages/Missoes";
 import Desafios from "./pages/Desafios";
 import Cursos from "./pages/Cursos";
 import Contato from "./pages/Contato";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import Cadastro from "./pages/Cadastro";
 
 const queryClient = new QueryClient();
 
