@@ -1,7 +1,15 @@
 import Layout from "@/components/Layout";
-import { Calendar, Plus, Edit2, Trash2, Save, X } from "lucide-react";
+import { Calendar, Plus, Edit2, Trash2, Save, X, Church } from "lucide-react";
 import { useState } from "react";
 import { isUserAuthenticated } from "@/lib/security";
+
+interface LiturgicalDate {
+  date: string;
+  name: string;
+  type: "solemn" | "feast" | "memorial" | "ordinary";
+  month: number;
+  day: number;
+}
 
 interface Event {
   id: string;
