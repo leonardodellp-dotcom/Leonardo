@@ -98,7 +98,7 @@ export default function AprenderRezar() {
       id: "saturday",
       day: "Sábado",
       mysteries: ["Mistérios Gozosos", "Anunciação", "Visitação", "Nascimento de Jesus", "Apresentação de Jesus no Templo", "Encontro de Jesus no Templo"],
-      readings: ["Lucas 1:26-38 (Anunciação)", "Lucas 1:39-56 (Visitaç��o)", "Lucas 2:1-20 (Nascimento)", "Lucas 2:22-38 (Apresentação)", "Lucas 2:41-52 (Encontro no Templo)"],
+      readings: ["Lucas 1:26-38 (Anunciação)", "Lucas 1:39-56 (Visitação)", "Lucas 2:1-20 (Nascimento)", "Lucas 2:22-38 (Apresentação)", "Lucas 2:41-52 (Encontro no Templo)"],
       color: "border-blue-200 dark:border-blue-700"
     },
     {
@@ -330,44 +330,107 @@ export default function AprenderRezar() {
               <Calendar className="w-8 h-8 text-primary" />
               Terço de Cada Dia - Mistérios Recomendados
             </h2>
-            <div className="grid grid-cols-1 gap-6">
-              {dailyRosaries.map((day, idx) => (
-                <div key={idx} className={`border rounded-xl p-6 ${day.color} border-opacity-30`}>
-                  <h3 className="text-xl font-bold mb-4">{day.day}</h3>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Mysteries */}
-                    <div>
-                      <h4 className="font-semibold text-sm mb-3 text-muted-foreground uppercase">Mistérios</h4>
-                      <ul className="space-y-2">
-                        {day.mysteries.map((mystery, i) => (
-                          <li key={i} className="flex gap-2 text-sm">
-                            {i === 0 ? (
-                              <span className="font-bold text-primary min-w-fit">{mystery}</span>
-                            ) : (
-                              <>
-                                <span className="text-primary font-bold min-w-fit">•</span>
-                                <span>{mystery}</span>
-                              </>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Readings */}
-                    <div>
-                      <h4 className="font-semibold text-sm mb-3 text-muted-foreground uppercase">Leituras Recomendadas</h4>
-                      <ul className="space-y-2">
-                        {day.readings.map((reading, i) => (
-                          <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-                            <span className="text-primary font-bold min-w-fit">📖</span>
-                            <span>{reading}</span>
-                          </li>
-                        ))}
-                      </ul>
+            {/* Rosary Beads Explanation */}
+            <div className="bg-card border border-border rounded-xl p-8 mb-8">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <Heart className="w-6 h-6 text-primary" />
+                O que Cada Bolinha do Terço Significa
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {rosaryBeads.map((bead, idx) => (
+                  <div key={idx} className="border border-border rounded-lg p-5 bg-muted/30 dark:bg-muted/20">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary/20 text-primary">
+                          <span className="text-lg font-bold">●</span>
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-foreground mb-1">{bead.name}</h4>
+                        <p className="text-sm text-muted-foreground mb-2">{bead.description}</p>
+                        <p className="text-xs font-semibold text-primary">Oração: {bead.prayer}</p>
+                        <p className="text-xs text-muted-foreground mt-1">Total: {bead.count} {bead.count === 1 ? 'bolinha' : 'bolinhas'}</p>
+                      </div>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Daily Rosary Cards */}
+            <div className="grid grid-cols-1 gap-4">
+              {dailyRosaries.map((day) => (
+                <div
+                  key={day.id}
+                  className={`bg-card border ${day.color} rounded-xl overflow-hidden hover:border-primary/50 transition-all`}
+                >
+                  <button
+                    onClick={() => toggleDayExpanded(day.id)}
+                    className="w-full p-6 text-left hover:bg-muted/30 transition-colors"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold mb-2">{day.day}</h3>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          {day.mysteries[0]} - Clique para ver os mistérios e leituras
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {day.mysteries.slice(1, 3).map((mystery, i) => (
+                            <span key={i} className="inline-block px-3 py-1 bg-muted rounded-full text-xs text-muted-foreground">
+                              {mystery}
+                            </span>
+                          ))}
+                          {day.mysteries.length > 3 && (
+                            <span className="inline-block px-3 py-1 bg-muted rounded-full text-xs text-muted-foreground">
+                              +{day.mysteries.length - 3} mais...
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 ml-4">
+                        <div className={`text-2xl transition-transform ${expandedDayId === day.id ? 'rotate-180' : ''}`}>
+                          ▼
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+
+                  {expandedDayId === day.id && (
+                    <div className="border-t border-border px-6 py-6 bg-muted/20 dark:bg-muted/10">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Mysteries */}
+                        <div>
+                          <h4 className="font-bold text-lg mb-4 text-primary">📿 Mistérios</h4>
+                          <div className="space-y-3">
+                            {day.mysteries.slice(1).map((mystery, i) => (
+                              <div key={i} className="flex gap-3">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold">
+                                  {i + 1}
+                                </div>
+                                <div className="flex-1">
+                                  <p className="font-semibold text-foreground">{mystery}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Readings */}
+                        <div>
+                          <h4 className="font-bold text-lg mb-4 text-primary">📖 Leituras Recomendadas</h4>
+                          <div className="space-y-3">
+                            {day.readings.map((reading, i) => (
+                              <div key={i} className="flex gap-3 text-sm">
+                                <span className="flex-shrink-0 text-primary font-bold">➤</span>
+                                <p className="text-muted-foreground">{reading}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
