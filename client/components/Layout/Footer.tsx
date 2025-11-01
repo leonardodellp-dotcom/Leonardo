@@ -111,7 +111,7 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {currentYear} Jucrisc - Grupo de Jovens. Todos os direitos reservados.
+            © Jucrisc - Grupo de Jovens. Criado com ❤️ por <span className="text-primary font-semibold">By Leo</span>
           </p>
         </div>
       </div>
