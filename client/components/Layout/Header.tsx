@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+} from "@/components/ui/dropdown-menu";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,55 +23,113 @@ export default function Header() {
     }
   }, [isDark]);
 
-  const navItems = [
+  const mainNavItems = [
     { label: "Início", path: "/" },
-    { label: "Versículo", path: "/versiculos" },
     { label: "Mural", path: "/mural" },
-    { label: "Orações", path: "/oracoes" },
-    { label: "Aprender a Rezar", path: "/aprender-rezar" },
-    { label: "Calendário Litúrgico", path: "/calendario-liturgico" },
-    { label: "Pedidos de Oração", path: "/pedidos-oracao" },
     { label: "Agenda", path: "/agenda" },
     { label: "Missões", path: "/missoes" },
-    { label: "Desafios", path: "/desafios" },
-    { label: "Cursos Católicos", path: "/cursos" },
     { label: "Contato", path: "/contato" },
+  ];
+
+  const oracoesSubmenu = [
+    { label: "Orações Sagradas", path: "/oracoes" },
+    { label: "Pedidos de Oração", path: "/pedidos-oracao" },
+  ];
+
+  const recursosSubmenu = [
+    { label: "Versículos Diários", path: "/versiculos" },
+    { label: "Aprender a Rezar", path: "/aprender-rezar" },
+    { label: "Calendário Litúrgico", path: "/calendario-liturgico" },
+  ];
+
+  const cursosSubmenu = [
+    { label: "Cursos Católicos", path: "/cursos" },
+    { label: "Desafios", path: "/desafios" },
   ];
 
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">✝️</span>
-          </div>
-          <div className="flex flex-col">
-            <h1 className="font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Jucrisc
-            </h1>
-            <p className="text-xs text-muted-foreground">Grupo de Jovens</p>
-          </div>
-        </Link>
+      <nav className="container mx-auto px-4 py-4">
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group mr-8">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+              <span className="text-white font-bold text-lg">✝️</span>
+            </div>
+            <div className="flex flex-col">
+              <h1 className="font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Jucrisc
+              </h1>
+              <p className="text-xs text-muted-foreground">Grupo de Jovens</p>
+            </div>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex gap-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 active:scale-95"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+          {/* Main Navigation */}
+          <div className="flex items-center gap-2 flex-1">
+            {mainNavItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 active:scale-95"
+              >
+                {item.label}
+              </Link>
+            ))}
 
-        {/* Theme Toggle & Mobile Menu Button */}
-        <div className="flex items-center gap-4">
+            {/* Dropdown: Orações */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
+                Orações <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48">
+                {oracoesSubmenu.map((item) => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path} className="cursor-pointer">
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Dropdown: Recursos */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
+                Recursos <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                {recursosSubmenu.map((item) => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path} className="cursor-pointer">
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Dropdown: Cursos */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
+                Formação <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48">
+                {cursosSubmenu.map((item) => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path} className="cursor-pointer">
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
+          {/* Theme Toggle */}
           <button
             onClick={() => setIsDark(!isDark)}
-            className="p-2 hover:bg-muted rounded-lg transition-colors"
+            className="p-2 hover:bg-muted rounded-lg transition-colors ml-4"
             aria-label="Toggle theme"
           >
             {isDark ? (
@@ -72,39 +138,123 @@ export default function Header() {
               <Moon className="w-5 h-5 text-primary" />
             )}
           </button>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
         </div>
-      </nav>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="lg:hidden bg-card border-t border-border">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
-            {navItems.map((item) => (
+        {/* Mobile Layout */}
+        <div className="lg:hidden flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2">
+            <div className="w-9 h-9 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-white font-bold">
+              ✝️
+            </div>
+            <div className="flex flex-col">
+              <h1 className="font-bold text-sm bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Jucrisc
+              </h1>
+              <p className="text-xs text-muted-foreground">Jovens</p>
+            </div>
+          </Link>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="p-2 hover:bg-muted rounded-lg transition-colors"
+              aria-label="Toggle theme"
+            >
+              {isDark ? (
+                <Sun className="w-5 h-5 text-accent" />
+              ) : (
+                <Moon className="w-5 h-5 text-primary" />
+              )}
+            </button>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 hover:bg-muted rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="lg:hidden mt-4 pb-4 space-y-2">
+            {mainNavItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 block"
+                className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
+
+            {/* Mobile Orações Menu */}
+            <details className="group">
+              <summary className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 cursor-pointer list-none">
+                Orações
+              </summary>
+              <div className="pl-4 mt-2 space-y-2">
+                {oracoesSubmenu.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-all duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
+
+            {/* Mobile Recursos Menu */}
+            <details className="group">
+              <summary className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 cursor-pointer list-none">
+                Recursos
+              </summary>
+              <div className="pl-4 mt-2 space-y-2">
+                {recursosSubmenu.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-all duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
+
+            {/* Mobile Cursos Menu */}
+            <details className="group">
+              <summary className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 cursor-pointer list-none">
+                Formação
+              </summary>
+              <div className="pl-4 mt-2 space-y-2">
+                {cursosSubmenu.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-all duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
           </div>
-        </div>
-      )}
+        )}
+      </nav>
     </header>
   );
 }
