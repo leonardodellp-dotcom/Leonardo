@@ -191,7 +191,9 @@ export default function Contato() {
                     <div>
                       <p className="font-semibold mb-1">Localização</p>
                       <p className="text-sm text-muted-foreground">
-                        Sua Igreja Local, Sua Cidade
+                        Igreja Santo Antonio<br />
+                        Av. Sallum - Vila Prado<br />
+                        São Carlos - SP
                       </p>
                     </div>
                   </div>
