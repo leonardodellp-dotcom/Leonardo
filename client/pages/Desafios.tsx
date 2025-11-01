@@ -281,6 +281,171 @@ const questionBank: Question[] = [
       "A Oração Eucarística (também chamada Canon) é o centro da celebração eucarística.",
     difficulty: "médio",
   },
+  {
+    id: "m6",
+    question: "Qual papa convocou o Concílio Vaticano II?",
+    options: [
+      "Papa João XXIII",
+      "Papa Paulo VI",
+      "Papa Pio XII",
+      "Papa João Paulo II",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Papa João XXIII convocou o Concílio Vaticano II em 1962, revolucionando a Igreja Católica.",
+    difficulty: "médio",
+  },
+  {
+    id: "m7",
+    question: "Quantos sacramentos da iniciação cristã existem?",
+    options: ["1", "2", "3", "4"],
+    correctAnswer: 2,
+    explanation:
+      "Os três sacramentos da iniciação são: Batismo, Confirmação e Eucaristia.",
+    difficulty: "médio",
+  },
+  {
+    id: "m8",
+    question: "Qual é o nome da primeira Igreja construída sobre a tumba de Pedro em Roma?",
+    options: [
+      "Igreja de São Paulo",
+      "Basílica de São Pedro",
+      "Igreja do Vaticano",
+      "Basílica de Santa Maria Maior",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "A Basílica de São Pedro foi construída no local onde se acredita estar o túmulo de São Pedro.",
+    difficulty: "médio",
+  },
+  {
+    id: "m9",
+    question: "Qual apóstolo negou Jesus três vezes?",
+    options: ["Judas", "Pedro", "João", "Tomás"],
+    correctAnswer: 1,
+    explanation:
+      "São Pedro negou Jesus três vezes e depois se arrependeu e foi restaurado.",
+    difficulty: "médio",
+  },
+  {
+    id: "m10",
+    question: "Em qual capítulo de Mateus encontramos o Sermão da Montanha?",
+    options: ["Capítulo 3", "Capítulos 5-7", "Capítulo 8", "Capítulo 6"],
+    correctAnswer: 1,
+    explanation:
+      "O Sermão da Montanha está em Mateus 5-7 e contém as Bem-aventuranças.",
+    difficulty: "médio",
+  },
+  {
+    id: "m11",
+    question: "Qual é o significado da palavra 'Catecismo'?",
+    options: [
+      "Livro de orações",
+      "Instrução religiosa",
+      "Profissão de fé",
+      "Código de leis",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Catecismo vem do grego e significa instrução religiosa ou ensinamento da fé.",
+    difficulty: "médio",
+  },
+  {
+    id: "m12",
+    question: "Quantos Papas houve entre São Pedro e o Papa Francisco?",
+    options: ["265", "266", "267", "268"],
+    correctAnswer: 2,
+    explanation:
+      "O Papa Francisco é o 266º Papa na sucessão de São Pedro (variações conforme contagem).",
+    difficulty: "médio",
+  },
+  {
+    id: "m13",
+    question: "Qual é o livro canônico mais antigo do Novo Testamento?",
+    options: [
+      "Evangelho de Mateus",
+      "Evangelhos sinópticos",
+      "1 Tessalonicenses",
+      "Evangelho de João",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "1 Tessalonicenses é considerada a carta mais antiga do Novo Testamento (51-52 d.C.).",
+    difficulty: "médio",
+  },
+  {
+    id: "m14",
+    question: "Qual doutrina afirma que Cristo possui duas naturezas?",
+    options: ["Arianismo", "Docetismo", "Nestorianismo", "Calcedônia"],
+    correctAnswer: 3,
+    explanation:
+      "O Concílio de Calcedônia (451) definiu que Cristo tem duas naturezas: divina e humana.",
+    difficulty: "médio",
+  },
+  {
+    id: "m15",
+    question: "Qual é o título dado à Maria em Lourdes?",
+    options: [
+      "Mãe de Deus",
+      "Nossa Senhora Imaculada",
+      "Rainha do Céu",
+      "Mãe da Igreja",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Na aparição de Lourdes, Maria se apresentou como a Imaculada Conceição.",
+    difficulty: "médio",
+  },
+  {
+    id: "m16",
+    question: "Qual é o significado de 'Liturgia'?",
+    options: [
+      "Serviço público",
+      "Oração privada",
+      "Trabalho do povo",
+      "Cântico sagrado",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "Liturgia vem do grego 'leiturgia' que significa 'trabalho do povo' ou obra pública.",
+    difficulty: "médio",
+  },
+  {
+    id: "m17",
+    question: "Qual Evangelho começa com 'No princípio era o Verbo'?",
+    options: ["Mateus", "Marcos", "Lucas", "João"],
+    correctAnswer: 3,
+    explanation:
+      "O Evangelho de São João começa com essa famosa afirmação sobre o Verbo divino.",
+    difficulty: "médio",
+  },
+  {
+    id: "m18",
+    question: "Qual é o sacramento que marca a vocação ao matrimônio?",
+    options: ["Ordem Sagrada", "Matrimônio", "Confirmação", "Unção dos Enfermos"],
+    correctAnswer: 1,
+    explanation:
+      "O sacramento do Matrimônio une dois batizados em aliança sacramental.",
+    difficulty: "médio",
+  },
+  {
+    id: "m19",
+    question: "Quantas são as Bem-aventuranças no Sermão da Montanha?",
+    options: ["7", "8", "9", "10"],
+    correctAnswer: 1,
+    explanation:
+      "São 8 as Bem-aventuranças proclamadas por Jesus em Mateus 5:3-12.",
+    difficulty: "médio",
+  },
+  {
+    id: "m20",
+    question: "Qual é o nome do livro das leis de Moisés?",
+    options: ["Pentateuco", "Torá", "Pentateuco ou Torá", "Nenhuma das opções"],
+    correctAnswer: 2,
+    explanation:
+      "Os primeiros cinco livros da Bíblia são chamados Pentateuco ou Torá.",
+    difficulty: "médio",
+  },
 
   // Difícil
   {
