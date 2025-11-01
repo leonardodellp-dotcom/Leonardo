@@ -499,7 +499,7 @@ const questionBank: Question[] = [
   },
   {
     id: "d5",
-    question: "Qual é a data do Concílio de Niceia?",
+    question: "Qual �� a data do Concílio de Niceia?",
     options: ["312 d.C.", "325 d.C.", "381 d.C.", "451 d.C."],
     correctAnswer: 1,
     explanation:
@@ -731,6 +731,62 @@ const questionBank: Question[] = [
     correctAnswer: 0,
     explanation:
       "Não existe fórmula matemática para medir santidade. A canonização é baseada em investigação teológica e milagres verificados.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i4",
+    question: "Qual é o nome da bula papal de 1302 que afirma a supremacia papal?",
+    options: ["Unam Sanctam", "Sublimis Deus", "Pacem in Terris", "Humanae Vitae"],
+    correctAnswer: 0,
+    explanation:
+      "A bula 'Unam Sanctam' do Papa Bonifácio VIII afirmava a supremacia papal sobre os monarcas.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i5",
+    question: "Qual filósofo medieval reconciliou Aristóteles com a teologia cristã?",
+    options: ["Santo Tomás de Aquino", "Santo Agostinho", "Escoto", "Boaventura"],
+    correctAnswer: 0,
+    explanation:
+      "Santo Tomás de Aquino usou a filosofia aristotélica para fundamentar a teologia cristã.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i6",
+    question:
+      "Qual é o nome da doutrina que afirma que Cristo é uma pessoa com duas naturezas?",
+    options: ["Monofilosismo", "Cálcedonismo", "Docetismo", "Monofisismo"],
+    correctAnswer: 1,
+    explanation:
+      "O Cálcedonismo, definido no Concílio de Calcedônia, afirma que Cristo é Uma Pessoa em duas naturezas.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i7",
+    question: "Qual Papa instituiu a festa de Corpus Christi?",
+    options: ["Papa Urbano IV", "Papa Clemente V", "Papa Gregório X", "Papa Bonifácio VIII"],
+    correctAnswer: 0,
+    explanation:
+      "Papa Urbano IV instituiu a festa de Corpus Christi em 1264 através da bula Transiturus.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i8",
+    question: "Qual teólogo cristão cunhou o termo milícia de Cristo?",
+    options: ["Tertuliano", "Orígenes", "Santo Agostinho", "Santo Ambrósio"],
+    correctAnswer: 0,
+    explanation:
+      "Tertuliano usou o termo Militia Christi para descrever a vida cristã como militar espiritual.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i9",
+    question:
+      "Qual é o nome da heresia que negava a paixão e morte de Cristo de forma real?",
+    options: ["Docetismo", "Gnosticismo", "Arianismo", "Pelagianismo"],
+    correctAnswer: 0,
+    explanation:
+      "O Docetismo negava que Cristo sofreu de forma real, sustentando um sofrimento meramente aparente.",
     difficulty: "impossível",
   },
 ];
