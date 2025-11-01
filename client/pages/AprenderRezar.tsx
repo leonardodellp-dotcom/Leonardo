@@ -177,7 +177,7 @@ export default function AprenderRezar() {
                               method.difficulty === "Iniciante"
                                 ? "bg-green-500/20 text-green-400"
                                 : method.difficulty === "Intermediário"
-                                  ? "bg-yellow-500/20 text-yellow-400"
+                                  ? "bg-blue-600/20 text-blue-300"
                                   : "bg-red-500/20 text-red-400"
                             }`}
                           >
