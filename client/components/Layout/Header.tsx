@@ -302,6 +302,15 @@ export default function Header() {
                 ))}
               </div>
             </details>
+
+            {/* Mobile Calendário Litúrgico */}
+            <Link
+              to="/calendario-liturgico"
+              className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200"
+              onClick={() => setIsOpen(false)}
+            >
+              📅 Calendário
+            </Link>
           </div>
         )}
       </nav>
