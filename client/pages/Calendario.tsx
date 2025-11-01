@@ -336,10 +336,90 @@ export default function Calendario() {
                 </div>
               )}
 
+              {/* Calendar Grid */}
+              <div className="bg-card border border-border rounded-xl p-6 mb-8">
+                <h3 className="text-lg font-bold mb-6">{monthNames[selectedMonth - 1]} de 2025</h3>
+
+                {/* Days of week header */}
+                <div className="grid grid-cols-7 gap-2 mb-4">
+                  {["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].map((day) => (
+                    <div key={day} className="text-center font-bold text-sm p-2 text-muted-foreground">
+                      {day}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Calendar days */}
+                <div className="grid grid-cols-7 gap-2">
+                  {(() => {
+                    const firstDay = new Date(2025, selectedMonth - 1, 1).getDay();
+                    const daysInMonth = new Date(2025, selectedMonth, 0).getDate();
+                    const days = [];
+
+                    // Empty cells before first day
+                    for (let i = 0; i < firstDay; i++) {
+                      days.push(
+                        <div key={`empty-${i}`} className="aspect-square p-2 bg-muted/30 rounded-lg"></div>
+                      );
+                    }
+
+                    // Day cells
+                    for (let day = 1; day <= daysInMonth; day++) {
+                      const dayEvents = monthEvents.filter(e => e.day === day);
+                      const dayOfWeek = new Date(2025, selectedMonth - 1, day).getDay();
+                      const isSunday = dayOfWeek === 0;
+                      const isSaturday = dayOfWeek === 6;
+
+                      days.push(
+                        <div
+                          key={day}
+                          className={`aspect-square p-2 rounded-lg border-2 transition-colors ${
+                            isSunday
+                              ? "bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-700"
+                              : isSaturday
+                              ? "bg-purple-50 dark:bg-purple-950 border-purple-200 dark:border-purple-700"
+                              : "bg-muted/30 border-muted hover:border-primary/50"
+                          }`}
+                        >
+                          <p className={`font-bold text-sm mb-1 ${isSunday || isSaturday ? "text-primary" : ""}`}>
+                            {day}
+                          </p>
+                          {dayEvents.length > 0 && (
+                            <div className="space-y-0.5">
+                              {dayEvents.slice(0, 2).map((event) => (
+                                <p key={event.id} className="text-xs text-muted-foreground truncate">
+                                  {event.time}
+                                </p>
+                              ))}
+                              {dayEvents.length > 2 && (
+                                <p className="text-xs text-primary font-semibold">+{dayEvents.length - 2}</p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+
+                    return days;
+                  })()}
+                </div>
+
+                <div className="mt-6 flex gap-6 text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-700 rounded"></div>
+                    <span>Domingo</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-purple-100 dark:bg-purple-900 border-2 border-purple-200 dark:border-purple-700 rounded"></div>
+                    <span>Sábado</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Events List */}
               {monthEvents.length > 0 ? (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-bold">{monthNames[selectedMonth - 1]} de 2025</h3>
+                  <h3 className="text-lg font-bold">Programações de {monthNames[selectedMonth - 1]}</h3>
                   {monthEvents.map((event) => (
                     <div key={event.id} className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all">
                       <div className="flex items-start justify-between">
