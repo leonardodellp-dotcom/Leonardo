@@ -117,14 +117,11 @@ Amém.`,
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-4">
-              <Heart className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
-                Orações Sagradas
-              </span>
+            <div className="inline-flex p-4 bg-primary/15 border border-primary/30 rounded-xl mb-4">
+              <Heart className="w-5 h-5 text-primary" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Orações</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">Orações Sagradas</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Colecção de orações católicas para elevar sua alma e conectar-se
               com Deus. Eleve suas preces em comunidade e encontre paz
               espiritual.
@@ -135,36 +132,38 @@ Amém.`,
             {prayers.map((prayer) => (
               <div
                 key={prayer.id}
-                className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all group"
+                className="card-glow hover:scale-105 group"
               >
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{prayer.title}</h3>
-                    {prayer.author && (
-                      <p className="text-sm text-muted-foreground">
-                        {prayer.author}
-                      </p>
-                    )}
-                    <span className="inline-block mt-2 px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
-                      {prayer.category}
-                    </span>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">{prayer.title}</h3>
+                      {prayer.author && (
+                        <p className="text-sm text-muted-foreground">
+                          {prayer.author}
+                        </p>
+                      )}
+                      <span className="inline-block mt-2 badge-primary">
+                        {prayer.category}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => copyToClipboard(prayer.id, prayer.content)}
+                      className="p-2 hover:bg-primary/20 border border-primary/30 rounded-lg transition-all hover:shadow-glow text-muted-foreground hover:text-primary flex-shrink-0 ml-2"
+                      title="Copiar oração"
+                    >
+                      {copiedId === prayer.id ? (
+                        <Check className="w-5 h-5 text-green-400" />
+                      ) : (
+                        <Copy className="w-5 h-5" />
+                      )}
+                    </button>
                   </div>
-                  <button
-                    onClick={() => copyToClipboard(prayer.id, prayer.content)}
-                    className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
-                    title="Copiar oração"
-                  >
-                    {copiedId === prayer.id ? (
-                      <Check className="w-5 h-5 text-green-500" />
-                    ) : (
-                      <Copy className="w-5 h-5" />
-                    )}
-                  </button>
-                </div>
 
-                <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
-                  {prayer.content}
-                </p>
+                  <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
+                    {prayer.content}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
