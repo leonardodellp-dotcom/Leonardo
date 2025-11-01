@@ -77,7 +77,7 @@ export default function Header() {
               <Link
                 key={item.path}
                 to={item.path}
-                className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 active:scale-95"
+                className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/15 hover:text-primary hover:border-primary/30 border border-transparent rounded-lg transition-all duration-200 active:scale-95"
               >
                 {item.label}
               </Link>
