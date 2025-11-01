@@ -174,7 +174,7 @@ const questionBank: Question[] = [
     id: "i3",
     question: "Qual é a fórmula matemática para calcular o grau de santidade de uma pessoa?",
     options: [
-      "Não existe tal fórmula",
+      "Não existe tal f��rmula",
       "Virtudes x Obras / Pecados",
       "Tempo de Oração + Caridade",
       "Estabelecido pelo Vaticano em 1456",
@@ -434,7 +434,7 @@ export default function Desafios() {
                   question.difficulty === "fácil"
                     ? "bg-green-500/20 text-green-400"
                     : question.difficulty === "médio"
-                      ? "bg-yellow-500/20 text-yellow-400"
+                      ? "bg-blue-600/20 text-blue-300"
                       : question.difficulty === "difícil"
                         ? "bg-red-500/20 text-red-400"
                         : "bg-purple-500/20 text-purple-400"
