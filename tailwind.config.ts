@@ -83,10 +83,50 @@ export default {
             height: "0",
           },
         },
+        glow: {
+          "0%, 100%": {
+            boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)",
+          },
+          "50%": {
+            boxShadow: "0 0 40px rgba(168, 85, 247, 0.6)",
+          },
+        },
+        "float-up": {
+          "0%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            transform: "translateY(0px)",
+          },
+        },
+        shimmer: {
+          "0%": {
+            backgroundPosition: "-1000px 0",
+          },
+          "100%": {
+            backgroundPosition: "1000px 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        glow: "glow 3s ease-in-out infinite",
+        "float-up": "float-up 3s ease-in-out infinite",
+        shimmer: "shimmer 8s infinite",
+      },
+      boxShadow: {
+        glow: "0 0 30px rgba(168, 85, 247, 0.4)",
+        "glow-lg": "0 0 50px rgba(168, 85, 247, 0.5)",
+        "glow-accent": "0 0 30px rgba(251, 191, 36, 0.3)",
+        "glow-accent-lg": "0 0 50px rgba(251, 191, 36, 0.4)",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
