@@ -112,7 +112,7 @@ export default function Cursos() {
     },
     {
       id: "7",
-      title: "Liderança Cristã para Jovens",
+      title: "Lideran��a Cristã para Jovens",
       description:
         "Desenvolva habilidades de liderança baseadas em valores cristãos. Aprenda como ser um testemunho de fé na sua comunidade.",
       institution: "Jucrisc",
@@ -135,6 +135,134 @@ export default function Cursos() {
       format: "Híbrido",
       link: "#",
       topics: ["Inculturação", "Diálogo Interreligioso", "Novos Movimentos"],
+    },
+    {
+      id: "9",
+      title: "Os Dez Mandamentos na Vida Cristã",
+      description:
+        "Aprofunde-se nos Dez Mandamentos e sua aplicação prática na vida moderna. Entenda como esses preceitos divinos guiam nossa moral e relacionamentos.",
+      institution: "Jucrisc",
+      level: "Iniciante",
+      format: "Online",
+      link: "#",
+      topics: ["Lei Divina", "Ética Cristã", "Confissão e Arrependimento"],
+      hasReview: true,
+      reviewLessons: [
+        {
+          id: "r1",
+          title: "Revisão: Os Primeiros Cinco Mandamentos",
+          questions: [
+            {
+              id: "q1",
+              question: "Qual é o primeiro mandamento?",
+              options: ["Amar a Deus sobre todas as coisas", "Honrar pai e mãe", "Não roubar", "Não matar"],
+              correctAnswer: 0,
+              explanation: "O primeiro mandamento nos ensina a colocar Deus em primeiro lugar em nossas vidas.",
+            },
+            {
+              id: "q2",
+              question: "O terceiro mandamento refere-se a:",
+              options: ["Guardar o dia de descanso", "Respeitar o nome de Deus", "Obedecer aos pais", "Não cometer adultério"],
+              correctAnswer: 1,
+              explanation: "O terceiro mandamento nos ordena a guardar o nome de Deus como sagrado.",
+            },
+          ],
+        },
+        {
+          id: "r2",
+          title: "Revisão: Os Últimos Cinco Mandamentos",
+          questions: [
+            {
+              id: "q3",
+              question: "O sexto mandamento diz respeito a:",
+              options: ["Justiça social", "Pureza sexual", "Honestidade", "Caridade"],
+              correctAnswer: 1,
+              explanation: "O sexto mandamento nos ensina a manter a pureza e o respeito no uso do corpo.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "10",
+      title: "Virtudes Católicas: Fé, Esperança e Caridade",
+      description:
+        "Conheça as três virtudes teologais que são o fundamento da vida cristã. Aprenda como cultivá-las no dia a dia para crescimento espiritual.",
+      institution: "Jucrisc",
+      level: "Intermediário",
+      format: "Online",
+      link: "#",
+      topics: ["Virtudes Teologais", "Prática da Fé", "Vida em Graça"],
+      hasReview: true,
+      reviewLessons: [
+        {
+          id: "r3",
+          title: "Revisão: As Virtudes Teologais",
+          questions: [
+            {
+              id: "q4",
+              question: "A caridade é descrita em qual livro como 'o maior dos dons'?",
+              options: ["Mateus", "1 Coríntios", "João", "Romanos"],
+              correctAnswer: 1,
+              explanation: "Em 1 Coríntios 13, o apóstolo Paulo exalta a caridade como a maior virtude.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "11",
+      title: "Evangelização e Testemunho de Fé",
+      description:
+        "Aprenda como compartilhar sua fé de forma autêntica. Descubra técnicas práticas para evangelizar no dia a dia sem agressividade ou imposição.",
+      institution: "Jucrisc",
+      level: "Intermediário",
+      format: "Presencial",
+      link: "#",
+      topics: ["Comunicação Eficaz", "Testemunho Pessoal", "Respeito ao Próximo"],
+      hasReview: true,
+      reviewLessons: [
+        {
+          id: "r4",
+          title: "Revisão: Métodos de Evangelização",
+          questions: [
+            {
+              id: "q5",
+              question: "Qual é o método mais eficaz de evangelização?",
+              options: ["Pregar na rua", "Testemunho pessoal", "Distribuir panfletos", "Crítica às outras religiões"],
+              correctAnswer: 1,
+              explanation: "O testemunho pessoal é o método mais poderoso, pois mostra a transformação real da fé.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "12",
+      title: "Vida Sacramental Aprofundada",
+      description:
+        "Estude detalhadamente cada um dos sete sacramentos. Compreenda sua origem, significado teológico e importância para a salvação.",
+      institution: "Jucrisc",
+      level: "Avançado",
+      format: "Online",
+      link: "#",
+      topics: ["Sacramentos", "Graça Sacramental", "Liturgia"],
+      hasReview: true,
+      reviewLessons: [
+        {
+          id: "r5",
+          title: "Revisão: Os Sete Sacramentos",
+          questions: [
+            {
+              id: "q6",
+              question: "Quantos são os sacramentos na Igreja Católica?",
+              options: ["5", "6", "7", "8"],
+              correctAnswer: 2,
+              explanation: "A Igreja Católica reconhece sete sacramentos: Batismo, Crisma, Eucaristia, Penitência, Unção dos Enfermos, Ordem e Matrimônio.",
+            },
+          ],
+        },
+      ],
     },
   ];
 
