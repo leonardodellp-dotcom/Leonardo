@@ -13,6 +13,7 @@ import Mural from "./pages/Mural";
 import Oracoes from "./pages/Oracoes";
 import AprenderRezar from "./pages/AprenderRezar";
 import GuiaLeituraBiblia from "./pages/GuiaLeituraBiblia";
+import Terco from "./pages/Terco";
 import CalendarioLiturgico from "./pages/CalendarioLiturgico";
 import PedidosOracao from "./pages/PedidosOracao";
 import Agenda from "./pages/Agenda";
