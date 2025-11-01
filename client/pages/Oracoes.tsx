@@ -168,8 +168,8 @@ Amém.`,
             ))}
           </div>
 
-          <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 border border-border text-center">
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="mt-12 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl p-8 border border-primary/30 shadow-glow text-center">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               A oração é uma conversa com Deus. Utilize essas orações como guia
               para sua meditação pessoal e aproximação com o divino.
             </p>
