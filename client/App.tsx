@@ -22,6 +22,7 @@ import Contato from "./pages/Contato";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import Cadastro from "./pages/Cadastro";
+import Igreja from "./pages/Igreja";
 
 const queryClient = new QueryClient();
 
