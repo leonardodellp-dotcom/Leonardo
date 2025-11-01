@@ -42,25 +42,25 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Links Rápidos</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
-                  Início
+                <Link to="/" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Início
                 </Link>
               </li>
               <li>
-                <Link to="/versiculos" className="text-muted-foreground hover:text-primary transition-colors">
-                  Versículos
+                <Link to="/versiculos" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Versículos
                 </Link>
               </li>
               <li>
-                <Link to="/oracoes" className="text-muted-foreground hover:text-primary transition-colors">
-                  Orações
+                <Link to="/oracoes" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Orações
                 </Link>
               </li>
               <li>
-                <Link to="/agenda" className="text-muted-foreground hover:text-primary transition-colors">
-                  Agenda
+                <Link to="/agenda" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Agenda
                 </Link>
               </li>
             </ul>
@@ -69,25 +69,25 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h4 className="font-semibold mb-4">Recursos</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/aprender-rezar" className="text-muted-foreground hover:text-primary transition-colors">
-                  Aprender a Rezar
+                <Link to="/aprender-rezar" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Aprender a Rezar
                 </Link>
               </li>
               <li>
-                <Link to="/calendario-liturgico" className="text-muted-foreground hover:text-primary transition-colors">
-                  Calendário Litúrgico
+                <Link to="/calendario-liturgico" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Calendário Litúrgico
                 </Link>
               </li>
               <li>
-                <Link to="/cursos" className="text-muted-foreground hover:text-primary transition-colors">
-                  Cursos Católicos
+                <Link to="/cursos" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Cursos Católicos
                 </Link>
               </li>
               <li>
-                <Link to="/mural" className="text-muted-foreground hover:text-primary transition-colors">
-                  Mural
+                <Link to="/mural" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Mural
                 </Link>
               </li>
             </ul>
