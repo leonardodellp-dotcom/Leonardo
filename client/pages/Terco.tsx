@@ -281,24 +281,24 @@ export default function Terco() {
           </div>
 
           {/* Info about Rosary Mysteries */}
-          <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-6 mb-12">
-            <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4">💡 Os Tipos de Mistérios</h3>
+          <div className="bg-blue-100 dark:bg-slate-800 border border-blue-300 dark:border-slate-700 rounded-xl p-6 mb-12">
+            <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-50 mb-4">💡 Os Tipos de Mistérios</h3>
             <div className="space-y-4">
-              <div className="bg-white dark:bg-blue-900/30 p-4 rounded-lg">
-                <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-2">Mistérios Gozosos 🎉</h4>
-                <p className="text-sm text-blue-800 dark:text-blue-200">Meditam sobre a alegria e esperança trazidas pelo nascimento de Jesus. Incluem a Anunciação, Visitação, Nascimento de Jesus, Apresentação no Templo e Encontro de Jesus no Templo.</p>
+              <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
+                <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Gozosos 🎉</h4>
+                <p className="text-sm text-blue-800 dark:text-slate-100">Meditam sobre a alegria e esperança trazidas pelo nascimento de Jesus. Incluem a Anunciação, Visitação, Nascimento de Jesus, Apresentação no Templo e Encontro de Jesus no Templo.</p>
               </div>
-              <div className="bg-white dark:bg-blue-900/30 p-4 rounded-lg">
-                <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-2">Mistérios Dolorosos 💔</h4>
-                <p className="text-sm text-blue-800 dark:text-blue-200">Refletem sobre o sofrimento de Cristo pela salvação do mundo. Incluem a Agonia no Horto, Flagelação, Coroação de Espinhos, Jesus Carregando a Cruz e a Crucificação.</p>
+              <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
+                <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Dolorosos 💔</h4>
+                <p className="text-sm text-blue-800 dark:text-slate-100">Refletem sobre o sofrimento de Cristo pela salvação do mundo. Incluem a Agonia no Horto, Flagelação, Coroação de Espinhos, Jesus Carregando a Cruz e a Crucificação.</p>
               </div>
-              <div className="bg-white dark:bg-blue-900/30 p-4 rounded-lg">
-                <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-2">Mistérios Gloriosos ✨</h4>
-                <p className="text-sm text-blue-800 dark:text-blue-200">Celebram a vitória de Cristo sobre a morte e a glória de Maria. Incluem a Ressurreição, Ascensão, Descida do Espírito Santo, Assunção de Maria e Coroação de Maria.</p>
+              <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
+                <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Gloriosos ✨</h4>
+                <p className="text-sm text-blue-800 dark:text-slate-100">Celebram a vitória de Cristo sobre a morte e a glória de Maria. Incluem a Ressurreição, Ascensão, Descida do Espírito Santo, Assunção de Maria e Coroação de Maria.</p>
               </div>
-              <div className="bg-white dark:bg-blue-900/30 p-4 rounded-lg">
-                <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-2">Mistérios Luminosos ⭐ (Opcional)</h4>
-                <p className="text-sm text-blue-800 dark:text-blue-200">Adicionados pelo Papa João Paulo II, focam na vida pública de Jesus. Muitos fiéis rezam esses mistérios nas quintas-feiras ou conforme sua devoção pessoal.</p>
+              <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
+                <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Luminosos ⭐ (Opcional)</h4>
+                <p className="text-sm text-blue-800 dark:text-slate-100">Adicionados pelo Papa João Paulo II, focam na vida pública de Jesus. Muitos fiéis rezam esses mistérios nas quintas-feiras ou conforme sua devoção pessoal.</p>
               </div>
             </div>
           </div>
