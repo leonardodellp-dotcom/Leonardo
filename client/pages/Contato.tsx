@@ -205,19 +205,19 @@ export default function Contato() {
                         href="https://www.instagram.com/jucrisc/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-3 bg-muted hover:bg-muted/80 rounded-lg transition-colors text-sm"
+                        className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-600/30 to-purple-500/20 border border-purple-500/30 hover:border-purple-500/60 hover:shadow-lg hover:shadow-purple-500/20 rounded-lg transition-all text-sm hover:scale-105"
                       >
-                        <Instagram className="w-4 h-4" />
-                        <span className="text-primary">Instagram</span>
+                        <Instagram className="w-4 h-4 text-purple-400" />
+                        <span className="text-purple-300 font-semibold">Instagram</span>
                       </a>
                       <a
                         href="https://www.tiktok.com/@jucrisc"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-3 bg-muted hover:bg-muted/80 rounded-lg transition-colors text-sm"
+                        className="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-600/30 to-blue-500/20 border border-blue-500/30 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20 rounded-lg transition-all text-sm hover:scale-105"
                       >
-                        <Music className="w-4 h-4" />
-                        <span className="text-accent">TikTok</span>
+                        <Music className="w-4 h-4 text-blue-400" />
+                        <span className="text-blue-300 font-semibold">TikTok</span>
                       </a>
                     </div>
                   </div>
