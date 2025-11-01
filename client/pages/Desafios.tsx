@@ -369,7 +369,7 @@ export default function Desafios() {
       icon = <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />;
     } else {
       message = "💪 Desafio aceito! Tente novamente";
-      icon = <Zap className="w-16 h-16 text-yellow-500 mx-auto mb-4" />;
+      icon = <Zap className="w-16 h-16 text-accent mx-auto mb-4 animate-pulse" />;
     }
 
     return (
