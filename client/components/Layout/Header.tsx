@@ -39,6 +39,7 @@ export default function Header() {
 
   const recursosSubmenu = [
     { label: "Versículos Diários", path: "/versiculos" },
+    { label: "Como Ler a Bíblia", path: "/guia-leitura-biblia" },
     { label: "Aprender a Rezar", path: "/aprender-rezar" },
     { label: "Calendário Litúrgico", path: "/calendario-liturgico" },
   ];
