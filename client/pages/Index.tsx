@@ -238,9 +238,9 @@ export default function Index() {
           </p>
           <Link
             to="/contato"
-            className="inline-flex px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg transition-colors"
+            className="inline-flex px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-accent/30 active:scale-95"
           >
-            Fazer Parte <ArrowRight className="w-4 h-4 ml-2" />
+            Fazer Parte
           </Link>
         </div>
       </section>
