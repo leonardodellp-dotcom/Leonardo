@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Heart, Hand, Zap, Music, BookOpen, Flame } from "lucide-react";
+import { Heart, Hand, Zap, Music, BookOpen, Flame, Calendar, Star } from "lucide-react";
 import { useState } from "react";
 
 interface PrayerMethod {
