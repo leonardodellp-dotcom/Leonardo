@@ -179,14 +179,14 @@ export default function Contato() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-card border border-border rounded-xl p-8 h-fit sticky top-20">
-                <h3 className="text-xl font-bold mb-6">Informações</h3>
+              <div className="bg-card border border-primary/20 rounded-xl p-8 h-fit sticky top-20 shadow-glow">
+                <h3 className="text-xl font-bold mb-6 text-gradient">Informações</h3>
 
                 <div className="space-y-6">
                   {/* Location */}
                   <div className="flex gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0 h-fit">
-                      <MapPin className="w-5 h-5 text-primary" />
+                    <div className="p-3 bg-purple-600/20 border border-purple-500/30 rounded-lg flex-shrink-0 h-fit">
+                      <MapPin className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
                       <p className="font-semibold mb-1">Localização</p>
