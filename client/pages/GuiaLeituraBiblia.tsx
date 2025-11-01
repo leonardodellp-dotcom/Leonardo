@@ -198,14 +198,14 @@ export default function GuiaLeituraBiblia() {
           </div>
 
           {/* Recommended Books */}
-          <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-8 mb-12">
-            <h3 className="text-2xl font-bold mb-4 text-blue-900 dark:text-blue-100">
+          <div className="bg-primary/10 dark:bg-primary/10 border border-primary/30 dark:border-primary/30 rounded-xl p-8 mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-primary">
               📚 Livros Recomendados para Começar
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Evangelhos (Comece por aqui!)</h4>
-                <ul className="space-y-1 text-sm text-blue-800 dark:text-blue-200">
+                <h4 className="font-semibold text-primary mb-2">Evangelhos (Comece por aqui!)</h4>
+                <ul className="space-y-1 text-sm text-muted-foreground">
                   <li>• <strong>Evangelho de Marcos</strong> - Mais curto e direto (inicio perfeito)</li>
                   <li>• <strong>Evangelho de João</strong> - Profundo e espiritual</li>
                   <li>• <strong>Evangelho de Lucas</strong> - Narrativa rica em detalhes</li>
@@ -213,8 +213,8 @@ export default function GuiaLeituraBiblia() {
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Após os Evangelhos</h4>
-                <ul className="space-y-1 text-sm text-blue-800 dark:text-blue-200">
+                <h4 className="font-semibold text-primary mb-2">Após os Evangelhos</h4>
+                <ul className="space-y-1 text-sm text-muted-foreground">
                   <li>• <strong>Salmos</strong> - Orações e reflexões poéticas</li>
                   <li>• <strong>Romanos</strong> - Teologia profunda mas acessível</li>
                   <li>• <strong>1 Coríntios</strong> - Respostas a questões práticas</li>
