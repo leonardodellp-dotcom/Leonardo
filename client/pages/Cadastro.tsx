@@ -226,21 +226,16 @@ export default function Cadastro() {
                   <label htmlFor="group" className="block text-sm font-semibold mb-2">
                     De qual grupo você faz parte?
                   </label>
-                  <select
+                  <input
                     id="group"
+                    type="text"
                     name="group"
                     value={formData.group}
                     onChange={handleChange}
+                    placeholder="Ex: Grupo de Jovens"
                     className="w-full px-4 py-2.5 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
                     disabled={loading}
-                  >
-                    <option value="">Selecione seu grupo...</option>
-                    {groups.map((group) => (
-                      <option key={group} value={group}>
-                        {group}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
               </div>
 
