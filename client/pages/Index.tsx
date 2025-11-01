@@ -148,11 +148,11 @@ export default function Index() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4 bg-muted/30">
+      <section className="py-20 px-4 bg-gradient-to-b from-card/30 via-background to-background">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Nossos Recursos</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Nossos Recursos</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Explore uma variedade de ferramentas e recursos para aprofundar
               sua fé e conectar-se com a comunidade
             </p>
@@ -165,17 +165,19 @@ export default function Index() {
                 <Link
                   key={service.path}
                   to={service.path}
-                  className="group bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/20"
+                  className="group card-glow hover:scale-105"
                 >
-                  <div className="mb-4 inline-flex p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {service.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-                    Acessar <ArrowRight className="w-4 h-4" />
+                  <div className="p-6">
+                    <div className="mb-4 inline-flex p-3 bg-primary/15 border border-primary/30 rounded-lg group-hover:bg-primary/25 group-hover:border-primary/50 transition-all">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
+                      Acessar <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
                 </Link>
               );
