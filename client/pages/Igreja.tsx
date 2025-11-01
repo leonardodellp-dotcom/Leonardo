@@ -82,7 +82,8 @@ export default function Igreja() {
                     <div>
                       <p className="font-semibold">Endereço</p>
                       <p className="text-sm text-muted-foreground">
-                        Av. Sallum - Vila Prado<br />
+                        Av. Sallum - Vila Prado
+                        <br />
                         São Carlos - SP
                       </p>
                     </div>
@@ -141,7 +142,10 @@ export default function Igreja() {
                       ) : (
                         <div className="space-y-2">
                           {schedule.times?.map((time) => (
-                            <p key={time} className="text-2xl font-bold text-primary">
+                            <p
+                              key={time}
+                              className="text-2xl font-bold text-primary"
+                            >
                               {time}
                             </p>
                           ))}

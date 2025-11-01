@@ -106,8 +106,8 @@ export default function Versiculos() {
   // Filter verses that are NOT older than 5 days
   const activeVerses = verses.filter((verse) => {
     const daysMap: { [key: string]: number } = {
-      "Hoje": 0,
-      "Ontem": 1,
+      Hoje: 0,
+      Ontem: 1,
       "2 dias atrás": 2,
       "3 dias atrás": 3,
       "4 dias atrás": 4,
@@ -127,7 +127,9 @@ export default function Versiculos() {
             <div className="inline-flex p-4 bg-primary/15 border border-primary/30 rounded-xl mb-4">
               <BookOpen className="w-5 h-5 text-primary" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">Versículos Diários</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">
+              Versículos Diários
+            </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Reflita sobre a Palavra de Deus diariamente. Cada versículo foi
               selecionado para inspirar, confortar e fortalecer sua jornada
@@ -137,10 +139,7 @@ export default function Versiculos() {
 
           <div className="space-y-6">
             {activeVerses.map((verse) => (
-              <div
-                key={verse.id}
-                className="card-glow hover:scale-105"
-              >
+              <div key={verse.id} className="card-glow hover:scale-105">
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4 flex-wrap gap-4">
                     <div>

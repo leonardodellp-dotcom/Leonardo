@@ -38,7 +38,8 @@ export default function Devocoes() {
     {
       id: "2",
       title: "Novena a Santo Antônio",
-      description: "Novena de 9 dias para encontrar objetos perdidos e impossíveis",
+      description:
+        "Novena de 9 dias para encontrar objetos perdidos e impossíveis",
       days: 9,
       type: "novena",
       icon: <Zap className="w-6 h-6" />,
@@ -57,7 +58,8 @@ export default function Devocoes() {
     {
       id: "3",
       title: "Novena ao Espírito Santo",
-      description: "Novena de 9 dias antes do Pentecostes para dons espirituais",
+      description:
+        "Novena de 9 dias antes do Pentecostes para dons espirituais",
       days: 9,
       type: "novena",
       icon: <Music className="w-6 h-6" />,
@@ -76,7 +78,8 @@ export default function Devocoes() {
     {
       id: "4",
       title: "Guia do Rosário Diário",
-      description: "Aprenda a rezar o rosário completo com meditação nos mistérios",
+      description:
+        "Aprenda a rezar o rosário completo com meditação nos mistérios",
       days: 7,
       type: "rosary",
       icon: <BookOpen className="w-6 h-6" />,
@@ -163,7 +166,8 @@ export default function Devocoes() {
             </div>
             <h1 className="text-4xl font-bold mb-3">Devoções Católicas</h1>
             <p className="text-lg text-muted-foreground">
-              Práticas sagradas para aprofundar sua espiritualidade: Novenas, Rosário e Litanias
+              Práticas sagradas para aprofundar sua espiritualidade: Novenas,
+              Rosário e Litanias
             </p>
           </div>
 
@@ -182,14 +186,20 @@ export default function Devocoes() {
                     <div className="flex items-start gap-4 flex-1">
                       <div className="text-primary mt-1">{devotion.icon}</div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold mb-1">{devotion.title}</h3>
-                        <p className="text-sm text-muted-foreground mb-2">{devotion.description}</p>
+                        <h3 className="text-xl font-bold mb-1">
+                          {devotion.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-2">
+                          {devotion.description}
+                        </p>
                         <span className="inline-block px-3 py-1 bg-muted rounded-full text-xs text-muted-foreground">
-                          {devotion.days} dia{devotion.days > 1 ? 's' : ''}
+                          {devotion.days} dia{devotion.days > 1 ? "s" : ""}
                         </span>
                       </div>
                     </div>
-                    <div className={`text-2xl transition-transform ${expandedId === devotion.id ? 'rotate-180' : ''}`}>
+                    <div
+                      className={`text-2xl transition-transform ${expandedId === devotion.id ? "rotate-180" : ""}`}
+                    >
                       ▼
                     </div>
                   </div>
@@ -203,7 +213,9 @@ export default function Devocoes() {
                           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold">
                             {idx + 1}
                           </div>
-                          <p className="text-sm text-muted-foreground leading-relaxed pt-1">{item}</p>
+                          <p className="text-sm text-muted-foreground leading-relaxed pt-1">
+                            {item}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -215,7 +227,9 @@ export default function Devocoes() {
 
           {/* Benefits Section */}
           <div className="bg-purple-50 dark:bg-purple-950 border border-purple-200 dark:border-purple-800 rounded-xl p-8 mb-12">
-            <h3 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-4">✨ Benefícios das Devoções</h3>
+            <h3 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-4">
+              ✨ Benefícios das Devoções
+            </h3>
             <ul className="space-y-3 text-purple-800 dark:text-purple-200 text-sm">
               <li className="flex gap-3">
                 <span className="flex-shrink-0">✓</span>

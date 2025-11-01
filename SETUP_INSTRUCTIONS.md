@@ -105,6 +105,7 @@ Acesse em: `/admin-login`
 ## 🎯 Funcionalidades Implementadas
 
 ### 📱 Usuário Final
+
 - ✅ Cadastro com: Nome, Idade, Grupo, Email, Telefone
 - ✅ Formulário de Contato com sugestões
 - ✅ Links diretos para TikTok e Instagram
@@ -112,6 +113,7 @@ Acesse em: `/admin-login`
 - ✅ Ora��ões e como rezar
 
 ### 👨‍💼 Admin
+
 - ✅ Login seguro (leoadm / leolindo)
 - ✅ Painel de administração
 - ✅ Gerenciamento de eventos (em desenvolvimento)
@@ -121,6 +123,7 @@ Acesse em: `/admin-login`
 ## 📝 Dados Salvos no Banco
 
 ### user_registrations
+
 - `id` - UUID único
 - `name` - Nome do usuário
 - `age` - Idade (13-100)
@@ -130,6 +133,7 @@ Acesse em: `/admin-login`
 - `created_at` - Data de registro
 
 ### contact_suggestions
+
 - `id` - UUID único
 - `name` - Nome
 - `email` - Email
@@ -139,6 +143,7 @@ Acesse em: `/admin-login`
 - `created_at` - Data do envio
 
 ### events (para admin)
+
 - `id` - UUID único
 - `title` - Título do evento
 - `description` - Descrição
@@ -149,6 +154,7 @@ Acesse em: `/admin-login`
 - `created_at` - Data de criação
 
 ### mural_posts (para admin)
+
 - `id` - UUID único
 - `title` - Título
 - `content` - Conteúdo

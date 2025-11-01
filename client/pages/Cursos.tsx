@@ -1,5 +1,12 @@
 import Layout from "@/components/Layout";
-import { BookOpen, Link as LinkIcon, Clock, Users, Award, CheckCircle } from "lucide-react";
+import {
+  BookOpen,
+  Link as LinkIcon,
+  Clock,
+  Users,
+  Award,
+  CheckCircle,
+} from "lucide-react";
 import { useState } from "react";
 
 interface Course {
@@ -33,7 +40,8 @@ interface ReviewQuestion {
 export default function Cursos() {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [completedCourses, setCompletedCourses] = useState<string[]>([]);
-  const [currentReviewLesson, setCurrentReviewLesson] = useState<ReviewLesson | null>(null);
+  const [currentReviewLesson, setCurrentReviewLesson] =
+    useState<ReviewLesson | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<{ [key: string]: number }>({});
   const [showReview, setShowReview] = useState(false);
@@ -74,11 +82,7 @@ export default function Cursos() {
       level: "Intermediário",
       format: "Online",
       link: "#",
-      topics: [
-        "Antigo Testamento",
-        "Novo Testamento",
-        "Hermenêutica Bíblica",
-      ],
+      topics: ["Antigo Testamento", "Novo Testamento", "Hermenêutica Bíblica"],
     },
     {
       id: "4",
@@ -111,11 +115,7 @@ export default function Cursos() {
       level: "Avançado",
       format: "Online",
       link: "#",
-      topics: [
-        "Justiça Social",
-        "Direitos Humanos",
-        "Ecologia Integral",
-      ],
+      topics: ["Justiça Social", "Direitos Humanos", "Ecologia Integral"],
     },
     {
       id: "7",
@@ -126,11 +126,7 @@ export default function Cursos() {
       level: "Intermediário",
       format: "Presencial",
       link: "#",
-      topics: [
-        "Carisma e Missão",
-        "Comunicação",
-        "Gestão de Grupos",
-      ],
+      topics: ["Carisma e Missão", "Comunicação", "Gestão de Grupos"],
     },
     {
       id: "8",
@@ -162,16 +158,28 @@ export default function Cursos() {
             {
               id: "q1",
               question: "Qual é o primeiro mandamento?",
-              options: ["Amar a Deus sobre todas as coisas", "Honrar pai e mãe", "Não roubar", "Não matar"],
+              options: [
+                "Amar a Deus sobre todas as coisas",
+                "Honrar pai e mãe",
+                "Não roubar",
+                "Não matar",
+              ],
               correctAnswer: 0,
-              explanation: "O primeiro mandamento nos ensina a colocar Deus em primeiro lugar em nossas vidas.",
+              explanation:
+                "O primeiro mandamento nos ensina a colocar Deus em primeiro lugar em nossas vidas.",
             },
             {
               id: "q2",
               question: "O terceiro mandamento refere-se a:",
-              options: ["Guardar o dia de descanso", "Respeitar o nome de Deus", "Obedecer aos pais", "Não cometer adultério"],
+              options: [
+                "Guardar o dia de descanso",
+                "Respeitar o nome de Deus",
+                "Obedecer aos pais",
+                "Não cometer adultério",
+              ],
               correctAnswer: 1,
-              explanation: "O terceiro mandamento nos ordena a guardar o nome de Deus como sagrado.",
+              explanation:
+                "O terceiro mandamento nos ordena a guardar o nome de Deus como sagrado.",
             },
           ],
         },
@@ -182,9 +190,15 @@ export default function Cursos() {
             {
               id: "q3",
               question: "O sexto mandamento diz respeito a:",
-              options: ["Justiça social", "Pureza sexual", "Honestidade", "Caridade"],
+              options: [
+                "Justiça social",
+                "Pureza sexual",
+                "Honestidade",
+                "Caridade",
+              ],
               correctAnswer: 1,
-              explanation: "O sexto mandamento nos ensina a manter a pureza e o respeito no uso do corpo.",
+              explanation:
+                "O sexto mandamento nos ensina a manter a pureza e o respeito no uso do corpo.",
             },
           ],
         },
@@ -208,10 +222,12 @@ export default function Cursos() {
           questions: [
             {
               id: "q4",
-              question: "A caridade é descrita em qual livro como 'o maior dos dons'?",
+              question:
+                "A caridade é descrita em qual livro como 'o maior dos dons'?",
               options: ["Mateus", "1 Coríntios", "João", "Romanos"],
               correctAnswer: 1,
-              explanation: "Em 1 Coríntios 13, o apóstolo Paulo exalta a caridade como a maior virtude.",
+              explanation:
+                "Em 1 Coríntios 13, o apóstolo Paulo exalta a caridade como a maior virtude.",
             },
           ],
         },
@@ -226,7 +242,11 @@ export default function Cursos() {
       level: "Intermediário",
       format: "Presencial",
       link: "#",
-      topics: ["Comunicação Eficaz", "Testemunho Pessoal", "Respeito ao Próximo"],
+      topics: [
+        "Comunicação Eficaz",
+        "Testemunho Pessoal",
+        "Respeito ao Próximo",
+      ],
       hasReview: true,
       reviewLessons: [
         {
@@ -236,9 +256,15 @@ export default function Cursos() {
             {
               id: "q5",
               question: "Qual é o método mais eficaz de evangelização?",
-              options: ["Pregar na rua", "Testemunho pessoal", "Distribuir panfletos", "Crítica às outras religiões"],
+              options: [
+                "Pregar na rua",
+                "Testemunho pessoal",
+                "Distribuir panfletos",
+                "Crítica às outras religiões",
+              ],
               correctAnswer: 1,
-              explanation: "O testemunho pessoal é o método mais poderoso, pois mostra a transformação real da fé.",
+              explanation:
+                "O testemunho pessoal é o método mais poderoso, pois mostra a transformação real da fé.",
             },
           ],
         },
@@ -265,7 +291,8 @@ export default function Cursos() {
               question: "Quantos são os sacramentos na Igreja Católica?",
               options: ["5", "6", "7", "8"],
               correctAnswer: 2,
-              explanation: "A Igreja Católica reconhece sete sacramentos: Batismo, Crisma, Eucaristia, Penitência, Unção dos Enfermos, Ordem e Matrimônio.",
+              explanation:
+                "A Igreja Católica reconhece sete sacramentos: Batismo, Crisma, Eucaristia, Penitência, Unção dos Enfermos, Ordem e Matrimônio.",
             },
           ],
         },
@@ -301,7 +328,7 @@ export default function Cursos() {
 
   const handleCourseClick = (courseId: string) => {
     setSelectedCourse(courseId);
-    const course = courses.find(c => c.id === courseId);
+    const course = courses.find((c) => c.id === courseId);
     if (course?.hasReview && course?.reviewLessons) {
       setCurrentReviewLesson(course.reviewLessons[0]);
       setCurrentQuestionIndex(0);
@@ -311,14 +338,17 @@ export default function Cursos() {
   };
 
   const handleAnswerSelect = (questionId: string, answerIndex: number) => {
-    setAnswers(prev => ({
+    setAnswers((prev) => ({
       ...prev,
-      [questionId]: answerIndex
+      [questionId]: answerIndex,
     }));
   };
 
   const handleNextQuestion = () => {
-    if (currentReviewLesson && currentQuestionIndex < currentReviewLesson.questions.length - 1) {
+    if (
+      currentReviewLesson &&
+      currentQuestionIndex < currentReviewLesson.questions.length - 1
+    ) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
@@ -340,7 +370,7 @@ export default function Cursos() {
   const calculateScore = () => {
     if (!currentReviewLesson) return 0;
     let correct = 0;
-    currentReviewLesson.questions.forEach(q => {
+    currentReviewLesson.questions.forEach((q) => {
       if (answers[q.id] === q.correctAnswer) {
         correct++;
       }
@@ -365,8 +395,8 @@ export default function Cursos() {
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Aprofunde seu conhecimento da fé católica através de cursos
-              estruturados e confiáveis. Escolha o seu nível e comece a
-              aprender hoje!
+              estruturados e confiáveis. Escolha o seu nível e comece a aprender
+              hoje!
             </p>
           </div>
 
@@ -458,14 +488,14 @@ export default function Cursos() {
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span
                     className={`px-3 py-1 text-xs font-semibold rounded-full border ${getLevelColor(
-                      course.level
+                      course.level,
                     )}`}
                   >
                     {course.level}
                   </span>
                   <span
                     className={`px-3 py-1 text-xs font-semibold rounded-full border ${getFormatColor(
-                      course.format
+                      course.format,
                     )}`}
                   >
                     {course.format}
@@ -535,7 +565,9 @@ export default function Cursos() {
           <div className="bg-card border border-border rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold">{currentReviewLesson.title}</h2>
+              <h2 className="text-2xl font-bold">
+                {currentReviewLesson.title}
+              </h2>
               <button
                 onClick={() => setShowReview(false)}
                 className="text-2xl text-muted-foreground hover:text-foreground"
@@ -547,14 +579,24 @@ export default function Cursos() {
             {/* Progress */}
             <div className="mb-6">
               <div className="flex justify-between mb-2 text-sm">
-                <span className="font-semibold">Pergunta {currentQuestionIndex + 1} de {currentReviewLesson.questions.length}</span>
-                <span className="text-muted-foreground">{Math.round(((currentQuestionIndex + 1) / currentReviewLesson.questions.length) * 100)}%</span>
+                <span className="font-semibold">
+                  Pergunta {currentQuestionIndex + 1} de{" "}
+                  {currentReviewLesson.questions.length}
+                </span>
+                <span className="text-muted-foreground">
+                  {Math.round(
+                    ((currentQuestionIndex + 1) /
+                      currentReviewLesson.questions.length) *
+                      100,
+                  )}
+                  %
+                </span>
               </div>
               <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
                 <div
                   className="h-full bg-primary transition-all"
                   style={{
-                    width: `${((currentQuestionIndex + 1) / currentReviewLesson.questions.length) * 100}%`
+                    width: `${((currentQuestionIndex + 1) / currentReviewLesson.questions.length) * 100}%`,
                   }}
                 />
               </div>
@@ -569,12 +611,22 @@ export default function Cursos() {
 
                 {/* Options */}
                 <div className="space-y-3 mb-8">
-                  {currentReviewLesson.questions[currentQuestionIndex].options.map((option, idx) => (
+                  {currentReviewLesson.questions[
+                    currentQuestionIndex
+                  ].options.map((option, idx) => (
                     <button
                       key={idx}
-                      onClick={() => handleAnswerSelect(currentReviewLesson.questions[currentQuestionIndex].id, idx)}
+                      onClick={() =>
+                        handleAnswerSelect(
+                          currentReviewLesson.questions[currentQuestionIndex]
+                            .id,
+                          idx,
+                        )
+                      }
                       className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
-                        answers[currentReviewLesson.questions[currentQuestionIndex].id] === idx
+                        answers[
+                          currentReviewLesson.questions[currentQuestionIndex].id
+                        ] === idx
                           ? "border-primary bg-primary/10"
                           : "border-border hover:border-primary/50"
                       }`}
@@ -582,13 +634,22 @@ export default function Cursos() {
                       <div className="flex items-center gap-3">
                         <div
                           className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                            answers[currentReviewLesson.questions[currentQuestionIndex].id] === idx
+                            answers[
+                              currentReviewLesson.questions[
+                                currentQuestionIndex
+                              ].id
+                            ] === idx
                               ? "border-primary bg-primary"
                               : "border-muted"
                           }`}
                         >
-                          {answers[currentReviewLesson.questions[currentQuestionIndex].id] === idx && (
-                            <span className="text-primary-foreground text-sm font-bold">✓</span>
+                          {answers[
+                            currentReviewLesson.questions[currentQuestionIndex]
+                              .id
+                          ] === idx && (
+                            <span className="text-primary-foreground text-sm font-bold">
+                              ✓
+                            </span>
                           )}
                         </div>
                         <span>{option}</span>
@@ -598,18 +659,35 @@ export default function Cursos() {
                 </div>
 
                 {/* Explanation (if answered) */}
-                {answers[currentReviewLesson.questions[currentQuestionIndex].id] !== undefined && (
-                  <div className={`p-4 rounded-lg mb-8 ${
-                    answers[currentReviewLesson.questions[currentQuestionIndex].id] === currentReviewLesson.questions[currentQuestionIndex].correctAnswer
-                      ? "bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100"
-                      : "bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100"
-                  }`}>
+                {answers[
+                  currentReviewLesson.questions[currentQuestionIndex].id
+                ] !== undefined && (
+                  <div
+                    className={`p-4 rounded-lg mb-8 ${
+                      answers[
+                        currentReviewLesson.questions[currentQuestionIndex].id
+                      ] ===
+                      currentReviewLesson.questions[currentQuestionIndex]
+                        .correctAnswer
+                        ? "bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100"
+                        : "bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100"
+                    }`}
+                  >
                     <p className="font-semibold mb-2">
-                      {answers[currentReviewLesson.questions[currentQuestionIndex].id] === currentReviewLesson.questions[currentQuestionIndex].correctAnswer
+                      {answers[
+                        currentReviewLesson.questions[currentQuestionIndex].id
+                      ] ===
+                      currentReviewLesson.questions[currentQuestionIndex]
+                        .correctAnswer
                         ? "✓ Correto!"
                         : "✗ Incorreto"}
                     </p>
-                    <p className="text-sm">{currentReviewLesson.questions[currentQuestionIndex].explanation}</p>
+                    <p className="text-sm">
+                      {
+                        currentReviewLesson.questions[currentQuestionIndex]
+                          .explanation
+                      }
+                    </p>
                   </div>
                 )}
 
@@ -623,7 +701,8 @@ export default function Cursos() {
                     ← Anterior
                   </button>
 
-                  {currentQuestionIndex === currentReviewLesson.questions.length - 1 ? (
+                  {currentQuestionIndex ===
+                  currentReviewLesson.questions.length - 1 ? (
                     <button
                       onClick={handleCompleteCourse}
                       className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors"
@@ -633,7 +712,11 @@ export default function Cursos() {
                   ) : (
                     <button
                       onClick={handleNextQuestion}
-                      disabled={answers[currentReviewLesson.questions[currentQuestionIndex].id] === undefined}
+                      disabled={
+                        answers[
+                          currentReviewLesson.questions[currentQuestionIndex].id
+                        ] === undefined
+                      }
                       className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-colors"
                     >
                       Próxima →

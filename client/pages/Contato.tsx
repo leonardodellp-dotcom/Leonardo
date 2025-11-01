@@ -27,7 +27,7 @@ export default function Contato() {
   const [success, setSuccess] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -37,7 +37,9 @@ export default function Contato() {
   };
 
   const formatPhone = (phone: string) => {
-    return phone.replace(/\D/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+    return phone
+      .replace(/\D/g, "")
+      .replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -83,9 +85,7 @@ export default function Contato() {
         throw dbError;
       }
 
-      setSuccess(
-        "Mensagem enviada com sucesso! Responderemos em breve. 🙏"
-      );
+      setSuccess("Mensagem enviada com sucesso! Responderemos em breve. 🙏");
       setFormData({
         name: "",
         email: "",
@@ -100,8 +100,7 @@ export default function Contato() {
     } catch (err: any) {
       console.error("Erro ao enviar mensagem:", err);
       setError(
-        err?.message ||
-          "Erro ao enviar mensagem. Por favor, tente novamente."
+        err?.message || "Erro ao enviar mensagem. Por favor, tente novamente.",
       );
     } finally {
       setLoading(false);
@@ -180,7 +179,9 @@ export default function Contato() {
             {/* Contact Info Sidebar */}
             <div className="lg:col-span-1">
               <div className="bg-card border border-primary/20 rounded-xl p-8 h-fit sticky top-20 shadow-glow">
-                <h3 className="text-xl font-bold mb-6 text-gradient">Informações</h3>
+                <h3 className="text-xl font-bold mb-6 text-gradient">
+                  Informações
+                </h3>
 
                 <div className="space-y-6">
                   {/* Location */}
@@ -191,8 +192,10 @@ export default function Contato() {
                     <div>
                       <p className="font-semibold mb-1">Localização</p>
                       <p className="text-sm text-muted-foreground">
-                        Igreja Santo Antonio<br />
-                        Av. Sallum - Vila Prado<br />
+                        Igreja Santo Antonio
+                        <br />
+                        Av. Sallum - Vila Prado
+                        <br />
                         São Carlos - SP
                       </p>
                     </div>
@@ -208,7 +211,9 @@ export default function Contato() {
                         className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-600/30 to-purple-500/20 border border-purple-500/30 hover:border-purple-500/60 hover:shadow-lg hover:shadow-purple-500/20 rounded-lg transition-all text-sm hover:scale-105"
                       >
                         <Instagram className="w-4 h-4 text-purple-400" />
-                        <span className="text-purple-300 font-semibold">Instagram</span>
+                        <span className="text-purple-300 font-semibold">
+                          Instagram
+                        </span>
                       </a>
                       <a
                         href="https://www.tiktok.com/@jucrisc"
@@ -217,7 +222,9 @@ export default function Contato() {
                         className="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-600/30 to-blue-500/20 border border-blue-500/30 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20 rounded-lg transition-all text-sm hover:scale-105"
                       >
                         <Music className="w-4 h-4 text-blue-400" />
-                        <span className="text-blue-300 font-semibold">TikTok</span>
+                        <span className="text-blue-300 font-semibold">
+                          TikTok
+                        </span>
                       </a>
                     </div>
                   </div>
@@ -247,7 +254,10 @@ export default function Contato() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold mb-2"
+                    >
                       Nome Completo
                     </label>
                     <input
@@ -265,7 +275,10 @@ export default function Contato() {
                   {/* Email and Phone */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold mb-2"
+                      >
                         Email
                       </label>
                       <input
@@ -280,7 +293,10 @@ export default function Contato() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-semibold mb-2"
+                      >
                         Telefone
                       </label>
                       <input
@@ -305,7 +321,10 @@ export default function Contato() {
 
                   {/* Subject */}
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-semibold mb-2"
+                    >
                       Assunto
                     </label>
                     <input
@@ -322,7 +341,10 @@ export default function Contato() {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold mb-2"
+                    >
                       Mensagem
                     </label>
                     <textarea

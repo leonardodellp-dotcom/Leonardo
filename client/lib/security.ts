@@ -4,12 +4,12 @@
  * Sanitize user input to prevent XSS attacks
  */
 export function sanitizeInput(input: string): string {
-  if (!input) return '';
-  
+  if (!input) return "";
+
   return input
-    .replace(/[<>]/g, '') // Remove angle brackets
-    .replace(/javascript:/gi, '') // Remove javascript: protocol
-    .replace(/on\w+\s*=/gi, '') // Remove event handlers
+    .replace(/[<>]/g, "") // Remove angle brackets
+    .replace(/javascript:/gi, "") // Remove javascript: protocol
+    .replace(/on\w+\s*=/gi, "") // Remove event handlers
     .trim();
 }
 
@@ -50,11 +50,11 @@ export function isOlderThanDays(dateStr: string, days: number): boolean {
 export function generateSlug(text: string): string {
   return text
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // Remove accents
-    .replace(/[^\w\s-]/g, '') // Remove special chars
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/--+/g, '-') // Remove multiple hyphens
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // Remove accents
+    .replace(/[^\w\s-]/g, "") // Remove special chars
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/--+/g, "-") // Remove multiple hyphens
     .trim();
 }
 
@@ -62,9 +62,9 @@ export function generateSlug(text: string): string {
  * Check if user is authenticated (admin)
  */
 export function isUserAuthenticated(): boolean {
-  if (typeof window === 'undefined') return false;
-  
-  const auth = localStorage.getItem('admin_auth');
+  if (typeof window === "undefined") return false;
+
+  const auth = localStorage.getItem("admin_auth");
   return !!auth;
 }
 
@@ -72,11 +72,11 @@ export function isUserAuthenticated(): boolean {
  * Get authenticated admin info
  */
 export function getAdminInfo(): { email: string; token: string } | null {
-  if (typeof window === 'undefined') return null;
-  
-  const auth = localStorage.getItem('admin_auth');
+  if (typeof window === "undefined") return null;
+
+  const auth = localStorage.getItem("admin_auth");
   if (!auth) return null;
-  
+
   try {
     return JSON.parse(auth);
   } catch {
@@ -102,17 +102,21 @@ export function isStrongPassword(password: string): boolean {
  */
 const requestCache = new Map<string, number[]>();
 
-export function checkRateLimit(key: string, maxRequests: number = 5, windowMs: number = 60000): boolean {
+export function checkRateLimit(
+  key: string,
+  maxRequests: number = 5,
+  windowMs: number = 60000,
+): boolean {
   const now = Date.now();
   const requests = requestCache.get(key) || [];
-  
+
   // Remove old requests outside the window
-  const recentRequests = requests.filter(time => now - time < windowMs);
-  
+  const recentRequests = requests.filter((time) => now - time < windowMs);
+
   if (recentRequests.length >= maxRequests) {
     return false; // Rate limit exceeded
   }
-  
+
   recentRequests.push(now);
   requestCache.set(key, recentRequests);
   return true; // Request allowed
@@ -124,12 +128,12 @@ export function checkRateLimit(key: string, maxRequests: number = 5, windowMs: n
 export function hashEmail(email: string): string {
   let hash = 0;
   const str = email.toLowerCase();
-  
+
   for (let i = 0; i < str.length; i++) {
     const char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
+    hash = (hash << 5) - hash + char;
     hash = hash & hash; // Convert to 32-bit integer
   }
-  
+
   return Math.abs(hash).toString(16);
 }

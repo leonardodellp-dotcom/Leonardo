@@ -162,7 +162,10 @@ export default function Header() {
               aria-label="Toggle theme"
             >
               {isDark ? (
-                <Sun className="w-5 h-5 text-accent animate-spin" style={{animationDuration: '20s'}} />
+                <Sun
+                  className="w-5 h-5 text-accent animate-spin"
+                  style={{ animationDuration: "20s" }}
+                />
               ) : (
                 <Moon className="w-5 h-5 text-primary" />
               )}
@@ -192,7 +195,10 @@ export default function Header() {
               aria-label="Toggle theme"
             >
               {isDark ? (
-                <Sun className="w-5 h-5 text-accent animate-spin" style={{animationDuration: '20s'}} />
+                <Sun
+                  className="w-5 h-5 text-accent animate-spin"
+                  style={{ animationDuration: "20s" }}
+                />
               ) : (
                 <Moon className="w-5 h-5 text-primary" />
               )}

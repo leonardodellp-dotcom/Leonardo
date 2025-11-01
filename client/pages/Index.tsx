@@ -151,7 +151,9 @@ export default function Index() {
       <section className="py-20 px-4 bg-gradient-to-b from-card/30 via-background to-background">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Nossos Recursos</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
+              Nossos Recursos
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Explore uma variedade de ferramentas e recursos para aprofundar
               sua fé e conectar-se com a comunidade
@@ -171,7 +173,9 @@ export default function Index() {
                     <div className="mb-4 inline-flex p-3 bg-primary/15 border border-primary/30 rounded-lg group-hover:bg-primary/25 group-hover:border-primary/50 transition-all">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
                     <p className="text-muted-foreground text-sm mb-4">
                       {service.description}
                     </p>
@@ -190,7 +194,9 @@ export default function Index() {
       <section className="py-20 px-4 bg-gradient-to-b from-background via-card/20 to-background">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Destaques</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
+              Destaques
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Conheça as principais iniciativas e programas do Jucrisc
             </p>

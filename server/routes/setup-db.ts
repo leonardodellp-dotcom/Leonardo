@@ -16,8 +16,9 @@ export const setupDatabase: RequestHandler = async (req, res) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     // Create admin_users table
-    await supabase.rpc("sql", {
-      sql: `
+    await supabase
+      .rpc("sql", {
+        sql: `
         CREATE TABLE IF NOT EXISTS admin_users (
           id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
           username TEXT UNIQUE NOT NULL,
@@ -26,13 +27,15 @@ export const setupDatabase: RequestHandler = async (req, res) => {
           last_login TIMESTAMP
         );
       `,
-    }).catch(() => {
-      // Table might already exist
-    });
+      })
+      .catch(() => {
+        // Table might already exist
+      });
 
     // Create user_registrations table
-    await supabase.rpc("sql", {
-      sql: `
+    await supabase
+      .rpc("sql", {
+        sql: `
         CREATE TABLE IF NOT EXISTS user_registrations (
           id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
           name TEXT NOT NULL,
@@ -43,13 +46,15 @@ export const setupDatabase: RequestHandler = async (req, res) => {
           created_at TIMESTAMP DEFAULT NOW()
         );
       `,
-    }).catch(() => {
-      // Table might already exist
-    });
+      })
+      .catch(() => {
+        // Table might already exist
+      });
 
     // Create events table
-    await supabase.rpc("sql", {
-      sql: `
+    await supabase
+      .rpc("sql", {
+        sql: `
         CREATE TABLE IF NOT EXISTS events (
           id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
           title TEXT NOT NULL,
@@ -61,13 +66,15 @@ export const setupDatabase: RequestHandler = async (req, res) => {
           created_by TEXT NOT NULL
         );
       `,
-    }).catch(() => {
-      // Table might already exist
-    });
+      })
+      .catch(() => {
+        // Table might already exist
+      });
 
     // Create mural_posts table
-    await supabase.rpc("sql", {
-      sql: `
+    await supabase
+      .rpc("sql", {
+        sql: `
         CREATE TABLE IF NOT EXISTS mural_posts (
           id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
           title TEXT NOT NULL,
@@ -78,13 +85,15 @@ export const setupDatabase: RequestHandler = async (req, res) => {
           created_by TEXT NOT NULL
         );
       `,
-    }).catch(() => {
-      // Table might already exist
-    });
+      })
+      .catch(() => {
+        // Table might already exist
+      });
 
     // Create contact_suggestions table
-    await supabase.rpc("sql", {
-      sql: `
+    await supabase
+      .rpc("sql", {
+        sql: `
         CREATE TABLE IF NOT EXISTS contact_suggestions (
           id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
           name TEXT NOT NULL,
@@ -95,9 +104,10 @@ export const setupDatabase: RequestHandler = async (req, res) => {
           created_at TIMESTAMP DEFAULT NOW()
         );
       `,
-    }).catch(() => {
-      // Table might already exist
-    });
+      })
+      .catch(() => {
+        // Table might already exist
+      });
 
     return res.json({
       success: true,

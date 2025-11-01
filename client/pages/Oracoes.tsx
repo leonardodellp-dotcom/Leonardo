@@ -120,7 +120,9 @@ Amém.`,
             <div className="inline-flex p-4 bg-primary/15 border border-primary/30 rounded-xl mb-4">
               <Heart className="w-5 h-5 text-primary" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">Orações Sagradas</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">
+              Orações Sagradas
+            </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Colecção de orações católicas para elevar sua alma e conectar-se
               com Deus. Eleve suas preces em comunidade e encontre paz
@@ -130,14 +132,13 @@ Amém.`,
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {prayers.map((prayer) => (
-              <div
-                key={prayer.id}
-                className="card-glow hover:scale-105 group"
-              >
+              <div key={prayer.id} className="card-glow hover:scale-105 group">
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">{prayer.title}</h3>
+                      <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+                        {prayer.title}
+                      </h3>
                       {prayer.author && (
                         <p className="text-sm text-muted-foreground">
                           {prayer.author}

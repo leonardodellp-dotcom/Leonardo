@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { LogOut, Plus, Calendar, FileText, Settings, Users } from "lucide-react";
+import {
+  LogOut,
+  Plus,
+  Calendar,
+  FileText,
+  Settings,
+  Users,
+} from "lucide-react";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -58,7 +65,8 @@ export default function AdminDashboard() {
             <div>
               <h1 className="text-4xl font-bold mb-2">Painel Admin</h1>
               <p className="text-muted-foreground">
-                Bem-vindo, <span className="text-primary font-semibold">{username}</span>
+                Bem-vindo,{" "}
+                <span className="text-primary font-semibold">{username}</span>
               </p>
             </div>
             <button
@@ -102,7 +110,10 @@ export default function AdminDashboard() {
               ].map((card, idx) => {
                 const Icon = card.icon;
                 return (
-                  <div key={idx} className="bg-card border border-border rounded-xl p-6">
+                  <div
+                    key={idx}
+                    className="bg-card border border-border rounded-xl p-6"
+                  >
                     <div className="flex items-center justify-between mb-4">
                       <p className="text-muted-foreground text-sm font-medium">
                         {card.label}
@@ -129,8 +140,8 @@ export default function AdminDashboard() {
                 </button>
               </div>
               <p className="text-muted-foreground">
-                Funcionalidade em desenvolvimento. Em breve você poderá adicionar, editar e
-                deletar eventos da agenda.
+                Funcionalidade em desenvolvimento. Em breve você poderá
+                adicionar, editar e deletar eventos da agenda.
               </p>
             </div>
           )}
@@ -146,8 +157,8 @@ export default function AdminDashboard() {
                 </button>
               </div>
               <p className="text-muted-foreground">
-                Funcionalidade em desenvolvimento. Em breve você poderá adicionar, editar e
-                deletar posts do mural.
+                Funcionalidade em desenvolvimento. Em breve você poderá
+                adicionar, editar e deletar posts do mural.
               </p>
             </div>
           )}
@@ -157,8 +168,8 @@ export default function AdminDashboard() {
             <div className="bg-card border border-border rounded-xl p-8">
               <h2 className="text-2xl font-bold mb-6">Usuários Registrados</h2>
               <p className="text-muted-foreground">
-                Funcionalidade em desenvolvimento. Em breve você poderá visualizar, editar e
-                gerenciar todos os usuários registrados.
+                Funcionalidade em desenvolvimento. Em breve você poderá
+                visualizar, editar e gerenciar todos os usuários registrados.
               </p>
             </div>
           )}

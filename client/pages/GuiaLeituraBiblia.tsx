@@ -1,19 +1,28 @@
 import Layout from "@/components/Layout";
-import { BookOpen, Lightbulb, CheckCircle, Heart, MapPin, Zap } from "lucide-react";
+import {
+  BookOpen,
+  Lightbulb,
+  CheckCircle,
+  Heart,
+  MapPin,
+  Zap,
+} from "lucide-react";
 
 export default function GuiaLeituraBiblia() {
   const readingPlans = [
     {
       title: "Plano de 365 Dias",
       duration: "1 ano",
-      description: "Leia a Bíblia inteira em um ano, um ou dois capítulos por dia",
+      description:
+        "Leia a Bíblia inteira em um ano, um ou dois capítulos por dia",
       difficulty: "Moderado",
       estimate: "15-30 min por dia",
     },
     {
       title: "Evangelhos em Foco",
       duration: "3 meses",
-      description: "Leia os quatro Evangelhos profundamente, focando na vida de Jesus",
+      description:
+        "Leia os quatro Evangelhos profundamente, focando na vida de Jesus",
       difficulty: "Fácil",
       estimate: "10-20 min por dia",
     },
@@ -27,7 +36,8 @@ export default function GuiaLeituraBiblia() {
     {
       title: "Livros Sapienciais",
       duration: "2-3 meses",
-      description: "Medite nos livros de sabedoria: Salmos, Provérbios, Eclesiastes, Sabedoria",
+      description:
+        "Medite nos livros de sabedoria: Salmos, Provérbios, Eclesiastes, Sabedoria",
       difficulty: "Fácil",
       estimate: "10-15 min por dia",
     },
@@ -37,32 +47,38 @@ export default function GuiaLeituraBiblia() {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Escolha um Lugar Tranquilo",
-      description: "Encontre um espaço confortável, livre de distrações, onde possa se concentrar na leitura.",
+      description:
+        "Encontre um espaço confortável, livre de distrações, onde possa se concentrar na leitura.",
     },
     {
       icon: <Zap className="w-6 h-6" />,
       title: "Comece Devagar",
-      description: "Não tente ler a Bíblia toda de uma vez. Comece com um livro curto como o Evangelho de Marcos.",
+      description:
+        "Não tente ler a Bíblia toda de uma vez. Comece com um livro curto como o Evangelho de Marcos.",
     },
     {
       icon: <Heart className="w-6 h-6" />,
       title: "Leia com Oração",
-      description: "Comece pedindo ao Espírito Santo que abra seu coração e mente para entender a Palavra.",
+      description:
+        "Comece pedindo ao Espírito Santo que abra seu coração e mente para entender a Palavra.",
     },
     {
       icon: <CheckCircle className="w-6 h-6" />,
       title: "Faça Anotações",
-      description: "Escreva seus pensamentos, perguntas e o que Deus está falando ao seu coração.",
+      description:
+        "Escreva seus pensamentos, perguntas e o que Deus está falando ao seu coração.",
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
       title: "Use Recursos Auxiliares",
-      description: "Explore notas de rodapé, dicionários bíblicos e comentários para melhor compreensão.",
+      description:
+        "Explore notas de rodapé, dicionários bíblicos e comentários para melhor compreensão.",
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
       title: "Leia Consistentemente",
-      description: "Estabeleça uma rotina diária. Até 10-15 minutos consistentes valem mais que longas sessões esporádicas.",
+      description:
+        "Estabeleça uma rotina diária. Até 10-15 minutos consistentes valem mais que longas sessões esporádicas.",
     },
   ];
 
@@ -107,9 +123,12 @@ export default function GuiaLeituraBiblia() {
             <div className="inline-flex p-4 bg-primary/10 rounded-xl mb-4">
               <BookOpen className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold mb-3">Como Começar a Ler a Bíblia</h1>
+            <h1 className="text-4xl font-bold mb-3">
+              Como Começar a Ler a Bíblia
+            </h1>
             <p className="text-lg text-muted-foreground">
-              Um guia prático e acessível para quem deseja começar sua jornada de leitura bíblica
+              Um guia prático e acessível para quem deseja começar sua jornada
+              de leitura bíblica
             </p>
           </div>
 
@@ -117,7 +136,8 @@ export default function GuiaLeituraBiblia() {
           <div className="bg-card border border-border rounded-xl p-8 mb-12">
             <h2 className="text-2xl font-bold mb-4">Por Que Ler a Bíblia?</h2>
             <p className="text-muted-foreground mb-4">
-              A Bíblia é a Palavra de Deus para conosco. Ler a Escritura Sagrada nos ajuda a:
+              A Bíblia é a Palavra de Deus para conosco. Ler a Escritura Sagrada
+              nos ajuda a:
             </p>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex gap-3">
@@ -142,7 +162,10 @@ export default function GuiaLeituraBiblia() {
           {/* Section Details */}
           <div className="space-y-8 mb-12">
             {sections.map((section, idx) => (
-              <div key={idx} className="bg-card border border-border rounded-xl p-8">
+              <div
+                key={idx}
+                className="bg-card border border-border rounded-xl p-8"
+              >
                 <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
                 <ul className="space-y-3">
                   {section.items.map((item, i) => (
@@ -161,16 +184,23 @@ export default function GuiaLeituraBiblia() {
             <h2 className="text-3xl font-bold mb-8">Planos de Leitura</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {readingPlans.map((plan, idx) => (
-                <div key={idx} className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all">
+                <div
+                  key={idx}
+                  className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all"
+                >
                   <h3 className="text-lg font-bold mb-2">{plan.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {plan.description}
+                  </p>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Duração:</span>
                       <span className="font-semibold">{plan.duration}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Tempo Diário:</span>
+                      <span className="text-muted-foreground">
+                        Tempo Diário:
+                      </span>
                       <span className="font-semibold">{plan.estimate}</span>
                     </div>
                     <div className="flex justify-between">
@@ -188,10 +218,15 @@ export default function GuiaLeituraBiblia() {
             <h2 className="text-3xl font-bold mb-8">Dicas Práticas</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {tips.map((tip, idx) => (
-                <div key={idx} className="bg-muted/30 border border-border rounded-lg p-6">
+                <div
+                  key={idx}
+                  className="bg-muted/30 border border-border rounded-lg p-6"
+                >
                   <div className="text-primary mb-3">{tip.icon}</div>
                   <h3 className="font-bold mb-2">{tip.title}</h3>
-                  <p className="text-sm text-muted-foreground">{tip.description}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {tip.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -204,21 +239,46 @@ export default function GuiaLeituraBiblia() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-primary mb-2">Evangelhos (Comece por aqui!)</h4>
+                <h4 className="font-semibold text-primary mb-2">
+                  Evangelhos (Comece por aqui!)
+                </h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
-                  <li>• <strong>Evangelho de Marcos</strong> - Mais curto e direto (inicio perfeito)</li>
-                  <li>• <strong>Evangelho de João</strong> - Profundo e espiritual</li>
-                  <li>• <strong>Evangelho de Lucas</strong> - Narrativa rica em detalhes</li>
-                  <li>• <strong>Evangelho de Mateus</strong> - Completo e bem estruturado</li>
+                  <li>
+                    • <strong>Evangelho de Marcos</strong> - Mais curto e direto
+                    (inicio perfeito)
+                  </li>
+                  <li>
+                    • <strong>Evangelho de João</strong> - Profundo e espiritual
+                  </li>
+                  <li>
+                    • <strong>Evangelho de Lucas</strong> - Narrativa rica em
+                    detalhes
+                  </li>
+                  <li>
+                    • <strong>Evangelho de Mateus</strong> - Completo e bem
+                    estruturado
+                  </li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-primary mb-2">Após os Evangelhos</h4>
+                <h4 className="font-semibold text-primary mb-2">
+                  Após os Evangelhos
+                </h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
-                  <li>• <strong>Salmos</strong> - Orações e reflexões poéticas</li>
-                  <li>• <strong>Romanos</strong> - Teologia profunda mas acessível</li>
-                  <li>• <strong>1 Coríntios</strong> - Respostas a questões práticas</li>
-                  <li>• <strong>Atos dos Apóstolos</strong> - História dos primeiros cristãos</li>
+                  <li>
+                    • <strong>Salmos</strong> - Orações e reflexões poéticas
+                  </li>
+                  <li>
+                    • <strong>Romanos</strong> - Teologia profunda mas acessível
+                  </li>
+                  <li>
+                    • <strong>1 Coríntios</strong> - Respostas a questões
+                    práticas
+                  </li>
+                  <li>
+                    • <strong>Atos dos Apóstolos</strong> - História dos
+                    primeiros cristãos
+                  </li>
                 </ul>
               </div>
             </div>
@@ -229,7 +289,9 @@ export default function GuiaLeituraBiblia() {
             <Heart className="w-8 h-8 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-bold mb-4">Oração Antes de Começar</h3>
             <p className="text-muted-foreground italic">
-              "Senhor, abra meu coração e mente para entender Sua Palavra. Que o Espírito Santo me guie nesta leitura. Ajude-me a encontrar em Suas páginas a sabedoria, consolo e direção que preciso. Amém."
+              "Senhor, abra meu coração e mente para entender Sua Palavra. Que o
+              Espírito Santo me guie nesta leitura. Ajude-me a encontrar em Suas
+              páginas a sabedoria, consolo e direção que preciso. Amém."
             </p>
           </div>
 

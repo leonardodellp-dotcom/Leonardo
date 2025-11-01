@@ -23,7 +23,7 @@ export default function AdminLogin() {
         setSuccess("Login realizado com sucesso!");
         localStorage.setItem("admin_token", "true");
         localStorage.setItem("admin_username", username);
-        
+
         setTimeout(() => {
           navigate("/admin-dashboard");
         }, 1500);
@@ -71,7 +71,10 @@ export default function AdminLogin() {
             {/* Form */}
             <form onSubmit={handleLogin} className="space-y-5">
               <div>
-                <label htmlFor="username" className="block text-sm font-semibold mb-2">
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-semibold mb-2"
+                >
                   Usuário
                 </label>
                 <input
@@ -86,7 +89,10 @@ export default function AdminLogin() {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-semibold mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-semibold mb-2"
+                >
                   Senha
                 </label>
                 <input
@@ -112,8 +118,8 @@ export default function AdminLogin() {
             {/* Info */}
             <div className="mt-8 pt-8 border-t border-border">
               <p className="text-xs text-muted-foreground text-center">
-                Apenas administradores podem acessar esta área. Para obter acesso, 
-                entre em contato com o gerenciador do Jucrisc.
+                Apenas administradores podem acessar esta área. Para obter
+                acesso, entre em contato com o gerenciador do Jucrisc.
               </p>
             </div>
           </div>

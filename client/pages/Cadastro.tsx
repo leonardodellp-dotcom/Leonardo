@@ -16,9 +16,7 @@ export default function Cadastro() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     if (name === "group") {
@@ -36,7 +34,9 @@ export default function Cadastro() {
   };
 
   const formatPhone = (phone: string) => {
-    return phone.replace(/\D/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+    return phone
+      .replace(/\D/g, "")
+      .replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +47,13 @@ export default function Cadastro() {
 
     try {
       // Validate fields
-      if (!formData.name || !formData.age || !formData.group || !formData.email || !formData.phone) {
+      if (
+        !formData.name ||
+        !formData.age ||
+        !formData.group ||
+        !formData.email ||
+        !formData.phone
+      ) {
         setError("Por favor, preencha todos os campos!");
         setLoading(false);
         return;
@@ -103,7 +109,7 @@ export default function Cadastro() {
       console.error("Erro ao cadastrar:", err);
       setError(
         err?.message ||
-          "Erro ao cadastrar. Por favor, tente novamente mais tarde."
+          "Erro ao cadastrar. Por favor, tente novamente mais tarde.",
       );
     } finally {
       setLoading(false);
@@ -146,7 +152,10 @@ export default function Cadastro() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* Nome */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-semibold mb-2"
+                  >
                     Nome Completo
                   </label>
                   <input
@@ -163,7 +172,10 @@ export default function Cadastro() {
 
                 {/* Idade */}
                 <div>
-                  <label htmlFor="age" className="block text-sm font-semibold mb-2">
+                  <label
+                    htmlFor="age"
+                    className="block text-sm font-semibold mb-2"
+                  >
                     Idade
                   </label>
                   <input
@@ -182,7 +194,10 @@ export default function Cadastro() {
 
                 {/* Email */}
                 <div className="md:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -199,7 +214,10 @@ export default function Cadastro() {
 
                 {/* Telefone */}
                 <div className="md:col-span-2">
-                  <label htmlFor="phone" className="block text-sm font-semibold mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-semibold mb-2"
+                  >
                     Telefone (com DDD)
                   </label>
                   <input
@@ -223,7 +241,10 @@ export default function Cadastro() {
 
                 {/* Grupo */}
                 <div className="md:col-span-2">
-                  <label htmlFor="group" className="block text-sm font-semibold mb-2">
+                  <label
+                    htmlFor="group"
+                    className="block text-sm font-semibold mb-2"
+                  >
                     De qual grupo você faz parte?
                   </label>
                   <input

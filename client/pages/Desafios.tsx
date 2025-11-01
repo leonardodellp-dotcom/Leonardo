@@ -1,6 +1,13 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { Zap, CheckCircle, XCircle, Trophy, RotateCcw, Lock } from "lucide-react";
+import {
+  Zap,
+  CheckCircle,
+  XCircle,
+  Trophy,
+  RotateCcw,
+  Lock,
+} from "lucide-react";
 
 interface Question {
   id: string;
@@ -28,15 +35,22 @@ const questionBank: Question[] = [
     question: "Quantos sacramentos existem na Igreja Católica?",
     options: ["5", "7", "9", "3"],
     correctAnswer: 1,
-    explanation: "Os sete sacramentos são: Batismo, Confirmação, Eucaristia, Penitência, Unção dos Enfermos, Ordem Sagrada e Matrimônio.",
+    explanation:
+      "Os sete sacramentos são: Batismo, Confirmação, Eucaristia, Penitência, Unção dos Enfermos, Ordem Sagrada e Matrimônio.",
     difficulty: "fácil",
   },
   {
     id: "f2",
     question: "Qual é o mandamento maior segundo Jesus?",
-    options: ["Não matarás", "Amar a Deus e ao próximo", "Guardar o sábado", "Honrar os pais"],
+    options: [
+      "Não matarás",
+      "Amar a Deus e ao próximo",
+      "Guardar o sábado",
+      "Honrar os pais",
+    ],
     correctAnswer: 1,
-    explanation: "Jesus respondeu: 'Amarás ao Senhor, teu Deus, de todo o coração... e amarás ao teu próximo como a ti mesmo.'",
+    explanation:
+      "Jesus respondeu: 'Amarás ao Senhor, teu Deus, de todo o coração... e amarás ao teu próximo como a ti mesmo.'",
     difficulty: "fácil",
   },
   {
@@ -44,7 +58,8 @@ const questionBank: Question[] = [
     question: "Quem foi mãe de Jesus?",
     options: ["Maria Madalena", "Maria de Nazaré", "Martha", "Salomé"],
     correctAnswer: 1,
-    explanation: "Maria de Nazaré é a mãe de Jesus Cristo e Rainha dos Céus na tradição católica.",
+    explanation:
+      "Maria de Nazaré é a mãe de Jesus Cristo e Rainha dos Céus na tradição católica.",
     difficulty: "fácil",
   },
   {
@@ -52,7 +67,8 @@ const questionBank: Question[] = [
     question: "Em qual livro da Bíblia encontramos o Pai Nosso?",
     options: ["Marcos", "Mateus", "Lucas", "Ambos Mateus e Lucas"],
     correctAnswer: 3,
-    explanation: "O Pai Nosso aparece em Mateus 6:9-13 e Lucas 11:2-4 com variações menores.",
+    explanation:
+      "O Pai Nosso aparece em Mateus 6:9-13 e Lucas 11:2-4 com variações menores.",
     difficulty: "fácil",
   },
   {
@@ -60,7 +76,8 @@ const questionBank: Question[] = [
     question: "Qual sacramento marca a entrada de uma pessoa na Igreja?",
     options: ["Confirmação", "Batismo", "Penitência", "Eucaristia"],
     correctAnswer: 1,
-    explanation: "O Batismo é o sacramento que marca a entrada de uma pessoa na comunidade eclesial.",
+    explanation:
+      "O Batismo é o sacramento que marca a entrada de uma pessoa na comunidade eclesial.",
     difficulty: "fácil",
   },
   {
@@ -68,7 +85,8 @@ const questionBank: Question[] = [
     question: "Quantas vezes o rosário se repete?",
     options: ["1", "2", "3", "5"],
     correctAnswer: 3,
-    explanation: "O rosário completo consiste em 5 décadas (sets de 10 Ave-Marias), divididas em mistérios.",
+    explanation:
+      "O rosário completo consiste em 5 décadas (sets de 10 Ave-Marias), divididas em mistérios.",
     difficulty: "fácil",
   },
 
@@ -76,25 +94,39 @@ const questionBank: Question[] = [
   {
     id: "m1",
     question: "Em qual concílio foi definido o conceito de transubstanciação?",
-    options: ["Concílio de Niceia", "Concílio de Trento", "Concílio Vaticano II", "Concílio de Éfeso"],
+    options: [
+      "Concílio de Niceia",
+      "Concílio de Trento",
+      "Concílio Vaticano II",
+      "Concílio de Éfeso",
+    ],
     correctAnswer: 1,
-    explanation: "O Concílio de Trento (1545-1563) confirmou e definiu a doutrina da transubstanciação na Eucaristia.",
+    explanation:
+      "O Concílio de Trento (1545-1563) confirmou e definiu a doutrina da transubstanciação na Eucaristia.",
     difficulty: "médio",
   },
   {
     id: "m2",
-    question: "Qual é o nome do instrumento de penitência usado em algumas tradições católicas?",
+    question:
+      "Qual é o nome do instrumento de penitência usado em algumas tradições católicas?",
     options: ["Cilício", "Escapulário", "Scapular", "Disciplina"],
     correctAnswer: 0,
-    explanation: "O cilício é uma veste áspera ou corrente usada como forma de mortificação penitencial.",
+    explanation:
+      "O cilício é uma veste áspera ou corrente usada como forma de mortificação penitencial.",
     difficulty: "médio",
   },
   {
     id: "m3",
     question: "Qual papa iniciou a Reforma Católica?",
-    options: ["Papa João Paulo II", "Papa Pio XII", "Papa Paulo III", "Papa Clemente VII"],
+    options: [
+      "Papa João Paulo II",
+      "Papa Pio XII",
+      "Papa Paulo III",
+      "Papa Clemente VII",
+    ],
     correctAnswer: 2,
-    explanation: "Papa Paulo III (1534-1549) iniciou a Reforma Católica convocando o Concílio de Trento.",
+    explanation:
+      "Papa Paulo III (1534-1549) iniciou a Reforma Católica convocando o Concílio de Trento.",
     difficulty: "médio",
   },
   {
@@ -102,7 +134,8 @@ const questionBank: Question[] = [
     question: "Quantos evangelhos canônicos existem no Novo Testamento?",
     options: ["3", "4", "5", "7"],
     correctAnswer: 1,
-    explanation: "Existem 4 evangelhos canônicos: Mateus, Marcos, Lucas e João.",
+    explanation:
+      "Existem 4 evangelhos canônicos: Mateus, Marcos, Lucas e João.",
     difficulty: "médio",
   },
   {
@@ -110,25 +143,35 @@ const questionBank: Question[] = [
     question: "Qual é a oração central da missa católica?",
     options: ["Oração Eucarística", "Credo", "Pai Nosso", "Ave-Maria"],
     correctAnswer: 0,
-    explanation: "A Oração Eucarística (também chamada Canon) é o centro da celebração eucarística.",
+    explanation:
+      "A Oração Eucarística (também chamada Canon) é o centro da celebração eucarística.",
     difficulty: "médio",
   },
 
   // Difícil
   {
     id: "d1",
-    question: "Em qual sínodo o papa João Paulo II estabeleceu a Jornada Mundial da Juventude?",
-    options: ["Sínodo de 1985", "Sínodo de 1987", "Sínodo de 1989", "Nunca foi estabelecido em um sínodo"],
+    question:
+      "Em qual sínodo o papa João Paulo II estabeleceu a Jornada Mundial da Juventude?",
+    options: [
+      "Sínodo de 1985",
+      "Sínodo de 1987",
+      "Sínodo de 1989",
+      "Nunca foi estabelecido em um sínodo",
+    ],
     correctAnswer: 3,
-    explanation: "A Jornada Mundial da Juventude foi iniciada pelo Papa João Paulo II em 1984 e se tornou tradição, mas não através de um sínodo específico.",
+    explanation:
+      "A Jornada Mundial da Juventude foi iniciada pelo Papa João Paulo II em 1984 e se tornou tradição, mas não através de um sínodo específico.",
     difficulty: "difícil",
   },
   {
     id: "d2",
-    question: "Qual é o nome da doutrina que explica como graça e livre arbítrio coexistem?",
+    question:
+      "Qual é o nome da doutrina que explica como graça e livre arbítrio coexistem?",
     options: ["Semipelagianismo", "Molinismo", "Determinismo", "Arminianismo"],
     correctAnswer: 1,
-    explanation: "O Molinismo, desenvolvido por Luís de Molina, é a posição católica sobre a compatibilidade entre graça divina e livre arbítrio.",
+    explanation:
+      "O Molinismo, desenvolvido por Luís de Molina, é a posição católica sobre a compatibilidade entre graça divina e livre arbítrio.",
     difficulty: "difícil",
   },
   {
@@ -136,22 +179,31 @@ const questionBank: Question[] = [
     question: "Em qual ano foi proclamado o dogma da Assunção de Maria?",
     options: ["1854", "1950", "1965", "1980"],
     correctAnswer: 1,
-    explanation: "O papa Pio XII proclamou solemnemente o dogma da Assunção de Maria em 1950 (Munificentissimus Deus).",
+    explanation:
+      "O papa Pio XII proclamou solemnemente o dogma da Assunção de Maria em 1950 (Munificentissimus Deus).",
     difficulty: "difícil",
   },
   {
     id: "d4",
-    question: "Qual cardenal foi o redator principal da Constituição Gaudium et Spes do Vaticano II?",
-    options: ["Cardenal Ratzinger", "Cardenal Wojtyla", "Cardenal Suenens", "Cardenal Leraro"],
+    question:
+      "Qual cardenal foi o redator principal da Constituição Gaudium et Spes do Vaticano II?",
+    options: [
+      "Cardenal Ratzinger",
+      "Cardenal Wojtyla",
+      "Cardenal Suenens",
+      "Cardenal Leraro",
+    ],
     correctAnswer: 3,
-    explanation: "O Cardenal Giacomo Lercaro foi um dos redatores principais da Constituição Gaudium et Spes.",
+    explanation:
+      "O Cardenal Giacomo Lercaro foi um dos redatores principais da Constituição Gaudium et Spes.",
     difficulty: "difícil",
   },
 
   // Impossível
   {
     id: "i1",
-    question: "Qual é a velocidade da luz em vacum segundo Santo Tomás de Aquino?",
+    question:
+      "Qual é a velocidade da luz em vacum segundo Santo Tomás de Aquino?",
     options: [
       "Imediata (infinita)",
       "A mesma de hoje",
@@ -159,20 +211,29 @@ const questionBank: Question[] = [
       "Variável conforme Deus permitia",
     ],
     correctAnswer: 2,
-    explanation: "Santo Tomás de Aquino não discutiu a velocidade da luz, pois a ciência moderna ainda não havia desenvolvido esse conceito.",
+    explanation:
+      "Santo Tomás de Aquino não discutiu a velocidade da luz, pois a ciência moderna ainda não havia desenvolvido esse conceito.",
     difficulty: "impossível",
   },
   {
     id: "i2",
-    question: "Quantas horas de oração São Bento exigiu diariamente em sua Regra?",
-    options: ["Não quantificou", "8 horas", "12 horas", "Conforme a capacidade"],
+    question:
+      "Quantas horas de oração São Bento exigiu diariamente em sua Regra?",
+    options: [
+      "Não quantificou",
+      "8 horas",
+      "12 horas",
+      "Conforme a capacidade",
+    ],
     correctAnswer: 3,
-    explanation: "Na Regra de São Bento, o tempo era determinado 'conforme a capacidade' individual, não sendo fixo em horas.",
+    explanation:
+      "Na Regra de São Bento, o tempo era determinado 'conforme a capacidade' individual, não sendo fixo em horas.",
     difficulty: "impossível",
   },
   {
     id: "i3",
-    question: "Qual é a fórmula matemática para calcular o grau de santidade de uma pessoa?",
+    question:
+      "Qual é a fórmula matemática para calcular o grau de santidade de uma pessoa?",
     options: [
       "Não existe tal f��rmula",
       "Virtudes x Obras / Pecados",
@@ -180,7 +241,8 @@ const questionBank: Question[] = [
       "Estabelecido pelo Vaticano em 1456",
     ],
     correctAnswer: 0,
-    explanation: "Não existe fórmula matemática para medir santidade. A canonização é baseada em investigação teológica e milagres verificados.",
+    explanation:
+      "Não existe fórmula matemática para medir santidade. A canonização é baseada em investigação teológica e milagres verificados.",
     difficulty: "impossível",
   },
 ];
@@ -197,7 +259,9 @@ export default function Desafios() {
   });
 
   const startQuiz = (level: "fácil" | "médio" | "difícil" | "impossível") => {
-    const filteredQuestions = questionBank.filter((q) => q.difficulty === level);
+    const filteredQuestions = questionBank.filter(
+      (q) => q.difficulty === level,
+    );
     const shuffled = filteredQuestions
       .sort(() => Math.random() - 0.5)
       .slice(0, 5);
@@ -272,8 +336,8 @@ export default function Desafios() {
                 Desafios Católicos
               </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Participe de quizzes desafiadores sobre fé, história da Igreja e doutrina católica. 
-                Escolha um nível e teste seu conhecimento!
+                Participe de quizzes desafiadores sobre fé, história da Igreja e
+                doutrina católica. Escolha um nível e teste seu conhecimento!
               </p>
             </div>
 
@@ -284,39 +348,43 @@ export default function Desafios() {
                   level: "fácil",
                   title: "🟢 Fácil",
                   description: "Perguntas básicas sobre a fé católica",
-                  color: "from-green-500/10 via-green-500/5 to-transparent border-green-500/30",
+                  color:
+                    "from-green-500/10 via-green-500/5 to-transparent border-green-500/30",
                 },
                 {
                   level: "médio",
                   title: "🟡 Médio",
                   description: "Conhecimento intermediário necessário",
-                  color: "from-yellow-500/10 via-yellow-500/5 to-transparent border-yellow-500/30",
+                  color:
+                    "from-yellow-500/10 via-yellow-500/5 to-transparent border-yellow-500/30",
                 },
                 {
                   level: "difícil",
                   title: "🔴 Difícil",
                   description: "Para os mais conhecedores",
-                  color: "from-red-500/10 via-red-500/5 to-transparent border-red-500/30",
+                  color:
+                    "from-red-500/10 via-red-500/5 to-transparent border-red-500/30",
                 },
                 {
                   level: "impossível",
                   title: "⚫ Impossível",
                   description: "Apenas para os maiores especialistas",
-                  color: "from-purple-500/10 via-purple-500/5 to-transparent border-purple-500/30",
+                  color:
+                    "from-purple-500/10 via-purple-500/5 to-transparent border-purple-500/30",
                 },
               ].map(({ level, title, description, color }) => (
                 <button
                   key={level}
                   onClick={() =>
-                    startQuiz(level as "fácil" | "médio" | "difícil" | "impossível")
+                    startQuiz(
+                      level as "fácil" | "médio" | "difícil" | "impossível",
+                    )
                   }
                   className={`bg-gradient-to-br ${color} border rounded-xl p-8 text-left hover:shadow-lg transition-all hover:scale-105 active:scale-95`}
                 >
                   <h3 className="text-2xl font-bold mb-2">{title}</h3>
                   <p className="text-muted-foreground mb-4">{description}</p>
-                  <div className="text-primary font-semibold">
-                    Começar →
-                  </div>
+                  <div className="text-primary font-semibold">Começar →</div>
                 </button>
               ))}
             </div>
@@ -369,7 +437,9 @@ export default function Desafios() {
       icon = <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />;
     } else {
       message = "💪 Desafio aceito! Tente novamente";
-      icon = <Zap className="w-16 h-16 text-accent mx-auto mb-4 animate-pulse" />;
+      icon = (
+        <Zap className="w-16 h-16 text-accent mx-auto mb-4 animate-pulse" />
+      );
     }
 
     return (
@@ -382,7 +452,9 @@ export default function Desafios() {
               <p className="text-2xl font-bold text-primary mb-2">
                 {quizState.score} de {quizState.questions.length}
               </p>
-              <p className="text-3xl font-bold text-accent mb-6">{Math.round(percentage)}%</p>
+              <p className="text-3xl font-bold text-accent mb-6">
+                {Math.round(percentage)}%
+              </p>
               <p className="text-xl mb-8">{message}</p>
 
               <button
@@ -404,7 +476,8 @@ export default function Desafios() {
   }
 
   const question = quizState.questions[quizState.currentQuestion];
-  const progress = ((quizState.currentQuestion + 1) / quizState.questions.length) * 100;
+  const progress =
+    ((quizState.currentQuestion + 1) / quizState.questions.length) * 100;
 
   return (
     <Layout>
@@ -414,9 +487,12 @@ export default function Desafios() {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-4">
               <span className="text-sm font-semibold text-primary">
-                Pergunta {quizState.currentQuestion + 1} de {quizState.questions.length}
+                Pergunta {quizState.currentQuestion + 1} de{" "}
+                {quizState.questions.length}
               </span>
-              <span className="text-sm font-semibold">Pontuação: {quizState.score}</span>
+              <span className="text-sm font-semibold">
+                Pontuação: {quizState.score}
+              </span>
             </div>
             <div className="w-full bg-muted rounded-full h-2">
               <div
