@@ -278,7 +278,7 @@ export default function Cursos() {
       case "Iniciante":
         return "bg-green-500/20 text-green-400 border-green-500/30";
       case "Intermediário":
-        return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
+        return "bg-blue-600/20 text-blue-300 border-blue-600/30";
       case "Avançado":
         return "bg-red-500/20 text-red-400 border-red-500/30";
       default:
