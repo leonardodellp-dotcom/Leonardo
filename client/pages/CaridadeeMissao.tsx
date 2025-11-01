@@ -189,14 +189,14 @@ export default function CaridadeeMissao() {
                       project.status === "active"
                         ? "bg-primary/10"
                         : project.status === "planning"
-                        ? "bg-yellow-100 dark:bg-yellow-900"
-                        : "bg-green-100 dark:bg-green-900"
+                        ? "bg-blue-600/20 dark:bg-blue-600/20"
+                        : "bg-green-600/20 dark:bg-green-600/20"
                     } text-primary`}>
                       {project.icon}
                     </div>
                     <span className={`text-xs font-bold px-3 py-1 rounded-full ${
                       project.status === "active"
-                        ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                        ? "bg-green-600/20 text-green-300 dark:bg-green-600/20 dark:text-green-300"
                         : project.status === "planning"
                         ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
                         : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
