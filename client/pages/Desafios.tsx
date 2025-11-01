@@ -89,6 +89,140 @@ const questionBank: Question[] = [
       "O rosário completo consiste em 5 décadas (sets de 10 Ave-Marias), divididas em mistérios.",
     difficulty: "fácil",
   },
+  {
+    id: "f7",
+    question: "Qual é o mandamento que Jesus resumiu como 'amar ao próximo'?",
+    options: ["Primeiro", "Segundo", "Não é um dos dez", "Todos"],
+    correctAnswer: 1,
+    explanation: "O segundo mandamento sintetiza a nossa obrigação para com o próximo.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f8",
+    question: "Quantos apóstolos Jesus escolheu?",
+    options: ["10", "11", "12", "13"],
+    correctAnswer: 2,
+    explanation:
+      "Jesus escolheu 12 apóstolos para ajudá-lo em sua missão e para guiar a Igreja.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f9",
+    question: "Qual é o maior mandamento segundo Jesus?",
+    options: [
+      "Honrar pai e mãe",
+      "Amar a Deus de todo coração",
+      "Não roubar",
+      "Guardar o repouso",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Jesus afirmou que o maior mandamento é amar a Deus com todo o coração, alma e mente.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f10",
+    question: "Em qual cidade Jesus nasceu?",
+    options: ["Nazaré", "Jerusalém", "Belém", "Jericó"],
+    correctAnswer: 2,
+    explanation:
+      "Jesus nasceu em Belém da Judeia, conforme profetizado pelos profetas.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f11",
+    question: "Qual sacramento confere o Espírito Santo de forma especial?",
+    options: ["Batismo", "Confirmação", "Eucaristia", "Penitência"],
+    correctAnswer: 1,
+    explanation:
+      "A Confirmação completa a iniciação cristã e confere especialmente o Espírito Santo.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f12",
+    question: "Quantos Evangelhos sinópticos existem?",
+    options: ["1", "2", "3", "4"],
+    correctAnswer: 2,
+    explanation:
+      "Mateus, Marcos e Lucas são os três Evangelhos sinópticos que compartilham muitas narrativas.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f13",
+    question: "Qual é o significado de 'Pentecostes'?",
+    options: ["Cinquenta dias", "Festa do pão", "Primeiro dia", "Ascensão"],
+    correctAnswer: 0,
+    explanation:
+      "Pentecostes significa 'cinquenta dias', comemorado 50 dias após a Páscoa.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f14",
+    question: "Qual foi o primeiro milagre de Jesus segundo São João?",
+    options: [
+      "Cura de um leproso",
+      "Transformação da água em vinho",
+      "Multiplicação dos pães",
+      "Caminhada sobre a água",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "O primeiro milagre relatado por São João foi a transformação da água em vinho em Caná.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f15",
+    question: "Qual é o livro mais curto do Novo Testamento?",
+    options: ["2 João", "3 João", "Filemom", "2 Pedro"],
+    correctAnswer: 2,
+    explanation: "Filemom é o livro mais curto do Novo Testamento com apenas 25 versículos.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f16",
+    question: "Quantos Dez Mandamentos foram dados a Moisés?",
+    options: ["5", "10", "15", "20"],
+    correctAnswer: 1,
+    explanation:
+      "Deus entregou a Moisés os Dez Mandamentos gravados em duas tábuas de pedra.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f17",
+    question: "Qual é o significado de 'Eucaristia'?",
+    options: ["Sacrifício", "Ação de graças", "Comunhão", "Bênção"],
+    correctAnswer: 1,
+    explanation:
+      "Eucaristia vem do grego e significa 'ação de graças', referindo-se ao sacrifício de Cristo.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f18",
+    question: "Quantos livros tem o Velho Testamento?",
+    options: ["27", "39", "40", "66"],
+    correctAnswer: 1,
+    explanation:
+      "O Velho Testamento tem 39 livros no cânone católico (sem os deuterocanônicos).",
+    difficulty: "fácil",
+  },
+  {
+    id: "f19",
+    question: "Qual é a oração que mais rezamos na Eucaristia?",
+    options: ["Glória", "Credo", "Pai Nosso", "Ave-Maria"],
+    correctAnswer: 2,
+    explanation:
+      "O Pai Nosso é rezado durante a consagração como uma das orações centrais da missa.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f20",
+    question: "Qual é o sacramento do perdão dos pecados?",
+    options: ["Unção dos Enfermos", "Penitência", "Batismo", "Matrimônio"],
+    correctAnswer: 1,
+    explanation:
+      "A Penitência (ou Reconciliação) é o sacramento através do qual recebemos o perdão dos pecados.",
+    difficulty: "fácil",
+  },
 
   // Médio
   {
