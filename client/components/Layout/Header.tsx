@@ -26,8 +26,6 @@ export default function Header() {
   const mainNavItems = [
     { label: "Início", path: "/" },
     { label: "Igreja", path: "/igreja" },
-    { label: "Mural", path: "/mural" },
-    { label: "Agenda", path: "/agenda" },
     { label: "Contato", path: "/contato" },
   ];
 
