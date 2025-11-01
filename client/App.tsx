@@ -12,6 +12,7 @@ import Versiculos from "./pages/Versiculos";
 import Mural from "./pages/Mural";
 import Oracoes from "./pages/Oracoes";
 import AprenderRezar from "./pages/AprenderRezar";
+import GuiaLeituraBiblia from "./pages/GuiaLeituraBiblia";
 import CalendarioLiturgico from "./pages/CalendarioLiturgico";
 import PedidosOracao from "./pages/PedidosOracao";
 import Agenda from "./pages/Agenda";
