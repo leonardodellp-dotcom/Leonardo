@@ -277,6 +277,66 @@ export default function AprenderRezar() {
             ))}
           </div>
 
+          {/* Daily Rosary Section */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+              <Calendar className="w-8 h-8 text-primary" />
+              Terço de Cada Dia - Mistérios Recomendados
+            </h2>
+            <div className="grid grid-cols-1 gap-6">
+              {dailyRosaries.map((day, idx) => (
+                <div key={idx} className={`border rounded-xl p-6 ${day.color} border-opacity-30`}>
+                  <h3 className="text-xl font-bold mb-4">{day.day}</h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Mysteries */}
+                    <div>
+                      <h4 className="font-semibold text-sm mb-3 text-muted-foreground uppercase">Mistérios</h4>
+                      <ul className="space-y-2">
+                        {day.mysteries.map((mystery, i) => (
+                          <li key={i} className="flex gap-2 text-sm">
+                            {i === 0 ? (
+                              <span className="font-bold text-primary min-w-fit">{mystery}</span>
+                            ) : (
+                              <>
+                                <span className="text-primary font-bold min-w-fit">•</span>
+                                <span>{mystery}</span>
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Readings */}
+                    <div>
+                      <h4 className="font-semibold text-sm mb-3 text-muted-foreground uppercase">Leituras Recomendadas</h4>
+                      <ul className="space-y-2">
+                        {day.readings.map((reading, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-muted-foreground">
+                            <span className="text-primary font-bold min-w-fit">📖</span>
+                            <span>{reading}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Info about Rosary */}
+            <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-6 mt-8">
+              <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-3">💡 Sobre os Mistérios do Rosário</h4>
+              <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-200">
+                <li>• <strong>Mistérios Gozosos</strong>: Meditam sobre a alegria e esperança trazidas pelo nascimento de Jesus</li>
+                <li>• <strong>Mistérios Dolorosos</strong>: Refletem sobre o sofrimento de Cristo pela salvação do mundo</li>
+                <li>• <strong>Mistérios Gloriosos</strong>: Celebram a vitória de Cristo sobre a morte e a glória de Maria</li>
+                <li>• <strong>Mistérios Luminosos</strong>: (Opcional) Adicionados pelo Papa João Paulo II, focam na vida pública de Jesus</li>
+              </ul>
+            </div>
+          </div>
+
           {/* Tips Section */}
           <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 border border-border mb-12">
             <h3 className="text-2xl font-bold mb-6">
