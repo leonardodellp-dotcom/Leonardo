@@ -238,7 +238,7 @@ export default function Cursos() {
               question: "Qual é o método mais eficaz de evangelização?",
               options: ["Pregar na rua", "Testemunho pessoal", "Distribuir panfletos", "Crítica às outras religiões"],
               correctAnswer: 1,
-              explanation: "O testemunho pessoal é o método mais poderoso, pois mostra a transformação real da fé.",
+              explanation: "O testemunho pessoal �� o método mais poderoso, pois mostra a transformação real da fé.",
             },
           ],
         },
@@ -471,21 +471,32 @@ export default function Cursos() {
                 </div>
 
                 {/* CTA Button */}
-                {course.link && course.link !== "#" ? (
-                  <a
-                    href={course.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-sm transition-colors"
-                  >
-                    <LinkIcon className="w-4 h-4" />
-                    Acessar Curso
-                  </a>
-                ) : (
-                  <p className="text-primary font-semibold text-sm">
-                    ✓ Conheça este curso
-                  </p>
-                )}
+                <div className="flex items-center gap-2">
+                  {course.link && course.link !== "#" ? (
+                    <a
+                      href={course.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-sm transition-colors"
+                    >
+                      <LinkIcon className="w-4 h-4" />
+                      Acessar Curso
+                    </a>
+                  ) : (
+                    <p className="text-primary font-semibold text-sm">
+                      ✓ Conheça este curso
+                    </p>
+                  )}
+                  {course.hasReview && (
+                    <button
+                      onClick={() => handleCourseClick(course.id)}
+                      className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold text-sm transition-colors ml-2 px-3 py-1 bg-accent/10 rounded-lg"
+                    >
+                      <CheckCircle className="w-4 h-4" />
+                      Revisar
+                    </button>
+                  )}
+                </div>
               </div>
             ))}
           </div>
