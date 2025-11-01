@@ -158,38 +158,6 @@ export default function Igreja() {
             </div>
           </div>
 
-          {/* Features/Services */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Sacramentos e Serviços
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {features.map((feature, idx) => {
-                const Icon = feature.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                        <Icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-bold text-lg mb-2">
-                          {feature.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 border border-border text-center">
             <h3 className="text-2xl font-bold mb-4">
