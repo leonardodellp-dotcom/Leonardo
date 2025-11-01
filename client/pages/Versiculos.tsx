@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { BookOpen, Heart, Share2, Copy, Check } from "lucide-react";
 import { useState } from "react";
+import { isOlderThanDays } from "@/lib/security";
 
 interface Verse {
   id: string;
