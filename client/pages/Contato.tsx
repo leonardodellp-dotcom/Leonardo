@@ -257,7 +257,7 @@ export default function Contato() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Seu nome"
-                      className="w-full px-4 py-2.5 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
+                      className="w-full px-4 py-2.5 bg-black/40 border border-purple-500/30 hover:border-purple-500/50 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all hover:shadow-glow"
                       disabled={loading}
                     />
                   </div>
@@ -275,7 +275,7 @@ export default function Contato() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="seu@email.com"
-                        className="w-full px-4 py-2.5 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
+                        className="w-full px-4 py-2.5 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-500/20"
                         disabled={loading}
                       />
                     </div>
@@ -297,7 +297,7 @@ export default function Contato() {
                         }}
                         placeholder="(11) 98765-4321"
                         maxLength="15"
-                        className="w-full px-4 py-2.5 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
+                        className="w-full px-4 py-2.5 bg-black/40 border border-green-500/30 hover:border-green-500/50 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/30 transition-all hover:shadow-lg hover:shadow-green-500/20"
                         disabled={loading}
                       />
                     </div>
@@ -315,7 +315,7 @@ export default function Contato() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Qual é o assunto da sua mensagem?"
-                      className="w-full px-4 py-2.5 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors"
+                      className="w-full px-4 py-2.5 bg-black/40 border border-blue-600/30 hover:border-blue-600/50 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/30 transition-all hover:shadow-lg hover:shadow-blue-600/20"
                       disabled={loading}
                     />
                   </div>
@@ -332,7 +332,7 @@ export default function Contato() {
                       onChange={handleChange}
                       placeholder="Compartilhe sua sugestão, dúvida ou comentário..."
                       rows={5}
-                      className="w-full px-4 py-2.5 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
+                      className="w-full px-4 py-2.5 bg-black/40 border border-purple-600/30 hover:border-purple-600/50 rounded-lg focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/30 transition-all hover:shadow-lg hover:shadow-purple-600/20 resize-none"
                       disabled={loading}
                     />
                   </div>
@@ -341,7 +341,7 @@ export default function Contato() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-primary/30 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:shadow-glow text-white font-semibold rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:scale-105"
                   >
                     <Send className="w-5 h-5" />
                     {loading ? "Enviando..." : "Enviar Sugestão"}
