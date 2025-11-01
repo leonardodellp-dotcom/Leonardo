@@ -140,7 +140,7 @@ export default function Index() {
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                10 Anos
+                35+ Anos
               </div>
               <p className="text-sm text-muted-foreground">De Comunidade</p>
             </div>
