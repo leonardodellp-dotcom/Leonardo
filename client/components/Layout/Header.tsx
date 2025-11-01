@@ -36,19 +36,18 @@ export default function Header() {
     { label: "Caridade & Missão", path: "/caridade-missao" },
   ];
 
-  const oracoesSubmenu = [
-    { label: "Orações Sagradas", path: "/oracoes" },
-    { label: "Pedidos de Oração", path: "/pedidos-oracao" },
-  ];
-
   const recursosSubmenu = [
     { label: "Versículos Diários", path: "/versiculos" },
     { label: "Como Ler a Bíblia", path: "/guia-leitura-biblia" },
+    { label: "Biblioteca Católica", path: "/biblioteca-catolica" },
+  ];
+
+  const oracaoDevocaoSubmenu = [
+    { label: "Orações Sagradas", path: "/oracoes" },
     { label: "Aprender a Rezar", path: "/aprender-rezar" },
     { label: "O Terço", path: "/terco" },
     { label: "Devoções", path: "/devocoes" },
-    { label: "Biblioteca Católica", path: "/biblioteca-catolica" },
-    { label: "Calendário Litúrgico", path: "/calendario-liturgico" },
+    { label: "Pedidos de Oração", path: "/pedidos-oracao" },
   ];
 
   const cursosSubmenu = [
