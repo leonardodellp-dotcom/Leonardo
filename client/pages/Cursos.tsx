@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
-import { BookOpen, Link as LinkIcon, Clock, Users, Award } from "lucide-react";
+import { BookOpen, Link as LinkIcon, Clock, Users, Award, CheckCircle } from "lucide-react";
+import { useState } from "react";
 
 interface Course {
   id: string;
@@ -11,6 +12,22 @@ interface Course {
   format: "Online" | "Presencial" | "Híbrido";
   link: string;
   topics?: string[];
+  hasReview?: boolean;
+  reviewLessons?: ReviewLesson[];
+}
+
+interface ReviewLesson {
+  id: string;
+  title: string;
+  questions: ReviewQuestion[];
+}
+
+interface ReviewQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
 }
 
 export default function Cursos() {
