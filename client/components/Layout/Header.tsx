@@ -144,13 +144,13 @@ export default function Header() {
           <div className="flex items-center gap-3 ml-4">
             <Link
               to="/cadastro"
-              className="px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent font-semibold rounded-lg transition-all text-sm"
+              className="px-4 py-2 bg-gradient-to-r from-accent/20 to-amber-500/20 hover:shadow-glow-accent border border-accent/30 hover:border-accent/60 text-accent font-semibold rounded-lg transition-all text-sm hover:scale-105"
             >
               Cadastro
             </Link>
             <Link
               to="/admin-login"
-              className="px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary font-semibold rounded-lg transition-all text-sm"
+              className="px-4 py-2 bg-gradient-to-r from-primary/20 to-purple-500/20 hover:shadow-glow border border-primary/30 hover:border-primary/60 text-primary font-semibold rounded-lg transition-all text-sm hover:scale-105"
             >
               Admin
             </Link>
