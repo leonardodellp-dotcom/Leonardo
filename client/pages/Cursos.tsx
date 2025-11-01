@@ -31,6 +31,13 @@ interface ReviewQuestion {
 }
 
 export default function Cursos() {
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [completedCourses, setCompletedCourses] = useState<string[]>([]);
+  const [currentReviewLesson, setCurrentReviewLesson] = useState<ReviewLesson | null>(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<{ [key: string]: number }>({});
+  const [showReview, setShowReview] = useState(false);
+
   const courses: Course[] = [
     {
       id: "1",
@@ -112,7 +119,7 @@ export default function Cursos() {
     },
     {
       id: "7",
-      title: "Lideran��a Cristã para Jovens",
+      title: "Liderança Cristã para Jovens",
       description:
         "Desenvolva habilidades de liderança baseadas em valores cristãos. Aprenda como ser um testemunho de fé na sua comunidade.",
       institution: "Jucrisc",
