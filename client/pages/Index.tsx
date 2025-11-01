@@ -187,11 +187,11 @@ export default function Index() {
       </section>
 
       {/* Highlights Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-gradient-to-b from-background via-card/20 to-background">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Destaques</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Destaques</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Conheça as principais iniciativas e programas do Jucrisc
             </p>
           </div>
@@ -203,21 +203,23 @@ export default function Index() {
                 <Link
                   key={highlight.path}
                   to={highlight.path}
-                  className="group bg-gradient-to-br from-card to-card/50 border border-border rounded-xl p-8 hover:border-accent/50 transition-all hover:shadow-lg hover:shadow-accent/10"
+                  className="group card-accent hover:scale-105"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors flex-shrink-0">
-                      <Icon className="w-6 h-6 text-accent" />
+                  <div className="p-8">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-accent/15 border border-accent/30 rounded-lg group-hover:bg-accent/25 group-hover:border-accent/50 transition-all flex-shrink-0">
+                        <Icon className="w-6 h-6 text-accent" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-lg mb-2 group-hover:text-accent transition-colors">
+                          {highlight.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm">
+                          {highlight.description}
+                        </p>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-lg mb-2">
-                        {highlight.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        {highlight.description}
-                      </p>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
                   </div>
                 </Link>
               );
