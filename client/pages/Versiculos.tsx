@@ -202,9 +202,9 @@ export default function Versiculos() {
             ))}
           </div>
 
-          <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 border border-border text-center">
+          <div className="mt-12 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl p-8 border border-primary/30 shadow-glow text-center">
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              "Toda Escritura �� inspirada por Deus e útil para ensinar, para
+              "Toda Escritura ���� inspirada por Deus e útil para ensinar, para
               repreender, para corrigir e para instruir na justiça." — 2 Timóteo
               3:16
             </p>
