@@ -281,8 +281,8 @@ export default function Terco() {
           </div>
 
           {/* Info about Rosary Mysteries */}
-          <div className="bg-blue-100 dark:bg-slate-800 border border-blue-300 dark:border-slate-700 rounded-xl p-6 mb-12">
-            <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-50 mb-4">💡 Os Tipos de Mistérios</h3>
+          <div className="bg-primary/10 dark:bg-primary/10 border border-primary/30 dark:border-primary/30 rounded-xl p-6 mb-12">
+            <h3 className="text-2xl font-bold text-primary mb-4">💡 Os Tipos de Mistérios</h3>
             <div className="space-y-4">
               <div className="bg-blue-200 dark:bg-slate-700 p-4 rounded-lg">
                 <h4 className="font-bold text-blue-900 dark:text-blue-50 mb-2">Mistérios Gozosos 🎉</h4>
