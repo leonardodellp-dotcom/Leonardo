@@ -212,6 +212,24 @@ export default function Header() {
               </Link>
             ))}
 
+            {/* Mobile CTA Buttons */}
+            <div className="border-t border-border pt-4 mt-4 space-y-2">
+              <Link
+                to="/cadastro"
+                className="block px-4 py-3 bg-accent/10 hover:bg-accent/20 text-accent font-semibold rounded-lg transition-all text-sm"
+                onClick={() => setIsOpen(false)}
+              >
+                Cadastro
+              </Link>
+              <Link
+                to="/admin-login"
+                className="block px-4 py-3 bg-primary/10 hover:bg-primary/20 text-primary font-semibold rounded-lg transition-all text-sm"
+                onClick={() => setIsOpen(false)}
+              >
+                Admin
+              </Link>
+            </div>
+
             {/* Mobile Orações Menu */}
             <details className="group">
               <summary className="block px-4 py-3 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 cursor-pointer list-none">
