@@ -146,10 +146,10 @@ export default function BibliotecaCatolica() {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex p-4 bg-primary/10 rounded-xl mb-4">
+            <div className="inline-flex p-4 bg-primary/20 border border-primary/30 rounded-xl mb-4">
               <BookOpen className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold mb-3">Biblioteca Católica</h1>
+            <h1 className="text-5xl font-bold mb-3 text-gradient">Biblioteca Católica</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Acesse uma coleção curada de livros, documentos PDF e recursos para aprofundar seu conhecimento da fé católica
             </p>
@@ -163,8 +163,8 @@ export default function BibliotecaCatolica() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-6 py-2 rounded-full font-semibold text-sm transition-all ${
                   selectedCategory === cat.id
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:bg-muted/80"
+                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-glow hover:scale-105"
+                    : "bg-black/40 border border-primary/20 text-foreground hover:border-primary/40 hover:bg-primary/10"
                 }`}
               >
                 {cat.label} <span className="text-xs ml-2">({cat.count})</span>
@@ -183,8 +183,9 @@ export default function BibliotecaCatolica() {
                     href={resource.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-xl p-6 hover:border-primary/60 transition-all group"
+                    className="card-glow hover:scale-105"
                   >
+                    <div className="p-6">
                     <div className="flex items-start justify-between mb-3">
                       <div className="text-2xl">
                         {resource.category === "pdf" ? "📄" : resource.category === "book" ? "📖" : "🔗"}
@@ -192,14 +193,15 @@ export default function BibliotecaCatolica() {
                       {resource.rating && (
                         <div className="flex gap-1">
                           {[...Array(resource.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                           ))}
                         </div>
                       )}
                     </div>
-                    <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{resource.title}</h3>
-                    {resource.author && <p className="text-sm text-muted-foreground mb-2">{resource.author}</p>}
-                    <p className="text-sm text-muted-foreground line-clamp-2">{resource.description}</p>
+                      <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{resource.title}</h3>
+                      {resource.author && <p className="text-sm text-muted-foreground mb-2">{resource.author}</p>}
+                      <p className="text-sm text-muted-foreground line-clamp-2">{resource.description}</p>
+                    </div>
                   </a>
                 ))}
               </div>
@@ -218,60 +220,62 @@ export default function BibliotecaCatolica() {
                   href={resource.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all group flex flex-col"
+                  className="card-glow hover:scale-105 flex flex-col"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="text-3xl">
-                      {resource.category === "pdf" ? "📄" : resource.category === "book" ? "📖" : "🔗"}
+                  <div className="p-6 flex flex-col h-full">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="text-3xl">
+                        {resource.category === "pdf" ? "📄" : resource.category === "book" ? "📖" : "🔗"}
+                      </div>
+                      {resource.featured && (
+                        <span className="px-2 py-1 bg-accent/20 border border-accent/40 text-accent text-xs font-bold rounded">
+                          ⭐ Destaque
+                        </span>
+                      )}
                     </div>
-                    {resource.featured && (
-                      <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs font-bold rounded">
-                        ⭐ Destaque
-                      </span>
+
+                    <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{resource.title}</h3>
+                    {resource.author && <p className="text-sm text-muted-foreground mb-2">{resource.author}</p>}
+                    <p className="text-sm text-muted-foreground mb-4 flex-grow">{resource.description}</p>
+
+                    <div className="flex items-center gap-2 text-primary text-sm font-semibold group-hover:gap-3 transition-all">
+                      {resource.category === "pdf" ? (
+                        <>
+                          <Download className="w-4 h-4" />
+                          <span>Baixar PDF</span>
+                        </>
+                      ) : (
+                        <>
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Abrir</span>
+                        </>
+                      )}
+                    </div>
+
+                    {resource.rating && (
+                      <div className="flex gap-1 mt-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-4 h-4 ${
+                              i < resource.rating ? "fill-accent text-accent" : "text-muted"
+                            }`}
+                          />
+                        ))}
+                      </div>
                     )}
                   </div>
-
-                  <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{resource.title}</h3>
-                  {resource.author && <p className="text-sm text-muted-foreground mb-2">{resource.author}</p>}
-                  <p className="text-sm text-muted-foreground mb-4 flex-grow">{resource.description}</p>
-
-                  <div className="flex items-center gap-2 text-primary text-sm font-semibold group-hover:gap-3 transition-all">
-                    {resource.category === "pdf" ? (
-                      <>
-                        <Download className="w-4 h-4" />
-                        <span>Baixar PDF</span>
-                      </>
-                    ) : (
-                      <>
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Abrir</span>
-                      </>
-                    )}
-                  </div>
-
-                  {resource.rating && (
-                    <div className="flex gap-1 mt-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-4 h-4 ${
-                            i < resource.rating ? "fill-yellow-400 text-yellow-400" : "text-muted"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  )}
                 </a>
               ))}
             </div>
           </div>
 
           {/* Info Section */}
-          <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-8 mt-12">
-            <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-3">📚 Sobre Esta Biblioteca</h3>
-            <p className="text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
-              Nossa Biblioteca Católica contém os clássicos mais importantes da espiritualidade cristã, desde os Padres da Igreja até 
-              documentos modernos do Vaticano. Todos os recursos foram selecionados para ajudar você a aprofundar sua fé, compreender 
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border border-primary/30 rounded-xl p-8 mt-12 shadow-glow">
+            <h3 className="text-xl font-bold text-gradient mb-3">📚 Sobre Esta Biblioteca</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Nossa Biblioteca Católica contém os clássicos mais importantes da espiritualidade cristã, desde os Padres da Igreja até
+              documentos modernos do Vaticano. Todos os recursos foram selecionados para ajudar você a aprofundar sua fé, compreender
               melhor a doutrina católica e encontrar orientação espiritual. Muitos estão disponíveis para download gratuito.
             </p>
           </div>
