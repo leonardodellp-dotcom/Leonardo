@@ -139,62 +139,64 @@ export default function Versiculos() {
             {activeVerses.map((verse) => (
               <div
                 key={verse.id}
-                className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all group"
+                className="card-glow hover:scale-105"
               >
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-primary mb-1">
-                      {verse.reference}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {verse.book} • {verse.day}
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-4 flex-wrap gap-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-primary mb-1">
+                        {verse.reference}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {verse.book} • {verse.day}
+                      </p>
+                    </div>
+                    <div className="flex gap-2 flex-shrink-0">
+                      <button
+                        onClick={() =>
+                          copyToClipboard(
+                            verse.id,
+                            `${verse.reference}\n\n${verse.text}`,
+                          )
+                        }
+                        className="p-2 hover:bg-primary/20 border border-primary/30 rounded-lg transition-all hover:shadow-glow text-muted-foreground hover:text-primary"
+                        title="Copiar versículo"
+                      >
+                        {copiedId === verse.id ? (
+                          <Check className="w-5 h-5 text-green-400" />
+                        ) : (
+                          <Copy className="w-5 h-5" />
+                        )}
+                      </button>
+                      <button
+                        className="p-2 hover:bg-accent/20 border border-accent/30 rounded-lg transition-all hover:shadow-glow-accent text-muted-foreground hover:text-accent"
+                        title="Compartilhar"
+                      >
+                        <Share2 className="w-5 h-5" />
+                      </button>
+                      <button
+                        className="p-2 hover:bg-red-500/20 border border-red-500/30 rounded-lg transition-all text-muted-foreground hover:text-red-400"
+                        title="Favoritar"
+                      >
+                        <Heart className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <blockquote className="border-l-4 border-primary pl-4 mb-4 py-2 bg-primary/10 rounded-r-lg">
+                    <p className="text-foreground text-lg leading-relaxed italic">
+                      "{verse.text}"
+                    </p>
+                  </blockquote>
+
+                  <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
+                    <h4 className="font-semibold text-sm text-primary mb-2">
+                      💭 Reflexão
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {verse.reflection}
                     </p>
                   </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() =>
-                        copyToClipboard(
-                          verse.id,
-                          `${verse.reference}\n\n${verse.text}`,
-                        )
-                      }
-                      className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
-                      title="Copiar versículo"
-                    >
-                      {copiedId === verse.id ? (
-                        <Check className="w-5 h-5 text-green-500" />
-                      ) : (
-                        <Copy className="w-5 h-5" />
-                      )}
-                    </button>
-                    <button
-                      className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-accent"
-                      title="Compartilhar"
-                    >
-                      <Share2 className="w-5 h-5" />
-                    </button>
-                    <button
-                      className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-red-500"
-                      title="Favoritar"
-                    >
-                      <Heart className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-
-                <blockquote className="border-l-4 border-primary pl-4 mb-4 py-2">
-                  <p className="text-foreground text-lg leading-relaxed italic">
-                    "{verse.text}"
-                  </p>
-                </blockquote>
-
-                <div className="bg-muted/30 rounded-lg p-4">
-                  <h4 className="font-semibold text-sm text-primary mb-2">
-                    💭 Reflexão
-                  </h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {verse.reflection}
-                  </p>
                 </div>
               </div>
             ))}
