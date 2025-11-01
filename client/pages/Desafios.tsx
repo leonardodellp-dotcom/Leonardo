@@ -490,11 +490,200 @@ const questionBank: Question[] = [
       "Cardenal Ratzinger",
       "Cardenal Wojtyla",
       "Cardenal Suenens",
-      "Cardenal Leraro",
+      "Cardenal Lercaro",
     ],
     correctAnswer: 3,
     explanation:
       "O Cardenal Giacomo Lercaro foi um dos redatores principais da Constituição Gaudium et Spes.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d5",
+    question: "Qual é a data do Concílio de Niceia?",
+    options: ["312 d.C.", "325 d.C.", "381 d.C.", "451 d.C."],
+    correctAnswer: 1,
+    explanation:
+      "O Concílio de Niceia ocorreu em 325 d.C. e condenou o arianismo.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d6",
+    question: "Qual é o nome da veneração de imagens na Igreja Católica?",
+    options: ["Adoração", "Dulia", "Hiperdulia", "Latria"],
+    correctAnswer: 1,
+    explanation:
+      "Dulia é a veneração apropriada a santos; Hiperdulia é para Maria; Latria é adoração a Deus.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d7",
+    question: "Qual Padre da Igreja escreveu 'Confissões'?",
+    options: ["Santo Agostinho", "São Jerônimo", "Santo Ambrósio", "São Gregório"],
+    correctAnswer: 0,
+    explanation:
+      "Santo Agostinho escreveu as Confissões, uma obra autobiográfica e teológica importante.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d8",
+    question: "Qual é o nome da prática de abstinência de carne?",
+    options: ["Jejum", "Mortificação", "Abstinência", "Penitência"],
+    correctAnswer: 2,
+    explanation:
+      "Abstinência é a prática de não comer carne, especialmente praticada na Quaresma.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d9",
+    question: "Em qual ano o dogma da Imaculada Conceição foi proclamado?",
+    options: ["1854", "1950", "1965", "1854"],
+    correctAnswer: 0,
+    explanation:
+      "O Papa Pio IX proclamou o dogma da Imaculada Conceição em 1854.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d10",
+    question: "Qual é o nome da doutrina sobre a primazia de Pedro?",
+    options: ["Cesaropapismo", "Petrinidade", "Primado", "Episcopado"],
+    correctAnswer: 2,
+    explanation:
+      "O Primado de Pedro é a doutrina que afirma a autoridade primária de Pedro entre os apóstolos.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d11",
+    question: "Qual Padre da Igreja é chamado 'Doutor da Igreja Ocidental'?",
+    options: [
+      "Santo Agostinho",
+      "São Jerônimo",
+      "Santo Ambrósio",
+      "Santo Gregório Magno",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Santo Agostinho é considerado o Doutor da Igreja Ocidental pela sua influência teológica.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d12",
+    question: "Qual é a fórmula sacramental do sacramento da Confirmação?",
+    options: [
+      "'Eu te batizo'",
+      "'Eu te confirmo'",
+      "'Recebe a marca do Espírito Santo'",
+      "'Vossa culpa, vossa culpa'",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "A fórmula da Confirmação é 'Receba o selo do Espírito Santo que lhe é dado como dom'.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d13",
+    question: "Qual Concílio definiu a autoridade do Papa como infalível em certas circunstâncias?",
+    options: [
+      "Vaticano I",
+      "Vaticano II",
+      "Calcedônia",
+      "Niceia",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "O Concílio Vaticano I (1870) definiu a infalibilidade papal em questões de fé e moral.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d14",
+    question: "Qual é o nome da celebração do Domingo de Ramos?",
+    options: [
+      "Processão das Palmas",
+      "Entrada Triunfal",
+      "Bênção das Palmas",
+      "Todas as anteriores",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "O Domingo de Ramos combina a bênção das palmas com a entrada triunfal de Jesus.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d15",
+    question: "Qual é o nome da prática de jejum de 40 dias antes da Páscoa?",
+    options: ["Advento", "Quaresma", "Pentecostes", "Epifania"],
+    correctAnswer: 1,
+    explanation:
+      "A Quaresma é o período de 40 dias de penitência antes da Páscoa.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d16",
+    question: "Qual Papa foi o primeiro a visitar a Terra Santa?",
+    options: [
+      "Papa Paulo VI",
+      "Papa João Paulo II",
+      "Papa Pio XII",
+      "Papa João XXIII",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Papa Paulo VI foi o primeiro Papa a visitar a Terra Santa em 1964.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d17",
+    question: "Qual é o significado teológico de 'Theotokos'?",
+    options: [
+      "Mãe de Deus",
+      "Portadora de Deus",
+      "Mãe da Igreja",
+      "Ambas as opções 1 e 2",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "Theotokos significa 'Portadora de Deus' ou 'Mãe de Deus' em grego.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d18",
+    question: "Qual Concílio condenou o nestorianismo?",
+    options: [
+      "Éfeso (431 d.C.)",
+      "Calcedônia (451 d.C.)",
+      "Constantinopla (553 d.C.)",
+      "Niceia (325 d.C.)",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "O Concílio de Éfeso (431) condenou o nestorianismo e afirmou que Maria é Theotokos.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d19",
+    question: "Qual é o nome da compilação oficial das leis da Igreja?",
+    options: [
+      "Código Canônico",
+      "Constituição Apostólica",
+      "Decreto",
+      "Instrução",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "O Código Canônico (Codex Iuris Canonici) é a compilação oficial das leis eclesiásticas.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d20",
+    question: "Qual é o significado de 'Sede Vacante'?",
+    options: [
+      "Sé vaga",
+      "Vacação papal",
+      "Período entre papados",
+      "Todas as anteriores",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "Sede Vacante refere-se ao período entre a morte ou renúncia de um Papa e a eleição do próximo.",
     difficulty: "difícil",
   },
 
