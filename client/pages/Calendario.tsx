@@ -477,9 +477,10 @@ export default function Calendario() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-12">
+                <div className="text-center py-12 bg-muted/30 rounded-xl">
                   <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-4 opacity-50" />
-                  <p className="text-muted-foreground">Nenhum evento programado para {monthNames[selectedMonth - 1]}</p>
+                  <p className="text-muted-foreground">Nenhum evento adicional programado para {monthNames[selectedMonth - 1]}</p>
+                  <p className="text-sm text-muted-foreground mt-2">Os eventos recorrentes (domingos e sábados) aparecem no calendário acima</p>
                 </div>
               )}
             </div>
