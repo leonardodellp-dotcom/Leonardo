@@ -198,6 +198,21 @@ export default function AprenderRezar() {
             </p>
           </div>
 
+          {/* Highlight: Daily Rosary Section */}
+          <div className="bg-gradient-to-r from-red-500/10 via-purple-500/10 to-red-500/10 rounded-xl p-8 border border-red-200/30 mb-12">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 bg-red-500/20 rounded-lg text-red-600">
+                <Star className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold mb-2">O Terço do Dia - Mistérios do Rosário</h2>
+                <p className="text-muted-foreground">
+                  A tradição da Igreja recomenda rezar mistérios diferentes de acordo com o dia da semana. Cada mistério nos convida a meditar sobre momentos específicos da vida de Jesus e Maria.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {prayerMethods.map((method) => (
               <div
