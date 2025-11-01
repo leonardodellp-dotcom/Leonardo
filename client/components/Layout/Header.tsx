@@ -28,8 +28,12 @@ export default function Header() {
     { label: "Igreja", path: "/igreja" },
     { label: "Mural", path: "/mural" },
     { label: "Agenda", path: "/agenda" },
-    { label: "Missões", path: "/missoes" },
     { label: "Contato", path: "/contato" },
+  ];
+
+  const missaoSubmenu = [
+    { label: "Nossas Missões", path: "/missoes" },
+    { label: "Caridade & Missão", path: "/caridade-missao" },
   ];
 
   const oracoesSubmenu = [
