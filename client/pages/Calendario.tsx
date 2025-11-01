@@ -11,6 +11,7 @@ interface Event {
   title: string;
   time: string;
   location: string;
+  recurring?: "sunday" | "saturday" | "none";
 }
 
 export default function Calendario() {
