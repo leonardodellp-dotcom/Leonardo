@@ -299,6 +299,55 @@ export default function Cursos() {
     }
   };
 
+  const handleCourseClick = (courseId: string) => {
+    setSelectedCourse(courseId);
+    const course = courses.find(c => c.id === courseId);
+    if (course?.hasReview && course?.reviewLessons) {
+      setCurrentReviewLesson(course.reviewLessons[0]);
+      setCurrentQuestionIndex(0);
+      setAnswers({});
+      setShowReview(true);
+    }
+  };
+
+  const handleAnswerSelect = (questionId: string, answerIndex: number) => {
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: answerIndex
+    }));
+  };
+
+  const handleNextQuestion = () => {
+    if (currentReviewLesson && currentQuestionIndex < currentReviewLesson.questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const handlePrevQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+
+  const handleCompleteCourse = () => {
+    if (selectedCourse && !completedCourses.includes(selectedCourse)) {
+      setCompletedCourses([...completedCourses, selectedCourse]);
+    }
+    setShowReview(false);
+    setSelectedCourse(null);
+  };
+
+  const calculateScore = () => {
+    if (!currentReviewLesson) return 0;
+    let correct = 0;
+    currentReviewLesson.questions.forEach(q => {
+      if (answers[q.id] === q.correctAnswer) {
+        correct++;
+      }
+    });
+    return Math.round((correct / currentReviewLesson.questions.length) * 100);
+  };
+
   return (
     <Layout>
       <section className="py-16 px-4">
