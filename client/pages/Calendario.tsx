@@ -230,13 +230,8 @@ export default function Calendario() {
               {/* Liturgical Dates */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold">{monthNames[selectedMonth - 1]} de 2025</h3>
-                <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
-                  <p className="text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
-                    Para visualizar as celebrações litúrgicas do mês selecionado, 
-                    <a href="/calendario-liturgico" className="underline font-semibold hover:text-blue-600 dark:hover:text-blue-300 ml-1">
-                      clique aqui para acessar o Calendário Litúrgico completo
-                    </a>.
-                  </p>
+                <div className="bg-card border border-border rounded-xl p-8 text-center py-16">
+                  <p className="text-muted-foreground">Acesse a página <a href="/calendario-liturgico" className="font-semibold text-primary hover:underline">Calendário Litúrgico</a> para detalhes completos</p>
                 </div>
               </div>
             </div>
