@@ -447,7 +447,7 @@ export default function Calendario() {
                           value={formData.title}
                           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                           placeholder="Ex: Reunião Semanal"
-                          className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                          className="w-full px-4 py-2 bg-black/40 border border-purple-500/30 hover:border-purple-500/50 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all hover:shadow-glow"
                         />
                       </div>
 
@@ -457,7 +457,7 @@ export default function Calendario() {
                           type="time"
                           value={formData.time}
                           onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                          className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                          className="w-full px-4 py-2 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-500/20"
                         />
                       </div>
 
@@ -468,14 +468,14 @@ export default function Calendario() {
                           value={formData.location}
                           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                           placeholder="Ex: Paróquia Santo Antonio"
-                          className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                          className="w-full px-4 py-2 bg-black/40 border border-green-500/30 hover:border-green-500/50 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/30 transition-all hover:shadow-lg hover:shadow-green-500/20"
                         />
                       </div>
 
                       <div className="flex gap-3 pt-4">
                         <button
                           onClick={handleAddEvent}
-                          className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors flex items-center justify-center gap-2"
+                          className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-glow font-semibold transition-all flex items-center justify-center gap-2 hover:scale-105"
                         >
                           <Save className="w-4 h-4" />
                           Salvar
@@ -525,7 +525,7 @@ export default function Calendario() {
                               type="text"
                               defaultValue={eventToEdit.title}
                               placeholder="Título do evento"
-                              className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                              className="w-full px-4 py-2 bg-black/40 border border-purple-500/30 hover:border-purple-500/50 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all hover:shadow-glow"
                             />
                           </div>
 
@@ -534,7 +534,7 @@ export default function Calendario() {
                             <input
                               type="time"
                               defaultValue={eventToEdit.time}
-                              className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                              className="w-full px-4 py-2 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-500/20"
                             />
                           </div>
 
@@ -544,14 +544,14 @@ export default function Calendario() {
                               type="text"
                               defaultValue={eventToEdit.location}
                               placeholder="Local do evento"
-                              className="w-full px-4 py-2 bg-muted border border-border rounded-lg focus:outline-none focus:border-primary"
+                              className="w-full px-4 py-2 bg-black/40 border border-green-500/30 hover:border-green-500/50 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/30 transition-all hover:shadow-lg hover:shadow-green-500/20"
                             />
                           </div>
 
                           <div className="flex gap-3 pt-4">
                             <button
                               onClick={() => setEditingId(null)}
-                              className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors flex items-center justify-center gap-2"
+                              className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-glow font-semibold transition-all flex items-center justify-center gap-2 hover:scale-105"
                             >
                               <Save className="w-4 h-4" />
                               Salvar
