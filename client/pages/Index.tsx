@@ -108,16 +108,16 @@ export default function Index() {
               amizade para sua jornada espiritual.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 to="/agenda"
-                className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-primary/30 active:scale-95"
               >
-                Próximos Eventos <ArrowRight className="w-4 h-4" />
+                Próximos Eventos
               </Link>
               <Link
                 to="/contato"
-                className="px-8 py-3 bg-muted hover:bg-muted/80 text-foreground font-semibold rounded-lg transition-colors"
+                className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-accent/30 active:scale-95"
               >
                 Nos Contate
               </Link>
