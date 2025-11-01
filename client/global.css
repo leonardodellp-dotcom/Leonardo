@@ -32,7 +32,7 @@
     --secondary-foreground: 0 0% 99%;
 
     /* Muted: Better contrast for subtle elements */
-    --muted: 15 23% 25%;
+    --muted: 220 20% 30%;
     --muted-foreground: 0 0% 70%;
 
     /* Accent: Vibrant Gold/Amber */
@@ -44,8 +44,8 @@
     --destructive-foreground: 0 0% 99%;
 
     /* Border: Subtle but visible */
-    --border: 15 23% 20%;
-    --input: 15 23% 12%;
+    --border: 220 30% 20%;
+    --input: 220 30% 15%;
     --ring: 264 85% 55%;
 
     --radius: 0.5rem;
