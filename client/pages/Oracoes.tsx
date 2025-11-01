@@ -126,7 +126,8 @@ Amém.`,
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Orações</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Colecção de orações católicas para elevar sua alma e conectar-se
-              com Deus. Eleve suas preces em comunidade e encontre paz espiritual.
+              com Deus. Eleve suas preces em comunidade e encontre paz
+              espiritual.
             </p>
           </div>
 

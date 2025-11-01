@@ -12,7 +12,8 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4 text-primary">Jucrisc</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Grupo de jovens dedicado à fé católica e crescimento espiritual em comunidade.
+              Grupo de jovens dedicado à fé católica e crescimento espiritual em
+              comunidade.
             </p>
             <div className="flex gap-3">
               <a
@@ -41,22 +42,34 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Navegação</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Início
                 </Link>
               </li>
               <li>
-                <Link to="/mural" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/mural"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Mural
                 </Link>
               </li>
               <li>
-                <Link to="/agenda" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/agenda"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Agenda
                 </Link>
               </li>
               <li>
-                <Link to="/missoes" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/missoes"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Missões
                 </Link>
               </li>
@@ -68,22 +81,34 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Orações & Recursos</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/oracoes" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/oracoes"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Orações Sagradas
                 </Link>
               </li>
               <li>
-                <Link to="/versiculos" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/versiculos"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Versículos Diários
                 </Link>
               </li>
               <li>
-                <Link to="/aprender-rezar" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/aprender-rezar"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Aprender a Rezar
                 </Link>
               </li>
               <li>
-                <Link to="/calendario-liturgico" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                <Link
+                  to="/calendario-liturgico"
+                  className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block"
+                >
                   → Calendário Litúrgico
                 </Link>
               </li>
@@ -99,10 +124,28 @@ export default function Footer() {
                 <span>Sua Igreja, Cidade</span>
               </li>
               <li className="text-muted-foreground mt-6 pt-6 border-t border-border">
-                <p className="font-semibold text-foreground mb-2">Redes Sociais</p>
+                <p className="font-semibold text-foreground mb-2">
+                  Redes Sociais
+                </p>
                 <p className="text-xs">
-                  📱 <a href="https://www.instagram.com/jucrisc/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram</a> |
-                  <a href="https://www.tiktok.com/@jucrisc" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">TikTok</a>
+                  📱{" "}
+                  <a
+                    href="https://www.instagram.com/jucrisc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Instagram
+                  </a>{" "}
+                  |
+                  <a
+                    href="https://www.tiktok.com/@jucrisc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline ml-1"
+                  >
+                    TikTok
+                  </a>
                 </p>
               </li>
             </ul>
@@ -111,7 +154,8 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © Jucrisc - Grupo de Jovens. Criado com ❤️ por <span className="text-primary font-semibold">By Leo</span>
+            © Jucrisc - Grupo de Jovens. Criado com ❤️ por{" "}
+            <span className="text-primary font-semibold">By Leo</span>
           </p>
         </div>
       </div>

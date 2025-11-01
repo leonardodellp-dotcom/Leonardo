@@ -139,7 +139,10 @@ export default function Versiculos() {
                   <div className="flex gap-2">
                     <button
                       onClick={() =>
-                        copyToClipboard(verse.id, `${verse.reference}\n\n${verse.text}`)
+                        copyToClipboard(
+                          verse.id,
+                          `${verse.reference}\n\n${verse.text}`,
+                        )
                       }
                       className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
                       title="Copiar versículo"
@@ -186,7 +189,8 @@ export default function Versiculos() {
           <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 border border-border text-center">
             <p className="text-muted-foreground max-w-2xl mx-auto">
               "Toda Escritura �� inspirada por Deus e útil para ensinar, para
-              repreender, para corrigir e para instruir na justiça." — 2 Timóteo 3:16
+              repreender, para corrigir e para instruir na justiça." — 2 Timóteo
+              3:16
             </p>
           </div>
         </div>

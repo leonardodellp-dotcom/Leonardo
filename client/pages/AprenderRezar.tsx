@@ -190,7 +190,9 @@ export default function AprenderRezar() {
 
                 {expandedId === method.id && (
                   <div className="border-t border-border px-6 py-4 bg-muted/20">
-                    <h4 className="font-semibold mb-3 text-sm">Como Praticar:</h4>
+                    <h4 className="font-semibold mb-3 text-sm">
+                      Como Praticar:
+                    </h4>
                     <ol className="space-y-2 text-sm text-muted-foreground">
                       {method.steps.map((step, index) => (
                         <li key={index} className="flex gap-3">
@@ -209,14 +211,18 @@ export default function AprenderRezar() {
 
           {/* Tips Section */}
           <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl p-8 border border-border mb-12">
-            <h3 className="text-2xl font-bold mb-6">✨ Dicas para Aprofundar sua Oração</h3>
+            <h3 className="text-2xl font-bold mb-6">
+              ✨ Dicas para Aprofundar sua Oração
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-2">🕯️ Crie um Espaço Sagrado</h4>
+                <h4 className="font-semibold mb-2">
+                  🕯️ Crie um Espaço Sagrado
+                </h4>
                 <p className="text-sm text-muted-foreground">
                   Encontre um local tranquilo onde você possa se concentrar,
-                  longe de distrações. Pode ser seu quarto, a Igreja ou um
-                  lugar na natureza.
+                  longe de distrações. Pode ser seu quarto, a Igreja ou um lugar
+                  na natureza.
                 </p>
               </div>
               <div>
@@ -229,8 +235,8 @@ export default function AprenderRezar() {
               <div>
                 <h4 className="font-semibold mb-2">📖 Comece com a Bíblia</h4>
                 <p className="text-sm text-muted-foreground">
-                  Use passagens bíblicas como ponto de partida para sua meditação
-                  e oração.
+                  Use passagens bíblicas como ponto de partida para sua
+                  meditação e oração.
                 </p>
               </div>
               <div>
@@ -248,7 +254,9 @@ export default function AprenderRezar() {
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">🎵 Integre Música Sagrada</h4>
+                <h4 className="font-semibold mb-2">
+                  🎵 Integre Música Sagrada
+                </h4>
                 <p className="text-sm text-muted-foreground">
                   Hinos e músicas litúrgicas podem elevar sua alma durante a
                   meditação e oração.
