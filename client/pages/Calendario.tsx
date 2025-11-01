@@ -309,8 +309,45 @@ export default function Calendario() {
               {/* Liturgical Dates */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold">{monthNames[selectedMonth - 1]} de 2025</h3>
-                <div className="bg-card border border-border rounded-xl p-8 text-center py-16">
-                  <p className="text-muted-foreground">Acesse a página <a href="/calendario-liturgico" className="font-semibold text-primary hover:underline">Calendário Litúrgico</a> para detalhes completos</p>
+                <div className="space-y-4">
+                  {liturgicalDates.filter(date => date.month === selectedMonth).length > 0 ? (
+                    liturgicalDates
+                      .filter(date => date.month === selectedMonth)
+                      .map((date) => (
+                        <div
+                          key={date.date}
+                          className={`border-l-4 rounded-lg p-5 bg-card border border-border transition-all hover:shadow-md ${
+                            date.type === "solemn"
+                              ? "border-l-red-500"
+                              : date.type === "feast"
+                              ? "border-l-blue-500"
+                              : date.type === "memorial"
+                              ? "border-l-green-500"
+                              : "border-l-gray-400"
+                          }`}
+                        >
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                            <div className="flex-1">
+                              <p className="text-sm font-semibold text-muted-foreground mb-1">
+                                {date.date}
+                              </p>
+                              <h3 className="text-lg font-bold text-foreground mb-2">
+                                {date.name}
+                              </h3>
+                            </div>
+                            <span
+                              className={`px-4 py-2 rounded-full text-sm font-semibold border whitespace-nowrap ${getTypeColor(date.type)}`}
+                            >
+                              {getTypeLabel(date.type)}
+                            </span>
+                          </div>
+                        </div>
+                      ))
+                  ) : (
+                    <div className="text-center py-12">
+                      <p className="text-muted-foreground">Nenhuma celebração especial neste mês</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
