@@ -459,43 +459,84 @@ export default function Calendario() {
                   {allMonthEvents.map((event) => (
                     <div
                       key={event.id}
-                      className={`bg-card border rounded-xl p-6 hover:border-primary/50 transition-all ${
+                      className={`rounded-xl p-6 border-l-4 transition-all hover:shadow-lg ${
                         event.recurring === "sunday"
-                          ? "border-blue-200 dark:border-blue-700 bg-blue-50/30 dark:bg-blue-950/30"
+                          ? "bg-blue-50 dark:bg-blue-950/50 border-l-blue-500 border border-blue-200 dark:border-blue-800"
                           : event.recurring === "saturday"
-                          ? "border-purple-200 dark:border-purple-700 bg-purple-50/30 dark:bg-purple-950/30"
-                          : "border-border"
+                          ? "bg-purple-50 dark:bg-purple-950/50 border-l-purple-500 border border-purple-200 dark:border-purple-800"
+                          : "bg-card border border-border"
                       }`}
                     >
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h4 className="text-lg font-bold">{event.title}</h4>
-                            {event.recurring && event.recurring !== "none" && (
-                              <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
-                                {event.recurring === "sunday" ? "Todo domingo" : "Todo sábado"}
-                              </span>
-                            )}
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className={`text-2xl ${
+                              event.title.includes("Missa") || event.title.includes("Santo") ? "🙏" :
+                              event.title.includes("Ensaio") || event.title.includes("Canto") ? "🎵" :
+                              event.title.includes("Laboratório") ? "🔬" : "📅"
+                            }`}>
+                            </div>
+                            <div>
+                              <h4 className="text-lg font-bold leading-tight">{event.title}</h4>
+                              {event.recurring && event.recurring !== "none" && (
+                                <p className="text-xs text-muted-foreground mt-1">
+                                  {event.recurring === "sunday" ? "🔄 Todos os domingos" : "🔄 Todos os sábados"}
+                                </p>
+                              )}
+                            </div>
                           </div>
-                          <div className="space-y-1 text-sm text-muted-foreground">
-                            <p>📅 Dia {event.day} - 🕐 {event.time}</p>
-                            <p>📍 {event.location}</p>
+
+                          <div className="grid grid-cols-2 gap-4 text-sm mt-4">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xl">📅</span>
+                              <div>
+                                <p className="text-muted-foreground text-xs">Data</p>
+                                <p className="font-semibold">Dia {event.day}</p>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xl">🕐</span>
+                              <div>
+                                <p className="text-muted-foreground text-xs">Horário</p>
+                                <p className="font-semibold">{event.time}</p>
+                              </div>
+                            </div>
+                            <div className="col-span-2 flex items-center gap-2">
+                              <span className="text-xl">📍</span>
+                              <div>
+                                <p className="text-muted-foreground text-xs">Local</p>
+                                <p className="font-semibold">{event.location}</p>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        {isAdmin && !event.recurring && (
-                          <div className="flex items-center gap-2 ml-4">
-                            <button
-                              onClick={() => setEditingId(event.id)}
-                              className="p-2 hover:bg-muted rounded-lg transition-colors text-primary"
-                            >
-                              <Edit2 className="w-5 h-5" />
-                            </button>
-                            <button
-                              onClick={() => handleDeleteEvent(event.id)}
-                              className="p-2 hover:bg-muted rounded-lg transition-colors text-red-600"
-                            >
-                              <Trash2 className="w-5 h-5" />
-                            </button>
+
+                        {isAdmin && (
+                          <div className="flex items-center gap-2 ml-4 flex-shrink-0">
+                            {event.recurring && event.recurring !== "none" ? (
+                              <button
+                                onClick={() => setEditingId(event.id)}
+                                className="p-2 hover:bg-muted rounded-lg transition-colors text-primary"
+                                title="Alterar este evento específico"
+                              >
+                                <Edit2 className="w-5 h-5" />
+                              </button>
+                            ) : (
+                              <>
+                                <button
+                                  onClick={() => setEditingId(event.id)}
+                                  className="p-2 hover:bg-muted rounded-lg transition-colors text-primary"
+                                >
+                                  <Edit2 className="w-5 h-5" />
+                                </button>
+                                <button
+                                  onClick={() => handleDeleteEvent(event.id)}
+                                  className="p-2 hover:bg-muted rounded-lg transition-colors text-red-600"
+                                >
+                                  <Trash2 className="w-5 h-5" />
+                                </button>
+                              </>
+                            )}
                           </div>
                         )}
                       </div>
