@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Links Rápidos</h4>
+            <h4 className="font-semibold mb-4">Navegação</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
@@ -49,13 +49,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/versiculos" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
-                  → Versículos
-                </Link>
-              </li>
-              <li>
-                <Link to="/oracoes" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
-                  → Orações
+                <Link to="/mural" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Mural
                 </Link>
               </li>
               <li>
@@ -63,13 +58,28 @@ export default function Footer() {
                   → Agenda
                 </Link>
               </li>
+              <li>
+                <Link to="/missoes" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Missões
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Orações & Recursos */}
           <div>
-            <h4 className="font-semibold mb-4">Recursos</h4>
+            <h4 className="font-semibold mb-4">Orações & Recursos</h4>
             <ul className="space-y-3 text-sm">
+              <li>
+                <Link to="/oracoes" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Orações Sagradas
+                </Link>
+              </li>
+              <li>
+                <Link to="/versiculos" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
+                  → Versículos Diários
+                </Link>
+              </li>
               <li>
                 <Link to="/aprender-rezar" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
                   → Aprender a Rezar
@@ -78,16 +88,6 @@ export default function Footer() {
               <li>
                 <Link to="/calendario-liturgico" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
                   → Calendário Litúrgico
-                </Link>
-              </li>
-              <li>
-                <Link to="/cursos" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
-                  → Cursos Católicos
-                </Link>
-              </li>
-              <li>
-                <Link to="/mural" className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 block">
-                  → Mural
                 </Link>
               </li>
             </ul>
