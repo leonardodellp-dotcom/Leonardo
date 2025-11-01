@@ -238,7 +238,7 @@ export default function Cursos() {
               question: "Qual é o método mais eficaz de evangelização?",
               options: ["Pregar na rua", "Testemunho pessoal", "Distribuir panfletos", "Crítica às outras religiões"],
               correctAnswer: 1,
-              explanation: "O testemunho pessoal �� o método mais poderoso, pois mostra a transformação real da fé.",
+              explanation: "O testemunho pessoal é o método mais poderoso, pois mostra a transformação real da fé.",
             },
           ],
         },
@@ -520,6 +520,123 @@ export default function Cursos() {
           </div>
         </div>
       </section>
+
+      {/* Review Modal */}
+      {showReview && currentReviewLesson && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-card border border-border rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold">{currentReviewLesson.title}</h2>
+              <button
+                onClick={() => setShowReview(false)}
+                className="text-2xl text-muted-foreground hover:text-foreground"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Progress */}
+            <div className="mb-6">
+              <div className="flex justify-between mb-2 text-sm">
+                <span className="font-semibold">Pergunta {currentQuestionIndex + 1} de {currentReviewLesson.questions.length}</span>
+                <span className="text-muted-foreground">{Math.round(((currentQuestionIndex + 1) / currentReviewLesson.questions.length) * 100)}%</span>
+              </div>
+              <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-primary transition-all"
+                  style={{
+                    width: `${((currentQuestionIndex + 1) / currentReviewLesson.questions.length) * 100}%`
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Question */}
+            {currentReviewLesson.questions[currentQuestionIndex] && (
+              <div>
+                <h3 className="text-lg font-bold mb-6">
+                  {currentReviewLesson.questions[currentQuestionIndex].question}
+                </h3>
+
+                {/* Options */}
+                <div className="space-y-3 mb-8">
+                  {currentReviewLesson.questions[currentQuestionIndex].options.map((option, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleAnswerSelect(currentReviewLesson.questions[currentQuestionIndex].id, idx)}
+                      className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
+                        answers[currentReviewLesson.questions[currentQuestionIndex].id] === idx
+                          ? "border-primary bg-primary/10"
+                          : "border-border hover:border-primary/50"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                            answers[currentReviewLesson.questions[currentQuestionIndex].id] === idx
+                              ? "border-primary bg-primary"
+                              : "border-muted"
+                          }`}
+                        >
+                          {answers[currentReviewLesson.questions[currentQuestionIndex].id] === idx && (
+                            <span className="text-primary-foreground text-sm font-bold">✓</span>
+                          )}
+                        </div>
+                        <span>{option}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Explanation (if answered) */}
+                {answers[currentReviewLesson.questions[currentQuestionIndex].id] !== undefined && (
+                  <div className={`p-4 rounded-lg mb-8 ${
+                    answers[currentReviewLesson.questions[currentQuestionIndex].id] === currentReviewLesson.questions[currentQuestionIndex].correctAnswer
+                      ? "bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100"
+                      : "bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100"
+                  }`}>
+                    <p className="font-semibold mb-2">
+                      {answers[currentReviewLesson.questions[currentQuestionIndex].id] === currentReviewLesson.questions[currentQuestionIndex].correctAnswer
+                        ? "✓ Correto!"
+                        : "✗ Incorreto"}
+                    </p>
+                    <p className="text-sm">{currentReviewLesson.questions[currentQuestionIndex].explanation}</p>
+                  </div>
+                )}
+
+                {/* Navigation */}
+                <div className="flex items-center justify-between gap-4">
+                  <button
+                    onClick={handlePrevQuestion}
+                    disabled={currentQuestionIndex === 0}
+                    className="px-6 py-2 bg-muted text-muted-foreground rounded-lg hover:bg-muted/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    ← Anterior
+                  </button>
+
+                  {currentQuestionIndex === currentReviewLesson.questions.length - 1 ? (
+                    <button
+                      onClick={handleCompleteCourse}
+                      className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors"
+                    >
+                      Finalizar Revisão
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleNextQuestion}
+                      disabled={answers[currentReviewLesson.questions[currentQuestionIndex].id] === undefined}
+                      className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed font-semibold transition-colors"
+                    >
+                      Próxima →
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
