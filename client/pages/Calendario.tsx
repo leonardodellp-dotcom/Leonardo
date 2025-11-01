@@ -107,7 +107,8 @@ export default function Calendario() {
         date: `${selectedMonth}/${new Date().getDate()}`,
         day: new Date().getDate(),
         month: selectedMonth,
-        ...formData
+        ...formData,
+        recurring: "none"
       }]);
       setFormData({ title: "", time: "", location: "" });
       setNewEvent(false);
