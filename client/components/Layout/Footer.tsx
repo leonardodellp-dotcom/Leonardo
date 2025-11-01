@@ -16,25 +16,22 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
-                className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/jucrisc/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@jucrisc"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
-                aria-label="YouTube"
+                aria-label="TikTok"
               >
-                <Youtube className="w-5 h-5" />
+                <Music className="w-5 h-5" />
               </a>
             </div>
           </div>
