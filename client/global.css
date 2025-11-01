@@ -51,13 +51,13 @@
     --radius: 0.5rem;
 
     /* Sidebar */
-    --sidebar-background: 15 23% 5%;
+    --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 99%;
     --sidebar-primary: 264 85% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 45 100% 52%;
     --sidebar-accent-foreground: 0 0% 8%;
-    --sidebar-border: 15 23% 18%;
+    --sidebar-border: 0 0% 18%;
     --sidebar-ring: 264 85% 55%;
   }
 
