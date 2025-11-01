@@ -78,13 +78,13 @@ export default function CalendarioLiturgico() {
   const getTypeColor = (type: string) => {
     switch (type) {
       case "solemn":
-        return "bg-red-100 text-red-800 border-red-300";
+        return "bg-red-600/20 text-red-300 border-red-600/40";
       case "feast":
-        return "bg-blue-100 text-blue-800 border-blue-300";
+        return "bg-blue-600/20 text-blue-300 border-blue-600/40";
       case "memorial":
-        return "bg-green-100 text-green-800 border-green-300";
+        return "bg-green-600/20 text-green-300 border-green-600/40";
       default:
-        return "bg-gray-100 text-gray-800 border-gray-300";
+        return "bg-primary/20 text-primary border-primary/40";
     }
   };
 
