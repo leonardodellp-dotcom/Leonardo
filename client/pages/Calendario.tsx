@@ -78,13 +78,13 @@ export default function Calendario() {
   const getTypeColor = (type: string) => {
     switch (type) {
       case "solemn":
-        return "bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-200 border-red-300 dark:border-red-700";
+        return "bg-red-600/20 text-red-300 border-red-600/40";
       case "feast":
-        return "bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-200 border-blue-300 dark:border-blue-700";
+        return "bg-blue-600/20 text-blue-300 border-blue-600/40";
       case "memorial":
-        return "bg-green-100 dark:bg-green-950 text-green-800 dark:text-green-200 border-green-300 dark:border-green-700";
+        return "bg-green-600/20 text-green-300 border-green-600/40";
       default:
-        return "bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 border-gray-300 dark:border-gray-700";
+        return "bg-primary/20 text-primary border-primary/40";
     }
   };
 
