@@ -33,7 +33,7 @@ const NotFound = () => {
 
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-primary/30 active:scale-95"
           >
             <ArrowLeft className="w-4 h-4" />
             Voltar ao Início
