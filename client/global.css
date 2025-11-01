@@ -13,14 +13,14 @@
   :root {
     color-scheme: dark;
 
-    /* Enhanced Dark Theme (primary) - Vibrant & Beautiful - Pure Black */
-    --background: 0 0% 2%;
+    /* Enhanced Dark Theme (primary) - Vibrant & Beautiful - Deep Blue */
+    --background: 220 30% 5%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 8%;
+    --card: 220 30% 10%;
     --card-foreground: 0 0% 99%;
 
-    --popover: 0 0% 8%;
+    --popover: 220 30% 10%;
     --popover-foreground: 0 0% 99%;
 
     /* Primary: Vibrant Purple */
