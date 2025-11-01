@@ -19,7 +19,7 @@ export default function Footer() {
                 href="https://www.instagram.com/jucrisc/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
+                className="p-2 hover:bg-primary/20 border border-primary/30 rounded-lg transition-all hover:shadow-glow text-muted-foreground hover:text-primary"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -28,7 +28,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@jucrisc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-primary"
+                className="p-2 hover:bg-accent/20 border border-accent/30 rounded-lg transition-all hover:shadow-glow-accent text-muted-foreground hover:text-accent"
                 aria-label="TikTok"
               >
                 <Music className="w-5 h-5" />
