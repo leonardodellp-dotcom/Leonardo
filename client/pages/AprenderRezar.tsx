@@ -12,6 +12,13 @@ interface PrayerMethod {
   difficulty: "Iniciante" | "Intermediário" | "Avançado";
 }
 
+interface RosaryDay {
+  day: string;
+  mysteries: string[];
+  readings: string[];
+  color: string;
+}
+
 export default function AprenderRezar() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
