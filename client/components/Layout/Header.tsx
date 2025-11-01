@@ -42,6 +42,8 @@ export default function Header() {
     { label: "Como Ler a Bíblia", path: "/guia-leitura-biblia" },
     { label: "Aprender a Rezar", path: "/aprender-rezar" },
     { label: "O Terço", path: "/terco" },
+    { label: "Devoções", path: "/devocoes" },
+    { label: "Biblioteca Católica", path: "/biblioteca-catolica" },
     { label: "Calendário Litúrgico", path: "/calendario-liturgico" },
   ];
 
