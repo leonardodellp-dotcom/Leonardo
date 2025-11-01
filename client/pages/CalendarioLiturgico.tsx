@@ -226,10 +226,10 @@ export default function CalendarioLiturgico() {
 
           {/* Info Section */}
           <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-6 mt-12">
-            <h3 className="font-semibold mb-3 text-blue-900 dark:text-blue-100">
+            <h3 className="font-semibold mb-3 text-primary">
               📖 Sobre o Calendário Litúrgico
             </h3>
-            <p className="text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               O calendário litúrgico é o conjunto de celebrações, festas e tempos especiais que a Igreja
               Católica celebra ao longo do ano. Cada data marca momentos importantes da vida de Cristo,
               de Maria e dos santos. As solenidades são as celebrações mais importantes, seguidas pelas
