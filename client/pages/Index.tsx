@@ -125,20 +125,20 @@ export default function Index() {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16">
-            <div className="text-center">
+            <div className="text-center p-4 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/60 transition-all">
               <div className="text-3xl md:text-4xl font-bold text-accent mb-2">
                 500+
               </div>
               <p className="text-sm text-muted-foreground">Membros Ativos</p>
             </div>
-            <div className="text-center">
+            <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/30 hover:border-primary/60 transition-all">
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
                 50+
               </div>
               <p className="text-sm text-muted-foreground">Eventos por Ano</p>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+            <div className="text-center p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 hover:border-purple-500/60 transition-all">
+              <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2">
                 35+ Anos
               </div>
               <p className="text-sm text-muted-foreground">De Comunidade</p>
