@@ -124,14 +124,11 @@ export default function Versiculos() {
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-4">
-              <BookOpen className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
-                Palavra de Deus
-              </span>
+            <div className="inline-flex p-4 bg-primary/15 border border-primary/30 rounded-xl mb-4">
+              <BookOpen className="w-5 h-5 text-primary" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Versículos</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">Versículos Diários</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Reflita sobre a Palavra de Deus diariamente. Cada versículo foi
               selecionado para inspirar, confortar e fortalecer sua jornada
               espiritual.
