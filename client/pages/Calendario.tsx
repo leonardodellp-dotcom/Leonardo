@@ -119,6 +119,15 @@ export default function Calendario() {
     setEvents(events.filter(e => e.id !== id));
   };
 
+  // Combinar eventos recorrentes + eventos customizados
+  const allMonthEvents = [...monthEvents, ...events.filter(e => e.month === selectedMonth)]
+    .sort((a, b) => {
+      if (a.day === b.day) {
+        return a.time.localeCompare(b.time);
+      }
+      return a.day - b.day;
+    });
+
   return (
     <Layout>
       <div className="min-h-[calc(100vh-200px)] px-4 py-12">
