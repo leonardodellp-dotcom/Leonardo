@@ -27,29 +27,77 @@ export default function Calendario() {
     "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
   ];
 
-  // Eventos Jucrisc (exemplo - em produção viria do banco)
-  const [events, setEvents] = useState<Event[]>([
-    {
-      id: "1",
-      date: "Próximo evento",
-      day: 5,
-      month: 1,
-      title: "Reunião Semanal",
-      time: "19:00",
-      location: "Paróquia Santo Antonio",
-    },
-    {
-      id: "2",
-      date: "Próximo evento",
-      day: 12,
-      month: 1,
-      title: "Retiro Espiritual",
-      time: "14:00",
-      location: "Sítio Comunitário",
-    },
-  ]);
+  // Gerar eventos recorrentes para o mês selecionado
+  const generateRecurringEvents = (month: number, year: number = 2025): Event[] => {
+    const recurringEvents: Event[] = [];
+    const daysInMonth = new Date(year, month, 0).getDate();
 
-  const monthEvents = events.filter(e => e.month === selectedMonth);
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month - 1, day);
+      const dayOfWeek = date.getDay();
+
+      // Domingo (0) = Santo Antonio + Laboratório
+      if (dayOfWeek === 0) {
+        recurringEvents.push({
+          id: `sunday-main-${day}`,
+          date: `${day}/${month}`,
+          day,
+          month,
+          title: "Santo Antonio",
+          time: "18:30",
+          location: "Paróquia Santo Antonio",
+          recurring: "sunday",
+        });
+        recurringEvents.push({
+          id: `sunday-lab-${day}`,
+          date: `${day}/${month}`,
+          day,
+          month,
+          title: "Laboratório (Atividade)",
+          time: "19:45",
+          location: "Paróquia Santo Antonio",
+          recurring: "sunday",
+        });
+      }
+
+      // Sábado (6) = Cantinho Fraterno + Ensaio
+      if (dayOfWeek === 6) {
+        recurringEvents.push({
+          id: `saturday-1-${day}`,
+          date: `${day}/${month}`,
+          day,
+          month,
+          title: "Cantinho Fraterno / Missa no Asilo",
+          time: "16:00",
+          location: "Asilo da Comunidade",
+          recurring: "saturday",
+        });
+        recurringEvents.push({
+          id: `saturday-2-${day}`,
+          date: `${day}/${month}`,
+          day,
+          month,
+          title: "Ensaio de Instrumentos e Canto",
+          time: "17:30",
+          location: "Asilo da Comunidade",
+          recurring: "saturday",
+        });
+      }
+    }
+
+    return recurringEvents;
+  };
+
+  // Eventos Jucrisc (exemplo - em produção viria do banco)
+  const [events, setEvents] = useState<Event[]>([]);
+
+  // Gerar eventos do mês selecionado
+  const monthEvents = generateRecurringEvents(selectedMonth).sort((a, b) => {
+    if (a.day === b.day) {
+      return a.time.localeCompare(b.time);
+    }
+    return a.day - b.day;
+  });
 
   const handleAddEvent = () => {
     if (formData.title && formData.time) {
