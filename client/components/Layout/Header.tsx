@@ -85,13 +85,13 @@ export default function Header() {
               </Link>
             ))}
 
-            {/* Dropdown: Orações */}
+            {/* Dropdown: Oração & Devoção */}
             <DropdownMenu>
               <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
-                Orações <ChevronDown className="w-4 h-4" />
+                Oração & Devoção <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48">
-                {oracoesSubmenu.map((item) => (
+                {oracaoDevocaoSubmenu.map((item) => (
                   <DropdownMenuItem key={item.path} asChild>
                     <Link to={item.path} className="cursor-pointer">
                       {item.label}
