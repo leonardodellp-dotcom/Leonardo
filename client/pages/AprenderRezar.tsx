@@ -22,6 +22,51 @@ interface RosaryDay {
 export default function AprenderRezar() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
+  const dailyRosaries: RosaryDay[] = [
+    {
+      day: "Segunda-feira",
+      mysteries: ["Joyful Mysteries (Mistérios Gozosos)", "Anunciação", "Visitação", "Nascimento de Jesus", "Apresentação de Jesus no Templo", "Encontro de Jesus no Templo"],
+      readings: ["Lucas 1:26-38 (Anunciação)", "Lucas 1:39-56 (Visitação)", "Lucas 2:1-20 (Nascimento)", "Lucas 2:22-38 (Apresentação)", "Lucas 2:41-52 (Encontro no Templo)"],
+      color: "bg-white border-white"
+    },
+    {
+      day: "Terça-feira",
+      mysteries: ["Sorrowful Mysteries (Mistérios Dolorosos)", "Agonia no Horto", "Flagelação do Senhor", "Coroação de Espinhos", "Jesus Carrega a Cruz", "Crucificação"],
+      readings: ["Mateus 26:36-46 (Agonia)", "Mateus 27:24-26 (Flagelação)", "Mateus 27:27-31 (Coroação)", "Mateus 27:31-33 (Caminho da Cruz)", "Mateus 27:33-56 (Crucificação)"],
+      color: "bg-red-50 border-red-200"
+    },
+    {
+      day: "Quarta-feira",
+      mysteries: ["Glorious Mysteries (Mistérios Gloriosos)", "Ressurreição de Jesus", "Ascensão de Jesus", "Descida do Espírito Santo", "Assunção de Maria", "Coroação de Maria"],
+      readings: ["Mateus 28:1-10 (Ressurreição)", "Atos 1:6-11 (Ascensão)", "Atos 2:1-21 (Pentecostes)", "Lucas 1:46-55 e Apocalipse 12:1 (Assunção)", "Apocalipse 12:1 (Coroação)"],
+      color: "bg-yellow-50 border-yellow-200"
+    },
+    {
+      day: "Quinta-feira",
+      mysteries: ["Joyful Mysteries (Mistérios Gozosos)", "Anunciação", "Visitação", "Nascimento de Jesus", "Apresentação de Jesus no Templo", "Encontro de Jesus no Templo"],
+      readings: ["Lucas 1:26-38 (Anunciação)", "Lucas 1:39-56 (Visitação)", "Lucas 2:1-20 (Nascimento)", "Lucas 2:22-38 (Apresentação)", "Lucas 2:41-52 (Encontro no Templo)"],
+      color: "bg-white border-white"
+    },
+    {
+      day: "Sexta-feira",
+      mysteries: ["Sorrowful Mysteries (Mistérios Dolorosos)", "Agonia no Horto", "Flagelação do Senhor", "Coroação de Espinhos", "Jesus Carrega a Cruz", "Crucificação"],
+      readings: ["Mateus 26:36-46 (Agonia)", "Mateus 27:24-26 (Flagelação)", "Mateus 27:27-31 (Coroação)", "Mateus 27:31-33 (Caminho da Cruz)", "Mateus 27:33-56 (Crucificação)"],
+      color: "bg-red-50 border-red-200"
+    },
+    {
+      day: "Sábado",
+      mysteries: ["Joyful Mysteries (Mistérios Gozosos)", "Anunciação", "Visitação", "Nascimento de Jesus", "Apresentação de Jesus no Templo", "Encontro de Jesus no Templo"],
+      readings: ["Lucas 1:26-38 (Anunciação)", "Lucas 1:39-56 (Visitação)", "Lucas 2:1-20 (Nascimento)", "Lucas 2:22-38 (Apresentação)", "Lucas 2:41-52 (Encontro no Templo)"],
+      color: "bg-white border-white"
+    },
+    {
+      day: "Domingo",
+      mysteries: ["Glorious Mysteries (Mistérios Gloriosos)", "Ressurreição de Jesus", "Ascensão de Jesus", "Descida do Espírito Santo", "Assunção de Maria", "Coroação de Maria"],
+      readings: ["Mateus 28:1-10 (Ressurreição)", "Atos 1:6-11 (Ascensão)", "Atos 2:1-21 (Pentecostes)", "Lucas 1:46-55 e Apocalipse 12:1 (Assunção)", "Apocalipse 12:1 (Coroação)"],
+      color: "bg-blue-50 border-blue-200"
+    }
+  ];
+
   const prayerMethods: PrayerMethod[] = [
     {
       id: "1",
