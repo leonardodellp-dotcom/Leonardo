@@ -90,25 +90,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Location */}
           <div>
-            <h4 className="font-semibold mb-4">Contato</h4>
+            <h4 className="font-semibold mb-4">Localização</h4>
             <ul className="space-y-3 text-sm">
-              <li className="flex gap-2 text-muted-foreground">
-                <Mail className="w-5 h-5 flex-shrink-0 text-primary" />
-                <a href="mailto:contato@jucrisc.com" className="hover:text-primary transition-colors">
-                  contato@jucrisc.com
-                </a>
-              </li>
-              <li className="flex gap-2 text-muted-foreground">
-                <Phone className="w-5 h-5 flex-shrink-0 text-primary" />
-                <a href="tel:+5511999999999" className="hover:text-primary transition-colors">
-                  (11) 99999-9999
-                </a>
-              </li>
               <li className="flex gap-2 text-muted-foreground">
                 <MapPin className="w-5 h-5 flex-shrink-0 text-primary" />
                 <span>Sua Igreja, Cidade</span>
+              </li>
+              <li className="text-muted-foreground mt-6 pt-6 border-t border-border">
+                <p className="font-semibold text-foreground mb-2">Redes Sociais</p>
+                <p className="text-xs">
+                  📱 <a href="https://www.instagram.com/jucrisc/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Instagram</a> |
+                  <a href="https://www.tiktok.com/@jucrisc" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">TikTok</a>
+                </p>
               </li>
             </ul>
           </div>
