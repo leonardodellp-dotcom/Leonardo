@@ -54,7 +54,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-card border-b border-border sticky top-0 z-50">
+    <header className="sticky top-0 z-50 backdrop-blur-sm bg-card/80 border-b border-primary/20 shadow-glow">
       <nav className="container mx-auto px-4 py-4">
         {/* Desktop Layout */}
         <div className="hidden lg:flex justify-between items-center">
