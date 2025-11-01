@@ -427,20 +427,36 @@ export default function Calendario() {
               </div>
 
               {/* Events List */}
-              {monthEvents.length > 0 ? (
+              {allMonthEvents.length > 0 ? (
                 <div className="space-y-4">
                   <h3 className="text-lg font-bold">Programações de {monthNames[selectedMonth - 1]}</h3>
-                  {monthEvents.map((event) => (
-                    <div key={event.id} className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all">
+                  {allMonthEvents.map((event) => (
+                    <div
+                      key={event.id}
+                      className={`bg-card border rounded-xl p-6 hover:border-primary/50 transition-all ${
+                        event.recurring === "sunday"
+                          ? "border-blue-200 dark:border-blue-700 bg-blue-50/30 dark:bg-blue-950/30"
+                          : event.recurring === "saturday"
+                          ? "border-purple-200 dark:border-purple-700 bg-purple-50/30 dark:bg-purple-950/30"
+                          : "border-border"
+                      }`}
+                    >
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
-                          <h4 className="text-lg font-bold mb-2">{event.title}</h4>
+                          <div className="flex items-center gap-2 mb-2">
+                            <h4 className="text-lg font-bold">{event.title}</h4>
+                            {event.recurring && event.recurring !== "none" && (
+                              <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
+                                {event.recurring === "sunday" ? "Todo domingo" : "Todo sábado"}
+                              </span>
+                            )}
+                          </div>
                           <div className="space-y-1 text-sm text-muted-foreground">
-                            <p>🕐 {event.time}</p>
+                            <p>📅 Dia {event.day} - 🕐 {event.time}</p>
                             <p>📍 {event.location}</p>
                           </div>
                         </div>
-                        {isAdmin && (
+                        {isAdmin && !event.recurring && (
                           <div className="flex items-center gap-2 ml-4">
                             <button
                               onClick={() => setEditingId(event.id)}
