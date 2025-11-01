@@ -103,6 +103,22 @@ export default function Versiculos() {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
+  // Filter verses that are NOT older than 5 days
+  const activeVerses = verses.filter((verse) => {
+    const daysMap: { [key: string]: number } = {
+      "Hoje": 0,
+      "Ontem": 1,
+      "2 dias atrás": 2,
+      "3 dias atrás": 3,
+      "4 dias atrás": 4,
+      "5 dias atrás": 5,
+      "6 dias atrás": 6,
+    };
+
+    const days = daysMap[verse.day] || 0;
+    return days <= 5; // Only show verses from the last 5 days
+  });
+
   return (
     <Layout>
       <section className="py-16 px-4">
@@ -123,7 +139,7 @@ export default function Versiculos() {
           </div>
 
           <div className="space-y-6">
-            {verses.map((verse) => (
+            {activeVerses.map((verse) => (
               <div
                 key={verse.id}
                 className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all group"
