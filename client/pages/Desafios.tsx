@@ -356,7 +356,7 @@ export default function Desafios() {
                   title: "🟡 Médio",
                   description: "Conhecimento intermediário necessário",
                   color:
-                    "from-yellow-500/10 via-yellow-500/5 to-transparent border-yellow-500/30",
+                    "from-blue-600/10 via-blue-600/5 to-transparent border-blue-600/30",
                 },
                 {
                   level: "difícil",
