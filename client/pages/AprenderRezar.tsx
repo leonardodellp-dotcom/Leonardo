@@ -17,6 +17,14 @@ interface RosaryDay {
   mysteries: string[];
   readings: string[];
   color: string;
+  id: string;
+}
+
+interface RosaryBead {
+  name: string;
+  description: string;
+  prayer: string;
+  count: number;
 }
 
 export default function AprenderRezar() {
