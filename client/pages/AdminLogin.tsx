@@ -29,8 +29,39 @@ export default function AdminLogin() {
         localStorage.setItem("admin_username", username);
         localStorage.setItem("admin_role", "supremo");
 
+        // Create admin profile with full access
+        const adminProfile = {
+          isAdmin: true,
+          name: "Admin Jucrisc",
+          email: username === "Leonardo" ? "leonardo@jucrisc.admin" : "leoadm@jucrisc.admin",
+          age: 25,
+          group: "Jucrisc",
+          bio: "Administrador supremo do Jucrisc com acesso a todas as funcionalidades.",
+          joinedAt: "Janeiro 2023",
+        };
+
+        // Create admin game stats with everything unlocked
+        const adminGameStats = {
+          totalXP: 999999,
+          level: 10,
+          nextLevelXP: 999999,
+          xpProgress: 100,
+          profileLikes: 9999,
+          badges: [],
+          activitiesThisMonth: {
+            forumPosts: 9999,
+            forumReplies: 9999,
+            challengesCompleted: 9999,
+            coursesCompleted: 18,
+            chatMessages: 9999,
+          },
+        };
+
+        localStorage.setItem("admin_profile", JSON.stringify(adminProfile));
+        localStorage.setItem("admin_game_stats", JSON.stringify(adminGameStats));
+
         setTimeout(() => {
-          navigate("/admin-dashboard");
+          navigate("/meu-perfil");
         }, 1500);
       } else {
         setError("Usuário ou senha incorretos. Tente novamente!");
