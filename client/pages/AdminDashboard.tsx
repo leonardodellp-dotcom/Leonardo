@@ -86,7 +86,22 @@ export default function AdminDashboard() {
       label: "Usuários",
       icon: Users,
     },
+    {
+      id: "suggestions",
+      label: "Sugestões de Chat",
+      icon: MessageSquare,
+    },
   ];
+
+  const approveSuggestion = (id: string) => {
+    setSuggestions(
+      suggestions.map((s) => (s.id === id ? { ...s, status: "approved" } : s))
+    );
+  };
+
+  const rejectSuggestion = (id: string) => {
+    setSuggestions(suggestions.filter((s) => s.id !== id));
+  };
 
   return (
     <Layout>
