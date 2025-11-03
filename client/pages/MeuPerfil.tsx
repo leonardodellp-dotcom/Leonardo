@@ -149,6 +149,22 @@ export default function MeuPerfil() {
 
   const handleSave = () => {
     setProfile(formData);
+
+    // Persist to localStorage if admin
+    if (isAdmin) {
+      const adminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
+      const updatedProfile = {
+        ...adminProfile,
+        name: formData.name,
+        bio: formData.bio,
+        age: formData.age,
+        group: formData.group,
+        email: formData.email,
+        joinedAt: formData.joinedAt,
+      };
+      localStorage.setItem("admin_profile", JSON.stringify(updatedProfile));
+    }
+
     setIsEditing(false);
   };
 
@@ -283,6 +299,33 @@ export default function MeuPerfil() {
                           setFormData({ ...formData, bio: e.target.value })
                         }
                         className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-600 resize-none h-20"
+                        placeholder="Escreva algo sobre você"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-1">
+                        Idade
+                      </label>
+                      <input
+                        type="number"
+                        value={formData.age}
+                        onChange={(e) =>
+                          setFormData({ ...formData, age: parseInt(e.target.value) || 0 })
+                        }
+                        className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-600"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-1">
+                        Grupo
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.group}
+                        onChange={(e) =>
+                          setFormData({ ...formData, group: e.target.value })
+                        }
+                        className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-600"
                       />
                     </div>
 
