@@ -92,6 +92,7 @@ export default function Header() {
     { label: "Testemunhas", path: "/testemunhas" },
     { label: "Fórum", path: "/forum" },
     { label: "Galeria de Fotos", path: "/galeria-fotos" },
+    { label: "Vídeos", path: "/videos" },
   ];
 
   const conhecimentoSubmenu = [
