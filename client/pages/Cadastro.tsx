@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { UserPlus, AlertCircle, CheckCircle } from "lucide-react";
+import { UserPlus, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { supabase } from "@shared/supabase";
 import { isValidEmail, isValidPhone, isValidFullName, isStrongPassword } from "@/lib/security";
 
