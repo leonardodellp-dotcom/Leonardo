@@ -16,6 +16,8 @@ import {
   MessageCircle,
   TrendingUp,
   Lock,
+  CheckCircle,
+  RotateCcw,
 } from "lucide-react";
 import {
   calculateLevel,
@@ -361,7 +363,7 @@ export default function MeuPerfil() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-foreground mb-2">
-                      Vers��culo do Dia
+                      Versículo do Dia
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       {dailyVerse.reference} - {dailyVerse.book}
