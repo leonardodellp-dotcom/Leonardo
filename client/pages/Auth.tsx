@@ -103,18 +103,6 @@ export default function Auth() {
           </div>
         </div>
 
-        {/* Continue as Visitor */}
-        <div className="text-center">
-          <p className="text-gray-400 mb-4">
-            Quer explorar o site antes de se registrar?
-          </p>
-          <button
-            onClick={() => navigate("/")}
-            className="px-6 py-2 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-medium rounded-lg transition-all hover:bg-white/5"
-          >
-            Continuar como Visitante
-          </button>
-        </div>
 
         {/* Footer Info */}
         <div className="mt-16 pt-8 border-t border-gray-700">
