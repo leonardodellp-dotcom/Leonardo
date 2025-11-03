@@ -37,6 +37,7 @@ MAILGUN_DOMAIN=sandboxabc123.mailgun.org
 ```
 
 **Para Netlify:**
+
 1. Vá para Site settings → Build & deploy → Environment
 2. Clique em **Edit variables**
 3. Adicione as variáveis acima
@@ -162,11 +163,11 @@ await transporter.sendMail({
 ## 📊 Comparação das Opções
 
 | Opção    | Custo      | Facilidade | Limite Livre | Recomendação |
-|----------|-----------|-----------|-------------|--------------|
-| Mailgun  | $0.50/1000 | ⭐⭐⭐⭐   | 100/mês     | ✅ MELHOR   |
-| Resend   | $0.25/1000 | ⭐⭐⭐⭐⭐  | Limitado    | ✅ FÁCIL   |
-| SendGrid | $0.10/1000 | ⭐⭐⭐    | 100/dia     | ✅ Popular  |
-| Gmail    | Grátis     | ⭐⭐     | Limitado    | ⚠️ Básico   |
+| -------- | ---------- | ---------- | ------------ | ------------ |
+| Mailgun  | $0.50/1000 | ⭐⭐⭐⭐   | 100/mês      | ✅ MELHOR    |
+| Resend   | $0.25/1000 | ⭐⭐⭐⭐⭐ | Limitado     | ✅ FÁCIL     |
+| SendGrid | $0.10/1000 | ⭐⭐⭐     | 100/dia      | ✅ Popular   |
+| Gmail    | Grátis     | ⭐⭐       | Limitado     | ⚠️ Básico    |
 
 ---
 
@@ -198,6 +199,7 @@ Reset code for leonardodellp@gmail.com: ABC123 (valid for 1 hour)
 ### "Email service unavailable"
 
 **Solução:**
+
 - Verifique se MAILGUN_API_KEY está configurada
 - Confirme que o domínio está correto
 - Tente usar um email diferente
@@ -205,6 +207,7 @@ Reset code for leonardodellp@gmail.com: ABC123 (valid for 1 hour)
 ### "Failed to send email"
 
 **Solução:**
+
 - Verifique credenciais da API
 - Confirme que email é válido
 - Veja logs do Netlify para mais detalhes
@@ -212,6 +215,7 @@ Reset code for leonardodellp@gmail.com: ABC123 (valid for 1 hour)
 ### Email não chega
 
 **Solução:**
+
 - Verifique pasta de spam
 - Aguarde até 5 minutos
 - Confira se email foi enviado (veja logs)

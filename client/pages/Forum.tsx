@@ -451,7 +451,8 @@ export default function Forum() {
                 </div>
 
                 <p className="text-muted-foreground mb-6">
-                  Sua sugestão será enviada ao administrador do fórum, que poderá criar a discussão se considerar relevante.
+                  Sua sugestão será enviada ao administrador do fórum, que
+                  poderá criar a discussão se considerar relevante.
                 </p>
 
                 <form className="space-y-4">

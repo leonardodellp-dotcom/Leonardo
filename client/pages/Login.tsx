@@ -65,9 +65,7 @@ export default function Login() {
       }
 
       if (!users || users.length === 0) {
-        setError(
-          "Email não encontrado. Verifique ou faça um novo cadastro!"
-        );
+        setError("Email não encontrado. Verifique ou faça um novo cadastro!");
         setLoading(false);
         return;
       }
@@ -83,7 +81,7 @@ export default function Login() {
       }
 
       setSuccess("Login realizado com sucesso!");
-      
+
       // Save session to localStorage
       localStorage.setItem(
         "user_session",
@@ -94,7 +92,7 @@ export default function Login() {
           age: user.age,
           group: user.group,
           phone: user.phone,
-        })
+        }),
       );
 
       setTimeout(() => {
@@ -183,7 +181,9 @@ export default function Login() {
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-blue-400/60 hover:text-blue-400 transition-colors"
                     disabled={loading}
-                    aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
+                    aria-label={
+                      showPassword ? "Esconder senha" : "Mostrar senha"
+                    }
                   >
                     {showPassword ? (
                       <EyeOff className="w-5 h-5" />

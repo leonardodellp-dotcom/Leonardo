@@ -33,12 +33,16 @@ export default function AdminLogin() {
         const adminProfile = {
           isAdmin: true,
           name: "Leonardo",
-          email: username === "Leonardo" ? "leonardo@jucrisc.admin" : "leoadm@jucrisc.admin",
+          email:
+            username === "Leonardo"
+              ? "leonardo@jucrisc.admin"
+              : "leoadm@jucrisc.admin",
           age: 18,
           group: "Jucrisc",
           bio: "Administrador supremo do Jucrisc com acesso a todas as funcionalidades.",
           joinedAt: "Dezembro de 18 a.C.",
-          profilePhoto: "https://cdn.builder.io/api/v1/image/assets%2F8ca2eb85954041b381398a3b58a28fe2%2F0323119d0fce4ba8a558a6ac894ea54a?format=webp&width=800",
+          profilePhoto:
+            "https://cdn.builder.io/api/v1/image/assets%2F8ca2eb85954041b381398a3b58a28fe2%2F0323119d0fce4ba8a558a6ac894ea54a?format=webp&width=800",
         };
 
         // Create admin game stats with everything unlocked
@@ -59,7 +63,10 @@ export default function AdminLogin() {
         };
 
         localStorage.setItem("admin_profile", JSON.stringify(adminProfile));
-        localStorage.setItem("admin_game_stats", JSON.stringify(adminGameStats));
+        localStorage.setItem(
+          "admin_game_stats",
+          JSON.stringify(adminGameStats),
+        );
 
         setTimeout(() => {
           navigate("/");

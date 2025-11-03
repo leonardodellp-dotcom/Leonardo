@@ -94,7 +94,8 @@ const questionBank: Question[] = [
     question: "Qual é o mandamento que Jesus resumiu como 'amar ao próximo'?",
     options: ["Primeiro", "Segundo", "Não é um dos dez", "Todos"],
     correctAnswer: 1,
-    explanation: "O segundo mandamento sintetiza a nossa obrigação para com o próximo.",
+    explanation:
+      "O segundo mandamento sintetiza a nossa obrigação para com o próximo.",
     difficulty: "fácil",
   },
   {
@@ -175,7 +176,8 @@ const questionBank: Question[] = [
     question: "Qual é o livro mais curto do Novo Testamento?",
     options: ["2 João", "3 João", "Filemom", "2 Pedro"],
     correctAnswer: 2,
-    explanation: "Filemom é o livro mais curto do Novo Testamento com apenas 25 versículos.",
+    explanation:
+      "Filemom é o livro mais curto do Novo Testamento com apenas 25 versículos.",
     difficulty: "fácil",
   },
   {
@@ -306,7 +308,8 @@ const questionBank: Question[] = [
   },
   {
     id: "m8",
-    question: "Qual é o nome da primeira Igreja construída sobre a tumba de Pedro em Roma?",
+    question:
+      "Qual é o nome da primeira Igreja construída sobre a tumba de Pedro em Roma?",
     options: [
       "Igreja de São Paulo",
       "Basílica de São Pedro",
@@ -422,7 +425,12 @@ const questionBank: Question[] = [
   {
     id: "m18",
     question: "Qual é o sacramento que marca a vocação ao matrimônio?",
-    options: ["Ordem Sagrada", "Matrimônio", "Confirmação", "Unção dos Enfermos"],
+    options: [
+      "Ordem Sagrada",
+      "Matrimônio",
+      "Confirmação",
+      "Unção dos Enfermos",
+    ],
     correctAnswer: 1,
     explanation:
       "O sacramento do Matrimônio une dois batizados em aliança sacramental.",
@@ -518,7 +526,12 @@ const questionBank: Question[] = [
   {
     id: "d7",
     question: "Qual Padre da Igreja escreveu 'Confissões'?",
-    options: ["Santo Agostinho", "São Jerônimo", "Santo Ambrósio", "São Gregório"],
+    options: [
+      "Santo Agostinho",
+      "São Jerônimo",
+      "Santo Ambrósio",
+      "São Gregório",
+    ],
     correctAnswer: 0,
     explanation:
       "Santo Agostinho escreveu as Confissões, uma obra autobiográfica e teológica importante.",
@@ -581,13 +594,9 @@ const questionBank: Question[] = [
   },
   {
     id: "d13",
-    question: "Qual Concílio definiu a autoridade do Papa como infalível em certas circunstâncias?",
-    options: [
-      "Vaticano I",
-      "Vaticano II",
-      "Calcedônia",
-      "Niceia",
-    ],
+    question:
+      "Qual Concílio definiu a autoridade do Papa como infalível em certas circunstâncias?",
+    options: ["Vaticano I", "Vaticano II", "Calcedônia", "Niceia"],
     correctAnswer: 0,
     explanation:
       "O Concílio Vaticano I (1870) definiu a infalibilidade papal em questões de fé e moral.",
@@ -735,8 +744,14 @@ const questionBank: Question[] = [
   },
   {
     id: "i4",
-    question: "Qual é o nome da bula papal de 1302 que afirma a supremacia papal?",
-    options: ["Unam Sanctam", "Sublimis Deus", "Pacem in Terris", "Humanae Vitae"],
+    question:
+      "Qual é o nome da bula papal de 1302 que afirma a supremacia papal?",
+    options: [
+      "Unam Sanctam",
+      "Sublimis Deus",
+      "Pacem in Terris",
+      "Humanae Vitae",
+    ],
     correctAnswer: 0,
     explanation:
       "A bula 'Unam Sanctam' do Papa Bonifácio VIII afirmava a supremacia papal sobre os monarcas.",
@@ -744,8 +759,14 @@ const questionBank: Question[] = [
   },
   {
     id: "i5",
-    question: "Qual filósofo medieval reconciliou Aristóteles com a teologia cristã?",
-    options: ["Santo Tomás de Aquino", "Santo Agostinho", "Escoto", "Boaventura"],
+    question:
+      "Qual filósofo medieval reconciliou Aristóteles com a teologia cristã?",
+    options: [
+      "Santo Tomás de Aquino",
+      "Santo Agostinho",
+      "Escoto",
+      "Boaventura",
+    ],
     correctAnswer: 0,
     explanation:
       "Santo Tomás de Aquino usou a filosofia aristotélica para fundamentar a teologia cristã.",
@@ -764,7 +785,12 @@ const questionBank: Question[] = [
   {
     id: "i7",
     question: "Qual Papa instituiu a festa de Corpus Christi?",
-    options: ["Papa Urbano IV", "Papa Clemente V", "Papa Gregório X", "Papa Bonifácio VIII"],
+    options: [
+      "Papa Urbano IV",
+      "Papa Clemente V",
+      "Papa Gregório X",
+      "Papa Bonifácio VIII",
+    ],
     correctAnswer: 0,
     explanation:
       "Papa Urbano IV instituiu a festa de Corpus Christi em 1264 através da bula Transiturus.",
@@ -825,7 +851,8 @@ const questionBank: Question[] = [
   },
   {
     id: "f24",
-    question: "Quantos anos Jesus teve antes de começar seu ministério público?",
+    question:
+      "Quantos anos Jesus teve antes de começar seu ministério público?",
     options: ["25", "30", "33", "40"],
     correctAnswer: 1,
     explanation:

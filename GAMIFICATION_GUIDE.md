@@ -21,6 +21,7 @@ O sistema de gamificação foi implementado para tornar o envolvimento na comuni
 Cada usuário começa no **Nível 1** e pode avançar até o **Nível 10 (Iluminado)**.
 
 **Limites XP por Nível:**
+
 - Nível 1: 0 XP
 - Nível 2: 500 XP
 - Nível 3: 1.200 XP
@@ -70,19 +71,23 @@ Sugestões:
 ### 🏆 Insígnias Disponíveis
 
 #### 🌱 Insígnias de Atividade (Iniciais)
+
 - **Iniciante Espiritual** - Completou primeiro desafio
 - **Voz na Comunidade** - Respondeu as pessoas no chat (10+ respostas)
 - **Conectador** - Participou de 10 discussões do fórum
 
 #### 📚 Insígnias de Aprendizado
+
 - **Estudioso da Fé** - Completou 5 cursos
 - **Aprendiz do Evangelho** - Leu o Plano de Leitura Bíblica completo
 - **Devorador de Conhecimento** - Completou 10 cursos
 
 #### 🏅 Insígnias de Desafio
+
 - **Campeão dos Desafios** - Completou 20 desafios
 
 #### 💕 Insígnias Sociais
+
 - **Coração Querido** - Ganhou 50 corações/likes
 - **Idealizador** - Sua sugestão de chat foi aprovada
 - **Mensageiro da Palavra** - 50 mensagens no chat com respostas úteis
@@ -90,6 +95,7 @@ Sugestões:
 - **Missionário do Amor** - Participou de 5 atividades de caridade
 
 #### ⭐ Insígnias de Marcos
+
 - **Ascendente** - Alcançou Nível 5
 - **Iluminado** - Alcançou Nível 10 (Máximo!)
 - **Acumulador de Poder** - Acumulou 1.000 XP
@@ -101,6 +107,7 @@ Sugestões:
 ### Tabelas Criadas
 
 #### 1. `user_xp_stats`
+
 Rastreia estatísticas gerais de XP e nível do usuário
 
 ```sql
@@ -121,6 +128,7 @@ CREATE TABLE user_xp_stats (
 ```
 
 #### 2. `user_badges`
+
 Registra insígnias desbloqueadas
 
 ```sql
@@ -137,6 +145,7 @@ CREATE TABLE user_badges (
 ```
 
 #### 3. `user_challenges`
+
 Rastreia desafios completados
 
 ```sql
@@ -153,6 +162,7 @@ CREATE TABLE user_challenges (
 ```
 
 #### 4. `user_course_progress`
+
 Rastreia progresso em cursos
 
 ```sql
@@ -171,6 +181,7 @@ CREATE TABLE user_course_progress (
 ```
 
 #### 5. `user_profile_likes`
+
 Rastreia curtidas recebidas
 
 ```sql
@@ -183,6 +194,7 @@ CREATE TABLE user_profile_likes (
 ```
 
 #### 6. `user_activities`
+
 Log de todas as atividades para auditoria
 
 ```sql
@@ -217,6 +229,7 @@ Os tipos TypeScript já foram atualizados em `shared/supabase.ts` com as novas t
 ### Passo 3: Usar o Sistema
 
 A página "Meu Perfil" agora exibe:
+
 - Nível atual e XP
 - Barra de progresso para o próximo nível
 - Insígnias desbloqueadas
@@ -230,6 +243,7 @@ A página "Meu Perfil" agora exibe:
 ### Arquivo: `client/lib/gamification.ts`
 
 Contém funções utilitárias para:
+
 - Calcular nível a partir de XP
 - Calcular progresso XP
 - Obter insígnias disponíveis
@@ -237,6 +251,7 @@ Contém funções utilitárias para:
 - Definir recompensas de XP
 
 **Funções Principais:**
+
 ```typescript
 calculateLevel(totalXP: number): number
 getNextLevelThreshold(totalXP: number): number
@@ -268,19 +283,22 @@ const xpEarned = XP_REWARDS.CHALLENGE_COMPLETED_MEDIUM; // 100 XP
 const newTotalXP = userStats.totalXP + xpEarned;
 
 // Registrar atividade
-await supabase.from('user_activities').insert({
+await supabase.from("user_activities").insert({
   user_id: userId,
-  activity_type: 'challenge_completed',
+  activity_type: "challenge_completed",
   xp_earned: xpEarned,
-  description: `Completou desafio: ${challengeTitle}`
+  description: `Completou desafio: ${challengeTitle}`,
 });
 
 // Atualizar stats
-await supabase.from('user_xp_stats').update({
-  total_xp: newTotalXP,
-  current_level: calculateLevel(newTotalXP),
-  challenges_completed: userStats.activitiesThisMonth.challengesCompleted + 1,
-}).eq('user_id', userId);
+await supabase
+  .from("user_xp_stats")
+  .update({
+    total_xp: newTotalXP,
+    current_level: calculateLevel(newTotalXP),
+    challenges_completed: userStats.activitiesThisMonth.challengesCompleted + 1,
+  })
+  .eq("user_id", userId);
 ```
 
 ### Quando uma Resposta é Postada no Fórum
@@ -288,35 +306,41 @@ await supabase.from('user_xp_stats').update({
 ```typescript
 // Adicionar XP
 const xpEarned = XP_REWARDS.FORUM_REPLY; // 15 XP
-await supabase.from('user_activities').insert({
+await supabase.from("user_activities").insert({
   user_id: userId,
-  activity_type: 'forum_reply',
+  activity_type: "forum_reply",
   xp_earned: xpEarned,
-  description: `Respondeu no fórum`
+  description: `Respondeu no fórum`,
 });
 
 // Atualizar stats
-await supabase.from('user_xp_stats').update({
-  total_xp: newTotalXP,
-  forum_replies: userStats.activitiesThisMonth.forumReplies + 1,
-}).eq('user_id', userId);
+await supabase
+  .from("user_xp_stats")
+  .update({
+    total_xp: newTotalXP,
+    forum_replies: userStats.activitiesThisMonth.forumReplies + 1,
+  })
+  .eq("user_id", userId);
 ```
 
 ### Quando um Usuário Curte um Perfil
 
 ```typescript
 // Registrar like
-await supabase.from('user_profile_likes').insert({
+await supabase.from("user_profile_likes").insert({
   user_id: targetUserId,
   liked_by: currentUserId,
 });
 
 // Adicionar XP para quem foi curtido
 const xpEarned = XP_REWARDS.PROFILE_LIKE_RECEIVED; // 10 XP
-await supabase.from('user_xp_stats').update({
-  total_xp: newTotalXP,
-  profile_likes: userStats.profileLikes + 1,
-}).eq('user_id', targetUserId);
+await supabase
+  .from("user_xp_stats")
+  .update({
+    total_xp: newTotalXP,
+    profile_likes: userStats.profileLikes + 1,
+  })
+  .eq("user_id", targetUserId);
 ```
 
 ---
@@ -377,6 +401,7 @@ Você pode facilmente adicionar:
 ## 🔐 Segurança
 
 Todas as tabelas têm RLS (Row Level Security) configurado:
+
 - Usuários só veem seus próprios dados
 - Mas podem ver badges e atividades de outros (público)
 - Dados de XP são protegidos
@@ -386,6 +411,7 @@ Todas as tabelas têm RLS (Row Level Security) configurado:
 ## 📞 Suporte
 
 Se encontrar algum problema:
+
 1. Verifique se todas as tabelas foram criadas em Supabase
 2. Confirme que o `user_id` está sendo passado corretamente
 3. Verifique os logs do navegador (F12) para erros

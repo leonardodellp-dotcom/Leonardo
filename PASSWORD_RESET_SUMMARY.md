@@ -3,6 +3,7 @@
 ## 🎯 O que foi feito
 
 ### 1. **Página de Recuperação de Senha**
+
 - Arquivo: `client/pages/ForgotPassword.tsx` (368 linhas)
 - URL: `/esqueceu-senha`
 - Funcionalidade: 2 etapas (email → código → nova senha)
@@ -10,6 +11,7 @@
 ### 2. **Fluxo de Usuário**
 
 #### Etapa 1: Solicitar Código
+
 - Usuário insere seu email
 - Sistema verifica se email existe em `user_registrations`
 - Gera código de 6 caracteres (ex: "ABC123")
@@ -17,6 +19,7 @@
 - [⚠️ FALTA] Envia email (veja guia)
 
 #### Etapa 2: Redefinir Senha
+
 - Usuário insere código recebido
 - Insere nova senha e confirma
 - Sistema valida:
@@ -26,18 +29,22 @@
 - Se válido: atualiza senha e marca token como usado
 
 ### 3. **Atualização do Login**
+
 - Adicionado link "Esqueceu a senha?" em `Login.tsx`
 - Link direciona para `/esqueceu-senha`
 
 ### 4. **Rota Adicionada**
+
 - `client/App.tsx` - Rota `/esqueceu-senha` public (não requer login)
 
 ### 5. **Banco de Dados**
+
 - Nova tabela: `password_reset_tokens`
 - Arquivo SQL: `PASSWORD_RESET_SETUP.sql`
 - Inclui índices e políticas de segurança
 
 ### 6. **Tipo TypeScript**
+
 - Atualizado `shared/supabase.ts` com tipo `password_reset_tokens`
 
 ---
@@ -75,6 +82,7 @@ MODIFICADO:
 O sistema **gera o código mas não envia por email** atualmente. Existem 4 opções:
 
 ### Opção A: Supabase Auth (Recomendado)
+
 ```typescript
 const { error } = await supabase.auth.resetPasswordForEmail(email, {
   redirectTo: `${window.location.origin}/redefinir-senha`,
@@ -82,12 +90,15 @@ const { error } = await supabase.auth.resetPasswordForEmail(email, {
 ```
 
 ### Opção B: Netlify Functions + SendGrid
+
 Criar função em `netlify/functions/send-reset-email.ts`
 
 ### Opção C: Resend
+
 Serviço moderno de email (fácil integração)
 
 ### Opção D: Gmail SMTP
+
 Usar `nodemailer`
 
 **Ver `PASSWORD_RESET_IMPLEMENTATION_GUIDE.md` para detalhes completos.**
@@ -183,6 +194,7 @@ expires_at      | TIMESTAMP  | Quando expira (1 hora)
 ```
 
 ### Índices
+
 - `user_id`
 - `email`
 - `reset_code`

@@ -69,7 +69,9 @@ export default function ProfilePhotoUploader({
 
           if (isAdmin) {
             // Admins can change directly - update localStorage
-            const adminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
+            const adminProfile = JSON.parse(
+              localStorage.getItem("admin_profile") || "{}",
+            );
             adminProfile.profilePhoto = dataUrl;
             localStorage.setItem("admin_profile", JSON.stringify(adminProfile));
 
@@ -94,7 +96,7 @@ export default function ProfilePhotoUploader({
             }
 
             setSuccess(
-              "Solicitação de mudança de foto enviada! Aguarde aprovação do administrador."
+              "Solicitação de mudança de foto enviada! Aguarde aprovação do administrador.",
             );
             setFile(null);
             setPreview(null);
@@ -147,9 +149,7 @@ export default function ProfilePhotoUploader({
               alt="Preview"
               className="w-32 h-32 rounded-full mx-auto object-cover"
             />
-            <p className="text-sm text-muted-foreground">
-              {file?.name}
-            </p>
+            <p className="text-sm text-muted-foreground">{file?.name}</p>
           </div>
         ) : (
           <div className="space-y-2 pointer-events-none">
@@ -157,9 +157,7 @@ export default function ProfilePhotoUploader({
             <p className="text-sm text-muted-foreground">
               Clique para selecionar uma imagem
             </p>
-            <p className="text-xs text-muted-foreground">
-              PNG, JPG até 5MB
-            </p>
+            <p className="text-xs text-muted-foreground">PNG, JPG até 5MB</p>
           </div>
         )}
       </div>

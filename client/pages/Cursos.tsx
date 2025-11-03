@@ -340,7 +340,11 @@ export default function Cursos() {
       level: "Avançado",
       format: "Online",
       link: "#",
-      topics: ["Argumentos Bíblicos", "Tradição e Magist��rio", "Questões Comuns"],
+      topics: [
+        "Argumentos Bíblicos",
+        "Tradição e Magist��rio",
+        "Questões Comuns",
+      ],
     },
     {
       id: "17",
@@ -362,7 +366,11 @@ export default function Cursos() {
       level: "Intermediário",
       format: "Híbrido",
       link: "#",
-      topics: ["Vocação do Matrimônio", "Planejamento Familiar", "Vida Conjugal"],
+      topics: [
+        "Vocação do Matrimônio",
+        "Planejamento Familiar",
+        "Vida Conjugal",
+      ],
     },
   ];
 

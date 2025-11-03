@@ -21,12 +21,13 @@ const handler: Handler = async (event) => {
 
     // Get Mailgun API key from environment
     const mailgunApiKey = process.env.MAILGUN_API_KEY;
-    const mailgunDomain = process.env.MAILGUN_DOMAIN || "sandboxXXXX.mailgun.org";
+    const mailgunDomain =
+      process.env.MAILGUN_DOMAIN || "sandboxXXXX.mailgun.org";
 
     if (!mailgunApiKey) {
       console.warn(
         "Mailgun API key not configured. Skipping email send. Code: " +
-          resetCode
+          resetCode,
       );
       return {
         statusCode: 200,
@@ -137,7 +138,7 @@ Jucrisc - Grupo de Jovens Católicos
           text: emailText,
           html: emailHtml,
         }).toString(),
-      }
+      },
     );
 
     const result = await response.json();

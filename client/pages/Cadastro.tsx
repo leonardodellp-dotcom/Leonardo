@@ -1,8 +1,21 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { UserPlus, AlertCircle, CheckCircle, Eye, EyeOff, Mail, X } from "lucide-react";
+import {
+  UserPlus,
+  AlertCircle,
+  CheckCircle,
+  Eye,
+  EyeOff,
+  Mail,
+  X,
+} from "lucide-react";
 import { supabase } from "@shared/supabase";
-import { isValidEmail, isValidPhone, isValidFullName, isStrongPassword } from "@/lib/security";
+import {
+  isValidEmail,
+  isValidPhone,
+  isValidFullName,
+  isStrongPassword,
+} from "@/lib/security";
 
 export default function Cadastro() {
   const [formData, setFormData] = useState({
@@ -41,8 +54,11 @@ export default function Cadastro() {
     };
   };
 
-  const calculatePasswordStrength = (password: string): { score: number; level: string; color: string; isStrong: boolean } => {
-    if (!password) return { score: 0, level: "Fraca", color: "bg-red-500", isStrong: false };
+  const calculatePasswordStrength = (
+    password: string,
+  ): { score: number; level: string; color: string; isStrong: boolean } => {
+    if (!password)
+      return { score: 0, level: "Fraca", color: "bg-red-500", isStrong: false };
 
     const requirements = getPasswordRequirements(password);
     let score = 0;
@@ -57,7 +73,12 @@ export default function Cadastro() {
     let color = "bg-red-500";
     let isStrong = false;
 
-    if (requirements.hasLength && requirements.hasUppercase && requirements.hasSpecial && score >= 4) {
+    if (
+      requirements.hasLength &&
+      requirements.hasUppercase &&
+      requirements.hasSpecial &&
+      score >= 4
+    ) {
       level = "Forte";
       color = "bg-green-500";
       isStrong = true;
@@ -119,7 +140,7 @@ export default function Cadastro() {
       // Validate full name (first and last name required)
       if (!isValidFullName(formData.name)) {
         setError(
-          "Por favor, insira seu nome completo (nome e sobrenome, mínimo 2 nomes)!"
+          "Por favor, insira seu nome completo (nome e sobrenome, mínimo 2 nomes)!",
         );
         setLoading(false);
         return;
@@ -141,7 +162,7 @@ export default function Cadastro() {
 
       if (existingEmail && existingEmail.length > 0) {
         setError(
-          "Este email já está cadastrado! Use um email diferente ou recupere sua conta."
+          "Este email já está cadastrado! Use um email diferente ou recupere sua conta.",
         );
         setLoading(false);
         return;
@@ -165,7 +186,7 @@ export default function Cadastro() {
 
       if (!isValidPhone(formData.phone)) {
         setError(
-          "Telefone inválido! Verifique se não há números repetidos ou sequências estranhas."
+          "Telefone inválido! Verifique se não há números repetidos ou sequências estranhas.",
         );
         setLoading(false);
         return;
@@ -175,12 +196,14 @@ export default function Cadastro() {
       if (!passwordStrength.isStrong) {
         const req = getPasswordRequirements(formData.password);
         let missingReqs = [];
-        if (formData.password.length < 8) missingReqs.push("mínimo 8 caracteres");
+        if (formData.password.length < 8)
+          missingReqs.push("mínimo 8 caracteres");
         if (!req.hasUppercase) missingReqs.push("uma letra MAIÚSCULA");
-        if (!req.hasSpecial) missingReqs.push("um caractere especial (!@#$%^&*)");
+        if (!req.hasSpecial)
+          missingReqs.push("um caractere especial (!@#$%^&*)");
 
         setError(
-          `Senha fraca! Complete os requisitos: ${missingReqs.join(", ")}`
+          `Senha fraca! Complete os requisitos: ${missingReqs.join(", ")}`,
         );
         setLoading(false);
         return;
@@ -324,7 +347,7 @@ export default function Cadastro() {
               resetCode: code,
               userName: users[0].email.split("@")[0],
             }),
-          }
+          },
         );
 
         if (!response.ok) {
@@ -334,11 +357,13 @@ export default function Cadastro() {
       } catch (emailError) {
         console.warn("Email service error:", emailError);
         // Show code in console as fallback
-        console.log(`Reset code for ${recoveryEmail}: ${code} (valid for 1 hour)`);
+        console.log(
+          `Reset code for ${recoveryEmail}: ${code} (valid for 1 hour)`,
+        );
       }
 
       setRecoverySuccess(
-        `Código enviado para ${recoveryEmail}! Verifique seu email para continuar.`
+        `Código enviado para ${recoveryEmail}! Verifique seu email para continuar.`,
       );
       setRecoveryStep("code");
     } catch (err: any) {
@@ -389,7 +414,7 @@ export default function Cadastro() {
 
       if (!tokens || tokens.length === 0) {
         setRecoveryError(
-          "Código inválido ou expirado! Solicite um novo código."
+          "Código inválido ou expirado! Solicite um novo código.",
         );
         setRecoveryLoading(false);
         return;
@@ -490,7 +515,10 @@ export default function Cadastro() {
                     htmlFor="name"
                     className="block text-sm font-semibold mb-2"
                   >
-                    Nome Completo <span className="text-xs text-muted-foreground">(Nome + Sobrenome)</span>
+                    Nome Completo{" "}
+                    <span className="text-xs text-muted-foreground">
+                      (Nome + Sobrenome)
+                    </span>
                   </label>
                   <input
                     id="name"
@@ -599,7 +627,10 @@ export default function Cadastro() {
                     htmlFor="password"
                     className="block text-sm font-semibold mb-2"
                   >
-                    Senha <span className="text-xs text-muted-foreground">(mínimo 6 caracteres)</span>
+                    Senha{" "}
+                    <span className="text-xs text-muted-foreground">
+                      (mínimo 6 caracteres)
+                    </span>
                   </label>
                   <div className="relative">
                     <input
@@ -617,7 +648,9 @@ export default function Cadastro() {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-orange-400/60 hover:text-orange-400 transition-colors"
                       disabled={loading}
-                      aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
+                      aria-label={
+                        showPassword ? "Esconder senha" : "Mostrar senha"
+                      }
                     >
                       {showPassword ? (
                         <EyeOff className="w-5 h-5" />
@@ -633,52 +666,86 @@ export default function Cadastro() {
                       {/* Strength Bar */}
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <span className="text-xs text-gray-400">Força da senha:</span>
-                          <span className={`text-xs font-semibold ${
-                            passwordStrength.color === "bg-green-500" ? "text-green-400" :
-                            passwordStrength.color === "bg-yellow-500" ? "text-yellow-400" :
-                            "text-red-400"
-                          }`}>
+                          <span className="text-xs text-gray-400">
+                            Força da senha:
+                          </span>
+                          <span
+                            className={`text-xs font-semibold ${
+                              passwordStrength.color === "bg-green-500"
+                                ? "text-green-400"
+                                : passwordStrength.color === "bg-yellow-500"
+                                  ? "text-yellow-400"
+                                  : "text-red-400"
+                            }`}
+                          >
                             {passwordStrength.level}
                           </span>
                         </div>
                         <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                           <div
                             className={`h-full transition-all duration-300 ${passwordStrength.color}`}
-                            style={{ width: `${(passwordStrength.score / 5) * 100}%` }}
+                            style={{
+                              width: `${(passwordStrength.score / 5) * 100}%`,
+                            }}
                           ></div>
                         </div>
                       </div>
 
                       {/* Requirements Checklist */}
                       <div className="bg-black/30 rounded-lg p-3 space-y-2">
-                        <p className="text-xs text-gray-400 font-semibold">Requisitos obrigatórios:</p>
-                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasLength ? "text-green-400" : "text-gray-500 opacity-50"}`}>
-                          <span>{passwordRequirements.hasLength ? "✓" : "○"}</span>
+                        <p className="text-xs text-gray-400 font-semibold">
+                          Requisitos obrigatórios:
+                        </p>
+                        <div
+                          className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasLength ? "text-green-400" : "text-gray-500 opacity-50"}`}
+                        >
+                          <span>
+                            {passwordRequirements.hasLength ? "✓" : "○"}
+                          </span>
                           <span>Mínimo 8 caracteres</span>
                         </div>
-                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasUppercase ? "text-green-400" : "text-gray-500 opacity-50"}`}>
-                          <span>{passwordRequirements.hasUppercase ? "✓" : "○"}</span>
+                        <div
+                          className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasUppercase ? "text-green-400" : "text-gray-500 opacity-50"}`}
+                        >
+                          <span>
+                            {passwordRequirements.hasUppercase ? "✓" : "○"}
+                          </span>
                           <span>Uma letra MAIÚSCULA (A-Z)</span>
                         </div>
-                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasSpecial ? "text-green-400" : "text-gray-500 opacity-50"}`}>
-                          <span>{passwordRequirements.hasSpecial ? "✓" : "○"}</span>
+                        <div
+                          className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasSpecial ? "text-green-400" : "text-gray-500 opacity-50"}`}
+                        >
+                          <span>
+                            {passwordRequirements.hasSpecial ? "✓" : "○"}
+                          </span>
                           <span>Um caractere especial (!@#$%^&*)</span>
                         </div>
 
-                        <p className="text-xs text-gray-500 mt-2">Extras (recomendado):</p>
-                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasLowercase ? "text-green-400" : "text-gray-500 opacity-50"}`}>
-                          <span>{passwordRequirements.hasLowercase ? "✓" : "○"}</span>
+                        <p className="text-xs text-gray-500 mt-2">
+                          Extras (recomendado):
+                        </p>
+                        <div
+                          className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasLowercase ? "text-green-400" : "text-gray-500 opacity-50"}`}
+                        >
+                          <span>
+                            {passwordRequirements.hasLowercase ? "✓" : "○"}
+                          </span>
                           <span>Letras minúsculas (a-z)</span>
                         </div>
-                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasNumber ? "text-green-400" : "text-gray-500 opacity-50"}`}>
-                          <span>{passwordRequirements.hasNumber ? "✓" : "○"}</span>
+                        <div
+                          className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasNumber ? "text-green-400" : "text-gray-500 opacity-50"}`}
+                        >
+                          <span>
+                            {passwordRequirements.hasNumber ? "✓" : "○"}
+                          </span>
                           <span>Números (0-9)</span>
                         </div>
                       </div>
 
                       {passwordStrength.isStrong && (
-                        <p className="text-xs text-green-400 font-semibold">✓ Senha forte! Você pode continuar.</p>
+                        <p className="text-xs text-green-400 font-semibold">
+                          ✓ Senha forte! Você pode continuar.
+                        </p>
                       )}
                     </div>
                   )}
@@ -761,9 +828,15 @@ export default function Cadastro() {
 
               {/* Email Step */}
               {recoveryStep === "email" && (
-                <form onSubmit={handleRecoveryEmailSubmit} className="space-y-4">
+                <form
+                  onSubmit={handleRecoveryEmailSubmit}
+                  className="space-y-4"
+                >
                   <div>
-                    <label htmlFor="recovery-email" className="block text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="recovery-email"
+                      className="block text-sm font-semibold mb-2"
+                    >
                       Email
                     </label>
                     <input
@@ -792,29 +865,42 @@ export default function Cadastro() {
                 <form onSubmit={handleRecoveryReset} className="space-y-4">
                   <div className="p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
                     <p className="text-xs text-muted-foreground">
-                      Código enviado para: <span className="font-semibold text-foreground">{recoveryEmail}</span>
+                      Código enviado para:{" "}
+                      <span className="font-semibold text-foreground">
+                        {recoveryEmail}
+                      </span>
                     </p>
                   </div>
 
                   <div>
-                    <label htmlFor="recovery-code" className="block text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="recovery-code"
+                      className="block text-sm font-semibold mb-2"
+                    >
                       Código de Reset
                     </label>
                     <input
                       id="recovery-code"
                       type="text"
                       value={recoveryCode}
-                      onChange={(e) => setRecoveryCode(e.target.value.toUpperCase())}
+                      onChange={(e) =>
+                        setRecoveryCode(e.target.value.toUpperCase())
+                      }
                       placeholder="ABC123"
                       maxLength={6}
                       className="w-full px-4 py-2.5 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all text-center text-lg font-mono tracking-widest"
                       disabled={recoveryLoading}
                     />
-                    <p className="text-xs text-muted-foreground mt-2">Válido por 1 hora</p>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Válido por 1 hora
+                    </p>
                   </div>
 
                   <div>
-                    <label htmlFor="recovery-new-password" className="block text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="recovery-new-password"
+                      className="block text-sm font-semibold mb-2"
+                    >
                       Nova Senha
                     </label>
                     <div className="relative">
@@ -829,7 +915,9 @@ export default function Cadastro() {
                       />
                       <button
                         type="button"
-                        onClick={() => setRecoveryShowPassword(!recoveryShowPassword)}
+                        onClick={() =>
+                          setRecoveryShowPassword(!recoveryShowPassword)
+                        }
                         className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-blue-400/60 hover:text-blue-400 transition-colors"
                         disabled={recoveryLoading}
                       >
@@ -839,7 +927,10 @@ export default function Cadastro() {
                   </div>
 
                   <div>
-                    <label htmlFor="recovery-confirm-password" className="block text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="recovery-confirm-password"
+                      className="block text-sm font-semibold mb-2"
+                    >
                       Confirmar Senha
                     </label>
                     <input

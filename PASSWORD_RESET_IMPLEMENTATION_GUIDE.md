@@ -24,6 +24,7 @@ Um novo sistema de "Esqueceu a Senha?" foi implementado com as seguintes funcion
 5. Clique em **Run**
 
 Isso criará:
+
 - Tabela `password_reset_tokens`
 - Índices para performance
 - Políticas de segurança (RLS)
@@ -52,23 +53,25 @@ const { error } = await supabase.auth.resetPasswordForEmail(email, {
 #### Opção B: Usar Netlify Functions + SendGrid
 
 1. **Instalar SendGrid**
+
 ```bash
 npm install @sendgrid/mail
 ```
 
 2. **Criar função Netlify** (`netlify/functions/send-reset-email.ts`):
+
 ```typescript
-import sgMail from '@sendgrid/mail';
+import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.handler = async (event) => {
   const { email, resetCode } = JSON.parse(event.body);
-  
+
   const msg = {
     to: email,
-    from: 'noreply@jucrisc.com',
-    subject: 'Recuperação de Senha - Jucrisc',
+    from: "noreply@jucrisc.com",
+    subject: "Recuperação de Senha - Jucrisc",
     html: `
       <h2>Recuperação de Senha</h2>
       <p>Seu código de reset é: <strong>${resetCode}</strong></p>
@@ -87,10 +90,11 @@ exports.handler = async (event) => {
 ```
 
 3. **Chamar função de ForgotPassword.tsx**:
+
 ```typescript
 // Após gerar o código
-const response = await fetch('/.netlify/functions/send-reset-email', {
-  method: 'POST',
+const response = await fetch("/.netlify/functions/send-reset-email", {
+  method: "POST",
   body: JSON.stringify({ email, resetCode: code }),
 });
 ```
@@ -98,6 +102,7 @@ const response = await fetch('/.netlify/functions/send-reset-email', {
 #### Opção C: Usar Resend
 
 1. **Instalar Resend**
+
 ```bash
 npm install resend
 ```
@@ -131,6 +136,7 @@ CREATE TABLE password_reset_tokens (
 ## 🔄 Fluxo do Sistema
 
 ### 1. Usuário Esqueceu a Senha
+
 ```
 1. Clica em "Esqueceu a senha?" no Login
 2. Insere seu email em /esqueceu-senha
@@ -141,6 +147,7 @@ CREATE TABLE password_reset_tokens (
 ```
 
 ### 2. Usuário Recebe Email
+
 ```
 1. Recebe email com código: "ABC123"
 2. Email tem link: /esqueceu-senha?email=user@example.com
@@ -148,6 +155,7 @@ CREATE TABLE password_reset_tokens (
 ```
 
 ### 3. Usuário Redefine Senha
+
 ```
 1. Insere código no campo "Código de Reset"
 2. Insere nova senha
@@ -234,19 +242,23 @@ VITE_EMAIL_FROM=noreply@jucrisc.com
 ## 🐛 Troubleshooting
 
 ### "Email não encontrado"
+
 - Verifique se usuário existe em `user_registrations`
 - Confirme o email está escrito corretamente
 
 ### "Código inválido ou expirado"
+
 - Código venceu após 1 hora
 - Solicite novo código
 - Verifique se é maiúsculo
 
 ### "As senhas não coincidem"
+
 - Redigite a nova senha
 - Confirme que está digitando a mesma senha
 
 ### Token não está sendo criado
+
 - Verifique se tabela `password_reset_tokens` foi criada
 - Confirme permissões no Supabase RLS
 

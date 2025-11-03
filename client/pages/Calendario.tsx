@@ -414,7 +414,9 @@ export default function Calendario() {
             <div className="inline-flex p-4 bg-primary/10 rounded-xl mb-4">
               <Calendar className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold mb-3 text-foreground">Calendário</h1>
+            <h1 className="text-4xl font-bold mb-3 text-foreground">
+              Calendário
+            </h1>
             <p className="text-lg text-muted-foreground">
               Visualize eventos litúrgicos e programações da Jucrisc
             </p>
@@ -458,12 +460,16 @@ export default function Calendario() {
 
               {/* Legend */}
               <div className="bg-card border border-border rounded-xl p-6 mb-8">
-                <h3 className="font-semibold mb-4 text-foreground">Tipos de Celebração</h3>
+                <h3 className="font-semibold mb-4 text-foreground">
+                  Tipos de Celebração
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div>
-                      <p className="font-semibold text-sm text-foreground">Solenidade</p>
+                      <p className="font-semibold text-sm text-foreground">
+                        Solenidade
+                      </p>
                       <p className="text-xs text-muted-foreground">
                         Celebração de máxima importância
                       </p>
@@ -472,7 +478,9 @@ export default function Calendario() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                     <div>
-                      <p className="font-semibold text-sm text-foreground">Festa</p>
+                      <p className="font-semibold text-sm text-foreground">
+                        Festa
+                      </p>
                       <p className="text-xs text-muted-foreground">
                         Celebração de grande importância
                       </p>
@@ -481,7 +489,9 @@ export default function Calendario() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     <div>
-                      <p className="font-semibold text-sm text-foreground">Memória</p>
+                      <p className="font-semibold text-sm text-foreground">
+                        Memória
+                      </p>
                       <p className="text-xs text-muted-foreground">
                         Celebração obrigatória
                       </p>
@@ -490,7 +500,9 @@ export default function Calendario() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-gray-500"></div>
                     <div>
-                      <p className="font-semibold text-sm text-foreground">Dia Comum</p>
+                      <p className="font-semibold text-sm text-foreground">
+                        Dia Comum
+                      </p>
                       <p className="text-xs text-muted-foreground">
                         Dia ordinário
                       </p>
@@ -501,7 +513,9 @@ export default function Calendario() {
 
               {/* Select Month */}
               <div className="bg-card border border-border rounded-xl p-6 mb-8">
-                <h3 className="font-semibold mb-4 text-foreground">Selecione o Mês</h3>
+                <h3 className="font-semibold mb-4 text-foreground">
+                  Selecione o Mês
+                </h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
                   {monthNames.map((month, idx) => (
                     <button
@@ -598,7 +612,9 @@ export default function Calendario() {
 
               {/* Select Month Selector */}
               <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-6 mb-8 shadow-lg">
-                <h3 className="font-semibold mb-4 text-white">Selecione o Mês</h3>
+                <h3 className="font-semibold mb-4 text-white">
+                  Selecione o Mês
+                </h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
                   {monthNames.map((month, idx) => (
                     <button
@@ -857,7 +873,9 @@ export default function Calendario() {
                         >
                           <p
                             className={`font-bold text-sm mb-1 ${
-                              isSunday || isSaturday ? "text-blue-300" : "text-slate-200"
+                              isSunday || isSaturday
+                                ? "text-blue-300"
+                                : "text-slate-200"
                             }`}
                           >
                             {day}

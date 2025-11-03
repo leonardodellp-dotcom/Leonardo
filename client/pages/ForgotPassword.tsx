@@ -93,7 +93,7 @@ export default function ForgotPassword() {
               resetCode: code,
               userName: users[0].email.split("@")[0],
             }),
-          }
+          },
         );
 
         if (!response.ok) {
@@ -107,7 +107,7 @@ export default function ForgotPassword() {
       }
 
       setSuccess(
-        `Código enviado para ${email}! Verifique seu email para continuar.`
+        `Código enviado para ${email}! Verifique seu email para continuar.`,
       );
       setStep("code");
     } catch (err: any) {
@@ -159,7 +159,7 @@ export default function ForgotPassword() {
 
       if (!tokens || tokens.length === 0) {
         setError(
-          "Código inválido ou expirado! Solicite um novo código de reset."
+          "Código inválido ou expirado! Solicite um novo código de reset.",
         );
         setLoading(false);
         return;
@@ -272,7 +272,10 @@ export default function ForgotPassword() {
               <form onSubmit={handleResetSubmit} className="space-y-5">
                 <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
                   <p className="text-sm text-muted-foreground">
-                    Código foi enviado para: <span className="font-semibold text-foreground">{email}</span>
+                    Código foi enviado para:{" "}
+                    <span className="font-semibold text-foreground">
+                      {email}
+                    </span>
                   </p>
                 </div>
 

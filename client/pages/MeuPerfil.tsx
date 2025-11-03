@@ -106,12 +106,17 @@ export default function MeuPerfil() {
           joinedAt: adminProfile.joinedAt,
           profilePhoto: adminProfile.profilePhoto,
         }
-      : mockUserProfile
+      : mockUserProfile,
   );
 
   const [formData, setFormData] = useState(profile);
   const [activeTab, setActiveTab] = useState<
-    "visao-geral" | "insignias" | "desafios" | "cursos" | "atividades" | "tarefa-dia"
+    | "visao-geral"
+    | "insignias"
+    | "desafios"
+    | "cursos"
+    | "atividades"
+    | "tarefa-dia"
   >("visao-geral");
   const [taskInput, setTaskInput] = useState("");
   const [taskCompleted, setTaskCompleted] = useState(false);
@@ -119,10 +124,13 @@ export default function MeuPerfil() {
   const [profileRefresh, setProfileRefresh] = useState(0);
 
   // Initialize game stats with admin data if available
-  const initialGameStats = isAdmin && adminGameStats ? adminGameStats : mockGameStats;
+  const initialGameStats =
+    isAdmin && adminGameStats ? adminGameStats : mockGameStats;
   const [gameStats, setGameStats] = useState<UserGameStats>({
     ...initialGameStats,
-    badges: getBadges(isAdmin && adminGameStats ? adminGameStats : mockGameStats),
+    badges: getBadges(
+      isAdmin && adminGameStats ? adminGameStats : mockGameStats,
+    ),
   });
 
   useEffect(() => {
@@ -153,7 +161,9 @@ export default function MeuPerfil() {
 
     // Persist to localStorage if admin
     if (isAdmin) {
-      const adminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
+      const adminProfile = JSON.parse(
+        localStorage.getItem("admin_profile") || "{}",
+      );
       const updatedProfile = {
         ...adminProfile,
         name: formData.name,
@@ -194,7 +204,9 @@ export default function MeuPerfil() {
           {isAdmin && (
             <div className="mb-6 p-4 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 border border-yellow-600/50 rounded-lg flex items-center justify-center gap-2">
               <span className="text-2xl">👑</span>
-              <span className="font-bold text-yellow-400">Perfil Administrador com Acesso Total</span>
+              <span className="font-bold text-yellow-400">
+                Perfil Administrador com Acesso Total
+              </span>
             </div>
           )}
 
@@ -210,11 +222,13 @@ export default function MeuPerfil() {
                     className="w-32 h-32 mx-auto md:mx-0 rounded-full object-cover mb-6 border-4 border-yellow-600"
                   />
                 ) : (
-                  <div className={`w-32 h-32 mx-auto md:mx-0 rounded-full flex items-center justify-center text-4xl font-bold text-white mb-6 ${
-                    isAdmin
-                      ? "bg-gradient-to-br from-yellow-600 to-orange-600"
-                      : "bg-gradient-to-br from-blue-600 to-purple-600"
-                  }`}>
+                  <div
+                    className={`w-32 h-32 mx-auto md:mx-0 rounded-full flex items-center justify-center text-4xl font-bold text-white mb-6 ${
+                      isAdmin
+                        ? "bg-gradient-to-br from-yellow-600 to-orange-600"
+                        : "bg-gradient-to-br from-blue-600 to-purple-600"
+                    }`}
+                  >
                     {isAdmin ? "👑" : profile.name.charAt(0)}
                   </div>
                 )}
@@ -311,7 +325,10 @@ export default function MeuPerfil() {
                         type="number"
                         value={formData.age}
                         onChange={(e) =>
-                          setFormData({ ...formData, age: parseInt(e.target.value) || 0 })
+                          setFormData({
+                            ...formData,
+                            age: parseInt(e.target.value) || 0,
+                          })
                         }
                         className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-600"
                       />
@@ -509,7 +526,9 @@ export default function MeuPerfil() {
                   Sua Tarefa
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Reflita sobre o versículo acima e escreva o que você entendeu ou aprendeu com ele. Como você pode aplicar esse ensinamento em sua vida hoje?
+                  Reflita sobre o versículo acima e escreva o que você entendeu
+                  ou aprendeu com ele. Como você pode aplicar esse ensinamento
+                  em sua vida hoje?
                 </p>
 
                 <div className="space-y-4">
@@ -542,7 +561,9 @@ export default function MeuPerfil() {
                       }`}
                     >
                       <CheckCircle className="w-4 h-4" />
-                      {taskCompleted ? "Tarefa Concluída!" : "Registrar Reflexão"}
+                      {taskCompleted
+                        ? "Tarefa Concluída!"
+                        : "Registrar Reflexão"}
                     </button>
                     {taskCompleted && (
                       <button
@@ -562,7 +583,8 @@ export default function MeuPerfil() {
                 {taskCompleted && (
                   <div className="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
                     <p className="text-sm text-green-400 font-semibold">
-                      ✓ Parabéns! Você completou a Tarefa do Dia e ganhou {dailyVerse.xpReward} XP
+                      ✓ Parabéns! Você completou a Tarefa do Dia e ganhou{" "}
+                      {dailyVerse.xpReward} XP
                     </p>
                   </div>
                 )}
@@ -577,7 +599,8 @@ export default function MeuPerfil() {
                   <li className="flex gap-3">
                     <span className="text-blue-400 font-bold">1.</span>
                     <p className="text-sm text-muted-foreground">
-                      Leia o versículo várias vezes para compreender seu significado profundo
+                      Leia o versículo várias vezes para compreender seu
+                      significado profundo
                     </p>
                   </li>
                   <li className="flex gap-3">
@@ -745,7 +768,9 @@ export default function MeuPerfil() {
                     <p className="text-2xl font-bold text-yellow-400">10</p>
                   </div>
                   <div className="bg-background/50 rounded-lg p-4 text-center">
-                    <p className="text-sm text-muted-foreground mb-2">Difícil</p>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Difícil
+                    </p>
                     <p className="text-2xl font-bold text-red-400">5</p>
                   </div>
                 </div>
@@ -856,9 +881,7 @@ export default function MeuPerfil() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Heart className="w-5 h-5 text-red-400" />
-                      <span className="text-foreground">
-                        Mensagens no Chat
-                      </span>
+                      <span className="text-foreground">Mensagens no Chat</span>
                     </div>
                     <span className="font-semibold text-foreground">
                       {gameStats.activitiesThisMonth.chatMessages}
@@ -929,14 +952,16 @@ export default function MeuPerfil() {
                 onSuccess={() => {
                   // Refresh profile data from localStorage
                   if (isAdmin) {
-                    const updatedAdminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
+                    const updatedAdminProfile = JSON.parse(
+                      localStorage.getItem("admin_profile") || "{}",
+                    );
                     setProfile({
                       ...profile,
                       profilePhoto: updatedAdminProfile.profilePhoto,
                     });
                   }
                   setShowPhotoUpload(false);
-                  setProfileRefresh(prev => prev + 1);
+                  setProfileRefresh((prev) => prev + 1);
                 }}
               />
             </div>

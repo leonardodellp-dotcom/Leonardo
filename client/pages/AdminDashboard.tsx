@@ -22,7 +22,8 @@ export default function AdminDashboard() {
     {
       id: "1",
       title: "Como aprofundar minha fé?",
-      description: "Gostaria de uma discussão sobre técnicas de oração e meditação para aprofundar a fé.",
+      description:
+        "Gostaria de uma discussão sobre técnicas de oração e meditação para aprofundar a fé.",
       author: "João Silva",
       email: "joao@email.com",
       date: "15 de novembro",
@@ -31,7 +32,8 @@ export default function AdminDashboard() {
     {
       id: "2",
       title: "Desafios na vida universitária",
-      description: "Seria bom conversar sobre como manter a fé durante a vida universitária.",
+      description:
+        "Seria bom conversar sobre como manter a fé durante a vida universitária.",
       author: "Maria Santos",
       email: "maria@email.com",
       date: "14 de novembro",
@@ -40,7 +42,8 @@ export default function AdminDashboard() {
     {
       id: "3",
       title: "Relacionamentos saudáveis",
-      description: "Discussão sobre como ter relacionamentos que respeitem os valores católicos.",
+      description:
+        "Discussão sobre como ter relacionamentos que respeitem os valores católicos.",
       author: "Pedro Costa",
       email: "pedro@email.com",
       date: "13 de novembro",
@@ -53,7 +56,8 @@ export default function AdminDashboard() {
       id: "1",
       userName: "João Silva",
       userEmail: "joao@email.com",
-      photoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2335a7eb' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EJ%3C/text%3E%3C/svg%3E",
+      photoUrl:
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2335a7eb' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EJ%3C/text%3E%3C/svg%3E",
       date: "15 de novembro",
       status: "pending",
     },
@@ -61,7 +65,8 @@ export default function AdminDashboard() {
       id: "2",
       userName: "Maria Santos",
       userEmail: "maria@email.com",
-      photoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ec4899' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EM%3C/text%3E%3C/svg%3E",
+      photoUrl:
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ec4899' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EM%3C/text%3E%3C/svg%3E",
       date: "14 de novembro",
       status: "rejected",
       rejectionReason: "Imagem não apropriada para comunidade",
@@ -125,16 +130,16 @@ export default function AdminDashboard() {
   const approvePhoto = (id: string) => {
     setPhotoRequests(
       photoRequests.map((p) =>
-        p.id === id ? { ...p, status: "approved" } : p
-      )
+        p.id === id ? { ...p, status: "approved" } : p,
+      ),
     );
   };
 
   const rejectPhoto = (id: string, reason: string) => {
     setPhotoRequests(
       photoRequests.map((p) =>
-        p.id === id ? { ...p, status: "rejected", rejectionReason: reason } : p
-      )
+        p.id === id ? { ...p, status: "rejected", rejectionReason: reason } : p,
+      ),
     );
     setSelectedPhotoId(null);
     setRejectionReason("");
@@ -142,7 +147,7 @@ export default function AdminDashboard() {
 
   const approveSuggestion = (id: string) => {
     setSuggestions(
-      suggestions.map((s) => (s.id === id ? { ...s, status: "approved" } : s))
+      suggestions.map((s) => (s.id === id ? { ...s, status: "approved" } : s)),
     );
   };
 
@@ -226,10 +231,14 @@ export default function AdminDashboard() {
           {/* Profile Photos Tab */}
           {activeTab === "photos" && (
             <div className="bg-card border border-border rounded-xl p-8">
-              <h2 className="text-2xl font-bold mb-6">Solicitudes de Mudança de Foto</h2>
+              <h2 className="text-2xl font-bold mb-6">
+                Solicitudes de Mudança de Foto
+              </h2>
 
               {photoRequests.length === 0 ? (
-                <p className="text-muted-foreground">Nenhuma solicitação de foto.</p>
+                <p className="text-muted-foreground">
+                  Nenhuma solicitação de foto.
+                </p>
               ) : (
                 <div className="space-y-4">
                   {photoRequests.map((request) => (
@@ -279,13 +288,15 @@ export default function AdminDashboard() {
                           </p>
 
                           {/* Rejection Reason */}
-                          {request.status === "rejected" && request.rejectionReason && (
-                            <div className="bg-red-500/10 border border-red-500/30 rounded p-3 mb-3">
-                              <p className="text-xs text-red-500">
-                                <strong>Motivo:</strong> {request.rejectionReason}
-                              </p>
-                            </div>
-                          )}
+                          {request.status === "rejected" &&
+                            request.rejectionReason && (
+                              <div className="bg-red-500/10 border border-red-500/30 rounded p-3 mb-3">
+                                <p className="text-xs text-red-500">
+                                  <strong>Motivo:</strong>{" "}
+                                  {request.rejectionReason}
+                                </p>
+                              </div>
+                            )}
 
                           {/* Actions */}
                           {request.status === "pending" && (
@@ -303,12 +314,20 @@ export default function AdminDashboard() {
                                   <input
                                     type="text"
                                     value={rejectionReason}
-                                    onChange={(e) => setRejectionReason(e.target.value)}
+                                    onChange={(e) =>
+                                      setRejectionReason(e.target.value)
+                                    }
                                     placeholder="Motivo da rejeição..."
                                     className="flex-1 px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:border-red-600"
                                   />
                                   <button
-                                    onClick={() => rejectPhoto(request.id, rejectionReason || "Rejeitado pelo admin")}
+                                    onClick={() =>
+                                      rejectPhoto(
+                                        request.id,
+                                        rejectionReason ||
+                                          "Rejeitado pelo admin",
+                                      )
+                                    }
                                     className="px-3 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition-all"
                                   >
                                     Confirmar
@@ -382,10 +401,14 @@ export default function AdminDashboard() {
           {/* Suggestions Tab */}
           {activeTab === "suggestions" && (
             <div className="bg-card border border-border rounded-xl p-8">
-              <h2 className="text-2xl font-bold mb-6">Sugestões de Discussão</h2>
+              <h2 className="text-2xl font-bold mb-6">
+                Sugestões de Discussão
+              </h2>
 
               {suggestions.length === 0 ? (
-                <p className="text-muted-foreground">Nenhuma sugestão pendente.</p>
+                <p className="text-muted-foreground">
+                  Nenhuma sugestão pendente.
+                </p>
               ) : (
                 <div className="space-y-4">
                   {suggestions.map((suggestion) => (
