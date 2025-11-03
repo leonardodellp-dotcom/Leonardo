@@ -125,9 +125,17 @@ export default function ProfilePhotoUploader({
         </div>
       )}
 
-      <div className="border-2 border-dashed border-blue-500/30 rounded-lg p-6 text-center">
+      <div className="border-2 border-dashed border-blue-500/30 rounded-lg p-6 text-center relative cursor-pointer hover:border-blue-500/50 transition-colors">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className="absolute inset-0 opacity-0 cursor-pointer"
+          disabled={loading}
+        />
+
         {preview ? (
-          <div className="space-y-3">
+          <div className="space-y-3 pointer-events-none">
             <img
               src={preview}
               alt="Preview"
@@ -138,7 +146,7 @@ export default function ProfilePhotoUploader({
             </p>
           </div>
         ) : (
-          <div className="space-y-2">
+          <div className="space-y-2 pointer-events-none">
             <Image className="w-8 h-8 mx-auto text-blue-400 opacity-50" />
             <p className="text-sm text-muted-foreground">
               Clique para selecionar uma imagem
@@ -148,14 +156,6 @@ export default function ProfilePhotoUploader({
             </p>
           </div>
         )}
-
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          className="absolute opacity-0 cursor-pointer w-full h-full"
-          disabled={loading}
-        />
       </div>
 
       <button
