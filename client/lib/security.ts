@@ -26,7 +26,27 @@ export function isValidEmail(email: string): boolean {
  */
 export function isValidPhone(phone: string): boolean {
   const phoneRegex = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/;
-  return phoneRegex.test(phone);
+  if (!phoneRegex.test(phone)) return false;
+
+  // Reject sequences of repeated digits (like 11111111111)
+  const digits = phone.replace(/\D/g, "");
+  const hasRepeatedDigits = /^(\d)\1{9,}$/.test(digits);
+  if (hasRepeatedDigits) return false;
+
+  // Reject patterns like 12345678 or similar sequences
+  const hasSequentialPattern = /^(\d)(\d)(?:\1{2,}|\2{2,})/.test(digits);
+  if (hasSequentialPattern) return false;
+
+  return true;
+}
+
+/**
+ * Validate if name has at least first and last name
+ */
+export function isValidFullName(name: string): boolean {
+  const trimmed = name.trim();
+  const parts = trimmed.split(/\s+/);
+  return parts.length >= 2 && parts.every((part) => part.length >= 2);
 }
 
 /**
