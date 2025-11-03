@@ -73,7 +73,7 @@ const dailyVerse = {
   id: "1",
   reference: "João 3:16",
   text: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.",
-  book: "Evangelho de Jo��o",
+  book: "Evangelho de João",
   chapter: 3,
   verse: "16",
   reflection:
@@ -186,13 +186,21 @@ export default function MeuPerfil() {
             <div className="flex flex-col md:flex-row gap-8">
               {/* Avatar and Basic Info */}
               <div className="text-center md:text-left">
-                <div className={`w-32 h-32 mx-auto md:mx-0 rounded-full flex items-center justify-center text-4xl font-bold text-white mb-6 ${
-                  isAdmin
-                    ? "bg-gradient-to-br from-yellow-600 to-orange-600"
-                    : "bg-gradient-to-br from-blue-600 to-purple-600"
-                }`}>
-                  {isAdmin ? "👑" : profile.name.charAt(0)}
-                </div>
+                {(profile as any).profilePhoto ? (
+                  <img
+                    src={(profile as any).profilePhoto}
+                    alt={profile.name}
+                    className="w-32 h-32 mx-auto md:mx-0 rounded-full object-cover mb-6 border-4 border-yellow-600"
+                  />
+                ) : (
+                  <div className={`w-32 h-32 mx-auto md:mx-0 rounded-full flex items-center justify-center text-4xl font-bold text-white mb-6 ${
+                    isAdmin
+                      ? "bg-gradient-to-br from-yellow-600 to-orange-600"
+                      : "bg-gradient-to-br from-blue-600 to-purple-600"
+                  }`}>
+                    {isAdmin ? "👑" : profile.name.charAt(0)}
+                  </div>
+                )}
 
                 {!isEditing && (
                   <div className="space-y-2">
@@ -794,7 +802,7 @@ export default function MeuPerfil() {
                     <div className="flex items-center gap-3">
                       <BookOpen className="w-5 h-5 text-blue-500" />
                       <span className="text-foreground">
-                        Liç��es de Cursos Concluídas
+                        Lições de Cursos Concluídas
                       </span>
                     </div>
                     <span className="font-semibold text-foreground">
