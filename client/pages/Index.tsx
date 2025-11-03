@@ -12,6 +12,13 @@ import {
   Award,
   ArrowRight,
   Church,
+  Trophy,
+  Image,
+  Video,
+  User,
+  MessageSquare,
+  Lightbulb,
+  Zap,
 } from "lucide-react";
 
 export default function Index() {
