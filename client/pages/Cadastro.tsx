@@ -11,6 +11,7 @@ export default function Cadastro() {
     group: "",
     email: "",
     phone: "",
+    password: "",
   });
 
   const [loading, setLoading] = useState(false);
