@@ -369,16 +369,56 @@ export default function Cadastro() {
                   >
                     Senha <span className="text-xs text-muted-foreground">(mínimo 6 caracteres)</span>
                   </label>
-                  <input
-                    id="password"
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    placeholder="••••••••"
-                    className="w-full px-4 py-2.5 bg-black/40 border border-orange-500/30 hover:border-orange-500/50 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition-all hover:shadow-lg hover:shadow-orange-500/20"
-                    disabled={loading}
-                  />
+                  <div className="relative">
+                    <input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      placeholder="••••••••"
+                      className="w-full px-4 py-2.5 pr-12 bg-black/40 border border-orange-500/30 hover:border-orange-500/50 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition-all hover:shadow-lg hover:shadow-orange-500/20"
+                      disabled={loading}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-orange-400/60 hover:text-orange-400 transition-colors"
+                      disabled={loading}
+                      aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="w-5 h-5" />
+                      ) : (
+                        <Eye className="w-5 h-5" />
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Password Strength Indicator */}
+                  {formData.password && (
+                    <div className="mt-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs text-gray-400">Força da senha:</span>
+                        <span className={`text-xs font-semibold ${
+                          passwordStrength.color === "bg-green-500" ? "text-green-400" :
+                          passwordStrength.color === "bg-yellow-500" ? "text-yellow-400" :
+                          "text-red-400"
+                        }`}>
+                          {passwordStrength.level}
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div
+                          className={`h-full transition-all duration-300 ${passwordStrength.color}`}
+                          style={{ width: `${(passwordStrength.score / 7) * 100}%` }}
+                        ></div>
+                      </div>
+                      <p className="text-xs text-gray-400 mt-2">
+                        Dica: Use letras maiúsculas, minúsculas, números e caracteres especiais para uma senha mais forte
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
