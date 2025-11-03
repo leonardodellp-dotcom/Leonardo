@@ -21,111 +21,12 @@ interface Photo {
 const photos: Photo[] = [
   {
     id: "1",
-    title: "Retiro Espiritual 2024",
-    eventName: "Retiro Anual de Jovens",
-    eventDate: "10-12 de novembro, 2024",
+    title: "Exemplos",
+    eventName: "Adoração Eucarística",
+    eventDate: "02 de novembro, 2025",
     imageUrl:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop",
-    description: "Momento de oração e reflexão no retiro anual da comunidade",
-  },
-  {
-    id: "2",
-    title: "Missa Especial",
-    eventName: "Missa de Ação de Graças",
-    eventDate: "15 de outubro, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=500&fit=crop",
-    description: "Comunidade reunida para celebração especial",
-  },
-  {
-    id: "3",
-    title: "Encontro de Jovens",
-    eventName: "Encontro Mensal",
-    eventDate: "20 de outubro, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517994712202-14319c0ac310?w=500&h=500&fit=crop",
-    description: "Jovens conversando e fortalecendo os laços comunitários",
-  },
-  {
-    id: "4",
-    title: "Atividade de Caridade",
-    eventName: "Distribuição de Alimentos",
-    eventDate: "5 de outubro, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1559027615-cd2628902d4a?w=500&h=500&fit=crop",
-    description: "Membros do grupo ajudando na comunidade",
-  },
-  {
-    id: "5",
-    title: "Celebração em Família",
-    eventName: "Festa de Encerramento",
-    eventDate: "30 de setembro, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500&h=500&fit=crop",
-    description: "Confraternização e celebração do grupo",
-  },
-  {
-    id: "6",
-    title: "Adoração Eucarística",
-    eventName: "Noite de Adoração",
-    eventDate: "25 de setembro, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1534536281715-e28219c76c1e?w=500&h=500&fit=crop",
-    description: "Momento de devoção e oração silenciosa",
-  },
-  {
-    id: "7",
-    title: "Peregrinação",
-    eventName: "Caminhada até a Igreja",
-    eventDate: "15 de setembro, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=500&h=500&fit=crop",
-    description: "Comunidade em peregrinação até o santuário",
-  },
-  {
-    id: "8",
-    title: "Aula de Catequese",
-    eventName: "Formação Religiosa",
-    eventDate: "10 de setembro, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=500&h=500&fit=crop",
-    description: "Catequese interativa e formação de fé",
-  },
-  {
-    id: "9",
-    title: "Festa de Santo Antônio",
-    eventName: "Celebração de Santo Antônio",
-    eventDate: "13 de junho, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=500&h=500&fit=crop",
-    description: "Festa em honra ao padroeiro",
-  },
-  {
-    id: "10",
-    title: "Encontro de Oração",
-    eventName: "Grupo de Oração Semanal",
-    eventDate: "5 de junho, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1516214104703-3e2c6da89611?w=500&h=500&fit=crop",
-    description: "Momento de oração coletiva e comunhão",
-  },
-  {
-    id: "11",
-    title: "Palestras e Diálogos",
-    eventName: "Seminário de Formação",
-    eventDate: "25 de maio, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop",
-    description: "Participantes assistindo a palestra sobre fé",
-  },
-  {
-    id: "12",
-    title: "Confraternização Especial",
-    eventName: "Happy Hour Católico",
-    eventDate: "15 de maio, 2024",
-    imageUrl:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=500&fit=crop",
-    description: "Confraternização entre membros da comunidade",
+      "https://cdn.builder.io/api/v1/image/assets%2F8ca2eb85954041b381398a3b58a28fe2%2F02823e1a021842769cd372211089eecc?format=webp&width=800",
+    description: "Momento de adoração e devoção da comunidade Jucrisc",
   },
 ];
 
