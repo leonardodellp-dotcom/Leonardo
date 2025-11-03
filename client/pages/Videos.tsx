@@ -65,34 +65,9 @@ export default function Videos() {
             </p>
           </div>
 
-          {/* Category Filter */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <Filter className="w-5 h-5 text-blue-400" />
-              <h2 className="text-lg font-semibold text-foreground">
-                Categoria
-              </h2>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2 rounded-lg font-semibold transition-all ${
-                    selectedCategory === category
-                      ? "bg-blue-600 text-white"
-                      : "bg-card border border-border text-foreground hover:border-blue-600"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Videos Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {filteredVideos.map((video) => (
+            {videos.map((video) => (
               <div
                 key={video.id}
                 onClick={() => setSelectedVideo(video)}
