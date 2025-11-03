@@ -116,6 +116,7 @@ export default function MeuPerfil() {
   const [taskInput, setTaskInput] = useState("");
   const [taskCompleted, setTaskCompleted] = useState(false);
   const [showPhotoUpload, setShowPhotoUpload] = useState(false);
+  const [profileRefresh, setProfileRefresh] = useState(0);
 
   // Initialize game stats with admin data if available
   const initialGameStats = isAdmin && adminGameStats ? adminGameStats : mockGameStats;
@@ -926,7 +927,16 @@ export default function MeuPerfil() {
                 userEmail={profile.email}
                 userName={profile.name}
                 onSuccess={() => {
+                  // Refresh profile data from localStorage
+                  if (isAdmin) {
+                    const updatedAdminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
+                    setProfile({
+                      ...profile,
+                      profilePhoto: updatedAdminProfile.profilePhoto,
+                    });
+                  }
                   setShowPhotoUpload(false);
+                  setProfileRefresh(prev => prev + 1);
                 }}
               />
             </div>
