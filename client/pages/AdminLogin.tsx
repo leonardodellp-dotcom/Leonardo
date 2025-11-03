@@ -62,7 +62,7 @@ export default function AdminLogin() {
         localStorage.setItem("admin_game_stats", JSON.stringify(adminGameStats));
 
         setTimeout(() => {
-          navigate("/meu-perfil");
+          navigate("/");
         }, 1500);
       } else {
         setError("Usuário ou senha incorretos. Tente novamente!");
