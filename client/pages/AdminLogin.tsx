@@ -19,10 +19,15 @@ export default function AdminLogin() {
 
     try {
       // Hardcoded credentials for admin
-      if (username === "leoadm" && password === "leolindo") {
+      const isValidAdmin =
+        (username === "leoadm" && password === "leolindo") ||
+        (username === "Leonardo" && password === "Leoleo13pps!");
+
+      if (isValidAdmin) {
         setSuccess("Login realizado com sucesso!");
         localStorage.setItem("admin_token", "true");
         localStorage.setItem("admin_username", username);
+        localStorage.setItem("admin_role", "supremo");
 
         setTimeout(() => {
           navigate("/admin-dashboard");
