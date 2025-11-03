@@ -96,6 +96,11 @@ export default function AdminDashboard() {
       icon: Settings,
     },
     {
+      id: "photos",
+      label: "Fotos de Perfil",
+      icon: Image,
+    },
+    {
       id: "events",
       label: "Eventos & Agenda",
       icon: Calendar,
@@ -116,6 +121,24 @@ export default function AdminDashboard() {
       icon: MessageSquare,
     },
   ];
+
+  const approvePhoto = (id: string) => {
+    setPhotoRequests(
+      photoRequests.map((p) =>
+        p.id === id ? { ...p, status: "approved" } : p
+      )
+    );
+  };
+
+  const rejectPhoto = (id: string, reason: string) => {
+    setPhotoRequests(
+      photoRequests.map((p) =>
+        p.id === id ? { ...p, status: "rejected", rejectionReason: reason } : p
+      )
+    );
+    setSelectedPhotoId(null);
+    setRejectionReason("");
+  };
 
   const approveSuggestion = (id: string) => {
     setSuggestions(
