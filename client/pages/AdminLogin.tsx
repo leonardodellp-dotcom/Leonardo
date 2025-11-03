@@ -34,10 +34,10 @@ export default function AdminLogin() {
           isAdmin: true,
           name: "Leonardo",
           email: username === "Leonardo" ? "leonardo@jucrisc.admin" : "leoadm@jucrisc.admin",
-          age: 25,
+          age: 18,
           group: "Jucrisc",
           bio: "Administrador supremo do Jucrisc com acesso a todas as funcionalidades.",
-          joinedAt: "Janeiro 2023",
+          joinedAt: "Dezembro de 18 a.C.",
           profilePhoto: "https://cdn.builder.io/api/v1/image/assets%2F8ca2eb85954041b381398a3b58a28fe2%2F0323119d0fce4ba8a558a6ac894ea54a?format=webp&width=800",
         };
 
