@@ -298,6 +298,72 @@ export default function Cursos() {
         },
       ],
     },
+    {
+      id: "13",
+      title: "Mariologia: Devoção à Mãe de Deus",
+      description:
+        "Aprofunde sua compreensão sobre Maria, mãe de Jesus. Conheça sua importância na fé católica, as aparições e devoções marianas.",
+      institution: "Santuário Nacional de Aparecida",
+      level: "Intermediário",
+      format: "Online",
+      link: "#",
+      topics: ["Imaculada Conceição", "Assunção de Maria", "Rosário Mariano"],
+    },
+    {
+      id: "14",
+      title: "Santos Padroeiros e Intercessão",
+      description:
+        "Conheça os santos da Igreja Católica, suas vidas inspiradoras e como eles interceder por nós. Descubra o santo padroeiro do seu nome.",
+      institution: "Jucrisc",
+      level: "Iniciante",
+      format: "Online",
+      link: "#",
+      topics: ["Vidas de Santos", "Canonização", "Invocação de Santos"],
+    },
+    {
+      id: "15",
+      title: "Liturgia e Sacramentais",
+      description:
+        "Compreenda a estrutura da Missa católica e o significado de cada parte. Saiba como participar plenamente da vida litúrgica da Igreja.",
+      institution: "Jucrisc",
+      level: "Intermediário",
+      format: "Presencial",
+      link: "#",
+      topics: ["Estrutura da Missa", "Sacramentais", "Participação Ativa"],
+    },
+    {
+      id: "16",
+      title: "Apologia Católica: Defendendo a Fé",
+      description:
+        "Aprenda a defender inteligentemente sua fé diante de críticas e questionamentos. Descubra argumentos bíblicos e teológicos para a fé católica.",
+      institution: "Instituto de Teologia Apologética",
+      level: "Avançado",
+      format: "Online",
+      link: "#",
+      topics: ["Argumentos Bíblicos", "Tradição e Magist��rio", "Questões Comuns"],
+    },
+    {
+      id: "17",
+      title: "Misericórdia Divina e Confissão",
+      description:
+        "Explore o sacramento da Reconciliação. Compreenda a infinita misericórdia de Deus e como esse sacramento transforma vidas.",
+      institution: "Jucrisc",
+      level: "Intermediário",
+      format: "Presencial",
+      link: "#",
+      topics: ["Arrependimento", "Confissão", "Absolvição e Paz"],
+    },
+    {
+      id: "18",
+      title: "Matrimônio e Sexualidade Cristã",
+      description:
+        "Prepare-se para o matrimônio ou aprofunde sua vida conjugal. Conheça a visão católica sobre amor, sexualidade e família.",
+      institution: "Jucrisc",
+      level: "Intermediário",
+      format: "Híbrido",
+      link: "#",
+      topics: ["Vocação do Matrimônio", "Planejamento Familiar", "Vida Conjugal"],
+    },
   ];
 
   const getLevelColor = (level: string) => {
