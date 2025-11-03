@@ -19,34 +19,46 @@ export default function Cadastro() {
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const calculatePasswordStrength = (password: string): { score: number; level: string; color: string } => {
-    if (!password) return { score: 0, level: "Fraca", color: "bg-red-500" };
+  const getPasswordRequirements = (password: string) => {
+    return {
+      hasLength: password.length >= 8,
+      hasUppercase: /[A-Z]/.test(password),
+      hasLowercase: /[a-z]/.test(password),
+      hasNumber: /[0-9]/.test(password),
+      hasSpecial: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
+    };
+  };
 
+  const calculatePasswordStrength = (password: string): { score: number; level: string; color: string; isStrong: boolean } => {
+    if (!password) return { score: 0, level: "Fraca", color: "bg-red-500", isStrong: false };
+
+    const requirements = getPasswordRequirements(password);
     let score = 0;
 
-    if (password.length >= 6) score += 1;
-    if (password.length >= 10) score += 1;
-    if (password.length >= 14) score += 1;
-    if (/[a-z]/.test(password)) score += 1;
-    if (/[A-Z]/.test(password)) score += 1;
-    if (/[0-9]/.test(password)) score += 1;
-    if (/[!@#$%^&*]/.test(password)) score += 1;
+    if (requirements.hasLength) score += 1;
+    if (requirements.hasLowercase) score += 1;
+    if (requirements.hasUppercase) score += 1;
+    if (requirements.hasNumber) score += 1;
+    if (requirements.hasSpecial) score += 1;
 
     let level = "Fraca";
     let color = "bg-red-500";
+    let isStrong = false;
 
-    if (score >= 5) {
+    if (requirements.hasLength && requirements.hasUppercase && requirements.hasSpecial && score >= 4) {
       level = "Forte";
       color = "bg-green-500";
+      isStrong = true;
     } else if (score >= 3) {
       level = "Média";
       color = "bg-yellow-500";
     }
 
-    return { score: Math.min(score, 7), level, color };
+    return { score: Math.min(score, 5), level, color, isStrong };
   };
 
   const passwordStrength = calculatePasswordStrength(formData.password);
+  const passwordRequirements = getPasswordRequirements(formData.password);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
