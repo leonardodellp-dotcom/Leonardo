@@ -55,6 +55,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/esqueceu-senha" element={<ForgotPassword />} />
           <Route path="/admin-login" element={<AdminLogin />} />
 
           {/* Protected Routes */}
