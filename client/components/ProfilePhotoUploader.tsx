@@ -64,47 +64,53 @@ export default function ProfilePhotoUploader({
       // Create a simple data URL for storage (in production, use storage service)
       const reader = new FileReader();
       reader.onload = async (e) => {
-        const dataUrl = e.target?.result as string;
+        try {
+          const dataUrl = e.target?.result as string;
 
-        if (isAdmin) {
-          // Admins can change directly - update localStorage
-          const adminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
-          adminProfile.profilePhoto = dataUrl;
-          localStorage.setItem("admin_profile", JSON.stringify(adminProfile));
+          if (isAdmin) {
+            // Admins can change directly - update localStorage
+            const adminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
+            adminProfile.profilePhoto = dataUrl;
+            localStorage.setItem("admin_profile", JSON.stringify(adminProfile));
 
-          setSuccess("Foto de perfil atualizada com sucesso!");
-          setFile(null);
-          setPreview(null);
-          onSuccess?.();
-        } else {
-          // Normal users submit request
-          const { error: insertError } = await supabase
-            .from("profile_photo_requests")
-            .insert({
-              user_id: userId,
-              user_email: userEmail,
-              user_name: userName,
-              photo_url: dataUrl,
-              status: "pending",
-            });
+            setSuccess("Foto de perfil atualizada com sucesso!");
+            setFile(null);
+            setPreview(null);
+            onSuccess?.();
+          } else {
+            // Normal users submit request
+            const { error: insertError } = await supabase
+              .from("profile_photo_requests")
+              .insert({
+                user_id: userId,
+                user_email: userEmail,
+                user_name: userName,
+                photo_url: dataUrl,
+                status: "pending",
+              });
 
-          if (insertError) {
-            throw insertError;
+            if (insertError) {
+              throw insertError;
+            }
+
+            setSuccess(
+              "Solicitação de mudança de foto enviada! Aguarde aprovação do administrador."
+            );
+            setFile(null);
+            setPreview(null);
+            onSuccess?.();
           }
-
-          setSuccess(
-            "Solicitação de mudança de foto enviada! Aguarde aprovação do administrador."
-          );
-          setFile(null);
-          setPreview(null);
-          onSuccess?.();
+        } catch (err: any) {
+          console.error("Erro ao enviar foto:", err);
+          setError("Erro ao enviar foto. Tente novamente.");
+        } finally {
+          setLoading(false);
         }
       };
       reader.readAsDataURL(file);
     } catch (err: any) {
-      console.error("Erro ao enviar foto:", err);
-      setError("Erro ao enviar foto. Tente novamente.");
-    } finally {
+      console.error("Erro ao processar arquivo:", err);
+      setError("Erro ao processar arquivo. Tente novamente.");
       setLoading(false);
     }
   };
