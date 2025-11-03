@@ -215,7 +215,7 @@ export default function Cadastro() {
                     htmlFor="name"
                     className="block text-sm font-semibold mb-2"
                   >
-                    Nome Completo
+                    Nome Completo <span className="text-xs text-muted-foreground">(Nome + Sobrenome)</span>
                   </label>
                   <input
                     id="name"
