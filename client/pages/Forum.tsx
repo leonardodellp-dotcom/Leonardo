@@ -14,6 +14,7 @@ import {
 interface ForumReply {
   id: string;
   author: string;
+  profilePhoto?: string;
   content: string;
   timestamp: string;
 }
@@ -23,6 +24,7 @@ interface ForumPost {
   title: string;
   content: string;
   author: string;
+  profilePhoto?: string;
   category: string;
   replies: ForumReply[];
   likes: number;
