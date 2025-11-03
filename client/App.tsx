@@ -49,6 +49,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/auth" element={<Auth />} />
           <Route path="/" element={<Index />} />
           <Route path="/igreja" element={<Igreja />} />
           <Route path="/versiculos" element={<Versiculos />} />
