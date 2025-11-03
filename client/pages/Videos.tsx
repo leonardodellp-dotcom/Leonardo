@@ -19,22 +19,12 @@ const videos: Video[] = [
     description:
       "Uma reflexão profunda sobre como aprofundar nossa relação com Cristo através da oração, sacramentos e Palavra de Deus.",
     youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    category: "Formação",
+    category: "Vídeos",
     duration: 28,
     speaker: "Padre João Silva",
   },
   {
     id: "2",
-    title: "A Importância da Confissão na Vida Cristã",
-    description:
-      "Entenda o sacramento da penitência, como a confissão nos liberta do pecado e nos aproxima de Deus.",
-    youtubeUrl: "https://www.youtube.com/embed/jNQXAC9IVRw",
-    category: "Sacramentos",
-    duration: 22,
-    speaker: "Frei Marcos",
-  },
-  {
-    id: "3",
     title: "Homilia - Domingo de Páscoa",
     description:
       "Uma poderosa homilia sobre a ressurreição de Cristo e o que significa para nossa vida de fé.",
@@ -44,67 +34,7 @@ const videos: Video[] = [
     speaker: "Bispo Paulo",
   },
   {
-    id: "4",
-    title: "Evangelização para Jovens - Testemunho e Ação",
-    description:
-      "Como os jovens podem evangelizar através do testemunho de vida, ação missionária e diálogo genuíno.",
-    youtubeUrl: "https://www.youtube.com/embed/9bZkp7q19f0",
-    category: "Evangelização",
-    duration: 35,
-    speaker: "Padre Gabriel",
-  },
-  {
-    id: "5",
-    title: "Os Sete Sacramentos Explicados",
-    description:
-      "Uma série educativa explicando cada um dos sete sacramentos: Batismo, Confirmação, Eucaristia, Penitência, Unção dos Enfermos, Ordem Sagrada e Matrimônio.",
-    youtubeUrl: "https://www.youtube.com/embed/RgKAFK5djSk",
-    category: "Sacramentos",
-    duration: 42,
-    speaker: "Frei Fernando",
-  },
-  {
-    id: "6",
-    title: "Marianismo - Devoção a Nossa Senhora",
-    description:
-      "Compreenda a importância de Maria na Igreja Católica, seus mistérios e como ela nos guia a Jesus.",
-    youtubeUrl: "https://www.youtube.com/embed/watch?v=NWONefy53",
-    category: "Devoção",
-    duration: 26,
-    speaker: "Padre Fernando",
-  },
-  {
-    id: "7",
-    title: "Catecismo - Os Mandamentos de Deus",
-    description:
-      "Uma explicação clara e profunda sobre os Dez Mandamentos e sua importância para viver uma vida cristã plena.",
-    youtubeUrl: "https://www.youtube.com/embed/9WZWb9OhJDo",
-    category: "Catequese",
-    duration: 31,
-    speaker: "Diácono Carlos",
-  },
-  {
-    id: "8",
-    title: "A Eucaristia - O Coração da Fé Católica",
-    description:
-      "Uma reflexão espiritual profunda sobre o mistério da Eucaristia e seu impacto transformador em nossas vidas.",
-    youtubeUrl: "https://www.youtube.com/embed/8_4Uhaui3UE",
-    category: "Sacramentos",
-    duration: 29,
-    speaker: "Padre Lucas",
-  },
-  {
-    id: "9",
-    title: "Missão e Caridade - Servindo aos Pobres",
-    description:
-      "Como os cristãos são chamados a servir aos necessitados e viver a caridade de forma concreta.",
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    category: "Missão",
-    duration: 20,
-    speaker: "Irmã Maria",
-  },
-  {
-    id: "10",
+    id: "3",
     title: "Homilia - Festa de São Francisco",
     description:
       "Uma bela homilia sobre a vida simples, humildade e dedicação à vontade de Deus.",
@@ -112,26 +42,6 @@ const videos: Video[] = [
     category: "Homilias",
     duration: 18,
     speaker: "Padre Antônio",
-  },
-  {
-    id: "11",
-    title: "Virtudes Cristãs - Fé, Esperança e Caridade",
-    description:
-      "Um aprofundamento nas três virtudes teologais que formam o fundamento da vida cristã.",
-    youtubeUrl: "https://www.youtube.com/embed/OPf0YbXqDm0",
-    category: "Formação",
-    duration: 38,
-    speaker: "Padre Raphael",
-  },
-  {
-    id: "12",
-    title: "Vocação Religiosa - Chamado de Deus",
-    description:
-      "Uma exploração sobre diferentes vocações: religiosa, matrimonial, diaconal e como discernir o chamado de Deus.",
-    youtubeUrl: "https://www.youtube.com/embed/9bZkp7q19f0",
-    category: "Vocação",
-    duration: 33,
-    speaker: "Frei João",
   },
 ];
 
