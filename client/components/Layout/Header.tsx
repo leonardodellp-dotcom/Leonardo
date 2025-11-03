@@ -191,6 +191,22 @@ export default function Header() {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-3 ml-4">
+            {/* Dropdown: Meu Espaço */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
+                Meu Espaço <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {meuEspacoSubmenu.map((item) => (
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link to={item.path} className="cursor-pointer">
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Link
               to="/cadastro"
               className="px-4 py-2 bg-gradient-to-r from-accent/20 to-amber-500/20 hover:shadow-glow-accent border border-accent/30 hover:border-accent/60 text-accent font-semibold rounded-lg transition-all text-sm hover:scale-105"
