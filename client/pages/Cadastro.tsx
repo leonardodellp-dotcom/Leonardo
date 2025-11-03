@@ -60,10 +60,33 @@ export default function Cadastro() {
         return;
       }
 
+      // Validate full name (first and last name required)
+      if (!isValidFullName(formData.name)) {
+        setError(
+          "Por favor, insira seu nome completo (nome e sobrenome, mínimo 2 nomes)!"
+        );
+        setLoading(false);
+        return;
+      }
+
       // Validate email
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
+      if (!isValidEmail(formData.email)) {
         setError("Por favor, insira um email válido!");
+        setLoading(false);
+        return;
+      }
+
+      // Check if email already exists
+      const { data: existingEmail } = await supabase
+        .from("user_registrations")
+        .select("id")
+        .eq("email", formData.email.toLowerCase())
+        .limit(1);
+
+      if (existingEmail && existingEmail.length > 0) {
+        setError(
+          "Este email já está cadastrado! Use um email diferente ou recupere sua conta."
+        );
         setLoading(false);
         return;
       }
@@ -76,10 +99,18 @@ export default function Cadastro() {
         return;
       }
 
-      // Validate phone (must have at least 10 digits)
+      // Validate phone
       const phoneDigits = formData.phone.replace(/\D/g, "");
       if (phoneDigits.length < 10) {
         setError("Por favor, insira um telefone válido com DDD!");
+        setLoading(false);
+        return;
+      }
+
+      if (!isValidPhone(formData.phone)) {
+        setError(
+          "Telefone inválido! Verifique se não há números repetidos ou sequências estranhas."
+        );
         setLoading(false);
         return;
       }
@@ -89,11 +120,11 @@ export default function Cadastro() {
         .from("user_registrations")
         .insert([
           {
-            name: formData.name,
+            name: formData.name.trim(),
             age: age,
-            group: formData.group,
-            email: formData.email,
-            phone: formData.phone,
+            group: formData.group.trim(),
+            email: formData.email.toLowerCase().trim(),
+            phone: formData.phone.trim(),
           },
         ])
         .select();
