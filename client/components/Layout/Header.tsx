@@ -359,13 +359,6 @@ export default function Header() {
                   >
                     Login
                   </Link>
-                  <Link
-                    to="/cadastro"
-                    className="block px-4 py-3 bg-gradient-to-r from-accent/20 to-amber-500/20 hover:shadow-glow-accent border border-accent/30 hover:border-accent/60 text-accent font-semibold rounded-lg transition-all text-sm"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Cadastro
-                  </Link>
                 </>
               )}
               <Link
