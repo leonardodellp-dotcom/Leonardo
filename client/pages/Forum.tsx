@@ -302,9 +302,17 @@ export default function Forum() {
                           className="bg-background/50 p-4 rounded-lg"
                         >
                           <div className="flex items-center gap-3 mb-3">
-                            <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm">
-                              {reply.author.charAt(0)}
-                            </div>
+                            {reply.profilePhoto ? (
+                              <img
+                                src={reply.profilePhoto}
+                                alt={reply.author}
+                                className="w-8 h-8 rounded-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm">
+                                {reply.author.charAt(0)}
+                              </div>
+                            )}
                             <div>
                               <p className="font-semibold text-foreground text-sm">
                                 {reply.author}
