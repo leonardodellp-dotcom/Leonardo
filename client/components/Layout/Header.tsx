@@ -186,18 +186,6 @@ export default function Header() {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-3 ml-4">
-            {/* Profile Avatar Button - Quick Access */}
-            <Link
-              to="/meu-perfil"
-              className="group relative w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold hover:shadow-glow hover:scale-110 transition-all duration-300 border border-primary/50 hover:border-primary"
-              title="Meu Perfil"
-            >
-              <span className="text-sm">J</span>
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card border border-border rounded-lg px-3 py-1 text-xs font-semibold text-foreground whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                Ir ao Perfil
-              </div>
-            </Link>
-
             <Link
               to="/cadastro"
               className="px-4 py-2 bg-gradient-to-r from-accent/20 to-amber-500/20 hover:shadow-glow-accent border border-accent/30 hover:border-accent/60 text-accent font-semibold rounded-lg transition-all text-sm hover:scale-105"
