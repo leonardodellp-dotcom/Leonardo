@@ -67,38 +67,42 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-sm bg-card/80 border-b border-primary/20 shadow-glow">
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-3">
         {/* Desktop Layout */}
         <div className="hidden lg:flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group mr-8">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-              <span className="text-white font-bold text-lg">✝️</span>
+          <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
+            <div className="w-9 h-9 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+              <span className="text-white font-bold text-base">✝️</span>
             </div>
             <div className="flex flex-col">
-              <h1 className="font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <h1 className="font-bold text-lg bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Jucrisc
               </h1>
-              <p className="text-xs text-muted-foreground">Grupo de Jovens</p>
+              <p className="text-xs text-muted-foreground leading-none">Grupo de Jovens</p>
             </div>
           </Link>
 
-          {/* Main Navigation */}
-          <div className="flex items-center gap-2 flex-1">
+          {/* Main Navigation - Grouped */}
+          <div className="flex items-center gap-1 flex-1 px-6">
+            {/* Top Level Items */}
             {mainNavItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/15 hover:text-primary hover:border-primary/30 border border-transparent rounded-lg transition-all duration-200 active:scale-95"
+                className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/15 hover:text-primary border border-transparent rounded transition-all duration-200 active:scale-95 whitespace-nowrap"
               >
                 {item.label}
               </Link>
             ))}
 
-            {/* Dropdown: Oração & Devoção */}
+            {/* Divider */}
+            <div className="w-px h-5 bg-border mx-1"></div>
+
+            {/* Dropdowns Group 1 */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
-                Oração & Devoção <ChevronDown className="w-4 h-4" />
+              <DropdownMenuTrigger className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded transition-all duration-200 flex items-center gap-0.5 active:scale-95 whitespace-nowrap">
+                Oração <ChevronDown className="w-3 h-3" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48">
                 {oracaoDevocaoSubmenu.map((item) => (
@@ -111,10 +115,9 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Dropdown: Recursos */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
-                Recursos <ChevronDown className="w-4 h-4" />
+              <DropdownMenuTrigger className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded transition-all duration-200 flex items-center gap-0.5 active:scale-95 whitespace-nowrap">
+                Recursos <ChevronDown className="w-3 h-3" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56">
                 {recursosSubmenu.map((item) => (
@@ -127,10 +130,9 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Dropdown: Cursos */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
-                Formação <ChevronDown className="w-4 h-4" />
+              <DropdownMenuTrigger className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded transition-all duration-200 flex items-center gap-0.5 active:scale-95 whitespace-nowrap">
+                Formação <ChevronDown className="w-3 h-3" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48">
                 {cursosSubmenu.map((item) => (
@@ -143,10 +145,13 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Dropdown: Comunidade */}
+            {/* Divider */}
+            <div className="w-px h-5 bg-border mx-1"></div>
+
+            {/* Dropdowns Group 2 */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
-                Comunidade <ChevronDown className="w-4 h-4" />
+              <DropdownMenuTrigger className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded transition-all duration-200 flex items-center gap-0.5 active:scale-95 whitespace-nowrap">
+                Comunidade <ChevronDown className="w-3 h-3" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56">
                 {comunidadeSubmenu.map((item) => (
@@ -159,10 +164,9 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Dropdown: Conhecimento */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
-                Conhecimento <ChevronDown className="w-4 h-4" />
+              <DropdownMenuTrigger className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded transition-all duration-200 flex items-center gap-0.5 active:scale-95 whitespace-nowrap">
+                Conhecimento <ChevronDown className="w-3 h-3" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56">
                 {conhecimentoSubmenu.map((item) => (
@@ -175,26 +179,25 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Calendário */}
             <Link
               to="/calendario"
-              className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 active:scale-95"
+              className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded transition-all duration-200 active:scale-95 whitespace-nowrap"
             >
-              📅 Calendário
+              📅 Cal
             </Link>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex items-center gap-3 ml-4">
+          {/* CTA Buttons & Controls */}
+          <div className="flex items-center gap-2 ml-2 flex-shrink-0">
             <Link
               to="/cadastro"
-              className="px-4 py-2 bg-gradient-to-r from-accent/20 to-amber-500/20 hover:shadow-glow-accent border border-accent/30 hover:border-accent/60 text-accent font-semibold rounded-lg transition-all text-sm hover:scale-105"
+              className="px-3 py-1.5 bg-gradient-to-r from-accent/30 to-amber-500/30 hover:shadow-glow-accent border border-accent/40 text-accent font-semibold rounded text-xs transition-all hover:scale-105 whitespace-nowrap"
             >
               Cadastro
             </Link>
             <Link
               to="/admin-login"
-              className="px-4 py-2 bg-gradient-to-r from-primary/20 to-purple-500/20 hover:shadow-glow border border-primary/30 hover:border-primary/60 text-primary font-semibold rounded-lg transition-all text-sm hover:scale-105"
+              className="px-3 py-1.5 bg-gradient-to-r from-primary/30 to-purple-500/30 hover:shadow-glow border border-primary/40 text-primary font-semibold rounded text-xs transition-all hover:scale-105 whitespace-nowrap"
             >
               Admin
             </Link>
@@ -202,16 +205,16 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={() => setIsDark(!isDark)}
-              className="p-2 hover:bg-primary/20 border border-primary/30 rounded-lg transition-all hover:shadow-glow"
+              className="p-1.5 hover:bg-primary/20 border border-primary/30 rounded transition-all hover:shadow-glow"
               aria-label="Toggle theme"
             >
               {isDark ? (
                 <Sun
-                  className="w-5 h-5 text-accent animate-spin"
+                  className="w-4 h-4 text-accent animate-spin"
                   style={{ animationDuration: "20s" }}
                 />
               ) : (
-                <Moon className="w-5 h-5 text-primary" />
+                <Moon className="w-4 h-4 text-primary" />
               )}
             </button>
           </div>
