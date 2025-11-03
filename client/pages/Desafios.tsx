@@ -789,6 +789,253 @@ const questionBank: Question[] = [
       "O Docetismo negava que Cristo sofreu de forma real, sustentando um sofrimento meramente aparente.",
     difficulty: "impossível",
   },
+
+  // Fácil - Adicionais
+  {
+    id: "f21",
+    question: "Qual é o grande mandamento relacionado ao amor?",
+    options: [
+      "Guardar o sábado",
+      "Amar a Deus e ao próximo",
+      "Não cobiçar",
+      "Respeitar os pais",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Jesus resumiu toda a lei e os profetas em dois mandamentos: amar a Deus e amar ao próximo como a si mesmo.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f22",
+    question: "Quantas bem-aventuranças Jesus pregou?",
+    options: ["5", "8", "10", "12"],
+    correctAnswer: 1,
+    explanation:
+      "Jesus pregou 8 bem-aventuranças no Sermão da Montanha em Mateus 5:3-10.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f23",
+    question: "Qual é o sacramento que marca a maturidade cristã?",
+    options: ["Batismo", "Confirmação", "Eucaristia", "Matrimônio"],
+    correctAnswer: 1,
+    explanation:
+      "A Confirmação marca a maturidade cristã e fortalece os dons do Espírito Santo recebidos no Batismo.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f24",
+    question: "Quantos anos Jesus teve antes de começar seu ministério público?",
+    options: ["25", "30", "33", "40"],
+    correctAnswer: 1,
+    explanation:
+      "Jesus começou seu ministério público aos 30 anos, conforme registrado em Lucas 3:23.",
+    difficulty: "fácil",
+  },
+  {
+    id: "f25",
+    question: "Qual é a oração mais importante na tradição cristã?",
+    options: ["Ave-Maria", "Pai Nosso", "Credo", "Glória"],
+    correctAnswer: 1,
+    explanation:
+      "O Pai Nosso é a oração ensinada por Jesus e é considerada a oração por excelência dos cristãos.",
+    difficulty: "fácil",
+  },
+
+  // Médio - Adicionais
+  {
+    id: "m12",
+    question: "Qual é o significado da palavra 'Pentecostes' em sua origem?",
+    options: [
+      "Primeira unção",
+      "Cinquenta dias",
+      "Descida do Espírito",
+      "Novo nascimento",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Pentecostes vem do grego 'pentekosté', que significa 'quinquagésimo', referendo-se aos 50 dias após a Páscoa.",
+    difficulty: "médio",
+  },
+  {
+    id: "m13",
+    question: "Em qual Concílio foi definida a Trindade?",
+    options: [
+      "Concílio de Niceia",
+      "Concílio de Éfeso",
+      "Concílio de Calcedônia",
+      "Concílio Vaticano I",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "O Concílio de Niceia (325) definiu a ortodoxia sobre a Trindade, condenando o Arianismo.",
+    difficulty: "médio",
+  },
+  {
+    id: "m14",
+    question: "Qual é a duração tradicional da Quaresma?",
+    options: ["30 dias", "35 dias", "40 dias", "45 dias"],
+    correctAnswer: 2,
+    explanation:
+      "A Quaresma dura 40 dias, simbolizando os 40 dias de jejum de Jesus no deserto.",
+    difficulty: "médio",
+  },
+  {
+    id: "m15",
+    question: "Qual apóstolo era cobrador de impostos antes de seguir Jesus?",
+    options: ["Pedro", "Mateus", "João", "Tiago"],
+    correctAnswer: 1,
+    explanation:
+      "Mateus (também chamado Levi) era cobrador de impostos em Cafarnaum quando Jesus o chamou.",
+    difficulty: "médio",
+  },
+  {
+    id: "m16",
+    question: "Qual é o livro da Bíblia com maior número de capítulos?",
+    options: ["Gênesis", "Salmos", "Mateus", "João"],
+    correctAnswer: 1,
+    explanation:
+      "O livro dos Salmos tem 150 capítulos, o maior de qualquer livro bíblico.",
+    difficulty: "médio",
+  },
+
+  // Difícil - Adicionais
+  {
+    id: "d6",
+    question:
+      "Qual é o nome da doutrina que afirma que os sacramentos atuam 'ex opere operato'?",
+    options: [
+      "Opus Dei",
+      "Eficácia Sacramental",
+      "Graça Santificante",
+      "Opus Operantis",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "A eficácia sacramental significa que os sacramentos operam pela obra realizada (ex opere operato), não pela disposição do ministro.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d7",
+    question: "Qual é a diferença entre 'Graça Santificante' e 'Graça Atual'?",
+    options: [
+      "Nenhuma diferença",
+      "Santificante é permanente, Atual é transitória",
+      "Atual é permanente, Santificante é temporária",
+      "Dependem do sacramento recebido",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "A Graça Santificante habita permanentemente na alma, enquanto a Graça Atual é transitória e ajuda em atos específicos.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d8",
+    question:
+      "Em qual sentido São Paulo usa o termo 'mysterium' (mistério) em seus escritos?",
+    options: [
+      "Segredo oculto",
+      "Desconhecido e incognoscível",
+      "Verdade divina revelada mas insondável",
+      "Superstição pagan",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "Para Paulo, 'mistério' é uma verdade divina antes oculta, mas agora revelada em Cristo, especialmente a salvação dos gentios.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d9",
+    question:
+      "Qual é o significado teológico do batismo pelo Espírito Santo em relação ao Batismo sacramental?",
+    options: [
+      "São a mesma coisa",
+      "Batismo pelo Espírito é figura do Batismo sacramental",
+      "Batismo sacramental é figura do Batismo pelo Espírito",
+      "São completamente diferentes e desconectados",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "O Batismo sacramental é a figura e o instrumento do Batismo pelo Espírito, que renova e santifica a alma.",
+    difficulty: "difícil",
+  },
+  {
+    id: "d10",
+    question:
+      "Qual é a relação entre o Batismo e a Fé segundo a teologia católica?",
+    options: [
+      "A Fé é necessária apenas para adultos",
+      "Batismo opera independentemente da Fé",
+      "Batismo válido requer Fé em adultos, e em crianças é presuposta",
+      "Fé não é importante para a validade do Batismo",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "Na Igreja Católica, o Batismo é válido em crianças sem Fé pessoal (presuposta pelos pais), mas em adultos exige Fé.",
+    difficulty: "difícil",
+  },
+
+  // Impossível - Adicionais
+  {
+    id: "i10",
+    question:
+      "Qual é a posição de Santo Tomás de Aquino sobre a relação entre razão e fé?",
+    options: [
+      "Razão e Fé são contraditórias",
+      "Razão e Fé não podem coexistir",
+      "Razão prepara o caminho para a Fé; ambas vêm de Deus",
+      "Fé é completamente irracional",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "Santo Tomás argumenta que a razão natural pode provar verdades teológicas, e ambas razão e fé vêm de Deus e não se contradizem.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i11",
+    question:
+      "Qual é o significado preciso de 'analogia do ser' (analogia entis) em teologia escolástica?",
+    options: [
+      "Deus e criatura são idênticos",
+      "Nada pode ser dito de Deus e criatura",
+      "Ser é dito univocamente de Deus e criatura",
+      "Ser é dito de forma parcialmente diferente e parcialmente semelhante de Deus e criatura",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "A analogia do ser afirma que atributos podem ser aplicados a Deus e criatura de forma análoga, nem totalmente igual nem totalmente diferente.",
+    difficulty: "impossível",
+  },
+  {
+    id: "i12",
+    question:
+      "Qual heresia Nestório defendia quanto à relação entre as naturezas de Cristo?",
+    options: [
+      "Uma natureza em duas pessoas",
+      "Duas naturezas em uma pessoa",
+      "Uma natureza absoluta",
+      "Nenhuma natureza divina",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Nestório defendia que Cristo tinha duas pessoas distintas (divina e humana), condenado no Concílio de Éfeso (431).",
+    difficulty: "impossível",
+  },
+  {
+    id: "i13",
+    question:
+      "Qual é a essência da definição de Calcedônia sobre a natureza de Cristo?",
+    options: [
+      "Uma natureza em uma pessoa",
+      "Duas naturezas sem mistura em uma pessoa",
+      "Uma pessoa com atributos divididos",
+      "Natureza meramente aparente",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Calcedônia definiu que Cristo é Uma Pessoa com duas naturezas (divina e humana) de forma intacta, sem confusão, sem mudança.",
+    difficulty: "impossível",
+  },
 ];
 
 export default function Desafios() {
