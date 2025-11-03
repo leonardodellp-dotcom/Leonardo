@@ -27,6 +27,7 @@ import Cursos from "./pages/Cursos";
 import Contato from "./pages/Contato";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import Auth from "./pages/Auth";
 import Cadastro from "./pages/Cadastro";
 import Login from "./pages/Login";
 import Igreja from "./pages/Igreja";
