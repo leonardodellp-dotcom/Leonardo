@@ -39,6 +39,8 @@ const forumPosts: ForumPost[] = [
     content:
       "Venho passando por um momento muito difícil na minha vida e estou com dificuldade de manter minha fé. Como vocês conseguem se manter firmes quando tudo parece estar caindo?",
     author: "Maria Santos",
+    profilePhoto:
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ec4899' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EM%3C/text%3E%3C/svg%3E",
     category: "Fé e Espiritualidade",
     likes: 24,
     views: 156,
@@ -47,6 +49,8 @@ const forumPosts: ForumPost[] = [
       {
         id: "r1",
         author: "Pedro Oliveira",
+        profilePhoto:
+          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%233b82f6' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EP%3C/text%3E%3C/svg%3E",
         content:
           "Maria, durante meus momentos difíceis, oração constante me salvou. Tente rezar o rosário diariamente e confie que Deus tem um plano.",
         timestamp: "1 hora atrás",
@@ -54,6 +58,8 @@ const forumPosts: ForumPost[] = [
       {
         id: "r2",
         author: "Beatriz Costa",
+        profilePhoto:
+          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%238b5cf6' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EB%3C/text%3E%3C/svg%3E",
         content:
           "Você não está sozinha. Nossas dificuldades nos aproximam de Deus. Procure o padre para conversar e participe dos encontros do grupo.",
         timestamp: "30 minutos atrás",
