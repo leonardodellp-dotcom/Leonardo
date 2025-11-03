@@ -699,6 +699,160 @@ export default function Cadastro() {
             </a>
           </div>
         </div>
+
+        {/* Recovery Account Modal */}
+        {showRecoveryModal && (
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+            <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full shadow-2xl">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-6 h-6 text-primary" />
+                  <h2 className="text-xl font-bold">Recuperar Conta</h2>
+                </div>
+                <button
+                  onClick={closeRecoveryModal}
+                  className="p-1 hover:bg-background rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Alerts */}
+              {recoveryError && (
+                <div className="mb-4 p-3 bg-destructive/10 border border-destructive/30 rounded-lg flex gap-2">
+                  <AlertCircle className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-destructive">{recoveryError}</p>
+                </div>
+              )}
+
+              {recoverySuccess && (
+                <div className="mb-4 p-3 bg-green-500/10 border border-green-500/30 rounded-lg flex gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-green-500">{recoverySuccess}</p>
+                </div>
+              )}
+
+              {/* Email Step */}
+              {recoveryStep === "email" && (
+                <form onSubmit={handleRecoveryEmailSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="recovery-email" className="block text-sm font-semibold mb-2">
+                      Email
+                    </label>
+                    <input
+                      id="recovery-email"
+                      type="email"
+                      value={recoveryEmail}
+                      onChange={(e) => setRecoveryEmail(e.target.value)}
+                      placeholder="seu@email.com"
+                      className="w-full px-4 py-2.5 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all"
+                      disabled={recoveryLoading}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={recoveryLoading}
+                    className="w-full px-4 py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:shadow-glow text-white font-semibold rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {recoveryLoading ? "Enviando..." : "Enviar Código"}
+                  </button>
+                </form>
+              )}
+
+              {/* Code Step */}
+              {recoveryStep === "code" && (
+                <form onSubmit={handleRecoveryReset} className="space-y-4">
+                  <div className="p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                    <p className="text-xs text-muted-foreground">
+                      Código enviado para: <span className="font-semibold text-foreground">{recoveryEmail}</span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <label htmlFor="recovery-code" className="block text-sm font-semibold mb-2">
+                      Código de Reset
+                    </label>
+                    <input
+                      id="recovery-code"
+                      type="text"
+                      value={recoveryCode}
+                      onChange={(e) => setRecoveryCode(e.target.value.toUpperCase())}
+                      placeholder="ABC123"
+                      maxLength={6}
+                      className="w-full px-4 py-2.5 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all text-center text-lg font-mono tracking-widest"
+                      disabled={recoveryLoading}
+                    />
+                    <p className="text-xs text-muted-foreground mt-2">Válido por 1 hora</p>
+                  </div>
+
+                  <div>
+                    <label htmlFor="recovery-new-password" className="block text-sm font-semibold mb-2">
+                      Nova Senha
+                    </label>
+                    <div className="relative">
+                      <input
+                        id="recovery-new-password"
+                        type={recoveryShowPassword ? "text" : "password"}
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        placeholder="••••••••"
+                        className="w-full px-4 py-2.5 pr-12 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all"
+                        disabled={recoveryLoading}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setRecoveryShowPassword(!recoveryShowPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-blue-400/60 hover:text-blue-400 transition-colors"
+                        disabled={recoveryLoading}
+                      >
+                        {recoveryShowPassword ? "Ocultar" : "Mostrar"}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="recovery-confirm-password" className="block text-sm font-semibold mb-2">
+                      Confirmar Senha
+                    </label>
+                    <input
+                      id="recovery-confirm-password"
+                      type={recoveryShowPassword ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      placeholder="••••••••"
+                      className="w-full px-4 py-2.5 bg-black/40 border border-blue-500/30 hover:border-blue-500/50 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 transition-all"
+                      disabled={recoveryLoading}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={recoveryLoading}
+                    className="w-full px-4 py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:shadow-glow text-white font-semibold rounded-xl transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {recoveryLoading ? "Redefinindo..." : "Redefinir Senha"}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setRecoveryStep("email");
+                      setRecoveryCode("");
+                      setNewPassword("");
+                      setConfirmPassword("");
+                      setRecoveryError("");
+                    }}
+                    className="w-full px-4 py-2 border border-border text-foreground font-semibold rounded-xl hover:bg-background/50 transition-all text-sm"
+                  >
+                    Voltar
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
