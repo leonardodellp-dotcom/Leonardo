@@ -18,7 +18,9 @@ import {
   Lock,
   CheckCircle,
   RotateCcw,
+  Image as ImageIcon,
 } from "lucide-react";
+import ProfilePhotoUploader from "@/components/ProfilePhotoUploader";
 import {
   calculateLevel,
   getXPProgress,
