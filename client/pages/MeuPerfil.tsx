@@ -69,8 +69,10 @@ export default function MeuPerfil() {
   const [profile, setProfile] = useState(mockUserProfile);
   const [formData, setFormData] = useState(profile);
   const [activeTab, setActiveTab] = useState<
-    "visao-geral" | "insignias" | "desafios" | "cursos" | "atividades"
+    "visao-geral" | "insignias" | "desafios" | "cursos" | "atividades" | "tarefa-dia"
   >("visao-geral");
+  const [taskInput, setTaskInput] = useState("");
+  const [taskCompleted, setTaskCompleted] = useState(false);
   const [gameStats, setGameStats] = useState<UserGameStats>({
     ...mockGameStats,
     badges: getBadges(mockGameStats),
