@@ -28,6 +28,7 @@ import Contato from "./pages/Contato";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import Cadastro from "./pages/Cadastro";
+import Login from "./pages/Login";
 import Igreja from "./pages/Igreja";
 import SantosDoDia from "./pages/SantosDoDia";
 import PlanoBiblia from "./pages/PlanoBiblia";
