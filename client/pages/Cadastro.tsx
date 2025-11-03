@@ -248,6 +248,182 @@ export default function Cadastro() {
     }
   };
 
+  // Recovery account functions
+  const generateResetCode = () => {
+    return Math.random().toString(36).substring(2, 8).toUpperCase();
+  };
+
+  const handleRecoveryEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setRecoveryError("");
+    setRecoverySuccess("");
+    setRecoveryLoading(true);
+
+    try {
+      if (!recoveryEmail) {
+        setRecoveryError("Por favor, insira seu email!");
+        setRecoveryLoading(false);
+        return;
+      }
+
+      if (!isValidEmail(recoveryEmail)) {
+        setRecoveryError("Por favor, insira um email válido!");
+        setRecoveryLoading(false);
+        return;
+      }
+
+      // Check if user exists
+      const { data: users, error: queryError } = await supabase
+        .from("user_registrations")
+        .select("id, email")
+        .eq("email", recoveryEmail.toLowerCase())
+        .limit(1);
+
+      if (queryError) {
+        throw queryError;
+      }
+
+      if (!users || users.length === 0) {
+        setRecoveryError("Email não encontrado no sistema!");
+        setRecoveryLoading(false);
+        return;
+      }
+
+      // Generate reset code
+      const code = generateResetCode();
+      const expiresAt = new Date();
+      expiresAt.setHours(expiresAt.getHours() + 1);
+
+      // Save reset token
+      const { error: insertError } = await supabase
+        .from("password_reset_tokens")
+        .insert({
+          user_id: users[0].id,
+          email: recoveryEmail.toLowerCase(),
+          reset_code: code,
+          expires_at: expiresAt.toISOString(),
+          is_used: false,
+        });
+
+      if (insertError) {
+        throw insertError;
+      }
+
+      console.log(`Reset code for ${recoveryEmail}: ${code}`);
+
+      setRecoverySuccess(
+        `Código enviado para ${recoveryEmail}! Verifique seu email para continuar.`
+      );
+      setRecoveryStep("code");
+    } catch (err: any) {
+      console.error("Erro ao solicitar reset:", err);
+      setRecoveryError("Erro ao processar solicitação. Tente novamente.");
+    } finally {
+      setRecoveryLoading(false);
+    }
+  };
+
+  const handleRecoveryReset = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setRecoveryError("");
+    setRecoverySuccess("");
+    setRecoveryLoading(true);
+
+    try {
+      if (!recoveryCode || !newPassword || !confirmPassword) {
+        setRecoveryError("Por favor, preencha todos os campos!");
+        setRecoveryLoading(false);
+        return;
+      }
+
+      if (newPassword.length < 6) {
+        setRecoveryError("Senha deve ter no mínimo 6 caracteres!");
+        setRecoveryLoading(false);
+        return;
+      }
+
+      if (newPassword !== confirmPassword) {
+        setRecoveryError("As senhas não coincidem!");
+        setRecoveryLoading(false);
+        return;
+      }
+
+      // Validate reset token
+      const { data: tokens, error: tokenError } = await supabase
+        .from("password_reset_tokens")
+        .select("*")
+        .eq("email", recoveryEmail.toLowerCase())
+        .eq("reset_code", recoveryCode.toUpperCase())
+        .eq("is_used", false)
+        .limit(1);
+
+      if (tokenError) {
+        throw tokenError;
+      }
+
+      if (!tokens || tokens.length === 0) {
+        setRecoveryError(
+          "Código inválido ou expirado! Solicite um novo código."
+        );
+        setRecoveryLoading(false);
+        return;
+      }
+
+      const token = tokens[0];
+
+      if (new Date(token.expires_at) < new Date()) {
+        setRecoveryError("Código expirado! Solicite um novo código.");
+        setRecoveryLoading(false);
+        return;
+      }
+
+      // Update password
+      const { error: updateError } = await supabase
+        .from("user_registrations")
+        .update({ password: newPassword })
+        .eq("email", recoveryEmail.toLowerCase());
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      // Mark token as used
+      await supabase
+        .from("password_reset_tokens")
+        .update({ is_used: true })
+        .eq("id", token.id);
+
+      setRecoverySuccess("Senha redefinida com sucesso!");
+
+      setTimeout(() => {
+        setShowRecoveryModal(false);
+        setRecoveryStep("email");
+        setRecoveryEmail("");
+        setRecoveryCode("");
+        setNewPassword("");
+        setConfirmPassword("");
+        setRecoveryError("");
+        setRecoverySuccess("");
+      }, 2000);
+    } catch (err: any) {
+      console.error("Erro ao resetar senha:", err);
+      setRecoveryError("Erro ao redefinir senha. Tente novamente.");
+    } finally {
+      setRecoveryLoading(false);
+    }
+  };
+
+  const closeRecoveryModal = () => {
+    setShowRecoveryModal(false);
+    setRecoveryStep("email");
+    setRecoveryEmail("");
+    setRecoveryCode("");
+    setNewPassword("");
+    setConfirmPassword("");
+    setRecoveryError("");
+    setRecoverySuccess("");
+  };
+
   return (
     <Layout>
       <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 py-12">
