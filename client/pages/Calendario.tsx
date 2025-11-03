@@ -590,64 +590,23 @@ export default function Calendario() {
                 )}
               </div>
 
-              {/* Tabs by Day of Week */}
-              <div className="mb-8">
-                <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-                  {["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].map(
-                    (day, idx) => {
-                      const dayOfWeek = idx === 0 ? 0 : idx;
-                      const daysInCurrentWeek = allMonthEvents.filter((e) => {
-                        const eventDate = new Date(
-                          2025,
-                          selectedMonth - 1,
-                          e.day,
-                        );
-                        return eventDate.getDay() === dayOfWeek;
-                      });
-                      return (
-                        <button
-                          key={idx}
-                          onClick={() => setSelectedMonth(selectedMonth)}
-                          className={`flex-shrink-0 px-6 py-3 rounded-lg font-semibold text-sm transition-all whitespace-nowrap ${
-                            idx ===
-                            (new Date(2025, selectedMonth - 1, 1).getDay() ===
-                            idx
-                              ? 0
-                              : idx)
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-card border border-border hover:border-primary/50"
-                          }`}
-                        >
-                          {day}
-                          {daysInCurrentWeek.length > 0 && (
-                            <span className="ml-2 px-2 py-1 bg-primary/20 rounded-full text-xs">
-                              {daysInCurrentWeek.length}
-                            </span>
-                          )}
-                        </button>
-                      );
-                    },
-                  )}
-                </div>
-
-                {/* Select Month Selector */}
-                <div className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="font-semibold mb-4">Selecione o Mês</h3>
-                  <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-                    {monthNames.map((month, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setSelectedMonth(idx + 1)}
-                        className={`p-3 rounded-lg font-semibold text-sm transition-colors ${
-                          selectedMonth === idx + 1
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted text-muted-foreground hover:bg-muted/80"
-                        }`}
-                      >
-                        {month.slice(0, 3)}
-                      </button>
-                    ))}
-                  </div>
+              {/* Select Month Selector */}
+              <div className="bg-card border border-border rounded-xl p-6 mb-8">
+                <h3 className="font-semibold mb-4 text-foreground">Selecione o Mês</h3>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                  {monthNames.map((month, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedMonth(idx + 1)}
+                      className={`p-3 rounded-lg font-semibold text-sm transition-colors ${
+                        selectedMonth === idx + 1
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-slate-800 text-foreground hover:bg-slate-700 border border-border"
+                      }`}
+                    >
+                      {month.slice(0, 3)}
+                    </button>
+                  ))}
                 </div>
               </div>
 
