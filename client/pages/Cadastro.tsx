@@ -152,6 +152,7 @@ export default function Cadastro() {
         group: "",
         email: "",
         phone: "",
+        password: "",
       });
 
       setTimeout(() => {
