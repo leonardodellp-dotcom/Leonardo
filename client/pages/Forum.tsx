@@ -105,13 +105,23 @@ export default function Forum() {
               Um espaço seguro para discutir fé, compartilhar dúvidas e crescer
               juntos
             </p>
-            <button
-              onClick={() => setShowNewPostModal(true)}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-            >
-              <Plus className="w-4 h-4" />
-              Nova Discussão
-            </button>
+            {isAdmin ? (
+              <button
+                onClick={() => setShowNewPostModal(true)}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+              >
+                <Plus className="w-4 h-4" />
+                Nova Discussão
+              </button>
+            ) : (
+              <button
+                onClick={() => setShowSuggestionModal(true)}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+              >
+                <Plus className="w-4 h-4" />
+                Sugerir Discussão
+              </button>
+            )}
           </div>
 
           {/* Search and Filter */}
