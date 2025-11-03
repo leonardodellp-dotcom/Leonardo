@@ -191,6 +191,18 @@ export default function Header() {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-3 ml-4">
+            {/* Profile Avatar Button - Quick Access */}
+            <Link
+              to="/meu-perfil"
+              className="group relative w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold hover:shadow-glow hover:scale-110 transition-all duration-300 border border-primary/50 hover:border-primary"
+              title="Meu Perfil"
+            >
+              <span className="text-sm">J</span>
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-card border border-border rounded-lg px-3 py-1 text-xs font-semibold text-foreground whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                Ir ao Perfil
+              </div>
+            </Link>
+
             {/* Dropdown: Meu Espaço */}
             <DropdownMenu>
               <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-200 flex items-center gap-1 active:scale-95">
