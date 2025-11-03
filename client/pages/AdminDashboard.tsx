@@ -223,6 +223,117 @@ export default function AdminDashboard() {
             </div>
           )}
 
+          {/* Profile Photos Tab */}
+          {activeTab === "photos" && (
+            <div className="bg-card border border-border rounded-xl p-8">
+              <h2 className="text-2xl font-bold mb-6">Solicitudes de Mudança de Foto</h2>
+
+              {photoRequests.length === 0 ? (
+                <p className="text-muted-foreground">Nenhuma solicitação de foto.</p>
+              ) : (
+                <div className="space-y-4">
+                  {photoRequests.map((request) => (
+                    <div
+                      key={request.id}
+                      className="bg-background border border-border rounded-lg p-4"
+                    >
+                      <div className="flex gap-4">
+                        {/* Photo Preview */}
+                        <div className="flex-shrink-0">
+                          <img
+                            src={request.photoUrl}
+                            alt={request.userName}
+                            className="w-16 h-16 rounded-full object-cover"
+                          />
+                        </div>
+
+                        {/* Info */}
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between mb-2">
+                            <div>
+                              <h3 className="font-semibold text-foreground">
+                                {request.userName}
+                              </h3>
+                              <p className="text-sm text-muted-foreground">
+                                {request.userEmail}
+                              </p>
+                            </div>
+                            <span
+                              className={`text-xs font-semibold px-2 py-1 rounded ${
+                                request.status === "pending"
+                                  ? "bg-yellow-500/20 text-yellow-500"
+                                  : request.status === "approved"
+                                    ? "bg-green-500/20 text-green-500"
+                                    : "bg-red-500/20 text-red-500"
+                              }`}
+                            >
+                              {request.status === "pending"
+                                ? "Pendente"
+                                : request.status === "approved"
+                                  ? "Aprovado"
+                                  : "Rejeitado"}
+                            </span>
+                          </div>
+                          <p className="text-xs text-muted-foreground mb-3">
+                            {request.date}
+                          </p>
+
+                          {/* Rejection Reason */}
+                          {request.status === "rejected" && request.rejectionReason && (
+                            <div className="bg-red-500/10 border border-red-500/30 rounded p-3 mb-3">
+                              <p className="text-xs text-red-500">
+                                <strong>Motivo:</strong> {request.rejectionReason}
+                              </p>
+                            </div>
+                          )}
+
+                          {/* Actions */}
+                          {request.status === "pending" && (
+                            <div className="flex gap-2">
+                              <button
+                                onClick={() => approvePhoto(request.id)}
+                                className="flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition-all"
+                              >
+                                <Check className="w-4 h-4" />
+                                Aprovar
+                              </button>
+
+                              {selectedPhotoId === request.id ? (
+                                <div className="flex-1 flex gap-2">
+                                  <input
+                                    type="text"
+                                    value={rejectionReason}
+                                    onChange={(e) => setRejectionReason(e.target.value)}
+                                    placeholder="Motivo da rejeição..."
+                                    className="flex-1 px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:border-red-600"
+                                  />
+                                  <button
+                                    onClick={() => rejectPhoto(request.id, rejectionReason || "Rejeitado pelo admin")}
+                                    className="px-3 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition-all"
+                                  >
+                                    Confirmar
+                                  </button>
+                                </div>
+                              ) : (
+                                <button
+                                  onClick={() => setSelectedPhotoId(request.id)}
+                                  className="flex items-center gap-2 px-3 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition-all"
+                                >
+                                  <X className="w-4 h-4" />
+                                  Rejeitar
+                                </button>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Events Tab */}
           {activeTab === "events" && (
             <div className="bg-card border border-border rounded-xl p-8">
