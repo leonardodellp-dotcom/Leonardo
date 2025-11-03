@@ -160,9 +160,15 @@ export default function Cadastro() {
       }
 
       // Validate password
-      if (formData.password.length < 6) {
+      if (!passwordStrength.isStrong) {
+        const req = getPasswordRequirements(formData.password);
+        let missingReqs = [];
+        if (formData.password.length < 8) missingReqs.push("mínimo 8 caracteres");
+        if (!req.hasUppercase) missingReqs.push("uma letra MAIÚSCULA");
+        if (!req.hasSpecial) missingReqs.push("um caractere especial (!@#$%^&*)");
+
         setError(
-          "Senha deve ter no mínimo 6 caracteres!"
+          `Senha fraca! Complete os requisitos: ${missingReqs.join(", ")}`
         );
         setLoading(false);
         return;
