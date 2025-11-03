@@ -220,6 +220,74 @@ export default function AdminDashboard() {
               </p>
             </div>
           )}
+
+          {/* Suggestions Tab */}
+          {activeTab === "suggestions" && (
+            <div className="bg-card border border-border rounded-xl p-8">
+              <h2 className="text-2xl font-bold mb-6">Sugestões de Discussão</h2>
+
+              {suggestions.length === 0 ? (
+                <p className="text-muted-foreground">Nenhuma sugestão pendente.</p>
+              ) : (
+                <div className="space-y-4">
+                  {suggestions.map((suggestion) => (
+                    <div
+                      key={suggestion.id}
+                      className="border border-border rounded-lg p-6 hover:border-blue-600/50 transition-all"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h3 className="text-lg font-bold text-foreground">
+                              {suggestion.title}
+                            </h3>
+                            <span
+                              className={`text-xs font-semibold px-3 py-1 rounded-full ${
+                                suggestion.status === "approved"
+                                  ? "bg-green-600/30 text-green-300 border border-green-500/50"
+                                  : "bg-yellow-600/30 text-yellow-300 border border-yellow-500/50"
+                              }`}
+                            >
+                              {suggestion.status === "approved"
+                                ? "✓ Aprovado"
+                                : "⏳ Pendente"}
+                            </span>
+                          </div>
+                          <p className="text-muted-foreground text-sm mb-3">
+                            {suggestion.description}
+                          </p>
+                          <div className="flex gap-4 text-xs text-muted-foreground">
+                            <span>👤 {suggestion.author}</span>
+                            <span>📧 {suggestion.email}</span>
+                            <span>📅 {suggestion.date}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {suggestion.status === "pending" && (
+                        <div className="flex gap-3 pt-4 border-t border-border">
+                          <button
+                            onClick={() => approveSuggestion(suggestion.id)}
+                            className="flex items-center gap-2 px-4 py-2 bg-green-600/20 hover:bg-green-600/30 text-green-400 font-semibold rounded-lg transition-all border border-green-500/30"
+                          >
+                            <Check className="w-4 h-4" />
+                            Aprovar
+                          </button>
+                          <button
+                            onClick={() => rejectSuggestion(suggestion.id)}
+                            className="flex items-center gap-2 px-4 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 font-semibold rounded-lg transition-all border border-red-500/30"
+                          >
+                            <X className="w-4 h-4" />
+                            Rejeitar
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </Layout>
