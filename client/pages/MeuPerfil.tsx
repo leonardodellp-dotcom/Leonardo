@@ -73,7 +73,7 @@ const dailyVerse = {
   id: "1",
   reference: "João 3:16",
   text: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.",
-  book: "Evangelho de João",
+  book: "Evangelho de Jo��o",
   chapter: 3,
   verse: "16",
   reflection:
@@ -104,6 +104,7 @@ export default function MeuPerfil() {
           group: adminProfile.group,
           bio: adminProfile.bio,
           joinedAt: adminProfile.joinedAt,
+          profilePhoto: adminProfile.profilePhoto,
         }
       : mockUserProfile
   );
@@ -793,7 +794,7 @@ export default function MeuPerfil() {
                     <div className="flex items-center gap-3">
                       <BookOpen className="w-5 h-5 text-blue-500" />
                       <span className="text-foreground">
-                        Lições de Cursos Concluídas
+                        Liç��es de Cursos Concluídas
                       </span>
                     </div>
                     <span className="font-semibold text-foreground">
