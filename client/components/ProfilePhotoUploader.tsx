@@ -67,8 +67,14 @@ export default function ProfilePhotoUploader({
         const dataUrl = e.target?.result as string;
 
         if (isAdmin) {
-          // Admins can change directly
+          // Admins can change directly - update localStorage
+          const adminProfile = JSON.parse(localStorage.getItem("admin_profile") || "{}");
+          adminProfile.profilePhoto = dataUrl;
+          localStorage.setItem("admin_profile", JSON.stringify(adminProfile));
+
           setSuccess("Foto de perfil atualizada com sucesso!");
+          setFile(null);
+          setPreview(null);
           onSuccess?.();
         } else {
           // Normal users submit request
