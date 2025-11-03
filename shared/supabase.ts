@@ -450,6 +450,198 @@ export type Database = {
           created_at?: string;
         };
       };
+      user_xp_stats: {
+        Row: {
+          id: string;
+          user_id: string;
+          total_xp: number;
+          current_level: number;
+          profile_likes: number;
+          challenges_completed: number;
+          courses_completed: number;
+          forum_posts: number;
+          forum_replies: number;
+          chat_messages: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          total_xp?: number;
+          current_level?: number;
+          profile_likes?: number;
+          challenges_completed?: number;
+          courses_completed?: number;
+          forum_posts?: number;
+          forum_replies?: number;
+          chat_messages?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          total_xp?: number;
+          current_level?: number;
+          profile_likes?: number;
+          challenges_completed?: number;
+          courses_completed?: number;
+          forum_posts?: number;
+          forum_replies?: number;
+          chat_messages?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
+      user_badges: {
+        Row: {
+          id: string;
+          user_id: string;
+          badge_id: string;
+          badge_name: string;
+          badge_icon: string;
+          badge_description: string;
+          earned_at: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          badge_id: string;
+          badge_name: string;
+          badge_icon: string;
+          badge_description: string;
+          earned_at?: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          badge_id?: string;
+          badge_name?: string;
+          badge_icon?: string;
+          badge_description?: string;
+          earned_at?: string;
+          created_at?: string;
+        };
+      };
+      user_challenges: {
+        Row: {
+          id: string;
+          user_id: string;
+          challenge_id: string;
+          challenge_title: string;
+          difficulty: string;
+          xp_reward: number;
+          completed_at: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          challenge_id: string;
+          challenge_title: string;
+          difficulty: string;
+          xp_reward: number;
+          completed_at?: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          challenge_id?: string;
+          challenge_title?: string;
+          difficulty?: string;
+          xp_reward?: number;
+          completed_at?: string;
+          created_at?: string;
+        };
+      };
+      user_course_progress: {
+        Row: {
+          id: string;
+          user_id: string;
+          course_id: string;
+          course_title: string;
+          lessons_completed: number;
+          total_lessons: number;
+          progress_percentage: number;
+          completed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          course_id: string;
+          course_title: string;
+          lessons_completed?: number;
+          total_lessons?: number;
+          progress_percentage?: number;
+          completed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          course_id?: string;
+          course_title?: string;
+          lessons_completed?: number;
+          total_lessons?: number;
+          progress_percentage?: number;
+          completed_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
+      user_profile_likes: {
+        Row: {
+          id: string;
+          user_id: string;
+          liked_by: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          liked_by: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          liked_by?: string;
+          created_at?: string;
+        };
+      };
+      user_activities: {
+        Row: {
+          id: string;
+          user_id: string;
+          activity_type: string;
+          xp_earned: number;
+          description: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          activity_type: string;
+          xp_earned?: number;
+          description?: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          activity_type?: string;
+          xp_earned?: number;
+          description?: string;
+          created_at?: string;
+        };
+      };
     };
     Views: {};
     Functions: {};
