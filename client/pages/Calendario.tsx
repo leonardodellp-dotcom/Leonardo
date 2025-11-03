@@ -575,33 +575,39 @@ export default function Calendario() {
           {/* Tab 2: Calendário Jucrisc */}
           {activeTab === "jucrisc" && (
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold text-foreground">
-                  Programações de {monthNames[selectedMonth - 1]}
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-foreground mb-2">
+                  Programações do Calendário Jucrisc
                 </h2>
-                {isAdmin && (
+                <p className="text-lg text-muted-foreground">
+                  Confira todas as atividades do nosso grupo
+                </p>
+              </div>
+
+              {isAdmin && (
+                <div className="flex justify-center mb-8">
                   <button
                     onClick={() => setNewEvent(true)}
-                    className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 font-semibold transition-colors shadow-lg"
                   >
                     <Plus className="w-5 h-5" />
                     Novo Evento
                   </button>
-                )}
-              </div>
+                </div>
+              )}
 
               {/* Select Month Selector */}
-              <div className="bg-card border border-border rounded-xl p-6 mb-8">
-                <h3 className="font-semibold mb-4 text-foreground">Selecione o Mês</h3>
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-6 mb-8 shadow-lg">
+                <h3 className="font-semibold mb-4 text-white">Selecione o Mês</h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
                   {monthNames.map((month, idx) => (
                     <button
                       key={idx}
                       onClick={() => setSelectedMonth(idx + 1)}
-                      className={`p-3 rounded-lg font-semibold text-sm transition-colors ${
+                      className={`p-3 rounded-lg font-semibold text-sm transition-all ${
                         selectedMonth === idx + 1
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-slate-800 text-foreground hover:bg-slate-700 border border-border"
+                          ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg scale-105"
+                          : "bg-slate-700/60 text-slate-200 hover:bg-slate-600 border border-slate-600 hover:border-slate-500"
                       }`}
                     >
                       {month.slice(0, 3)}
@@ -781,8 +787,8 @@ export default function Calendario() {
               )}
 
               {/* Calendar Grid */}
-              <div className="bg-card border border-border rounded-xl p-6 mb-8">
-                <h3 className="text-lg font-bold mb-6">
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-8 mb-8 shadow-lg">
+                <h3 className="text-2xl font-bold mb-8 text-white">
                   {monthNames[selectedMonth - 1]} de 2025
                 </h3>
 
@@ -792,7 +798,7 @@ export default function Calendario() {
                     (day) => (
                       <div
                         key={day}
-                        className="text-center font-bold text-sm p-2 text-muted-foreground"
+                        className="text-center font-bold text-sm p-3 text-slate-300 bg-slate-700/40 rounded-lg"
                       >
                         {day}
                       </div>
@@ -841,16 +847,18 @@ export default function Calendario() {
                       days.push(
                         <div
                           key={day}
-                          className={`aspect-square p-2 rounded-lg border-2 transition-colors ${
+                          className={`aspect-square p-2 rounded-lg border-2 transition-all hover:shadow-md ${
                             isSunday
-                              ? "bg-blue-900/30 border-blue-600"
+                              ? "bg-blue-900/40 border-blue-500/60 hover:border-blue-400"
                               : isSaturday
-                                ? "bg-purple-900/30 border-purple-600"
-                                : "bg-slate-800/50 border-slate-600 hover:border-primary/50"
+                                ? "bg-purple-900/40 border-purple-500/60 hover:border-purple-400"
+                                : "bg-slate-700/40 border-slate-600 hover:border-slate-500"
                           }`}
                         >
                           <p
-                            className={`font-bold text-sm mb-1 ${isSunday || isSaturday ? "text-primary" : ""}`}
+                            className={`font-bold text-sm mb-1 ${
+                              isSunday || isSaturday ? "text-blue-300" : "text-slate-200"
+                            }`}
                           >
                             {day}
                           </p>
@@ -859,13 +867,13 @@ export default function Calendario() {
                               {dayEvents.slice(0, 2).map((event) => (
                                 <p
                                   key={event.id}
-                                  className="text-xs text-muted-foreground truncate"
+                                  className="text-xs text-slate-300 truncate font-medium"
                                 >
                                   {event.time}
                                 </p>
                               ))}
                               {dayEvents.length > 2 && (
-                                <p className="text-xs text-primary font-semibold">
+                                <p className="text-xs text-purple-300 font-semibold">
                                   +{dayEvents.length - 2}
                                 </p>
                               )}
@@ -879,14 +887,14 @@ export default function Calendario() {
                   })()}
                 </div>
 
-                <div className="mt-6 flex gap-6 text-sm">
+                <div className="mt-8 flex gap-6 text-sm pt-6 border-t border-slate-700">
                   <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-700 rounded"></div>
-                    <span>Domingo</span>
+                    <div className="w-4 h-4 bg-blue-500/40 border-2 border-blue-500 rounded"></div>
+                    <span className="text-slate-300">Domingo</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-purple-100 dark:bg-purple-900 border-2 border-purple-200 dark:border-purple-700 rounded"></div>
-                    <span>Sábado</span>
+                    <div className="w-4 h-4 bg-purple-500/40 border-2 border-purple-500 rounded"></div>
+                    <span className="text-slate-300">Sábado</span>
                   </div>
                 </div>
               </div>
@@ -894,18 +902,18 @@ export default function Calendario() {
               {/* Events List */}
               {allMonthEvents.length > 0 ? (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-bold">
-                    Programações de {monthNames[selectedMonth - 1]}
+                  <h3 className="text-2xl font-bold text-white mb-6">
+                    Atividades de {monthNames[selectedMonth - 1]}
                   </h3>
                   {allMonthEvents.map((event) => (
                     <div
                       key={event.id}
-                      className={`rounded-xl p-6 border-l-4 transition-all hover:shadow-lg ${
+                      className={`rounded-xl p-6 border-l-4 transition-all hover:shadow-xl ${
                         event.recurring === "sunday"
-                          ? "bg-blue-50 dark:bg-blue-950/50 border-l-blue-500 border border-blue-200 dark:border-blue-800"
+                          ? "bg-blue-900/30 border-l-blue-500 border border-blue-600/40 hover:border-blue-500/60"
                           : event.recurring === "saturday"
-                            ? "bg-purple-50 dark:bg-purple-950/50 border-l-purple-500 border border-purple-200 dark:border-purple-800"
-                            : "bg-card border border-border"
+                            ? "bg-purple-900/30 border-l-purple-500 border border-purple-600/40 hover:border-purple-500/60"
+                            : "bg-slate-800/50 border border-slate-700 hover:border-slate-600"
                       }`}
                     >
                       <div className="flex items-start justify-between">
@@ -1005,13 +1013,13 @@ export default function Calendario() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-12 bg-muted/30 rounded-xl">
-                  <Calendar className="w-12 h-12 text-muted-foreground mx-auto mb-4 opacity-50" />
-                  <p className="text-muted-foreground">
+                <div className="text-center py-12 bg-slate-800/30 rounded-xl border border-slate-700">
+                  <Calendar className="w-12 h-12 text-slate-500 mx-auto mb-4 opacity-50" />
+                  <p className="text-slate-400">
                     Nenhum evento adicional programado para{" "}
                     {monthNames[selectedMonth - 1]}
                   </p>
-                  <p className="text-sm text-muted-foreground mt-2">
+                  <p className="text-sm text-slate-500 mt-2">
                     Os eventos recorrentes (domingos e sábados) aparecem no
                     calendário acima
                   </p>
