@@ -642,6 +642,35 @@ export type Database = {
           created_at?: string;
         };
       };
+      password_reset_tokens: {
+        Row: {
+          id: string;
+          user_id: string;
+          email: string;
+          reset_code: string;
+          is_used: boolean;
+          created_at: string;
+          expires_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          email: string;
+          reset_code: string;
+          is_used?: boolean;
+          created_at?: string;
+          expires_at: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          email?: string;
+          reset_code?: string;
+          is_used?: boolean;
+          created_at?: string;
+          expires_at?: string;
+        };
+      };
     };
     Views: {};
     Functions: {};
