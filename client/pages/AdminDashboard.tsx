@@ -8,6 +8,9 @@ import {
   FileText,
   Settings,
   Users,
+  MessageSquare,
+  Check,
+  X,
 } from "lucide-react";
 
 export default function AdminDashboard() {
