@@ -156,6 +156,300 @@ export type Database = {
           created_at?: string;
         };
       };
+      santos: {
+        Row: {
+          id: string;
+          name: string;
+          feast_day: string;
+          biography: string;
+          prayer: string;
+          image_url: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          feast_day: string;
+          biography: string;
+          prayer: string;
+          image_url?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          feast_day?: string;
+          biography?: string;
+          prayer?: string;
+          image_url?: string | null;
+          created_at?: string;
+        };
+      };
+      bible_readings: {
+        Row: {
+          id: string;
+          week: number;
+          day_of_week: string;
+          book: string;
+          chapter: number;
+          verses: string;
+          title: string;
+          reflection: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          week: number;
+          day_of_week: string;
+          book: string;
+          chapter: number;
+          verses: string;
+          title: string;
+          reflection: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          week?: number;
+          day_of_week?: string;
+          book?: string;
+          chapter?: number;
+          verses?: string;
+          title?: string;
+          reflection?: string;
+          created_at?: string;
+        };
+      };
+      testimonies: {
+        Row: {
+          id: string;
+          author: string;
+          title: string;
+          content: string;
+          age: number | null;
+          image_url: string | null;
+          created_at: string;
+          created_by: string;
+        };
+        Insert: {
+          id?: string;
+          author: string;
+          title: string;
+          content: string;
+          age?: number | null;
+          image_url?: string | null;
+          created_at?: string;
+          created_by: string;
+        };
+        Update: {
+          id?: string;
+          author?: string;
+          title?: string;
+          content?: string;
+          age?: number | null;
+          image_url?: string | null;
+          created_at?: string;
+          created_by?: string;
+        };
+      };
+      videos: {
+        Row: {
+          id: string;
+          title: string;
+          description: string;
+          youtube_url: string;
+          category: string;
+          duration_minutes: number | null;
+          created_at: string;
+          created_by: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          description: string;
+          youtube_url: string;
+          category: string;
+          duration_minutes?: number | null;
+          created_at?: string;
+          created_by: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          description?: string;
+          youtube_url?: string;
+          category?: string;
+          duration_minutes?: number | null;
+          created_at?: string;
+          created_by?: string;
+        };
+      };
+      challenge_scores: {
+        Row: {
+          id: string;
+          user_id: string;
+          user_name: string;
+          score: number;
+          difficulty: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          user_name: string;
+          score: number;
+          difficulty: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          user_name?: string;
+          score?: number;
+          difficulty?: string;
+          created_at?: string;
+        };
+      };
+      user_profiles: {
+        Row: {
+          id: string;
+          user_id: string;
+          name: string;
+          email: string;
+          age: number | null;
+          group: string | null;
+          avatar_url: string | null;
+          bio: string | null;
+          courses_completed: number;
+          challenges_completed: number;
+          total_score: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          name: string;
+          email: string;
+          age?: number | null;
+          group?: string | null;
+          avatar_url?: string | null;
+          bio?: string | null;
+          courses_completed?: number;
+          challenges_completed?: number;
+          total_score?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          name?: string;
+          email?: string;
+          age?: number | null;
+          group?: string | null;
+          avatar_url?: string | null;
+          bio?: string | null;
+          courses_completed?: number;
+          challenges_completed?: number;
+          total_score?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
+      forum_posts: {
+        Row: {
+          id: string;
+          title: string;
+          content: string;
+          author: string;
+          category: string;
+          replies_count: number;
+          views_count: number;
+          created_at: string;
+          created_by: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          content: string;
+          author: string;
+          category: string;
+          replies_count?: number;
+          views_count?: number;
+          created_at?: string;
+          created_by: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          content?: string;
+          author?: string;
+          category?: string;
+          replies_count?: number;
+          views_count?: number;
+          created_at?: string;
+          created_by?: string;
+        };
+      };
+      forum_replies: {
+        Row: {
+          id: string;
+          post_id: string;
+          content: string;
+          author: string;
+          created_at: string;
+          created_by: string;
+        };
+        Insert: {
+          id?: string;
+          post_id: string;
+          content: string;
+          author: string;
+          created_at?: string;
+          created_by: string;
+        };
+        Update: {
+          id?: string;
+          post_id?: string;
+          content?: string;
+          author?: string;
+          created_at?: string;
+          created_by?: string;
+        };
+      };
+      photos: {
+        Row: {
+          id: string;
+          title: string;
+          description: string | null;
+          image_url: string;
+          event_name: string;
+          event_date: string;
+          uploaded_by: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          description?: string | null;
+          image_url: string;
+          event_name: string;
+          event_date: string;
+          uploaded_by: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          description?: string | null;
+          image_url?: string;
+          event_name?: string;
+          event_date?: string;
+          uploaded_by?: string;
+          created_at?: string;
+        };
+      };
     };
     Views: {};
     Functions: {};
