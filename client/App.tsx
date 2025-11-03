@@ -40,6 +40,7 @@ import PlacaDesafios from "./pages/PlacaDesafios";
 import MeuPerfil from "./pages/MeuPerfil";
 import Forum from "./pages/Forum";
 import GaleriaFotos from "./pages/GaleriaFotos";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const queryClient = new QueryClient();
 
