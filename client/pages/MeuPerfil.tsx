@@ -64,6 +64,18 @@ const mockGameStats: UserGameStats = {
   },
 };
 
+const dailyVerse = {
+  id: "1",
+  reference: "João 3:16",
+  text: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.",
+  book: "Evangelho de João",
+  chapter: 3,
+  verse: "16",
+  reflection:
+    "Este versículo encapsula o coração do Evangelho: o amor incondicional de Deus por nós. Reflete como o sacrifício de Jesus é uma prova do amor divino que nos salva da perdição eterna.",
+  xpReward: 50,
+};
+
 export default function MeuPerfil() {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState(mockUserProfile);
