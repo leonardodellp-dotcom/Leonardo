@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import { UserPlus, AlertCircle, CheckCircle } from "lucide-react";
 import { supabase } from "@shared/supabase";
-import { isValidEmail, isValidPhone, isValidFullName } from "@/lib/security";
+import { isValidEmail, isValidPhone, isValidFullName, isStrongPassword } from "@/lib/security";
 
 export default function Cadastro() {
   const [formData, setFormData] = useState({
