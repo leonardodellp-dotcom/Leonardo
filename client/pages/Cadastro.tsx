@@ -19,6 +19,18 @@ export default function Cadastro() {
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  // Recovery account modal states
+  const [showRecoveryModal, setShowRecoveryModal] = useState(false);
+  const [recoveryStep, setRecoveryStep] = useState<"email" | "code">("email");
+  const [recoveryEmail, setRecoveryEmail] = useState("");
+  const [recoveryCode, setRecoveryCode] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [recoveryError, setRecoveryError] = useState("");
+  const [recoverySuccess, setRecoverySuccess] = useState("");
+  const [recoveryLoading, setRecoveryLoading] = useState(false);
+  const [recoveryShowPassword, setRecoveryShowPassword] = useState(false);
+
   const getPasswordRequirements = (password: string) => {
     return {
       hasLength: password.length >= 8,
