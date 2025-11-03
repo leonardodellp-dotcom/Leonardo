@@ -123,13 +123,24 @@ export default function MeuPerfil() {
     const updatedLevel = calculateLevel(gameStats.totalXP);
     const nextLevelThreshold = getNextLevelThreshold(gameStats.totalXP);
     const xpProgress = getXPProgress(gameStats.totalXP);
+
+    // If admin, unlock all badges
+    const allBadges = isAdmin
+      ? getBadges(gameStats).map((badge) => ({
+          ...badge,
+          unlocked: true,
+          unlockedDate: "Admin Access",
+        }))
+      : getBadges(gameStats);
+
     setGameStats((prev) => ({
       ...prev,
       level: updatedLevel,
       nextLevelXP: nextLevelThreshold,
       xpProgress: xpProgress,
+      badges: allBadges,
     }));
-  }, [gameStats.totalXP]);
+  }, [gameStats.totalXP, isAdmin]);
 
   const handleSave = () => {
     setProfile(formData);
