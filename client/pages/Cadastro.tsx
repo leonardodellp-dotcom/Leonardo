@@ -330,6 +330,26 @@ export default function Cadastro() {
                     disabled={loading}
                   />
                 </div>
+
+                {/* Senha */}
+                <div className="md:col-span-2">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-semibold mb-2"
+                  >
+                    Senha <span className="text-xs text-muted-foreground">(mínimo 6 caracteres)</span>
+                  </label>
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="••••••••"
+                    className="w-full px-4 py-2.5 bg-black/40 border border-orange-500/30 hover:border-orange-500/50 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition-all hover:shadow-lg hover:shadow-orange-500/20"
+                    disabled={loading}
+                  />
+                </div>
               </div>
 
               {/* Submit Button */}
