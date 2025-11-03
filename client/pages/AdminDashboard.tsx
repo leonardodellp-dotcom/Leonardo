@@ -48,6 +48,29 @@ export default function AdminDashboard() {
     },
   ]);
 
+  const [photoRequests, setPhotoRequests] = useState([
+    {
+      id: "1",
+      userName: "João Silva",
+      userEmail: "joao@email.com",
+      photoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2335a7eb' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EJ%3C/text%3E%3C/svg%3E",
+      date: "15 de novembro",
+      status: "pending",
+    },
+    {
+      id: "2",
+      userName: "Maria Santos",
+      userEmail: "maria@email.com",
+      photoUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ec4899' width='100' height='100'/%3E%3Ctext x='50' y='50' font-size='50' fill='white' text-anchor='middle' dy='.3em'%3EM%3C/text%3E%3C/svg%3E",
+      date: "14 de novembro",
+      status: "rejected",
+      rejectionReason: "Imagem não apropriada para comunidade",
+    },
+  ]);
+
+  const [rejectionReason, setRejectionReason] = useState("");
+  const [selectedPhotoId, setSelectedPhotoId] = useState<string | null>(null);
+
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
     const user = localStorage.getItem("admin_username");
