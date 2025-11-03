@@ -46,17 +46,7 @@ const videos: Video[] = [
 ];
 
 export default function Videos() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Todos");
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
-
-  const categories = [
-    "Todos",
-    ...Array.from(new Set(videos.map((v) => v.category))),
-  ];
-  const filteredVideos =
-    selectedCategory === "Todos"
-      ? videos
-      : videos.filter((v) => v.category === selectedCategory);
 
   return (
     <Layout>
