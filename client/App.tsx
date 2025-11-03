@@ -29,6 +29,14 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import Cadastro from "./pages/Cadastro";
 import Igreja from "./pages/Igreja";
+import SantosDoDia from "./pages/SantosDoDia";
+import PlanoBiblia from "./pages/PlanoBiblia";
+import Testemunhas from "./pages/Testemunhas";
+import Videos from "./pages/Videos";
+import PlacaDesafios from "./pages/PlacaDesafios";
+import MeuPerfil from "./pages/MeuPerfil";
+import Forum from "./pages/Forum";
+import GaleriaFotos from "./pages/GaleriaFotos";
 
 const queryClient = new QueryClient();
 
