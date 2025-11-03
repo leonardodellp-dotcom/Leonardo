@@ -117,6 +117,15 @@ export default function Cadastro() {
         return;
       }
 
+      // Validate password
+      if (formData.password.length < 6) {
+        setError(
+          "Senha deve ter no mínimo 6 caracteres!"
+        );
+        setLoading(false);
+        return;
+      }
+
       // Insert into Supabase
       const { data, error: dbError } = await supabase
         .from("user_registrations")
