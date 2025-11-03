@@ -266,6 +266,14 @@ export default function Header() {
           </Link>
 
           <div className="flex items-center gap-2">
+            <Link
+              to="/meu-perfil"
+              className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold hover:shadow-glow hover:scale-110 transition-all duration-300 border border-primary/50 hover:border-primary text-xs"
+              title="Meu Perfil"
+            >
+              J
+            </Link>
+
             <button
               onClick={() => setIsDark(!isDark)}
               className="p-2 hover:bg-primary/20 border border-primary/30 rounded-lg transition-all hover:shadow-glow"
