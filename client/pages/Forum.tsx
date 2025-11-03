@@ -409,6 +409,68 @@ export default function Forum() {
               </div>
             </div>
           )}
+
+          {/* Suggestion Modal (For Regular Users) */}
+          {showSuggestionModal && (
+            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+              <div className="bg-card border border-border rounded-lg max-w-2xl w-full p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold text-foreground">
+                    Sugerir uma Discussão
+                  </h2>
+                  <button
+                    onClick={() => setShowSuggestionModal(false)}
+                    className="text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+
+                <p className="text-muted-foreground mb-6">
+                  Sua sugestão será enviada ao administrador do fórum, que poderá criar a discussão se considerar relevante.
+                </p>
+
+                <form className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-2">
+                      Título da Discussão Sugerida
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-green-600"
+                      placeholder="Qual é o tema que você gostaria de discutir?"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-2">
+                      Descrição da Sugestão
+                    </label>
+                    <textarea
+                      className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-green-600 resize-none h-32"
+                      placeholder="Por que você acha que este tema seria bom para discutir?"
+                    ></textarea>
+                  </div>
+
+                  <div className="flex gap-4 pt-4">
+                    <button
+                      type="button"
+                      onClick={() => setShowSuggestionModal(false)}
+                      className="flex-1 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-colors"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="submit"
+                      className="flex-1 px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-lg transition-colors"
+                    >
+                      Enviar Sugestão
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
