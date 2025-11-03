@@ -11,6 +11,7 @@ import {
   MessageSquare,
   Check,
   X,
+  Image,
 } from "lucide-react";
 
 export default function AdminDashboard() {
