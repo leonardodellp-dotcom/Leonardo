@@ -407,14 +407,14 @@ export default function Calendario() {
 
   return (
     <Layout>
-      <div className="min-h-[calc(100vh-200px)] px-4 py-12">
+      <div className="min-h-[calc(100vh-200px)] bg-background px-4 py-12">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex p-4 bg-primary/10 rounded-xl mb-4">
               <Calendar className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold mb-3">Calendário</h1>
+            <h1 className="text-4xl font-bold mb-3 text-foreground">Calendário</h1>
             <p className="text-lg text-muted-foreground">
               Visualize eventos litúrgicos e programações da Jucrisc
             </p>
