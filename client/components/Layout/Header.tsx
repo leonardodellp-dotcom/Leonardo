@@ -337,13 +337,43 @@ export default function Header() {
 
             {/* Mobile CTA Buttons */}
             <div className="border-t border-border pt-4 mt-4 space-y-2">
-              <Link
-                to="/cadastro"
-                className="block px-4 py-3 bg-gradient-to-r from-accent/20 to-amber-500/20 hover:shadow-glow-accent border border-accent/30 hover:border-accent/60 text-accent font-semibold rounded-lg transition-all text-sm"
-                onClick={() => setIsOpen(false)}
-              >
-                Cadastro
-              </Link>
+              {userSession ? (
+                <>
+                  <Link
+                    to="/meu-perfil"
+                    className="block px-4 py-3 bg-gradient-to-r from-green-600/20 to-green-500/20 hover:shadow-glow border border-green-500/30 hover:border-green-500/60 text-green-400 font-semibold rounded-lg transition-all text-sm"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    👤 Meu Perfil ({userSession.name?.split(" ")[0]})
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setIsOpen(false);
+                    }}
+                    className="w-full px-4 py-3 bg-gradient-to-r from-red-600/20 to-red-500/20 hover:shadow-glow border border-red-500/30 hover:border-red-500/60 text-red-400 font-semibold rounded-lg transition-all text-sm text-left"
+                  >
+                    🚪 Sair
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="block px-4 py-3 bg-gradient-to-r from-green-600/20 to-green-500/20 hover:shadow-glow border border-green-500/30 hover:border-green-500/60 text-green-400 font-semibold rounded-lg transition-all text-sm"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/cadastro"
+                    className="block px-4 py-3 bg-gradient-to-r from-accent/20 to-amber-500/20 hover:shadow-glow-accent border border-accent/30 hover:border-accent/60 text-accent font-semibold rounded-lg transition-all text-sm"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Cadastro
+                  </Link>
+                </>
+              )}
               <Link
                 to="/admin-login"
                 className="block px-4 py-3 bg-gradient-to-r from-primary/20 to-purple-500/20 hover:shadow-glow border border-primary/30 hover:border-primary/60 text-primary font-semibold rounded-lg transition-all text-sm"
