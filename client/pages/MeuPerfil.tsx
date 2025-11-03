@@ -228,6 +228,13 @@ export default function MeuPerfil() {
 
                     <div className="flex flex-col sm:flex-row gap-3">
                       <button
+                        onClick={() => setShowPhotoUpload(true)}
+                        className="flex-1 flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+                      >
+                        <ImageIcon className="w-4 h-4" />
+                        Trocar Foto
+                      </button>
+                      <button
                         onClick={() => setIsEditing(true)}
                         className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
                       >
