@@ -53,6 +53,23 @@ export default function Header() {
     { label: "Desafios", path: "/desafios" },
   ];
 
+  const comunidadeSubmenu = [
+    { label: "Testemunhas", path: "/testemunhas" },
+    { label: "Fórum", path: "/forum" },
+    { label: "Galeria de Fotos", path: "/galeria-fotos" },
+  ];
+
+  const conhecimentoSubmenu = [
+    { label: "Santos do Dia", path: "/santos-do-dia" },
+    { label: "Plano de Leitura Bíblica", path: "/plano-biblia" },
+    { label: "Vídeos e Homilias", path: "/videos" },
+  ];
+
+  const meuEspacoSubmenu = [
+    { label: "Meu Perfil", path: "/meu-perfil" },
+    { label: "Placar de Desafios", path: "/placar-desafios" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 backdrop-blur-sm bg-card/80 border-b border-primary/20 shadow-glow">
       <nav className="container mx-auto px-4 py-4">
