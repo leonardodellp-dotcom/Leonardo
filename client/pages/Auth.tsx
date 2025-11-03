@@ -106,7 +106,7 @@ export default function Auth() {
 
         {/* Footer Info */}
         <div className="mt-16 pt-8 border-t border-gray-700">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
             <div>
               <div className="text-2xl font-bold text-purple-400 mb-2">+500</div>
               <p className="text-gray-400 text-sm">Membros Ativos</p>
@@ -119,6 +119,16 @@ export default function Auth() {
               <div className="text-2xl font-bold text-pink-400 mb-2">24/7</div>
               <p className="text-gray-400 text-sm">Comunidade Ativa</p>
             </div>
+          </div>
+
+          {/* Admin Login Button */}
+          <div className="flex justify-center pt-4 border-t border-gray-700">
+            <button
+              onClick={() => navigate("/admin-login")}
+              className="text-sm text-gray-500 hover:text-gray-300 transition-colors underline"
+            >
+              Admin
+            </button>
           </div>
         </div>
       </div>
