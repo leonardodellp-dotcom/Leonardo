@@ -113,6 +113,7 @@ export default function MeuPerfil() {
   >("visao-geral");
   const [taskInput, setTaskInput] = useState("");
   const [taskCompleted, setTaskCompleted] = useState(false);
+  const [showPhotoUpload, setShowPhotoUpload] = useState(false);
 
   // Initialize game stats with admin data if available
   const initialGameStats = isAdmin && adminGameStats ? adminGameStats : mockGameStats;
