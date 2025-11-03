@@ -415,26 +415,57 @@ export default function Cadastro() {
 
                   {/* Password Strength Indicator */}
                   {formData.password && (
-                    <div className="mt-3">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs text-gray-400">Força da senha:</span>
-                        <span className={`text-xs font-semibold ${
-                          passwordStrength.color === "bg-green-500" ? "text-green-400" :
-                          passwordStrength.color === "bg-yellow-500" ? "text-yellow-400" :
-                          "text-red-400"
-                        }`}>
-                          {passwordStrength.level}
-                        </span>
+                    <div className="mt-3 space-y-3">
+                      {/* Strength Bar */}
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs text-gray-400">Força da senha:</span>
+                          <span className={`text-xs font-semibold ${
+                            passwordStrength.color === "bg-green-500" ? "text-green-400" :
+                            passwordStrength.color === "bg-yellow-500" ? "text-yellow-400" :
+                            "text-red-400"
+                          }`}>
+                            {passwordStrength.level}
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                          <div
+                            className={`h-full transition-all duration-300 ${passwordStrength.color}`}
+                            style={{ width: `${(passwordStrength.score / 5) * 100}%` }}
+                          ></div>
+                        </div>
                       </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-                        <div
-                          className={`h-full transition-all duration-300 ${passwordStrength.color}`}
-                          style={{ width: `${(passwordStrength.score / 7) * 100}%` }}
-                        ></div>
+
+                      {/* Requirements Checklist */}
+                      <div className="bg-black/30 rounded-lg p-3 space-y-2">
+                        <p className="text-xs text-gray-400 font-semibold">Requisitos obrigatórios:</p>
+                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasLength ? "text-green-400" : "text-gray-500 opacity-50"}`}>
+                          <span>{passwordRequirements.hasLength ? "✓" : "○"}</span>
+                          <span>Mínimo 8 caracteres</span>
+                        </div>
+                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasUppercase ? "text-green-400" : "text-gray-500 opacity-50"}`}>
+                          <span>{passwordRequirements.hasUppercase ? "✓" : "○"}</span>
+                          <span>Uma letra MAIÚSCULA (A-Z)</span>
+                        </div>
+                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasSpecial ? "text-green-400" : "text-gray-500 opacity-50"}`}>
+                          <span>{passwordRequirements.hasSpecial ? "✓" : "○"}</span>
+                          <span>Um caractere especial (!@#$%^&*)</span>
+                        </div>
+
+                        <p className="text-xs text-gray-500 mt-2">Extras (recomendado):</p>
+                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasLowercase ? "text-green-400" : "text-gray-500 opacity-50"}`}>
+                          <span>{passwordRequirements.hasLowercase ? "✓" : "○"}</span>
+                          <span>Letras minúsculas (a-z)</span>
+                        </div>
+                        <div className={`flex items-center gap-2 text-xs transition-opacity ${passwordRequirements.hasNumber ? "text-green-400" : "text-gray-500 opacity-50"}`}>
+                          <span>{passwordRequirements.hasNumber ? "✓" : "○"}</span>
+                          <span>Números (0-9)</span>
+                        </div>
                       </div>
-                      <p className="text-xs text-gray-400 mt-2">
-                        Dica: Use letras maiúsculas, minúsculas, números e caracteres especiais para uma senha mais forte
-                      </p>
+
+                      {passwordStrength.isStrong && (
+                        <p className="text-xs text-green-400 font-semibold">✓ Senha forte! Você pode continuar.</p>
+                      )}
                     </div>
                   )}
                 </div>
