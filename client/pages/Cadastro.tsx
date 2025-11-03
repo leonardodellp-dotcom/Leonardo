@@ -54,7 +54,8 @@ export default function Cadastro() {
         !formData.age ||
         !formData.group ||
         !formData.email ||
-        !formData.phone
+        !formData.phone ||
+        !formData.password
       ) {
         setError("Por favor, preencha todos os campos!");
         setLoading(false);
