@@ -80,16 +80,43 @@ const dailyVerse = {
 
 export default function MeuPerfil() {
   const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState(mockUserProfile);
+
+  // Check if user is admin
+  const isAdmin = localStorage.getItem("admin_token") === "true";
+  const adminProfile = isAdmin
+    ? JSON.parse(localStorage.getItem("admin_profile") || "{}")
+    : null;
+  const adminGameStats = isAdmin
+    ? JSON.parse(localStorage.getItem("admin_game_stats") || "{}")
+    : null;
+
+  // Use admin data if logged in as admin, otherwise use mock data
+  const [profile, setProfile] = useState(
+    isAdmin && adminProfile
+      ? {
+          id: "admin",
+          name: adminProfile.name,
+          email: adminProfile.email,
+          age: adminProfile.age,
+          group: adminProfile.group,
+          bio: adminProfile.bio,
+          joinedAt: adminProfile.joinedAt,
+        }
+      : mockUserProfile
+  );
+
   const [formData, setFormData] = useState(profile);
   const [activeTab, setActiveTab] = useState<
     "visao-geral" | "insignias" | "desafios" | "cursos" | "atividades" | "tarefa-dia"
   >("visao-geral");
   const [taskInput, setTaskInput] = useState("");
   const [taskCompleted, setTaskCompleted] = useState(false);
+
+  // Initialize game stats with admin data if available
+  const initialGameStats = isAdmin && adminGameStats ? adminGameStats : mockGameStats;
   const [gameStats, setGameStats] = useState<UserGameStats>({
-    ...mockGameStats,
-    badges: getBadges(mockGameStats),
+    ...initialGameStats,
+    badges: getBadges(isAdmin && adminGameStats ? adminGameStats : mockGameStats),
   });
 
   useEffect(() => {
