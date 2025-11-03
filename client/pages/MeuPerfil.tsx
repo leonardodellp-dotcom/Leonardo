@@ -19,6 +19,7 @@ import {
   CheckCircle,
   RotateCcw,
   Image as ImageIcon,
+  X,
 } from "lucide-react";
 import ProfilePhotoUploader from "@/components/ProfilePhotoUploader";
 import {
