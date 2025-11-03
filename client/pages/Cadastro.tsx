@@ -19,6 +19,35 @@ export default function Cadastro() {
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  const calculatePasswordStrength = (password: string): { score: number; level: string; color: string } => {
+    if (!password) return { score: 0, level: "Fraca", color: "bg-red-500" };
+
+    let score = 0;
+
+    if (password.length >= 6) score += 1;
+    if (password.length >= 10) score += 1;
+    if (password.length >= 14) score += 1;
+    if (/[a-z]/.test(password)) score += 1;
+    if (/[A-Z]/.test(password)) score += 1;
+    if (/[0-9]/.test(password)) score += 1;
+    if (/[!@#$%^&*]/.test(password)) score += 1;
+
+    let level = "Fraca";
+    let color = "bg-red-500";
+
+    if (score >= 5) {
+      level = "Forte";
+      color = "bg-green-500";
+    } else if (score >= 3) {
+      level = "Média";
+      color = "bg-yellow-500";
+    }
+
+    return { score: Math.min(score, 7), level, color };
+  };
+
+  const passwordStrength = calculatePasswordStrength(formData.password);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
