@@ -260,9 +260,17 @@ export default function Forum() {
                   {/* Original Post */}
                   <div className="mb-8">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
-                        {selectedPost.author.charAt(0)}
-                      </div>
+                      {selectedPost.profilePhoto ? (
+                        <img
+                          src={selectedPost.profilePhoto}
+                          alt={selectedPost.author}
+                          className="w-10 h-10 rounded-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                          {selectedPost.author.charAt(0)}
+                        </div>
+                      )}
                       <div>
                         <p className="font-semibold text-foreground">
                           {selectedPost.author}
