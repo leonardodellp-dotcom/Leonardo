@@ -576,8 +576,8 @@ export default function Calendario() {
           {activeTab === "jucrisc" && (
             <div>
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold">
-                  Programações Jucrisc 2025
+                <h2 className="text-2xl font-bold text-foreground">
+                  Programações de {monthNames[selectedMonth - 1]}
                 </h2>
                 {isAdmin && (
                   <button
