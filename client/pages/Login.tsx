@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { LogIn, AlertCircle, CheckCircle } from "lucide-react";
+import { LogIn, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { supabase } from "@shared/supabase";
 import { isValidEmail } from "@/lib/security";
 
