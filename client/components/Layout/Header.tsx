@@ -13,17 +13,13 @@ import {
 export default function Header() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
   const [userSession, setUserSession] = useState<any>(null);
 
   useEffect(() => {
+    // Ensure dark mode is always active
     const root = document.documentElement;
-    if (isDark) {
-      root.classList.remove("light");
-    } else {
-      root.classList.add("light");
-    }
-  }, [isDark]);
+    root.classList.remove("light");
+  }, []);
 
   useEffect(() => {
     // Check if user is logged in
