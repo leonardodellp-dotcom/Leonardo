@@ -667,6 +667,17 @@ export default function Cadastro() {
               >
                 {loading ? "Cadastrando..." : "Cadastrar"}
               </button>
+
+              {/* Recover Account Link */}
+              <div className="mt-4 text-center">
+                <button
+                  type="button"
+                  onClick={() => setShowRecoveryModal(true)}
+                  className="text-sm text-primary hover:underline"
+                >
+                  Esqueceu a senha? Recuperar a conta
+                </button>
+              </div>
             </form>
 
             {/* Info */}
