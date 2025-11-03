@@ -60,8 +60,15 @@ export default function Testemunhas() {
               <div
                 key={testimony.id}
                 onClick={() => setSelectedTestimony(testimony)}
-                className="bg-card border border-border rounded-lg p-6 hover:border-blue-600/50 hover:shadow-lg transition-all cursor-pointer transform hover:-translate-y-1"
+                className="bg-card border border-border rounded-lg p-6 hover:border-blue-600/50 hover:shadow-lg transition-all cursor-pointer transform hover:-translate-y-1 relative"
               >
+                {/* Badge Exemplo */}
+                <div className="absolute top-3 right-3">
+                  <span className="inline-flex items-center gap-1 bg-blue-600/30 border border-blue-500/50 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full">
+                    ⭐ Exemplo
+                  </span>
+                </div>
+
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold mr-4">
                     {testimony.author.charAt(0)}
