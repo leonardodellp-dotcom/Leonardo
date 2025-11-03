@@ -353,6 +353,146 @@ export default function MeuPerfil() {
 
           {/* Tab Content */}
 
+          {/* Tarefa do Dia Tab */}
+          {activeTab === "tarefa-dia" && (
+            <div className="space-y-6">
+              {/* Daily Verse Card */}
+              <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-lg p-8">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">
+                      Vers��culo do Dia
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {dailyVerse.reference} - {dailyVerse.book}
+                    </p>
+                  </div>
+                  {taskCompleted && (
+                    <div className="flex items-center gap-2 bg-green-500/20 px-3 py-1 rounded-full border border-green-500/30">
+                      <Trophy className="w-4 h-4 text-green-400" />
+                      <span className="text-sm font-semibold text-green-400">
+                        +{dailyVerse.xpReward} XP
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <blockquote className="border-l-4 border-purple-500 pl-4 py-4 mb-6">
+                  <p className="text-lg text-foreground italic mb-4">
+                    "{dailyVerse.text}"
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {dailyVerse.reflection}
+                  </p>
+                </blockquote>
+              </div>
+
+              {/* Task Section */}
+              <div className="bg-card border border-border rounded-lg p-6">
+                <h3 className="text-xl font-bold text-foreground mb-4">
+                  Sua Tarefa
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Reflita sobre o versículo acima e escreva o que você entendeu ou aprendeu com ele. Como você pode aplicar esse ensinamento em sua vida hoje?
+                </p>
+
+                <div className="space-y-4">
+                  <textarea
+                    value={taskInput}
+                    onChange={(e) => setTaskInput(e.target.value)}
+                    placeholder="Escreva suas reflexões sobre o versículo..."
+                    disabled={taskCompleted}
+                    className={`w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-600 resize-none h-32 ${
+                      taskCompleted ? "opacity-60" : ""
+                    }`}
+                  />
+
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => {
+                        if (taskInput.trim().length > 0) {
+                          setTaskCompleted(true);
+                          setGameStats((prev) => ({
+                            ...prev,
+                            totalXP: prev.totalXP + dailyVerse.xpReward,
+                          }));
+                        }
+                      }}
+                      disabled={taskCompleted || taskInput.trim().length === 0}
+                      className={`flex-1 flex items-center justify-center gap-2 font-semibold py-2 px-4 rounded-lg transition-colors ${
+                        taskCompleted
+                          ? "bg-green-600 text-white cursor-default opacity-75"
+                          : "bg-blue-600 hover:bg-blue-700 text-white"
+                      }`}
+                    >
+                      <CheckCircle className="w-4 h-4" />
+                      {taskCompleted ? "Tarefa Concluída!" : "Registrar Reflexão"}
+                    </button>
+                    {taskCompleted && (
+                      <button
+                        onClick={() => {
+                          setTaskInput("");
+                          setTaskCompleted(false);
+                        }}
+                        className="flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+                      >
+                        <RotateCcw className="w-4 h-4" />
+                        Refazer
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {taskCompleted && (
+                  <div className="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                    <p className="text-sm text-green-400 font-semibold">
+                      ✓ Parabéns! Você completou a Tarefa do Dia e ganhou {dailyVerse.xpReward} XP
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Tips Section */}
+              <div className="bg-card border border-border rounded-lg p-6">
+                <h3 className="text-lg font-bold text-foreground mb-4">
+                  💡 Dicas para uma Reflexão Significativa
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span className="text-blue-400 font-bold">1.</span>
+                    <p className="text-sm text-muted-foreground">
+                      Leia o versículo várias vezes para compreender seu significado profundo
+                    </p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-blue-400 font-bold">2.</span>
+                    <p className="text-sm text-muted-foreground">
+                      Pesquise o contexto histórico e cultural do verso
+                    </p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-blue-400 font-bold">3.</span>
+                    <p className="text-sm text-muted-foreground">
+                      Pergunte-se: Como isso se aplica à minha vida hoje?
+                    </p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-blue-400 font-bold">4.</span>
+                    <p className="text-sm text-muted-foreground">
+                      Ore pedindo iluminação do Espírito Santo
+                    </p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-blue-400 font-bold">5.</span>
+                    <p className="text-sm text-muted-foreground">
+                      Compartilhe suas reflexões com a comunidade
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+
           {/* Visão Geral Tab */}
           {activeTab === "visao-geral" && (
             <div className="space-y-8">
