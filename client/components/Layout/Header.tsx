@@ -12,8 +12,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function Header() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [userSession, setUserSession] = useState<any>(null);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -23,6 +25,24 @@ export default function Header() {
       root.classList.add("light");
     }
   }, [isDark]);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const session = localStorage.getItem("user_session");
+    if (session) {
+      try {
+        setUserSession(JSON.parse(session));
+      } catch (e) {
+        setUserSession(null);
+      }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user_session");
+    setUserSession(null);
+    navigate("/");
+  };
 
   const mainNavItems = [
     { label: "Início", path: "/" },
