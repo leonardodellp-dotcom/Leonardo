@@ -136,6 +136,7 @@ export default function Cadastro() {
             group: formData.group.trim(),
             email: formData.email.toLowerCase().trim(),
             phone: formData.phone.trim(),
+            password: formData.password,
           },
         ])
         .select();
