@@ -642,7 +642,7 @@ export default function Calendario() {
 
                       <div>
                         <label className="block text-sm font-semibold mb-2">
-                          Horário
+                          Hor��rio
                         </label>
                         <input
                           type="time"
@@ -843,10 +843,10 @@ export default function Calendario() {
                           key={day}
                           className={`aspect-square p-2 rounded-lg border-2 transition-colors ${
                             isSunday
-                              ? "bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-700"
+                              ? "bg-blue-900/30 border-blue-600"
                               : isSaturday
-                                ? "bg-purple-50 dark:bg-purple-950 border-purple-200 dark:border-purple-700"
-                                : "bg-muted/30 border-muted hover:border-primary/50"
+                                ? "bg-purple-900/30 border-purple-600"
+                                : "bg-slate-800/50 border-slate-600 hover:border-primary/50"
                           }`}
                         >
                           <p
