@@ -170,7 +170,9 @@ export default function PlanoBiblia() {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
               <BookOpen className="w-8 h-8 text-blue-500 mr-3" />
-              <h1 className="text-4xl font-bold text-foreground">Plano de Leitura Bíblica</h1>
+              <h1 className="text-4xl font-bold text-foreground">
+                Plano de Leitura Bíblica
+              </h1>
             </div>
             <p className="text-lg text-muted-foreground">
               Uma jornada de dois meses pelos Evangelhos com reflexões diárias
@@ -242,7 +244,8 @@ export default function PlanoBiblia() {
                         </p>
                       </div>
                       <div className="mt-4 p-3 bg-background rounded border border-border text-sm text-muted-foreground">
-                        <strong>Leitura:</strong> {reading.book} {reading.chapter}:{reading.verses}
+                        <strong>Leitura:</strong> {reading.book}{" "}
+                        {reading.chapter}:{reading.verses}
                       </div>
                     </div>
                   )}
@@ -259,8 +262,12 @@ export default function PlanoBiblia() {
             </h3>
             <ul className="space-y-2 text-sm text-foreground">
               <li>✦ Dedique 15-20 minutos para ler e refletir cada dia</li>
-              <li>✦ Anote suas percepções pessoais e como a Palavra fala a você</li>
-              <li>✦ Reze antes de ler, abrindo seu coração ao Espírito Santo</li>
+              <li>
+                ✦ Anote suas percepções pessoais e como a Palavra fala a você
+              </li>
+              <li>
+                ✦ Reze antes de ler, abrindo seu coração ao Espírito Santo
+              </li>
               <li>✦ Compartilhe suas reflexões com amigos ou sua comunidade</li>
               <li>✦ Coloque em prática o que aprendeu no seu dia a dia</li>
             </ul>

@@ -80,7 +80,9 @@ export default function SantosDoDia() {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
               <Heart className="w-8 h-8 text-red-500 mr-3" />
-              <h1 className="text-4xl font-bold text-foreground">Santos do Dia</h1>
+              <h1 className="text-4xl font-bold text-foreground">
+                Santos do Dia
+              </h1>
             </div>
             <p className="text-lg text-muted-foreground">
               Conheça a vida e a fé dos santos que nos precederam
@@ -184,7 +186,8 @@ export default function SantosDoDia() {
                 <p className="text-sm text-foreground flex items-start">
                   <Lock className="w-4 h-4 mr-2 flex-shrink-0 mt-0.5" />
                   <span>
-                    Reze diariamente a oração do santo do dia para fortalecer sua fé e receber suas graças.
+                    Reze diariamente a oração do santo do dia para fortalecer
+                    sua fé e receber suas graças.
                   </span>
                 </p>
               </div>

@@ -116,7 +116,8 @@ export default function Cadastro() {
     } catch (err: any) {
       console.error("Erro ao cadastrar:", err);
 
-      let errorMessage = "Erro ao cadastrar. Por favor, tente novamente mais tarde.";
+      let errorMessage =
+        "Erro ao cadastrar. Por favor, tente novamente mais tarde.";
 
       // Extrair mensagem de erro corretamente
       if (err?.message) {

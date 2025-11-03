@@ -9,7 +9,7 @@ export default function ProfileFAB() {
         title="Meu Perfil"
       >
         <span className="text-lg">J</span>
-        
+
         {/* Tooltip */}
         <div className="absolute bottom-full right-0 mb-3 bg-card border border-border rounded-lg px-4 py-2 text-xs font-semibold text-foreground whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
           Meu Perfil

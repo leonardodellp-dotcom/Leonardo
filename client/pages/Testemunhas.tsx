@@ -69,7 +69,9 @@ const testimonies: Testimony[] = [
 ];
 
 export default function Testemunhas() {
-  const [selectedTestimony, setSelectedTestimony] = useState<Testimony | null>(null);
+  const [selectedTestimony, setSelectedTestimony] = useState<Testimony | null>(
+    null,
+  );
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -80,10 +82,13 @@ export default function Testemunhas() {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
               <Heart className="w-8 h-8 text-red-500 mr-3" />
-              <h1 className="text-4xl font-bold text-foreground">Testemunhas de Fé</h1>
+              <h1 className="text-4xl font-bold text-foreground">
+                Testemunhas de Fé
+              </h1>
             </div>
             <p className="text-lg text-muted-foreground mb-6">
-              Histórias reais de jovens que encontraram Jesus e transformaram suas vidas
+              Histórias reais de jovens que encontraram Jesus e transformaram
+              suas vidas
             </p>
             <button
               onClick={() => setShowModal(true)}
@@ -110,7 +115,9 @@ export default function Testemunhas() {
                     <h3 className="font-semibold text-foreground text-sm">
                       {testimony.author}
                     </h3>
-                    <p className="text-xs text-muted-foreground">{testimony.age} anos</p>
+                    <p className="text-xs text-muted-foreground">
+                      {testimony.age} anos
+                    </p>
                   </div>
                 </div>
                 <h4 className="text-base font-bold text-foreground mb-2">
@@ -146,7 +153,9 @@ export default function Testemunhas() {
                       <h2 className="text-xl font-bold text-white">
                         {selectedTestimony.author}
                       </h2>
-                      <p className="text-blue-100 text-sm">{selectedTestimony.age} anos</p>
+                      <p className="text-blue-100 text-sm">
+                        {selectedTestimony.age} anos
+                      </p>
                     </div>
                   </div>
                   <button
@@ -171,8 +180,9 @@ export default function Testemunhas() {
 
                   <div className="mt-8 p-4 bg-blue-600/10 border-l-4 border-blue-600 rounded">
                     <p className="text-sm text-foreground italic">
-                      "Se alguém está em Cristo, é nova criatura; as coisas antigas já
-                      passaram, eis que tudo se fez novo." - 2 Coríntios 5:17
+                      "Se alguém está em Cristo, é nova criatura; as coisas
+                      antigas já passaram, eis que tudo se fez novo." - 2
+                      Coríntios 5:17
                     </p>
                   </div>
                 </div>

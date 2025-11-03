@@ -184,7 +184,8 @@ export default function Forum() {
               </h1>
             </div>
             <p className="text-lg text-muted-foreground mb-6">
-              Um espaço seguro para discutir fé, compartilhar dúvidas e crescer juntos
+              Um espaço seguro para discutir fé, compartilhar dúvidas e crescer
+              juntos
             </p>
             <button
               onClick={() => setShowNewPostModal(true)}

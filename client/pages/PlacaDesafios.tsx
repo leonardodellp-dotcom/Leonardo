@@ -95,7 +95,7 @@ const leaderboard: ScoreEntry[] = [
 ];
 
 const getDifficultyColor = (
-  difficulty: "fácil" | "médio" | "difícil" | "impossível"
+  difficulty: "fácil" | "médio" | "difícil" | "impossível",
 ) => {
   switch (difficulty) {
     case "fácil":
@@ -130,7 +130,7 @@ export default function PlacaDesafios() {
     totalParticipants: leaderboard.length,
     averageScore: Math.round(
       leaderboard.reduce((sum, entry) => sum + entry.score, 0) /
-        leaderboard.length
+        leaderboard.length,
     ),
     topScore: leaderboard[0].score,
   };
@@ -148,7 +148,8 @@ export default function PlacaDesafios() {
               </h1>
             </div>
             <p className="text-lg text-muted-foreground">
-              Veja os melhores desempenhos e compita com outros membros da comunidade
+              Veja os melhores desempenhos e compita com outros membros da
+              comunidade
             </p>
           </div>
 
@@ -197,7 +198,7 @@ export default function PlacaDesafios() {
                           | "fácil"
                           | "médio"
                           | "difícil"
-                          | "impossível"
+                          | "impossível",
                       )
                     }
                     className={`px-6 py-2 rounded-lg font-semibold transition-all ${
@@ -211,7 +212,7 @@ export default function PlacaDesafios() {
                       : difficulty.charAt(0).toUpperCase() +
                         difficulty.slice(1)}
                   </button>
-                )
+                ),
               )}
             </div>
           </div>
@@ -286,7 +287,7 @@ export default function PlacaDesafios() {
                     <div className="col-span-2 text-center">
                       <span
                         className={`text-xs font-semibold px-3 py-1 rounded border ${getDifficultyColor(
-                          entry.difficulty
+                          entry.difficulty,
                         )}`}
                       >
                         {entry.difficulty.charAt(0).toUpperCase() +

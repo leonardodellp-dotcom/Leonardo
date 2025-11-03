@@ -79,7 +79,9 @@ export default function Header() {
               <h1 className="font-bold text-lg bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Jucrisc
               </h1>
-              <p className="text-xs text-muted-foreground leading-none">Grupo de Jovens</p>
+              <p className="text-xs text-muted-foreground leading-none">
+                Grupo de Jovens
+              </p>
             </div>
           </Link>
 

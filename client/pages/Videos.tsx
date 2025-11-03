@@ -106,7 +106,8 @@ const videos: Video[] = [
   {
     id: "10",
     title: "Homilia - Festa de São Francisco",
-    description: "Uma bela homilia sobre a vida simples, humildade e dedicação à vontade de Deus.",
+    description:
+      "Uma bela homilia sobre a vida simples, humildade e dedicação à vontade de Deus.",
     youtubeUrl: "https://www.youtube.com/embed/jNQXAC9IVRw",
     category: "Homilias",
     duration: 18,
@@ -138,7 +139,10 @@ export default function Videos() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Todos");
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
-  const categories = ["Todos", ...Array.from(new Set(videos.map((v) => v.category)))];
+  const categories = [
+    "Todos",
+    ...Array.from(new Set(videos.map((v) => v.category))),
+  ];
   const filteredVideos =
     selectedCategory === "Todos"
       ? videos
@@ -165,7 +169,9 @@ export default function Videos() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <Filter className="w-5 h-5 text-blue-400" />
-              <h2 className="text-lg font-semibold text-foreground">Categoria</h2>
+              <h2 className="text-lg font-semibold text-foreground">
+                Categoria
+              </h2>
             </div>
             <div className="flex flex-wrap gap-3">
               {categories.map((category) => (

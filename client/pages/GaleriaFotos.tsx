@@ -1,6 +1,13 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { Image as ImageIcon, Calendar, MapPin, X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Image as ImageIcon,
+  Calendar,
+  MapPin,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 interface Photo {
   id: string;
@@ -166,7 +173,9 @@ export default function GaleriaFotos() {
                 key={photo.id}
                 onClick={() => {
                   setSelectedPhoto(photo);
-                  setCurrentPhotoIndex(photos.findIndex((p) => p.id === photo.id));
+                  setCurrentPhotoIndex(
+                    photos.findIndex((p) => p.id === photo.id),
+                  );
                 }}
                 className="bg-card border border-border rounded-lg overflow-hidden hover:border-purple-600/50 hover:shadow-lg transition-all cursor-pointer group"
               >

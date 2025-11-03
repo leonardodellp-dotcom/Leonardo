@@ -255,7 +255,8 @@ export default function Index() {
               Novas Seções da Comunidade
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Explore recursos inovadores para fortalecer sua fé e conectar-se com a comunidade
+              Explore recursos inovadores para fortalecer sua fé e conectar-se
+              com a comunidade
             </p>
           </div>
 
@@ -303,10 +304,7 @@ export default function Index() {
             </Link>
 
             {/* Testemunhas */}
-            <Link
-              to="/testemunhas"
-              className="group card-glow hover:scale-105"
-            >
+            <Link to="/testemunhas" className="group card-glow hover:scale-105">
               <div className="p-6">
                 <div className="mb-4 inline-flex p-3 bg-pink-500/15 border border-pink-500/30 rounded-lg group-hover:bg-pink-500/25 transition-all">
                   <MessageCircle className="w-6 h-6 text-pink-400" />
@@ -324,10 +322,7 @@ export default function Index() {
             </Link>
 
             {/* Videos */}
-            <Link
-              to="/videos"
-              className="group card-glow hover:scale-105"
-            >
+            <Link to="/videos" className="group card-glow hover:scale-105">
               <div className="p-6">
                 <div className="mb-4 inline-flex p-3 bg-red-600/15 border border-red-600/30 rounded-lg group-hover:bg-red-600/25 transition-all">
                   <Video className="w-6 h-6 text-red-500" />
@@ -366,10 +361,7 @@ export default function Index() {
             </Link>
 
             {/* Meu Perfil */}
-            <Link
-              to="/meu-perfil"
-              className="group card-glow hover:scale-105"
-            >
+            <Link to="/meu-perfil" className="group card-glow hover:scale-105">
               <div className="p-6">
                 <div className="mb-4 inline-flex p-3 bg-green-500/15 border border-green-500/30 rounded-lg group-hover:bg-green-500/25 transition-all">
                   <User className="w-6 h-6 text-green-400" />

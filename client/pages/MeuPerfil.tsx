@@ -102,7 +102,10 @@ export default function MeuPerfil() {
     setIsEditing(false);
   };
 
-  const progressPercentage = Math.min((profile.coursesCompleted / 12) * 100, 100);
+  const progressPercentage = Math.min(
+    (profile.coursesCompleted / 12) * 100,
+    100,
+  );
 
   return (
     <Layout>
@@ -321,7 +324,9 @@ export default function MeuPerfil() {
             >
               <Trophy className="w-6 h-6 text-yellow-500 mx-auto mb-2" />
               <p className="font-semibold text-foreground">Novos Desafios</p>
-              <p className="text-xs text-muted-foreground">Continue treinando</p>
+              <p className="text-xs text-muted-foreground">
+                Continue treinando
+              </p>
             </a>
             <a
               href="/cursos"
@@ -329,7 +334,9 @@ export default function MeuPerfil() {
             >
               <BookOpen className="w-6 h-6 text-blue-500 mx-auto mb-2" />
               <p className="font-semibold text-foreground">Cursos</p>
-              <p className="text-xs text-muted-foreground">Continue aprendendo</p>
+              <p className="text-xs text-muted-foreground">
+                Continue aprendendo
+              </p>
             </a>
             <a
               href="/placar-desafios"
