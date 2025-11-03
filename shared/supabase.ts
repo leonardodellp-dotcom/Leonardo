@@ -671,6 +671,50 @@ export type Database = {
           expires_at?: string;
         };
       };
+      profile_photo_requests: {
+        Row: {
+          id: string;
+          user_id: string;
+          user_email: string;
+          user_name: string;
+          photo_url: string;
+          status: string;
+          rejection_reason: string | null;
+          requested_at: string;
+          reviewed_at: string | null;
+          reviewed_by: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          user_email: string;
+          user_name: string;
+          photo_url: string;
+          status?: string;
+          rejection_reason?: string | null;
+          requested_at?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          user_email?: string;
+          user_name?: string;
+          photo_url?: string;
+          status?: string;
+          rejection_reason?: string | null;
+          requested_at?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
     };
     Views: {};
     Functions: {};
