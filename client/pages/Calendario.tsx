@@ -967,7 +967,7 @@ export default function Calendario() {
                               </div>
                             </div>
                             <div className="col-span-2 flex items-center gap-2">
-                              <span className="text-xl">����</span>
+                              <span className="text-xl">📍</span>
                               <div>
                                 <p className="text-muted-foreground text-xs">
                                   Local
