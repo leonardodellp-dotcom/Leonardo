@@ -842,6 +842,36 @@ export default function MeuPerfil() {
             </a>
           </div>
         </div>
+
+        {/* Photo Upload Modal */}
+        {showPhotoUpload && (
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+            <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full shadow-2xl">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <ImageIcon className="w-6 h-6 text-primary" />
+                  <h2 className="text-xl font-bold">Trocar Foto de Perfil</h2>
+                </div>
+                <button
+                  onClick={() => setShowPhotoUpload(false)}
+                  className="p-1 hover:bg-background rounded-lg transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <ProfilePhotoUploader
+                isAdmin={isAdmin}
+                userId={profile.id}
+                userEmail={profile.email}
+                userName={profile.name}
+                onSuccess={() => {
+                  setShowPhotoUpload(false);
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
