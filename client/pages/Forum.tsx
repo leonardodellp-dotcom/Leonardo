@@ -65,6 +65,11 @@ export default function Forum() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [selectedPost, setSelectedPost] = useState<ForumPost | null>(null);
   const [showNewPostModal, setShowNewPostModal] = useState(false);
+  const [showSuggestionModal, setShowSuggestionModal] = useState(false);
+
+  // Check if user is admin
+  const userSession = localStorage.getItem("user_session");
+  const isAdmin = userSession && JSON.parse(userSession).email === "leoadm";
 
   const categories = [
     "Todos",
