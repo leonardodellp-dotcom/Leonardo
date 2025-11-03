@@ -21,51 +21,6 @@ const testimonies: Testimony[] = [
     content:
       "Meu nome é Maria e por três anos lutei contra o vício em álcool e drogas. Aos 19 anos, estava completamente perdida, minha família desesperada. Um dia, uma amiga me convidou para um encontro de jovens cristãos. Lá, conheci a palavra de Deus e senti o amor de Jesus transformando meu coração. Comecei a frequentar missas, confiar em Deus e abraçar a comunidade. Hoje, com 22 anos, sou livre! Minha vida mudou 180 graus. Graças a Deus, minha família foi restaurada e descobri meu propósito. Para quem sofre, digo: Jesus é a resposta. Você é amado.",
   },
-  {
-    id: "2",
-    author: "João dos Santos",
-    title: "Vocação Religiosa Descoberta na Comunidade",
-    age: 20,
-    date: "10 de novembro de 2024",
-    content:
-      "Cresci em uma família católica, mas nunca tinha levado minha fé a sério. Quando entrei no grupo de jovens, comecei a sentir um chamado diferente. Através das homilias, dos amigos e da oração comunitária, Deus me revelou que Ele me estava chamando para o seminário. No início tive medo, pensei em uma vida normal, namorada, profissão comum. Mas quando apresentei minha vocação ao grupo, senti tanta alegria no coração que não conseguia resistir. Agora estou no primeiro ano de seminário e cada dia descubro mais sobre o amor de Cristo. Meu desejo é servir a Igreja e ajudar outros jovens a encontrar Jesus.",
-  },
-  {
-    id: "3",
-    author: "Ana Carolina",
-    title: "Cura Milagrosa Através da Intercessão",
-    age: 21,
-    date: "5 de novembro de 2024",
-    content:
-      "Aos 19 anos fui diagnosticada com um tumor cerebral. Os médicos disseram que tinha 30% de chance de sobreviver à cirurgia. Minha família inteira orou, fizemos novenas, rezei o terço diariamente. No dia da cirurgia, eu sentia a paz de Cristo envolvendo meu coração. Quando acordei, a cirurgia tinha sido um sucesso. Mas a coisa mais milagrosa? O tumor tinha desaparecido completamente nos exames pós-operatórios. Os médicos ficaram chocados e não sabem explicar. Para mim foi resposta de oração. Hoje estou 100% saudável e dedicada a ajudar outros a fortalecer sua fé. A ciência é importante, mas Deus está acima de tudo.",
-  },
-  {
-    id: "4",
-    author: "Pedro Oliveira",
-    title: "Da Indiferença Religiosa ao Apostolado",
-    age: 23,
-    date: "1º de novembro de 2024",
-    content:
-      "Eu era aquele tipo de jovem que ia à missa por obrigação, por pressão dos pais. Não tinha interesse em religião, meu foco era festas, diversão e conquistas pessoais. Mas um dia tudo mudou quando participei de um retiro que meu pai praticamente me obrigou a ir. Lá aprendi sobre o amor sacrificial de Cristo, sobre redenção, sobre propósito real. Meu coração foi tocado profundamente. Desde então, comecei a estudar a fé, participar ativamente de grupos apostólicos e hoje ajudo a trazer outros jovens para Cristo. Meu maior prazer agora é ver alguém encontrar Jesus. A vida tem significado real quando servimos algo maior que nós mesmos.",
-  },
-  {
-    id: "5",
-    author: "Beatriz Ferreira",
-    title: "Superando a Depressão com o Apoio da Comunidade",
-    age: 20,
-    date: "28 de outubro de 2024",
-    content:
-      "Durante dois anos sofri silenciosamente com depressão profunda. Tentei esconder de todos, inclusive de minha família. Meu corpo funcionava, mas minha alma estava morta. Um dia, uma colega do grupo de jovens percebeu que algo estava errado comigo. Ela conversou comigo e me apresentou um sacerdote que era muito compreensivo. Com a ajuda dele, terapia e oração, comecei a reconstruir meu relacionamento com Deus. A comunidade me cercou de amor, as amigas rezavam comigo, o grupo me incluía em tudo. Aprendi que depressão é uma doença real, mas Deus nunca abandona. Hoje sou monitora do grupo e ajudo outras meninas que enfrentam situações similares.",
-  },
-  {
-    id: "6",
-    author: "Lucas Alves",
-    title: "Milagre na Reconciliação Familiar",
-    age: 24,
-    date: "20 de outubro de 2024",
-    content:
-      "Meu pai abandonou nossa família quando eu tinha 5 anos. Durante 19 anos, guardei raiva, ódio e dor. Minha mãe trabalhou dobrado, chorou de madrugada, mas sempre rezava pelo meu pai. Quando comecei a frequentar o grupo de jovens, aprendi sobre perdão, sobre como a falta de perdão nos envergonha mais que aquele que nos magoou. Conforme aprendi mais sobre o Evangelho, decidi procurar meu pai e oferecer-lhe perdão genuíno. Após 19 anos sem contato, nos reencontramos. Chorei muito, ele também. Hoje meu pai está retomando sua vida com Deus e nossa relação está sendo restaurada lentamente. Não é perfeito, mas existe esperança e amor. Graças a Deus.",
-  },
 ];
 
 export default function Testemunhas() {
