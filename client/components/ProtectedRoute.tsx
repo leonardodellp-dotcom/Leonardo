@@ -7,9 +7,10 @@ interface ProtectedRouteProps {
 
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   const userSession = localStorage.getItem("user_session");
+  const adminToken = localStorage.getItem("admin_token");
 
   // If user is not logged in, redirect to auth page
-  if (!userSession) {
+  if (!userSession && !adminToken) {
     return <Navigate to="/auth" replace />;
   }
 
