@@ -309,7 +309,33 @@ export default function Cadastro() {
         throw insertError;
       }
 
-      console.log(`Reset code for ${recoveryEmail}: ${code}`);
+      // Send email using Supabase Edge Functions
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-reset-email`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            },
+            body: JSON.stringify({
+              email: recoveryEmail.toLowerCase(),
+              resetCode: code,
+              userName: users[0].email.split("@")[0],
+            }),
+          }
+        );
+
+        if (!response.ok) {
+          console.warn("Email service unavailable, but token was created");
+          console.log(`Reset code for ${recoveryEmail}: ${code}`);
+        }
+      } catch (emailError) {
+        console.warn("Email service error:", emailError);
+        // Show code in console as fallback
+        console.log(`Reset code for ${recoveryEmail}: ${code} (valid for 1 hour)`);
+      }
 
       setRecoverySuccess(
         `Código enviado para ${recoveryEmail}! Verifique seu email para continuar.`
