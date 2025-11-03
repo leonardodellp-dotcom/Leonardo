@@ -458,39 +458,39 @@ export default function Calendario() {
 
               {/* Legend */}
               <div className="bg-card border border-border rounded-xl p-6 mb-8">
-                <h3 className="font-semibold mb-4">Tipos de Celebração</h3>
+                <h3 className="font-semibold mb-4 text-foreground">Tipos de Celebração</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-red-600"></div>
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div>
-                      <p className="font-semibold text-sm">Solenidade</p>
+                      <p className="font-semibold text-sm text-foreground">Solenidade</p>
                       <p className="text-xs text-muted-foreground">
                         Celebração de máxima importância
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-blue-600"></div>
+                    <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                     <div>
-                      <p className="font-semibold text-sm">Festa</p>
+                      <p className="font-semibold text-sm text-foreground">Festa</p>
                       <p className="text-xs text-muted-foreground">
                         Celebração de grande importância
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-green-600"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     <div>
-                      <p className="font-semibold text-sm">Memória</p>
+                      <p className="font-semibold text-sm text-foreground">Memória</p>
                       <p className="text-xs text-muted-foreground">
                         Celebração obrigatória
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-gray-600"></div>
+                    <div className="w-3 h-3 rounded-full bg-gray-500"></div>
                     <div>
-                      <p className="font-semibold text-sm">Dia Comum</p>
+                      <p className="font-semibold text-sm text-foreground">Dia Comum</p>
                       <p className="text-xs text-muted-foreground">
                         Dia ordinário
                       </p>
@@ -501,7 +501,7 @@ export default function Calendario() {
 
               {/* Select Month */}
               <div className="bg-card border border-border rounded-xl p-6 mb-8">
-                <h3 className="font-semibold mb-4">Selecione o Mês</h3>
+                <h3 className="font-semibold mb-4 text-foreground">Selecione o Mês</h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
                   {monthNames.map((month, idx) => (
                     <button
@@ -510,7 +510,7 @@ export default function Calendario() {
                       className={`p-3 rounded-lg font-semibold text-sm transition-colors ${
                         selectedMonth === idx + 1
                           ? "bg-primary text-primary-foreground"
-                          : "bg-muted text-muted-foreground hover:bg-muted/80"
+                          : "bg-slate-800 text-foreground hover:bg-slate-700 border border-border"
                       }`}
                     >
                       {month.slice(0, 3)}
@@ -1000,7 +1000,7 @@ export default function Calendario() {
                               </div>
                             </div>
                             <div className="col-span-2 flex items-center gap-2">
-                              <span className="text-xl">📍</span>
+                              <span className="text-xl">����</span>
                               <div>
                                 <p className="text-muted-foreground text-xs">
                                   Local
