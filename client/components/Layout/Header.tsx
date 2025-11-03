@@ -65,11 +65,6 @@ export default function Header() {
     { label: "Vídeos e Homilias", path: "/videos" },
   ];
 
-  const meuEspacoSubmenu = [
-    { label: "Meu Perfil", path: "/meu-perfil" },
-    { label: "Placar de Desafios", path: "/placar-desafios" },
-  ];
-
   return (
     <header className="sticky top-0 z-50 backdrop-blur-sm bg-card/80 border-b border-primary/20 shadow-glow">
       <nav className="container mx-auto px-4 py-4">
