@@ -97,7 +97,6 @@ export default function Header() {
   const conhecimentoSubmenu = [
     { label: "Santos do Dia", path: "/santos-do-dia" },
     { label: "Plano de Leitura Bíblica", path: "/plano-biblia" },
-    { label: "Vídeos e Homilias", path: "/videos" },
   ];
 
   return (
