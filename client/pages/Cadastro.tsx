@@ -75,6 +75,14 @@ export default function Cadastro() {
         return;
       }
 
+      // Validate phone (must have at least 10 digits)
+      const phoneDigits = formData.phone.replace(/\D/g, "");
+      if (phoneDigits.length < 10) {
+        setError("Por favor, insira um telefone válido com DDD!");
+        setLoading(false);
+        return;
+      }
+
       // Insert into Supabase
       const { data, error: dbError } = await supabase
         .from("user_registrations")
