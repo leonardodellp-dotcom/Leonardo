@@ -157,13 +157,25 @@ export default function MeuPerfil() {
             </h1>
           </div>
 
+          {/* Admin Badge */}
+          {isAdmin && (
+            <div className="mb-6 p-4 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 border border-yellow-600/50 rounded-lg flex items-center justify-center gap-2">
+              <span className="text-2xl">👑</span>
+              <span className="font-bold text-yellow-400">Perfil Administrador com Acesso Total</span>
+            </div>
+          )}
+
           {/* Main Profile Card */}
           <div className="bg-card border border-border rounded-lg p-8 mb-8">
             <div className="flex flex-col md:flex-row gap-8">
               {/* Avatar and Basic Info */}
               <div className="text-center md:text-left">
-                <div className="w-32 h-32 mx-auto md:mx-0 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-4xl font-bold text-white mb-6">
-                  {profile.name.charAt(0)}
+                <div className={`w-32 h-32 mx-auto md:mx-0 rounded-full flex items-center justify-center text-4xl font-bold text-white mb-6 ${
+                  isAdmin
+                    ? "bg-gradient-to-br from-yellow-600 to-orange-600"
+                    : "bg-gradient-to-br from-blue-600 to-purple-600"
+                }`}>
+                  {isAdmin ? "👑" : profile.name.charAt(0)}
                 </div>
 
                 {!isEditing && (
