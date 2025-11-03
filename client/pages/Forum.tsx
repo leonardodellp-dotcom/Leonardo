@@ -339,8 +339,8 @@ export default function Forum() {
             </div>
           )}
 
-          {/* New Post Modal */}
-          {showNewPostModal && (
+          {/* New Post Modal (Admin Only) */}
+          {showNewPostModal && isAdmin && (
             <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
               <div className="bg-card border border-border rounded-lg max-w-2xl w-full p-8">
                 <div className="flex items-center justify-between mb-6">
