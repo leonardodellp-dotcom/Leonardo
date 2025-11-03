@@ -331,6 +331,7 @@ export default function MeuPerfil() {
           <div className="flex gap-2 mb-8 overflow-x-auto border-b border-border">
             {[
               { id: "visao-geral" as const, label: "Visão Geral" },
+              { id: "tarefa-dia" as const, label: "📖 Tarefa do Dia" },
               { id: "insignias" as const, label: "Insígnias" },
               { id: "desafios" as const, label: "Desafios" },
               { id: "cursos" as const, label: "Cursos" },
