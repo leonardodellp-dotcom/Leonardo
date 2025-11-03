@@ -212,12 +212,45 @@ export default function Header() {
 
           {/* CTA Buttons & Controls */}
           <div className="flex items-center gap-2 ml-2 flex-shrink-0">
-            <Link
-              to="/cadastro"
-              className="px-3 py-1.5 bg-gradient-to-r from-accent/30 to-amber-500/30 hover:shadow-glow-accent border border-accent/40 text-accent font-semibold rounded text-xs transition-all hover:scale-105 whitespace-nowrap"
-            >
-              Cadastro
-            </Link>
+            {userSession ? (
+              <>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className="px-3 py-1.5 bg-gradient-to-r from-green-600/30 to-green-500/30 hover:shadow-glow border border-green-500/40 text-green-400 font-semibold rounded text-xs transition-all hover:scale-105 whitespace-nowrap flex items-center gap-1">
+                      <User className="w-3 h-3" />
+                      {userSession.name?.split(" ")[0]}
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>{userSession.name}</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/meu-perfil">Meu Perfil</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout}>
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sair
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="px-3 py-1.5 bg-gradient-to-r from-green-600/30 to-green-500/30 hover:shadow-glow border border-green-500/40 text-green-400 font-semibold rounded text-xs transition-all hover:scale-105 whitespace-nowrap"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/cadastro"
+                  className="px-3 py-1.5 bg-gradient-to-r from-accent/30 to-amber-500/30 hover:shadow-glow-accent border border-accent/40 text-accent font-semibold rounded text-xs transition-all hover:scale-105 whitespace-nowrap"
+                >
+                  Cadastro
+                </Link>
+              </>
+            )}
             <Link
               to="/admin-login"
               className="px-3 py-1.5 bg-gradient-to-r from-primary/30 to-purple-500/30 hover:shadow-glow border border-primary/40 text-primary font-semibold rounded text-xs transition-all hover:scale-105 whitespace-nowrap"
