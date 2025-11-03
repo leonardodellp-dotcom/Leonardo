@@ -107,10 +107,28 @@ export default function Cadastro() {
       }, 5000);
     } catch (err: any) {
       console.error("Erro ao cadastrar:", err);
-      setError(
-        err?.message ||
-          "Erro ao cadastrar. Por favor, tente novamente mais tarde.",
-      );
+
+      let errorMessage = "Erro ao cadastrar. Por favor, tente novamente mais tarde.";
+
+      // Extrair mensagem de erro corretamente
+      if (err?.message) {
+        errorMessage = err.message;
+      } else if (err?.error?.message) {
+        errorMessage = err.error.message;
+      } else if (err?.details) {
+        errorMessage = err.details;
+      } else if (typeof err === "string") {
+        errorMessage = err;
+      }
+
+      // Log detalhado para debug
+      console.error("Detalhes do erro:", {
+        message: err?.message,
+        errorMessage,
+        fullError: JSON.stringify(err),
+      });
+
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
