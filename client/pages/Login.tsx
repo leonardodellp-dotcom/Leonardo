@@ -203,10 +203,20 @@ export default function Login() {
               </button>
             </form>
 
+            {/* Forgot Password Link */}
+            <div className="mt-4 text-center">
+              <a
+                href="/esqueceu-senha"
+                className="text-sm text-primary hover:underline"
+              >
+                Esqueceu a senha?
+              </a>
+            </div>
+
             {/* Info */}
             <div className="mt-8 pt-8 border-t border-border">
               <p className="text-xs text-muted-foreground text-center">
-                Não tem cadastro ainda? 
+                Não tem cadastro ainda?
                 <a
                   href="/cadastro"
                   className="text-primary hover:underline ml-1"
