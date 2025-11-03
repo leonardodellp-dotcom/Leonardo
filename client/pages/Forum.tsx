@@ -178,8 +178,15 @@ export default function Forum() {
                 <div
                   key={post.id}
                   onClick={() => setSelectedPost(post)}
-                  className="bg-card border border-border rounded-lg p-6 hover:border-blue-600/50 hover:shadow-lg transition-all cursor-pointer"
+                  className="bg-card border border-border rounded-lg p-6 hover:border-blue-600/50 hover:shadow-lg transition-all cursor-pointer relative"
                 >
+                  {/* Badge Exemplo */}
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center gap-1 bg-blue-600/30 border border-blue-500/50 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full">
+                      ⭐ Exemplo
+                    </span>
+                  </div>
+
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-foreground mb-2 hover:text-blue-400">
