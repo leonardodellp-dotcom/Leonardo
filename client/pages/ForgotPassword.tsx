@@ -78,19 +78,38 @@ export default function ForgotPassword() {
         throw insertError;
       }
 
-      // In a real app, you would send this via email
-      // For now, we'll show it to the user (in production, use email service)
-      console.log(
-        `Reset code for ${email}: ${code} (valid for 1 hour)`
-      );
+      // Send email using Supabase Edge Functions
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-reset-email`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            },
+            body: JSON.stringify({
+              email: email.toLowerCase(),
+              resetCode: code,
+              userName: users[0].email.split("@")[0],
+            }),
+          }
+        );
+
+        if (!response.ok) {
+          console.warn("Email service unavailable, but token was created");
+          console.log(`Reset code for ${email}: ${code}`);
+        }
+      } catch (emailError) {
+        console.warn("Email service error:", emailError);
+        // Show code in console as fallback
+        console.log(`Reset code for ${email}: ${code} (valid for 1 hour)`);
+      }
 
       setSuccess(
         `Código enviado para ${email}! Verifique seu email para continuar.`
       );
       setStep("code");
-
-      // Optional: Auto-fill for demo purposes (comment out in production)
-      // setResetCode(code);
     } catch (err: any) {
       console.error("Erro ao solicitar reset:", err);
       setError("Erro ao processar solicitação. Tente novamente mais tarde.");
