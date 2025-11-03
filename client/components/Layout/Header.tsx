@@ -246,22 +246,6 @@ export default function Header() {
             >
               Admin
             </Link>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="p-1.5 hover:bg-primary/20 border border-primary/30 rounded transition-all hover:shadow-glow"
-              aria-label="Toggle theme"
-            >
-              {isDark ? (
-                <Sun
-                  className="w-4 h-4 text-accent animate-spin"
-                  style={{ animationDuration: "20s" }}
-                />
-              ) : (
-                <Moon className="w-4 h-4 text-primary" />
-              )}
-            </button>
           </div>
         </div>
 
