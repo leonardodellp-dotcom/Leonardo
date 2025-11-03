@@ -22,11 +22,25 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    // Check if user is logged in
+    // Check if user is logged in (regular or admin)
     const session = localStorage.getItem("user_session");
+    const adminToken = localStorage.getItem("admin_token");
+    const adminProfile = localStorage.getItem("admin_profile");
+
     if (session) {
       try {
         setUserSession(JSON.parse(session));
+      } catch (e) {
+        setUserSession(null);
+      }
+    } else if (adminToken && adminProfile) {
+      try {
+        const profile = JSON.parse(adminProfile);
+        setUserSession({
+          email: profile.email,
+          name: profile.name,
+          isAdmin: true,
+        });
       } catch (e) {
         setUserSession(null);
       }
@@ -35,6 +49,11 @@ export default function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem("user_session");
+    localStorage.removeItem("admin_token");
+    localStorage.removeItem("admin_username");
+    localStorage.removeItem("admin_role");
+    localStorage.removeItem("admin_profile");
+    localStorage.removeItem("admin_game_stats");
     setUserSession(null);
     navigate("/");
   };
