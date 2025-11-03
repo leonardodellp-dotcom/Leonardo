@@ -17,6 +17,35 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [activeTab, setActiveTab] = useState("overview");
+  const [suggestions, setSuggestions] = useState([
+    {
+      id: "1",
+      title: "Como aprofundar minha fé?",
+      description: "Gostaria de uma discussão sobre técnicas de oração e meditação para aprofundar a fé.",
+      author: "João Silva",
+      email: "joao@email.com",
+      date: "15 de novembro",
+      status: "pending",
+    },
+    {
+      id: "2",
+      title: "Desafios na vida universitária",
+      description: "Seria bom conversar sobre como manter a fé durante a vida universitária.",
+      author: "Maria Santos",
+      email: "maria@email.com",
+      date: "14 de novembro",
+      status: "pending",
+    },
+    {
+      id: "3",
+      title: "Relacionamentos saudáveis",
+      description: "Discussão sobre como ter relacionamentos que respeitem os valores católicos.",
+      author: "Pedro Costa",
+      email: "pedro@email.com",
+      date: "13 de novembro",
+      status: "approved",
+    },
+  ]);
 
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
