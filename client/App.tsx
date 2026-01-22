@@ -57,6 +57,7 @@ const App = () => (
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/esqueceu-senha" element={<ForgotPassword />} />
           <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/santos-do-dia" element={<SantosDoDia />} />
 
           {/* Protected Routes */}
           <Route
@@ -216,14 +217,6 @@ const App = () => (
             element={
               <ProtectedRoute>
                 <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/santos-do-dia"
-            element={
-              <ProtectedRoute>
-                <SantosDoDia />
               </ProtectedRoute>
             }
           />
