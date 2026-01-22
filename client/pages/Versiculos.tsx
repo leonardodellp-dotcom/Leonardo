@@ -11,7 +11,14 @@ interface Verse {
   chapter: number;
   verse: string;
   reflection: string;
-  day: string;
+  daysAgo: number; // Number of days ago (0 = today, 1 = yesterday, etc.)
+}
+
+// Helper function to get relative day label in Portuguese
+function getRelativeDayLabel(daysAgo: number): string {
+  if (daysAgo === 0) return "Hoje";
+  if (daysAgo === 1) return "Ontem";
+  return `${daysAgo} dias atrás`;
 }
 
 export default function Versiculos() {
