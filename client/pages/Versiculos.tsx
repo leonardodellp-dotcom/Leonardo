@@ -32,7 +32,7 @@ export default function Versiculos() {
       book: "Evangelho de João",
       chapter: 3,
       verse: "16",
-      day: "Hoje",
+      daysAgo: 0,
       reflection:
         "Este versículo encapsula o coração do Evangelho: o amor incondicional de Deus por nós. Reflete como o sacrifício de Jesus é uma prova do amor divino que nos salva da perdição eterna.",
     },
@@ -43,7 +43,7 @@ export default function Versiculos() {
       book: "Carta aos Filipenses",
       chapter: 4,
       verse: "6-7",
-      day: "Ontem",
+      daysAgo: 1,
       reflection:
         "São Paulo nos convida a transformar a ansiedade em oração. Ao trazer nossas preocupações a Deus com gratidão, experimentamos uma paz que transcende toda a compreensão humana.",
     },
@@ -54,7 +54,7 @@ export default function Versiculos() {
       book: "Livro dos Salmos",
       chapter: 23,
       verse: "1",
-      day: "2 dias atrás",
+      daysAgo: 2,
       reflection:
         "Este célebre salmo expressa a confiança na provisão e proteção divina. Quando reconhecemos Deus como nosso pastor, confiamos que Ele cuidará de todas as nossas necessidades.",
     },
@@ -65,7 +65,7 @@ export default function Versiculos() {
       book: "Evangelho de Mateus",
       chapter: 5,
       verse: "14-16",
-      day: "3 dias atrás",
+      daysAgo: 3,
       reflection:
         "Jesus nos chama a ser luz do mundo através de nossas boas obras. Nossa fé não deve ser escondida, mas deve brilhar como exemplo para que outros glorifiquem a Deus.",
     },
@@ -76,7 +76,7 @@ export default function Versiculos() {
       book: "Primeira Carta aos Coríntios",
       chapter: 13,
       verse: "4-7",
-      day: "4 dias atrás",
+      daysAgo: 4,
       reflection:
         "O hino do amor de São Paulo descreve as características verdadeiras do amor cristão. Este versículo nos convida a examinar nosso coração e cultivar o amor autêntico em nossas relações.",
     },
@@ -87,7 +87,7 @@ export default function Versiculos() {
       book: "Livro dos Provérbios",
       chapter: 3,
       verse: "5-6",
-      day: "5 dias atrás",
+      daysAgo: 5,
       reflection:
         "A sabedoria bíblica nos ensina que confiança em Deus é superior à confiança em nossa própria compreensão. Ao reconhecê-lo em todas as situações, Ele nos guia pelo caminho correto.",
     },
@@ -98,7 +98,7 @@ export default function Versiculos() {
       book: "Carta aos Romanos",
       chapter: 8,
       verse: "28",
-      day: "6 dias atrás",
+      daysAgo: 6,
       reflection:
         "Esta promessa consoladora nos assegura que mesmo nas dificuldades, Deus trabalha para nosso bem se o amamos. Nossa confiança está em Seu propósito maior para nossas vidas.",
     },
