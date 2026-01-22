@@ -537,7 +537,7 @@ export default function Calendario() {
               {/* Liturgical Dates */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold">
-                  {monthNames[selectedMonth - 1]} de 2025
+                  {monthNames[selectedMonth - 1]} de {currentYear}
                 </h3>
                 <div className="space-y-4">
                   {liturgicalDates.filter(
