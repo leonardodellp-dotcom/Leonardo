@@ -143,7 +143,7 @@ export default function Versiculos() {
                         {verse.reference}
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        {verse.book} • {verse.day}
+                        {verse.book} • {getRelativeDayLabel(verse.daysAgo)}
                       </p>
                     </div>
                     <div className="flex gap-2 flex-shrink-0">
