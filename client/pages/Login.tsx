@@ -99,7 +99,9 @@ export default function Login() {
         navigate("/meu-perfil");
       }, 1500);
     } catch (err: any) {
-      console.error("Erro ao fazer login:", err);
+      const errorMessage =
+        err?.message || err?.toString?.() || "Erro ao fazer login. Tente novamente mais tarde.";
+      console.error("Erro ao fazer login:", errorMessage);
       setError("Erro ao fazer login. Tente novamente mais tarde.");
     } finally {
       setLoading(false);
