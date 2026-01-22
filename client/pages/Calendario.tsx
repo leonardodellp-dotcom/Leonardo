@@ -23,6 +23,7 @@ interface Event {
 }
 
 export default function Calendario() {
+  const currentYear = new Date().getFullYear();
   const [activeTab, setActiveTab] = useState<"liturgical" | "jucrisc">(
     "liturgical",
   );
