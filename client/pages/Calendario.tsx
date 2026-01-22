@@ -806,7 +806,7 @@ export default function Calendario() {
               {/* Calendar Grid */}
               <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-8 mb-8 shadow-lg">
                 <h3 className="text-2xl font-bold mb-8 text-white">
-                  {monthNames[selectedMonth - 1]} de 2025
+                  {monthNames[selectedMonth - 1]} de {currentYear}
                 </h3>
 
                 {/* Days of week header */}
