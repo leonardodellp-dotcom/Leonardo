@@ -452,7 +452,7 @@ export default function Calendario() {
             <div>
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold">
-                  Calendário Litúrgico 2025
+                  Calendário Litúrgico {currentYear}
                 </h2>
               </div>
 
