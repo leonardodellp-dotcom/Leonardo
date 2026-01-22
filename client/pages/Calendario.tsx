@@ -300,7 +300,7 @@ export default function Calendario() {
   // Gerar eventos recorrentes para o mês selecionado
   const generateRecurringEvents = (
     month: number,
-    year: number = 2025,
+    year: number = currentYear,
   ): Event[] => {
     const recurringEvents: Event[] = [];
     const daysInMonth = new Date(year, month, 0).getDate();
