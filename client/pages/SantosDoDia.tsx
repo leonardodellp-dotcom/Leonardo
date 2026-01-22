@@ -68,8 +68,33 @@ const santos: Santo[] = [
   },
 ];
 
+// Helper function to get today's date in DD de mês format
+function getTodaysFeastDayString(): string {
+  const today = new Date();
+  const day = today.getDate();
+  const monthNames = [
+    "janeiro",
+    "fevereiro",
+    "março",
+    "abril",
+    "maio",
+    "junho",
+    "julho",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro",
+  ];
+  const monthName = monthNames[today.getMonth()];
+  return `${day} de ${monthName}`;
+}
+
 export default function SantosDoDia() {
-  const [selectedSanto, setSelectedSanto] = useState<Santo>(santos[0]);
+  const todaysFeastDay = getTodaysFeastDayString();
+  const santoDodia = santos.find((s) => s.feastDay === todaysFeastDay) || santos[0];
+
+  const [selectedSanto, setSelectedSanto] = useState<Santo>(santoDodia);
   const [showPrayer, setShowPrayer] = useState(false);
 
   return (
