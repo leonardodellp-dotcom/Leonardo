@@ -827,12 +827,12 @@ export default function Calendario() {
                 <div className="grid grid-cols-7 gap-2">
                   {(() => {
                     const firstDay = new Date(
-                      2025,
+                      currentYear,
                       selectedMonth - 1,
                       1,
                     ).getDay();
                     const daysInMonth = new Date(
-                      2025,
+                      currentYear,
                       selectedMonth,
                       0,
                     ).getDate();
