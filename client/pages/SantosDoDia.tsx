@@ -109,8 +109,12 @@ export default function SantosDoDia() {
                 Santos do Dia
               </h1>
             </div>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground mb-2">
               Conheça a vida e a fé dos santos que nos precederam
+            </p>
+            <p className="text-sm text-muted-foreground flex items-center justify-center">
+              <Calendar className="w-4 h-4 mr-2" />
+              Hoje: {todaysFeastDay}
             </p>
           </div>
 
