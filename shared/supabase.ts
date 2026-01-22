@@ -3,13 +3,29 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error(
-    "Missing Supabase environment variables. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.",
+// Initialize Supabase client if credentials are available
+// If not available, create a dummy client that won't crash the app
+let supabase: any = null;
+
+if (supabaseUrl && supabaseAnonKey) {
+  supabase = createClient(supabaseUrl, supabaseAnonKey);
+} else {
+  console.warn(
+    "Supabase environment variables not configured. Database features will be limited.",
   );
+  // Create a dummy client to prevent crashes
+  supabase = {
+    auth: { getSession: async () => ({ data: { session: null } }) },
+    from: () => ({
+      select: async () => ({ data: [], error: null }),
+      insert: async () => ({ data: null, error: { message: "Supabase not configured" } }),
+      update: async () => ({ data: null, error: { message: "Supabase not configured" } }),
+      delete: async () => ({ data: null, error: { message: "Supabase not configured" } }),
+    }),
+  };
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export { supabase };
 
 export type Database = {
   public: {
