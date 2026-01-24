@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import { Calendar, Church, Heart } from "lucide-react";
+import { getCurrentYear } from "@/lib/security";
 
 interface LiturgicalDate {
   date: string;
