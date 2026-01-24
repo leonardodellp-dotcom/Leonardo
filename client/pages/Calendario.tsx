@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Calendar, Plus, Edit2, Trash2, Save, X, Church } from "lucide-react";
 import { useState } from "react";
-import { isUserAuthenticated } from "@/lib/security";
+import { isUserAuthenticated, getCurrentYear } from "@/lib/security";
 
 interface LiturgicalDate {
   date: string;
