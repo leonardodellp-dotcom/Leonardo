@@ -32,6 +32,7 @@ import {
   type UserGameStats,
   type BadgeDefinition,
 } from "@/lib/gamification";
+import { getCurrentYear } from "@/lib/security";
 
 interface UserProfile {
   id: string;
