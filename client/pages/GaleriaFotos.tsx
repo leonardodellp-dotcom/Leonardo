@@ -8,6 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { getCurrentYear } from "@/lib/security";
 
 interface Photo {
   id: string;
