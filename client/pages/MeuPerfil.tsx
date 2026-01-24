@@ -44,15 +44,6 @@ interface UserProfile {
   joinedAt: string;
 }
 
-const mockUserProfile: UserProfile = {
-  id: "user123",
-  name: "João Silva",
-  email: "joao@example.com",
-  age: 21,
-  group: "Grupo Jucrisc",
-  bio: "Apaixonado por Jesus e pela comunidade. Buscando crescer espiritualmente cada dia.",
-  joinedAt: "Janeiro 2023",
-};
 
 const mockGameStats: UserGameStats = {
   totalXP: 6500,
