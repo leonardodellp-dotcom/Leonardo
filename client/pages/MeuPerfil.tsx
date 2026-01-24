@@ -74,6 +74,18 @@ const dailyVerse = {
 };
 
 export default function MeuPerfil() {
+  const currentYear = getCurrentYear();
+
+  const mockUserProfile: UserProfile = {
+    id: "user123",
+    name: "João Silva",
+    email: "joao@example.com",
+    age: 21,
+    group: "Grupo Jucrisc",
+    bio: "Apaixonado por Jesus e pela comunidade. Buscando crescer espiritualmente cada dia.",
+    joinedAt: `Janeiro ${currentYear}`,
+  };
+
   const [isEditing, setIsEditing] = useState(false);
 
   // Check if user is admin
