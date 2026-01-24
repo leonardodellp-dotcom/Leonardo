@@ -12,19 +12,21 @@ interface Testimony {
   date: string;
 }
 
-const testimonies: Testimony[] = [
-  {
-    id: "1",
-    author: "Maria Silva",
-    title: "Como a Fé me Salvou do Vício",
-    age: 22,
-    date: "15 de novembro de 2024",
-    content:
-      "Meu nome é Maria e por três anos lutei contra o vício em álcool e drogas. Aos 19 anos, estava completamente perdida, minha família desesperada. Um dia, uma amiga me convidou para um encontro de jovens cristãos. Lá, conheci a palavra de Deus e senti o amor de Jesus transformando meu coração. Comecei a frequentar missas, confiar em Deus e abraçar a comunidade. Hoje, com 22 anos, sou livre! Minha vida mudou 180 graus. Graças a Deus, minha família foi restaurada e descobri meu propósito. Para quem sofre, digo: Jesus é a resposta. Você é amado.",
-  },
-];
-
 export default function Testemunhas() {
+  const currentYear = getCurrentYear();
+
+  const testimonies: Testimony[] = [
+    {
+      id: "1",
+      author: "Maria Silva",
+      title: "Como a Fé me Salvou do Vício",
+      age: 22,
+      date: `15 de novembro de ${currentYear}`,
+      content:
+        "Meu nome é Maria e por três anos lutei contra o vício em álcool e drogas. Aos 19 anos, estava completamente perdida, minha família desesperada. Um dia, uma amiga me convidou para um encontro de jovens cristãos. Lá, conheci a palavra de Deus e senti o amor de Jesus transformando meu coração. Comecei a frequentar missas, confiar em Deus e abraçar a comunidade. Hoje, com 22 anos, sou livre! Minha vida mudou 180 graus. Graças a Deus, minha família foi restaurada e descobri meu propósito. Para quem sofre, digo: Jesus é a resposta. Você é amado.",
+    },
+  ];
+
   const [selectedTestimony, setSelectedTestimony] = useState<Testimony | null>(
     null,
   );
