@@ -19,19 +19,21 @@ interface Photo {
   description?: string;
 }
 
-const photos: Photo[] = [
-  {
-    id: "1",
-    title: "Exemplos",
-    eventName: "Adoração Eucarística",
-    eventDate: "02 de novembro, 2025",
-    imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets%2F8ca2eb85954041b381398a3b58a28fe2%2F02823e1a021842769cd372211089eecc?format=webp&width=800",
-    description: "Momento de adoração e devoção da comunidade Jucrisc",
-  },
-];
-
 export default function GaleriaFotos() {
+  const currentYear = getCurrentYear();
+
+  const photos: Photo[] = [
+    {
+      id: "1",
+      title: "Exemplos",
+      eventName: "Adoração Eucarística",
+      eventDate: `02 de novembro, ${currentYear}`,
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets%2F8ca2eb85954041b381398a3b58a28fe2%2F02823e1a021842769cd372211089eecc?format=webp&width=800",
+      description: "Momento de adoração e devoção da comunidade Jucrisc",
+    },
+  ];
+
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
