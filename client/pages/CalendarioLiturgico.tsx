@@ -376,7 +376,7 @@ export default function CalendarioLiturgico() {
           {/* Calendar Dates */}
           <div className="space-y-4">
             <h2 className="text-2xl font-bold mb-6">
-              {monthNames[selectedMonth - 1]} de 2025
+              {monthNames[selectedMonth - 1]} de {currentYear}
             </h2>
 
             {monthDates.length > 0 ? (
