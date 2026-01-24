@@ -12,6 +12,7 @@ interface LiturgicalDate {
 }
 
 export default function CalendarioLiturgico() {
+  const currentYear = getCurrentYear();
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
 
   const liturgicalDates: LiturgicalDate[] = [
