@@ -65,6 +65,43 @@ export function isOlderThanDays(dateStr: string, days: number): boolean {
 }
 
 /**
+ * Get current year dynamically
+ */
+export function getCurrentYear(): number {
+  return new Date().getFullYear();
+}
+
+/**
+ * Get current month dynamically
+ */
+export function getCurrentMonth(): number {
+  return new Date().getMonth() + 1;
+}
+
+/**
+ * Get current day dynamically
+ */
+export function getCurrentDay(): number {
+  return new Date().getDate();
+}
+
+/**
+ * Format year for display (e.g., "2026")
+ */
+export function getYearDisplay(): string {
+  return getCurrentYear().toString();
+}
+
+/**
+ * Get relative date label in Portuguese (e.g., "Hoje", "Ontem", "2 dias atrás")
+ */
+export function getRelativeDateLabel(daysAgo: number): string {
+  if (daysAgo === 0) return "Hoje";
+  if (daysAgo === 1) return "Ontem";
+  return `${daysAgo} dias atrás`;
+}
+
+/**
  * Generate a safe slug from text
  */
 export function generateSlug(text: string): string {
