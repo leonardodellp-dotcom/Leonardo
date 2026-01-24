@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import { Heart, User, Calendar, MessageCircle, Plus, X } from "lucide-react";
+import { getCurrentYear } from "@/lib/security";
 
 interface Testimony {
   id: string;
