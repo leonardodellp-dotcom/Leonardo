@@ -12,6 +12,7 @@ import {
   Send,
 } from "lucide-react";
 import { supabase } from "@shared/supabase";
+import { Captcha } from "@/components/ui/Captcha";
 
 export default function Contato() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ export default function Contato() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -64,6 +66,13 @@ export default function Contato() {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
         setError("Por favor, insira um email válido!");
+        setLoading(false);
+        return;
+      }
+
+      // Validate captcha
+      if (!isCaptchaVerified) {
+        setError("Por favor, resolva o desafio de segurança!");
         setLoading(false);
         return;
       }
@@ -358,6 +367,8 @@ export default function Contato() {
                       disabled={loading}
                     />
                   </div>
+
+                  <Captcha onVerify={setIsCaptchaVerified} />
 
                   {/* Submit Button */}
                   <button

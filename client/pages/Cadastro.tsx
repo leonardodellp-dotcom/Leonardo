@@ -16,6 +16,7 @@ import {
   isValidFullName,
   isStrongPassword,
 } from "@/lib/security";
+import { Captcha } from "@/components/ui/Captcha";
 
 export default function Cadastro() {
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ export default function Cadastro() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   // Recovery account modal states
   const [showRecoveryModal, setShowRecoveryModal] = useState(false);
@@ -164,6 +166,13 @@ export default function Cadastro() {
         setError(
           "Este email já está cadastrado! Use um email diferente ou recupere sua conta.",
         );
+        setLoading(false);
+        return;
+      }
+
+      // Validate captcha
+      if (!isCaptchaVerified) {
+        setError("Por favor, resolva o desafio de segurança!");
         setLoading(false);
         return;
       }
@@ -751,6 +760,8 @@ export default function Cadastro() {
                   )}
                 </div>
               </div>
+
+              <Captcha onVerify={setIsCaptchaVerified} />
 
               {/* Submit Button */}
               <button

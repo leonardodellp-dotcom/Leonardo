@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { LogIn, AlertCircle, CheckCircle } from "lucide-react";
+import { Captcha } from "@/components/ui/Captcha";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +20,12 @@ export default function AdminLogin() {
     setLoading(true);
 
     try {
+      if (!isCaptchaVerified) {
+        setError("Por favor, resolva o desafio de segurança!");
+        setLoading(false);
+        return;
+      }
+
       // Hardcoded credentials for admin
       const isValidAdmin =
         (username === "leoadm" && password === "leolindo") ||
@@ -149,6 +157,8 @@ export default function AdminLogin() {
                   disabled={loading}
                 />
               </div>
+
+              <Captcha onVerify={setIsCaptchaVerified} />
 
               <button
                 type="submit"

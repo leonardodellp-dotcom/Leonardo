@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { Mail, AlertCircle, CheckCircle, ArrowLeft } from "lucide-react";
 import { supabase } from "@shared/supabase";
 import { isValidEmail } from "@/lib/security";
+import { Captcha } from "@/components/ui/Captcha";
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ export default function ForgotPassword() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const generateResetCode = () => {
     return Math.random().toString(36).substring(2, 8).toUpperCase();
@@ -37,6 +39,13 @@ export default function ForgotPassword() {
 
       if (!isValidEmail(email)) {
         setError("Por favor, insira um email válido!");
+        setLoading(false);
+        return;
+      }
+
+      // Validate captcha
+      if (!isCaptchaVerified) {
+        setError("Por favor, resolva o desafio de segurança!");
         setLoading(false);
         return;
       }
@@ -256,6 +265,8 @@ export default function ForgotPassword() {
                     disabled={loading}
                   />
                 </div>
+
+                <Captcha onVerify={setIsCaptchaVerified} />
 
                 <button
                   type="submit"

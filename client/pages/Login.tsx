@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { LogIn, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import { supabase } from "@shared/supabase";
 import { isValidEmail } from "@/lib/security";
+import { Captcha } from "@/components/ui/Captcha";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -49,6 +51,13 @@ export default function Login() {
       // Validate password length
       if (formData.password.length < 6) {
         setError("Senha deve ter no mínimo 6 caracteres!");
+        setLoading(false);
+        return;
+      }
+
+      // Validate captcha
+      if (!isCaptchaVerified) {
+        setError("Por favor, resolva o desafio de segurança!");
         setLoading(false);
         return;
       }
@@ -195,6 +204,8 @@ export default function Login() {
                   </button>
                 </div>
               </div>
+
+              <Captcha onVerify={setIsCaptchaVerified} />
 
               <button
                 type="submit"
