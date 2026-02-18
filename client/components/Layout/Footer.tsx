@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { MapPin, Instagram, Music } from "lucide-react";
+import { getCurrentYear } from "@/lib/security";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = getCurrentYear();
 
   return (
     <footer className="bg-gradient-to-b from-card to-card/50 border-t border-primary/20 shadow-glow mt-20">

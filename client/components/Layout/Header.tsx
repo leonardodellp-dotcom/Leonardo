@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, LogOut, User } from "lucide-react";
+import { getUserInfo } from "@/lib/security";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,34 +17,20 @@ export default function Header() {
   const [userSession, setUserSession] = useState<any>(null);
 
   useEffect(() => {
-    // Ensure dark mode is always active
-    const root = document.documentElement;
-    root.classList.remove("light");
+    // Ensure dark mode is active by default
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
   }, []);
 
   useEffect(() => {
-    // Check if user is logged in (regular or admin)
-    const session = localStorage.getItem("user_session");
-    const adminToken = localStorage.getItem("admin_token");
-    const adminProfile = localStorage.getItem("admin_profile");
-
-    if (session) {
-      try {
-        setUserSession(JSON.parse(session));
-      } catch (e) {
-        setUserSession(null);
-      }
-    } else if (adminToken && adminProfile) {
-      try {
-        const profile = JSON.parse(adminProfile);
-        setUserSession({
-          email: profile.email,
-          name: profile.name,
-          isAdmin: true,
-        });
-      } catch (e) {
-        setUserSession(null);
-      }
+    // Check if user is logged in
+    const info = getUserInfo();
+    if (info) {
+      setUserSession(info);
     }
   }, []);
 
@@ -219,7 +206,7 @@ export default function Header() {
               to="/calendario"
               className="px-3 py-1.5 text-xs font-medium text-foreground hover:bg-primary/10 hover:text-primary rounded transition-all duration-200 active:scale-95 whitespace-nowrap"
             >
-              📅 Cal
+              📅 Calendário
             </Link>
           </div>
 

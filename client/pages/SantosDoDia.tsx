@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import { Heart, Calendar, Book, Lock } from "lucide-react";
+import { MONTH_NAMES_LOWER } from "@/constants/date";
 
 interface Santo {
   id: string;
@@ -72,21 +73,7 @@ const santos: Santo[] = [
 function getTodaysFeastDayString(): string {
   const today = new Date();
   const day = today.getDate();
-  const monthNames = [
-    "janeiro",
-    "fevereiro",
-    "março",
-    "abril",
-    "maio",
-    "junho",
-    "julho",
-    "agosto",
-    "setembro",
-    "outubro",
-    "novembro",
-    "dezembro",
-  ];
-  const monthName = monthNames[today.getMonth()];
+  const monthName = MONTH_NAMES_LOWER[today.getMonth()];
   return `${day} de ${monthName}`;
 }
 
@@ -191,7 +178,7 @@ export default function SantosDoDia() {
                   <div>
                     <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
                       <Heart className="w-5 h-5 mr-2 text-red-500" />
-                      Oração a {selectedSanto.name.split(" ")[0]}
+                      Oração a {selectedSanto.name.replace("Santo ", "").replace("Santa ", "").split(" ")[0]}
                     </h3>
                     <div className="bg-background/50 rounded-lg p-6 mb-6 border-l-4 border-blue-600">
                       <p className="text-foreground leading-relaxed text-lg italic whitespace-pre-wrap">

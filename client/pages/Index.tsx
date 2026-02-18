@@ -17,77 +17,13 @@ import {
   Video,
   User,
   MessageSquare,
-  Lightbulb,
   Zap,
 } from "lucide-react";
+import { SERVICES, HIGHLIGHTS } from "@/constants/ui";
 
 export default function Index() {
-  const services = [
-    {
-      icon: BookOpen,
-      title: "Versículos Diários",
-      description: "Reflita sobre a Palavra de Deus todos os dias",
-      path: "/versiculos",
-    },
-    {
-      icon: Heart,
-      title: "Orações",
-      description: "Eleve suas preces em comunidade",
-      path: "/oracoes",
-    },
-    {
-      icon: Users,
-      title: "Comunidade",
-      description: "Conecte-se com jovens de fé semelhante",
-      path: "/mural",
-    },
-    {
-      icon: Flame,
-      title: "Desafios Espirituais",
-      description: "Cresça na fé através de desafios práticos",
-      path: "/desafios",
-    },
-    {
-      icon: Calendar,
-      title: "Calendário Litúrgico",
-      description: "Acompanhe as celebrações litúrgicas",
-      path: "/calendario-liturgico",
-    },
-    {
-      icon: Compass,
-      title: "Aprender a Rezar",
-      description: "Aprenda diferentes formas de oração",
-      path: "/aprender-rezar",
-    },
-  ];
-
-  const highlights = [
-    {
-      icon: MessageCircle,
-      title: "Pedidos de Oração",
-      description:
-        "Compartilhe seus pedidos e interceda pelos irmãos da comunidade",
-      path: "/pedidos-oracao",
-    },
-    {
-      icon: Target,
-      title: "Missões",
-      description: "Participe de projetos missionários e sirva a comunidade",
-      path: "/missoes",
-    },
-    {
-      icon: Award,
-      title: "Cursos Católicos",
-      description: "Aprofunde seu conhecimento da fé através de cursos",
-      path: "/cursos",
-    },
-    {
-      icon: Calendar,
-      title: "Agenda",
-      description: "Confira os próximos encontros e eventos",
-      path: "/agenda",
-    },
-  ];
+  const services = SERVICES;
+  const highlights = HIGHLIGHTS;
 
   return (
     <Layout>
@@ -132,25 +68,55 @@ export default function Index() {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16">
-            <div className="text-center p-4 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/60 transition-all">
-              <div className="text-3xl md:text-4xl font-bold text-accent mb-2">
+            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/30 hover:border-accent/60 transition-all shadow-lg hover:shadow-accent/20 group">
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2 group-hover:scale-110 transition-transform">
                 500+
               </div>
-              <p className="text-sm text-muted-foreground">Membros Ativos</p>
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Membros Ativos</p>
             </div>
-            <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/30 hover:border-primary/60 transition-all">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 hover:border-primary/60 transition-all shadow-lg hover:shadow-primary/20 group">
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
                 50+
               </div>
-              <p className="text-sm text-muted-foreground">Eventos por Ano</p>
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Eventos por Ano</p>
             </div>
-            <div className="text-center p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 hover:border-purple-500/60 transition-all">
-              <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2">
-                35+ Anos
+            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/30 hover:border-purple-500/60 transition-all shadow-lg hover:shadow-purple-500/20 group">
+              <div className="text-4xl md:text-5xl font-bold text-purple-400 mb-2 group-hover:scale-110 transition-transform">
+                35+
               </div>
-              <p className="text-sm text-muted-foreground">De Comunidade</p>
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Anos de História</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Santos do Dia Preview */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto">
+          <Link to="/santos-do-dia" className="group block relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900/40 to-purple-900/40 border border-white/10 p-8 md:p-12 hover:border-primary/50 transition-all">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
+              <Heart className="w-32 h-32 text-red-500" />
+            </div>
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-500/20 rounded-full border border-red-500/30 mb-4">
+                  <span className="text-xs font-bold text-red-400 uppercase tracking-wider">Destaque do Dia</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Santos do Dia</h2>
+                <p className="text-lg text-muted-foreground mb-6 max-w-xl">
+                  Conheça a história inspiradora, a biografia e a oração do santo que a Igreja celebra hoje. Uma dose diária de inspiração para sua caminhada.
+                </p>
+                <div className="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all">
+                  Conhecer o Santo de Hoje <ArrowRight className="w-5 h-5" />
+                </div>
+              </div>
+              <div className="w-full md:w-auto flex justify-center">
+                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center border-4 border-white/10 group-hover:border-primary/30 transition-all shadow-2xl">
+                  <span className="text-6xl group-hover:scale-110 transition-transform">🙏</span>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

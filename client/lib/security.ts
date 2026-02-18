@@ -116,29 +116,73 @@ export function generateSlug(text: string): string {
 }
 
 /**
- * Check if user is authenticated (admin)
+ * Check if user or admin is authenticated
  */
 export function isUserAuthenticated(): boolean {
   if (typeof window === "undefined") return false;
 
-  const auth = localStorage.getItem("admin_auth");
-  return !!auth;
+  const userSession = localStorage.getItem("user_session");
+  const adminToken = localStorage.getItem("admin_token");
+  const adminProfile = localStorage.getItem("admin_profile");
+  const adminAuth = localStorage.getItem("admin_auth");
+
+  return !!(userSession || (adminToken && adminProfile) || adminAuth);
 }
 
 /**
- * Get authenticated admin info
+ * Get authenticated user/admin info
  */
-export function getAdminInfo(): { email: string; token: string } | null {
+export function getUserInfo(): {
+  name: string;
+  email: string;
+  isAdmin: boolean;
+} | null {
   if (typeof window === "undefined") return null;
 
-  const auth = localStorage.getItem("admin_auth");
-  if (!auth) return null;
-
-  try {
-    return JSON.parse(auth);
-  } catch {
-    return null;
+  const session = localStorage.getItem("user_session");
+  if (session) {
+    try {
+      const parsed = JSON.parse(session);
+      return {
+        name: parsed.name,
+        email: parsed.email,
+        isAdmin: false,
+      };
+    } catch {
+      /* ignore */
+    }
   }
+
+  const adminProfile = localStorage.getItem("admin_profile");
+  const adminToken = localStorage.getItem("admin_token");
+  if (adminToken && adminProfile) {
+    try {
+      const parsed = JSON.parse(adminProfile);
+      return {
+        name: parsed.name,
+        email: parsed.email,
+        isAdmin: true,
+      };
+    } catch {
+      /* ignore */
+    }
+  }
+
+  const adminAuth = localStorage.getItem("admin_auth");
+  if (adminAuth) {
+    try {
+      const parsed = JSON.parse(adminAuth);
+      return {
+        name: parsed.name || "Admin",
+        email: parsed.email || "",
+        isAdmin: true,
+      };
+    } catch {
+      /* ignore */
+    }
+  }
+
+  return null;
 }
 
 /**

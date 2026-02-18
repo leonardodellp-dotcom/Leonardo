@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { Calendar, Plus, Edit2, Trash2, Save, X, Church } from "lucide-react";
 import { useState } from "react";
 import { isUserAuthenticated, getCurrentYear } from "@/lib/security";
+import { MONTH_NAMES, DAYS_OF_WEEK } from "@/constants/date";
 
 interface LiturgicalDate {
   date: string;
@@ -23,7 +24,7 @@ interface Event {
 }
 
 export default function Calendario() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = getCurrentYear();
   const [activeTab, setActiveTab] = useState<"liturgical" | "jucrisc">(
     "liturgical",
   );
@@ -38,223 +39,7 @@ export default function Calendario() {
   const isAdmin = isUserAuthenticated();
 
   // Dados do Calendário Litúrgico
-  const liturgicalDates: LiturgicalDate[] = [
-    // January
-    {
-      date: "1º de janeiro",
-      name: "Circuncisão do Senhor",
-      type: "solemn",
-      month: 1,
-      day: 1,
-    },
-    {
-      date: "6 de janeiro",
-      name: "Epifania do Senhor",
-      type: "solemn",
-      month: 1,
-      day: 6,
-    },
-    {
-      date: "22 de janeiro",
-      name: "São Vicente",
-      type: "memorial",
-      month: 1,
-      day: 22,
-    },
-    // February
-    {
-      date: "2 de fevereiro",
-      name: "Apresentação do Senhor (Candelária)",
-      type: "feast",
-      month: 2,
-      day: 2,
-    },
-    {
-      date: "14 de fevereiro",
-      name: "São Valentim",
-      type: "memorial",
-      month: 2,
-      day: 14,
-    },
-    // March
-    {
-      date: "19 de março",
-      name: "São José",
-      type: "solemn",
-      month: 3,
-      day: 19,
-    },
-    {
-      date: "25 de março",
-      name: "Anunciação do Senhor",
-      type: "solemn",
-      month: 3,
-      day: 25,
-    },
-    // April
-    {
-      date: "20 de abril",
-      name: "Domingo de Ramos",
-      type: "solemn",
-      month: 4,
-      day: 17,
-    },
-    {
-      date: "24 de abril",
-      name: "Quinta-feira Santa",
-      type: "solemn",
-      month: 4,
-      day: 17,
-    },
-    {
-      date: "25 de abril",
-      name: "Sexta-feira Santa",
-      type: "solemn",
-      month: 4,
-      day: 18,
-    },
-    {
-      date: "20 de abril",
-      name: "Páscoa (Domingo de Ressurreição)",
-      type: "solemn",
-      month: 4,
-      day: 20,
-    },
-    // May
-    {
-      date: "1º de maio",
-      name: "São José Operário",
-      type: "feast",
-      month: 5,
-      day: 1,
-    },
-    {
-      date: "29 de maio",
-      name: "Ascensão do Senhor",
-      type: "solemn",
-      month: 5,
-      day: 29,
-    },
-    // June
-    {
-      date: "8 de junho",
-      name: "Pentecostes (Domingo de Pentecostes)",
-      type: "solemn",
-      month: 6,
-      day: 8,
-    },
-    {
-      date: "19 de junho",
-      name: "Corpus Christi",
-      type: "feast",
-      month: 6,
-      day: 19,
-    },
-    {
-      date: "29 de junho",
-      name: "São Pedro e São Paulo",
-      type: "solemn",
-      month: 6,
-      day: 29,
-    },
-    // July
-    {
-      date: "25 de julho",
-      name: "São Tiago Apóstolo",
-      type: "feast",
-      month: 7,
-      day: 25,
-    },
-    // August
-    {
-      date: "6 de agosto",
-      name: "Transfiguração do Senhor",
-      type: "feast",
-      month: 8,
-      day: 6,
-    },
-    {
-      date: "15 de agosto",
-      name: "Assunção de Maria",
-      type: "solemn",
-      month: 8,
-      day: 15,
-    },
-    {
-      date: "29 de agosto",
-      name: "Degolação de São João Batista",
-      type: "feast",
-      month: 8,
-      day: 29,
-    },
-    // September
-    {
-      date: "8 de setembro",
-      name: "Natividade de Maria",
-      type: "feast",
-      month: 9,
-      day: 8,
-    },
-    // October
-    {
-      date: "12 de outubro",
-      name: "Nossa Senhora Aparecida (Padroeira do Brasil)",
-      type: "solemn",
-      month: 10,
-      day: 12,
-    },
-    {
-      date: "28 de outubro",
-      name: "São Judas Tadeu e São Simão",
-      type: "feast",
-      month: 10,
-      day: 28,
-    },
-    // November
-    {
-      date: "1º de novembro",
-      name: "Todos os Santos",
-      type: "solemn",
-      month: 11,
-      day: 1,
-    },
-    {
-      date: "2 de novembro",
-      name: "Finados (Commemoração de Todos os Fiéis Defuntos)",
-      type: "ordinary",
-      month: 11,
-      day: 2,
-    },
-    {
-      date: "30 de novembro",
-      name: "Santo André Apóstolo",
-      type: "feast",
-      month: 11,
-      day: 30,
-    },
-    // December
-    {
-      date: "8 de dezembro",
-      name: "Imaculada Conceição",
-      type: "solemn",
-      month: 12,
-      day: 8,
-    },
-    {
-      date: "25 de dezembro",
-      name: "Natal do Senhor",
-      type: "solemn",
-      month: 12,
-      day: 25,
-    },
-    {
-      date: "26 de dezembro",
-      name: "Santo Estêvão (1º Mártir)",
-      type: "feast",
-      month: 12,
-      day: 26,
-    },
-  ];
+  const liturgicalDates = LITURGICAL_DATES;
 
   const getTypeColor = (type: string) => {
     switch (type) {
@@ -281,21 +66,6 @@ export default function Calendario() {
         return "Dia Comum";
     }
   };
-
-  const monthNames = [
-    "Janeiro",
-    "Fevereiro",
-    "Março",
-    "Abril",
-    "Maio",
-    "Junho",
-    "Julho",
-    "Agosto",
-    "Setembro",
-    "Outubro",
-    "Novembro",
-    "Dezembro",
-  ];
 
   // Gerar eventos recorrentes para o mês selecionado
   const generateRecurringEvents = (
@@ -375,12 +145,13 @@ export default function Calendario() {
   const handleAddEvent = () => {
     if (formData.title && formData.time) {
       const newId = Date.now().toString();
+      const today = new Date();
       setEvents([
         ...events,
         {
           id: newId,
-          date: `${selectedMonth}/${new Date().getDate()}`,
-          day: new Date().getDate(),
+          date: `${today.getDate()}/${selectedMonth}`,
+          day: today.getDate(),
           month: selectedMonth,
           ...formData,
           recurring: "none",
@@ -457,7 +228,7 @@ export default function Calendario() {
               </div>
 
               {/* Hidden line placeholder
-              <h2 className="text-2xl font-bold mb-6">Calendário Lit��rgico 2025</h2>
+              <h2 className="text-2xl font-bold mb-6">Calendário Litúrgico 2025</h2>
 
               {/* Legend */}
               <div className="bg-card border border-border rounded-xl p-6 mb-8">
@@ -518,7 +289,7 @@ export default function Calendario() {
                   Selecione o Mês
                 </h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-                  {monthNames.map((month, idx) => (
+                  {MONTH_NAMES.map((month, idx) => (
                     <button
                       key={idx}
                       onClick={() => setSelectedMonth(idx + 1)}
@@ -537,7 +308,7 @@ export default function Calendario() {
               {/* Liturgical Dates */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold">
-                  {monthNames[selectedMonth - 1]} de {currentYear}
+                  {MONTH_NAMES[selectedMonth - 1]} de {currentYear}
                 </h3>
                 <div className="space-y-4">
                   {liturgicalDates.filter(
@@ -617,7 +388,7 @@ export default function Calendario() {
                   Selecione o Mês
                 </h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-                  {monthNames.map((month, idx) => (
+                  {MONTH_NAMES.map((month, idx) => (
                     <button
                       key={idx}
                       onClick={() => setSelectedMonth(idx + 1)}
@@ -665,7 +436,7 @@ export default function Calendario() {
 
                       <div>
                         <label className="block text-sm font-semibold mb-2">
-                          Hor��rio
+                          Horário
                         </label>
                         <input
                           type="time"
@@ -811,7 +582,7 @@ export default function Calendario() {
 
                 {/* Days of week header */}
                 <div className="grid grid-cols-7 gap-2 mb-4">
-                  {["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].map(
+                  {DAYS_OF_WEEK.map(
                     (day) => (
                       <div
                         key={day}
@@ -854,7 +625,7 @@ export default function Calendario() {
                         (e) => e.day === day,
                       );
                       const dayOfWeek = new Date(
-                        2025,
+                        currentYear,
                         selectedMonth - 1,
                         day,
                       ).getDay();
@@ -922,7 +693,7 @@ export default function Calendario() {
               {allMonthEvents.length > 0 ? (
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold text-white mb-6">
-                    Atividades de {monthNames[selectedMonth - 1]}
+                    Atividades de {MONTH_NAMES[selectedMonth - 1]}
                   </h3>
                   {allMonthEvents.map((event) => (
                     <div
@@ -1036,7 +807,7 @@ export default function Calendario() {
                   <Calendar className="w-12 h-12 text-slate-500 mx-auto mb-4 opacity-50" />
                   <p className="text-slate-400">
                     Nenhum evento adicional programado para{" "}
-                    {monthNames[selectedMonth - 1]}
+                    {MONTH_NAMES[selectedMonth - 1]}
                   </p>
                   <p className="text-sm text-slate-500 mt-2">
                     Os eventos recorrentes (domingos e sábados) aparecem no
