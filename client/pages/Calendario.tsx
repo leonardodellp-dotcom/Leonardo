@@ -3,6 +3,7 @@ import { Calendar, Plus, Edit2, Trash2, Save, X, Church } from "lucide-react";
 import { useState } from "react";
 import { isUserAuthenticated, getCurrentYear } from "@/lib/security";
 import { MONTH_NAMES, DAYS_OF_WEEK } from "@/constants/date";
+import { LITURGICAL_DATES } from "@/constants/liturgical";
 
 interface LiturgicalDate {
   date: string;
@@ -577,7 +578,7 @@ export default function Calendario() {
               {/* Calendar Grid */}
               <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-8 mb-8 shadow-lg">
                 <h3 className="text-2xl font-bold mb-8 text-white">
-                  {monthNames[selectedMonth - 1]} de {currentYear}
+                  {MONTH_NAMES[selectedMonth - 1]} de {currentYear}
                 </h3>
 
                 {/* Days of week header */}
